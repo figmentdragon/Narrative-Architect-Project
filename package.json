@@ -1,0 +1,19 @@
+{
+  "name": "project-test-folder",
+  "version": "0.0.1",
+  "description": "a folder to test framework development and changes",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/figmentdragon/Project-Folder-Structure.git"
+  },
+  "author": "CJMT",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/figmentdragon/Project-Folder-Structure/issues"
+  },
+  "homepage": "https://github.com/figmentdragon/Project-Folder-Structure#readme"
+}
