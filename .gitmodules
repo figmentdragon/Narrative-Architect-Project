@@ -1,0 +1,6 @@
+[submodule "src"]
+	path = src
+	url = https://github.com/figmentdragon/ca-scss.git
+[submodule "docs"]
+	path = docs
+	url = https://github.com/figmentdragon/ca-documentation.git
