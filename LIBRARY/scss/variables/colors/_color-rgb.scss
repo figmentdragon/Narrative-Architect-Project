@@ -1,0 +1,66 @@
+$gray-100-rgb: rgb(192,192,192); $gray-200-rgb: rgb
+(154,154,154); $gray-300-rgb: rgb(123,123,123); $gray-400-rgb: rgb
+(98,98,98); $gray-500-rgb: rgb(78,78,78); $gray-600-rgb: rgb
+(62,62,62); $gray-700-rgb: rgb(50,50,50); $gray-800-rgb: rgb
+(40,40,40); $gray-900-rgb: rgb(26,26,26);
+
+$teal-rgb: rgb(202,255,255);
+$yellow-rgb: rgb(255,228,30);
+$red-rgb: rgb(220,53,69);
+$orange-rgb: rgb(255,153,102);
+$green-rgb: rgb(11,218,81);
+$blue-rgb: rgb(65,105,225);
+$indigo-rgb: rgb(102,0,255);
+$purple-rgb: rgb(81,11,218);
+$cyan-rgb: rgb(10,186,181);
+$pink-rgb: rgb(204,51,153);
+$white-rgb: rgb(228,237,244);
+$black-rgb: rgb(0,1,0);
+
+$primary-rgb: rgb(10,186,181); /* teal */
+$secondary-rgb: rgb(128,0,0);    /* brown (chocolate brown) */
+$accent-rgb: rgb(255,228,30); /* silver */
+$secondary-accent-rgb: rgb(255,127,80); /* yellow (sunglow) */
+$white-accent-rgb: rgb(251,251,253); /* Saltpan */
+$muted-rgb: rgb(168,169,173); /* dark white */
+$success-rgb: rgb(11,218,81);
+$info-rgb: rgb(65,105,225);
+$warning-rgb: rgb(255,153,102);
+$alert-rgb: rgb(220,53,69);
+$body-rgb: rgb(0,1,0);
+
+
+$box-shadow-rgb: $chocolate-rgb;
+$inset-box-shadow-rgb: $camel-rgb;
+$active-rgb: $primary-rgb;
+$active-bg-rgb: $teal-rgb;
+
+$hover-rgb: $accent-rgb;
+$hover-bg-rgb: $orange-rgb;
+
+$focus-rgb: shift-color($hover-rgb, $active-percentage);
+$focus-bg-rgb: $secondary-accent-rgb;
+
+
+$box-shadow-inset-rgb: $camel-rgb;
+
+$theme-colors-rgb: (
+teal-rgb: $teal-rgb,
+yellow-rgb: $yellow-rgb,
+red-rgb: $red-rgb,
+orange-rgb: $orange-rgb,
+green-rgb: $green-rgb,
+blue-rgb: $blue-rgb,
+indigo-rgb: $indigo-rgb,
+purple-rgb: $purple-rgb,
+cyan-rgb: $cyan-rgb,
+pink-rgb: $pink-rgb,
+primary-rgb: $primary-rgb, /* teal */
+secondary-rgb: $secondary-rgb,    /* brown (chocolate brown) */
+success-rgb: $success-rgb,
+info-rgb: $info-rgb,
+warning-rgb: $warning-rgb,
+alert-rgb: $alert-rgb,
+white-rgb: $white-rgb,
+black-rgb: $black-rgb
+);

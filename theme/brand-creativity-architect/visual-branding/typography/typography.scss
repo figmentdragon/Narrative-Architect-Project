@@ -1,0 +1,178 @@
+/* ________________________________________________________
+Site Name: CJMT
+Author: CJ Montes-Termini
+
+Stylesheet: CJMT Brand Typography
+
+	= TOC =
+		(1) Font Face (In Your Face)
+		(2) Font Stacks
+		(3) Font Variables
+			- [] Font Families
+			- [] Font Colors
+				- Shadows
+				- Gradients
+				- Stroke Outline
+		(4) Text Level CSS Selectors
+			- [] Text Level
+			- [] Headings
+			- [] Links
+		(5) Text Level HTML Elements
+		(6) Responsive Settings
+
+ _____________________________________________ TYPOGRAPHY */
+
+ // Typography
+ //
+ // Font, line-height, and color for body text, headings, and more.
+
+ // scss-docs-start font-variables
+ // stylelint-disable value-keyword-case
+ $font-sans-serif: Euphorigenic, 'Hand Typewriter', 'Enjoy Writing', Avdira, Wanda 'Glass Antiqua', 'Love Ya Likes A Sister', Pompiere, 'Hadley';
+ $font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+ // stylelint-enable value-keyword-case
+ $font-family: $font-sans-serif;
+ $code-font-family: 'Courier New';
+
+ $body-bg: $gray-800;
+ $body-text: $gray-200;
+ $body-text-align: null;
+
+$paragraph-margin-bottom:   $text-margin-bottom;
+
+$font-size-root: null;
+$font-size-base: 1.05;
+$base-unit: 1.15rem; // Assumes the browser default, typically `16px`
+$xs: .75;
+$sm: .875;
+$md: 1.05;
+$lg: 1.25;
+$xl: 1.50;
+$xxl: 1.75;
+
+$font-size-xs: calc($font-size-base * $xs);
+$font-size-sm: calc($font-size-base * $sm);
+$font-size-md: $font-size-base;
+$font-size-lg: calc($font-size-base * $lg);
+$font-size-xl: calc($font-size-base * $xl);
+$font-size-xxl: calc($font-size-base * $xxl);
+
+$font-weight-lighter: lighter;
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+$font-weight-bolder: bolder;
+
+$font-weight-base: $font-weight-normal;
+
+$letter-spacing-xs: calc($xs * $base-unit) rem;
+$letter-spacing-sm: calc($sm * $base-unit) rem;
+$letter-spacing-md: calc($md * $base-unit) rem;
+$letter-spacing-lg: calc($lg * $base-unit) rem;
+$letter-spacing-xl: calc($xl * $base-unit) rem;
+$letter-spacing-xxl: calc(3 * $base-unit) rem;
+
+$line-height-base: 1.15;
+$line-height-xs: calc($xs * $line-height-base) rem;
+$line-height-sm: calc($sm * $line-height-base) rem;
+$line-height-md: calc($md * $line-height-base) rem;
+$line-height-lg: calc($lg * $line-height-base) rem;
+$line-height-xl: calc($xl * $line-height-base) rem;
+$line-height-xxl: calc($xxl * $line-height-base) rem;
+
+$line-height-body: $line-height-base;
+
+$heading-base-unit: 1.25vh;
+// scss-docs-end font-variables
+
+// scss-docs-start font-sizes
+$heading-font-sizes: (
+  h1: $heading-base-unit * 5,
+  h2: $heading-base-unit * 4.5,
+  h3: $heading-base-unit * 4,
+  h4: $heading-base-unit * 3.5,
+  h5: $heading-base-unit * 3,
+  h6: $heading-base-unit * 2.5
+);
+// scss-docs-end font-sizes
+
+// scss-docs-start headings-variables
+$headings-margin: $base-unit * 0.5;
+$headings-font-family: null;
+$headings-font-style: null;
+$headings-font-weight: 600;
+$headings-line-height: $lg;
+$headings-text-color             : $primary-color;
+// scss-docs-end headings-variables
+
+// scss-docs-start display-headings
+$display-font-sizes: (
+  1: 5rem,
+  2: 4.5rem,
+  3: 4rem,
+  4: 3.5rem,
+  5: 3rem,
+  6: 2.5rem
+);
+
+$display-weight: 300;
+$display-line-height: $headings-line-height;
+// scss-docs-end display-headings
+
+// scss-docs-start type-variables
+$lead-font-size:                 $base-unit * $lg;
+$lead-font-weight:               300;
+$lead-text-color                 : shift-color($post-title-color, $muted-percentage);
+
+$small-font-size: sm;
+
+$sub-sup-font-size: xs;
+
+$initialism-font-size: sm;
+
+$blockquote-font-family: $emphasis-text-font;
+$blockquote-margin-y: $base-unit;
+$blockquote-font-size: $font-size-base * 2.25;
+$blockquote-text-footer-color    : $accent-color;
+$blockquote-footer-font-size: md;
+$blockquote-border-color: shade-color($blockquote-text-footer-color, $border-percentage);
+
+$hr-margin-y: $base-unit;
+$hr-color: inherit;
+$hr-height: $base-unit * 2;
+$hr-opacity: 0.25;
+$hr-border-color: $hot-pink;
+
+$legend-margin-bottom: 0.5rem;
+$legend-font-size: xl;
+$legend-font-weight: null;
+
+$mark-padding: 0.2rem;
+
+$dt-font-weight: $font-weight-bold;
+
+$nested-kbd-font-weight: $font-weight-bold;
+
+$list-inline-padding: 0.5rem;
+
+$mark-bg: $gray-300;
+
+$quotation: obalique;
+$citation: italic;
+$link: underline;
+// scss-docs-end type-variables
+
+// Code
+
+$code-font-size: $small-font-size;
+$code-color: $pink;
+$code-bg: $black;
+
+$kbd-padding-y: 0.2rem;
+$kbd-padding-x: 0.4rem;
+$kbd-font-size: $code-font-size;
+$kbd-color: $white;
+$kbd-bg: $gray-900;
+
+$pre-color: null;
+$pre-scrollable-max-height: 340px;

@@ -1,0 +1,294 @@
+/**
+ * Comments Wrapper
+ */
+.comments-area {
+
+	> * {
+		margin-top: $padding-y;
+		margin-bottom: $padding-y;
+
+		&:first-child {
+			margin-top: 0;
+		}
+
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	&.show-avatars {
+
+		.avatar {
+			border-radius: 50%;
+			position: absolute;
+			top: 10px;
+		}
+
+		.fn {
+			display: inline-block;
+			padding-left: 85px;
+		}
+
+		.comment-metadata {
+			padding: 8px 0 9px 85px;
+		}
+
+	}
+}
+
+/**
+ * Comment Title
+ */
+
+.comments-title,
+.comment-reply-title {
+	font-size: $heading--font-size-h2;
+	letter-spacing: $heading--letter-spacing-h2;
+}
+
+.comment-reply-title {
+	display: flex;
+	justify-content: space-between;
+
+	small {
+
+		a {
+			font-family: $font-secondary;
+			font-size: var(--sm);
+			font-style: normal;
+			font-weight: normal;
+			letter-spacing: normal;
+		}
+	}
+}
+
+/* Nested comment reply title*/
+.comment .comment-respond .comment-reply-title {
+	font-size: font-lg;
+}
+
+/**
+ * Comment Lists
+ */
+.comment-list {
+	padding-left: 0;
+	list-style: none;
+
+	> li {
+		margin-top: $padding-y;
+		margin-bottom: $padding-y;
+	}
+
+}
+
+.comment-list .children {
+	list-style: none;
+	padding-left: 0;
+
+	> li {
+		margin-top: $padding-y;
+		margin-bottom: $padding-y;
+	}
+
+}
+
+.comment-list .depth-2,
+.comment-list .depth-3 {
+	@include media(mobile) {
+		padding-left: 4 * $padding-x;
+	}
+}
+
+/**
+ * Comment Meta
+ */
+.comment-meta {
+
+	.comment-author {
+		line-height: $line-height-heading;
+		margin-bottom: 0.25 * $padding-y;
+
+		@include media(mobile) {
+			margin-bottom: 0;
+			padding-right: 0;
+		}
+
+		.fn {
+			font-family: $font-secondary;
+			font-weight: normal;
+			font-size: font-lg;
+			-webkit-hyphens: auto;
+			    -ms-hyphens: auto;
+			        hyphens: auto;
+			word-wrap: break-word;
+			word-break: break-word;
+		}
+
+	}
+
+	.comment-metadata {
+		color: $primary-color;
+		font-size: var(--sm);
+		padding: 8px 0 9px 0;
+
+		.edit-link {
+			margin-left: $padding-x;
+		}
+
+	}
+
+	@include media(mobile) {
+		margin-right: inherit;
+
+		.comment-author {
+			max-width: inherit;
+		}
+	}
+}
+
+.reply {
+	font-size: var(--sm);
+	line-height: $line-height-heading;
+}
+
+.bypostauthor {
+	display: block;
+}
+
+.says {
+	display: none;
+}
+
+.pingback .url,
+.trackback .url {
+	font-family: $font-primary;
+}
+
+// Comment body
+.comment-body {
+	position: relative;
+	margin-bottom: 1.7 * $padding-y;
+
+	> * {
+		margin-top: $padding-y;
+		margin-bottom: $padding-y;
+	}
+
+	.reply {
+		margin: 0;
+	}
+}
+
+.comment-content {
+	word-wrap: break-word;
+}
+
+// Pingbacks & Trackbacks
+.pingback .comment-body,
+.trackback .comment-body {
+	margin-top: $padding-y;
+	margin-bottom: $padding-y;
+}
+
+.comment-respond {
+	margin-top: $padding-y;
+}
+
+.comment-respond > * {
+	margin-top: $padding-y;
+	margin-bottom: $padding-y;
+
+	&:first-child {
+		margin-top: 0;
+	}
+
+	&:last-child {
+		margin-bottom: 0;
+
+		&.comment-form {
+			margin-bottom: $padding-y;
+		}
+	}
+}
+
+.comment-author {
+	padding-top: 3px;
+
+	.url {
+		color: currentColor;
+	}
+}
+
+.comment-form {
+	display: flex;
+	flex-wrap: wrap;
+
+	> * {
+		flex-basis: 100%;
+	}
+
+	.comment-notes {
+		font-size: var(--sm);
+	}
+
+	.comment-form-url,
+	.comment-form-comment {
+		width: 100%;
+	}
+
+	.comment-form-author,
+	.comment-form-email {
+		flex-basis: 0;
+		flex-grow: 1;
+
+		@include media(mobile-only) {
+			flex-basis: 100%;
+		}
+	}
+
+	.comment-form-cookies-consent > label,
+	.comment-notes {
+		font-size: var(--sm);
+		font-weight: normal;
+	}
+}
+
+.comment-form > p {
+	margin-bottom: $padding-y;
+
+	&:first-of-type {
+		margin-top: 0;
+	}
+
+	&:last-of-type {
+		margin-bottom: 0;
+	}
+
+	label,
+	input[type="email"],
+	input[type="text"],
+	input[type="url"],
+	textarea {
+		display: block;
+		font-size: var(--sm);
+		margin-bottom: .5 * $padding-y;
+		width: 100%;
+		font-weight: $form--label-weight;
+	}
+
+	&.comment-form-cookies-consent {
+		display: flex;
+	}
+
+	@include media(mobile) {
+
+		&.comment-form-author {
+			margin-right: 1.5 * $padding-x;
+		}
+
+		&.comment-notes,
+		&.logged-in-as {
+			display: block;
+		}
+	}
+}

@@ -1,0 +1,152 @@
+<?php
+	/*-----------------------------------------------------------------------------------*/
+	/* This template will be called by all other template files to begin
+	/* rendering the page and display the header/nav
+	/*-----------------------------------------------------------------------------------*/
+?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0" />
+  <meta name="MobileOptimized" content="320" />
+  <title>
+  	<?php bloginfo('name'); // show the blog name, from settings ?> |
+  	<?php is_front_page() ? bloginfo('description') : wp_title(''); // if we're on the home page, show the description, from the site's settings - otherwise, show the title of the post or page ?>
+  </title>
+
+  <link rel="pingback" href="<?php bloginfo( 'pingback_url' ); ?>" />
+  <?php // We are loading our theme directory style.css by queuing scripts in our functions.php file,
+  	// so if you want to load other stylesheets,
+  	// I would load them with an @import call in your style.css
+  ?>
+  <link rel="stylesheet" type="text/css" href="style.css" />
+  <?php wp_head();
+  // This fxn allows plugins, and Wordpress itself, to insert themselves/scripts/css/files
+  // (right here) into the head of your website.
+  // Removing this fxn call will disable all kinds of plugins and Wordpress default insertions.
+  // Move it if you like, but I would keep it around.
+  ?>
+
+  </head>
+
+  <body class="page">
+    <div class="card">
+        <header class="site-header card-header">
+          <p id="author-name">
+            <?php get_the_author_meta('snicename'); ?>
+          </p>
+          <a href="<?php echo esc_url( home_url( '/' ) ); // Link to the home page ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); // Title it with the blog name ?>" rel="home"><?php bloginfo( 'name' ); // Display the blog name ?></a>
+        </p>
+        <p id="site-description">
+          <?php bloginfo( 'description' ); // Display the blog description, found in General Settings ?>
+        </h4>
+      </div><!-- /brand -->
+
+      <div class="clear"></div>
+          <nav class="site-navigation main-navigation">
+            <?php wp_nav_menu( array( 'theme_location' => 'primary' ) ); // Display the user-defined menu in Appearance > Menus ?>
+          </nav><!-- .site-navigation .main-navigation -->
+        </header>
+
+      <div class="logo">
+
+      </div>
+      <section class="masthead">
+        <p id="page-title" style="line-height: 4rem;">
+          <?php get_the_title(); ?>
+        </p>
+      </section>
+
+
+      <main class="main card-body">
+        <nav class="main-navigation card-header" id="nav">
+            <ul class="nav nav-tabs card-header-tabs" id="myTab" role"tablist">
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">ABOUT</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="blog-tab" data-bs-toggle="tab" data-bs-target="#blog" type="button" role="tab" aria-controls="blog" aria-selected="false">BLUEPRINTS</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="coaching-tab" data-bs-toggle="tab" data-bs-target="#coaching" type="button" role="tab" aria-controls="coaching" aria-selected="false">COACHING</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="writing-svcs-tab" data-bs-toggle="tab" data-bs-target="#writing-svcs" type="button" role="tab" aria-controls="writing-svcs" aria-selected="false">WRITING SVCS</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="portfolio-tab" data-bs-toggle="tab" data-bs-target="#portfolio" type="button" role="tab" aria-controls="portfolio" aria-selected="false">PORTFOLIO</button>
+              </li>
+              <li class="nav-item" role="presentation">
+                <button class="nav-link" id="pentapolis-tab" data-bs-toggle="tab" data-bs-target="#pentapolis" type="button" role="tab" aria-controls="pentapolis" aria-selected="false">PENTAPOLIS</button>
+              </li>
+              <li class="widget_search alignright">
+                <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+                  <input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+                </form>
+              </li>
+            </ul>
+        </nav>
+
+  <div class="container">
+    <section id="about">
+
+        <?php if ( have_posts() ) :
+        // Do we have any posts/pages in the databse that match our query?
+        ?>
+
+          <?php while ( have_posts() ) : the_post();
+          // If we have a page to show, start a loop that will display it
+          ?>
+
+            <article class="primary">
+
+              <?php if (!is_front_page()) : // Only if this page is NOT being used as a home page, display the title ?>
+                <h1 class='title'>
+                  <?php the_title(); // Display the page title ?>
+                </h1>
+              <?php endif; ?>
+
+              <section class="the-content">
+                <?php the_content();
+                // This call the main content of the page, the stuff in the main text box while composing.
+                // This will wrap everything in paragraph tags
+                ?>
+
+                <?php wp_link_pages(); // This will display pagination links, if applicable to the page ?>
+              </section><!-- the-content -->
+
+            </article>
+
+          <?php endwhile; // OK, let's stop the page loop once we've displayed it ?>
+
+        <?php else : // Well, if there are no posts to display and loop through, let's apologize to the reader (also your 404 error) ?>
+
+          <article class="post error">
+            <h1 class="404">Nothing has been posted like that yet</h1>
+          </article>
+
+        <?php endif; // OK, I think that takes care of both scenarios (having a page or not having a page to show) ?>
+        </div><!-- #content .site-content -->
+
+      </section>
+
+        <section class="site-information card-footer fixed-bottom" id="site-information">
+          <section class="social-media">
+            social media
+          </section>
+          <section class="contact">
+            <address class="email text-right" id="email">
+              cjmtermini@thecreativityarchitect.com
+            </address>
+            <small class="copyright alignright" id="copyright">
+              copyright
+            </small>
+          </section>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

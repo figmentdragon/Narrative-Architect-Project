@@ -1,0 +1,42 @@
+
+.glass {
+  position: relative;
+	background-color: $silver;
+}
+
+.glass::before {
+  z-index: -1;
+  display: block;
+  position: absolute;
+  content: ' ';
+
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+  /* background-image: url('path/to/image.jpg'); Actual image for this demo is a data-uri, see below */
+  /* Prefix free isn't picking up this one */
+  -webkit-filter: url('#blur');
+  filter: url('#blur');
+  -webkit-filter: blur(5px);
+  filter: blur(5px);
+  background-size: cover;
+  opacity: 0.25;
+}
+
+/* transformations */
+.glass.down {
+  transform: translateY(100%) translateY(-5em) translateZ(0);
+}
+
+.glass.down::before {
+  transform: translateY(-100%) translateY(5em) translateZ(0);
+}
+
+.glass.up, .glass.up::before {
+  transform: translateY(0) translateZ(0);
+}
+
+/* transitions */
+.glass, .glass::before {
+  transition: transform 0.5s ease-out;
+}

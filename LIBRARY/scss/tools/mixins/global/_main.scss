@@ -1,0 +1,6 @@
+@mixin main {
+  background-image: rbga($accent-color, .5);
+  @include border-start-radius($border-radius-xxl);
+  box-shadow: $card-box-shadow;
+  border: 4px solid $yellow;
+}

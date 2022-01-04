@@ -1,0 +1,39 @@
+// Pagination
+
+// scss-docs-start pagination-variables
+$pagination-padding-y: .375rem;
+$pagination-padding-x: .75rem;
+$pagination-padding-y-sm: .25rem;
+$pagination-padding-x-sm: .5rem;
+$pagination-padding-y-lg: .75rem;
+$pagination-padding-x-lg: 1.5rem;
+
+$pagination-color: $component-active-color;
+$pagination-bg: $ghost-white;
+$pagination-border-width: $border-width;
+$pagination-border-radius: $border-radius;
+$pagination-margin-start: -$pagination-border-width;
+$pagination-border-color: $primary;
+
+$pagination-focus-color: $hover;
+$pagination-focus-bg: $primary;
+$pagination-focus-box-shadow: $input-btn-focus-box-shadow;
+$pagination-focus-outline: 0;
+
+$pagination-hover-color: $hover;
+$pagination-hover-bg: $primary;
+$pagination-hover-border-color: $primary;
+
+$pagination-active-color: $active;
+$pagination-active-bg: $component-active-bg;
+$pagination-active-border-color: $pagination-active-bg;
+
+$pagination-disabled-color: $primary;
+$pagination-disabled-bg: $ghost-white;
+$pagination-disabled-color: $primary;
+
+$pagination-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+$pagination-border-radius-sm: $border-radius-sm;
+$pagination-border-radius-lg: $border-radius-lg;
+// scss-docs-end pagination-variables

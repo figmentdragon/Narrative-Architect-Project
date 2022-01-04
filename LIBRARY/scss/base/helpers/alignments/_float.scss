@@ -1,0 +1,34 @@
+/**
+* Clearing and floating
+*/
+
+.alignleft,
+.float-left {
+    float: left;
+
+    img & {
+        margin-right: $base-unit;
+    }
+}
+
+.alignright,
+.float-right {
+    float: right;
+
+    img & {
+        margin-left: $base-unit;
+    }
+}
+
+.aligncenter,
+.float-center {
+    display: block;
+    margin: {
+        left: auto;
+        right: auto;
+    }
+
+    img & {
+        margin-bottom: $base-unit;
+    }
+}

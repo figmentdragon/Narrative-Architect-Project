@@ -1,0 +1,57 @@
+//
+// Social
+//
+
+// Styling for the social icons
+.social-links {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    max-height: 3vh;
+    width: 100%;
+    max-width: auto;
+
+    .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        height: 24rem;
+        width: 24rem;
+        border-radius: 100rem;
+    }
+}
+
+
+.nameplate .social-links a {
+  font-size: 24px;
+
+  background: #212431;
+  color: $info-color;
+  line-height: 1;
+  padding: 8px 0;
+  margin-right: 4px;
+  border-radius: 50%;
+  text-align: center;
+  width: 36px;
+  height: 36px;
+  transition: 0.3s;
+  position: absolute;
+}
+
+.nameplate .social-links a:hover {
+  background: #149ddd;
+  color: $info-color;
+  text-decoration: none;
+}
+
+// Moves the social icons to the center right of the screen on large screen sizes and up
+@include media-breakpoint-up(lg) {
+    .social-links {
+        position: absolute;
+        height: 100%;
+        top: 0;
+        right: 2.5rem;
+        width: auto;
+    }
+}

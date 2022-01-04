@@ -1,0 +1,52 @@
+/*! Made with Bones: http://themble.com/bones :) */
+
+/******************************************************************
+Framework Name: THEME
+Author: CJM Termini
+
+Stylesheet: CJMT Layouts
+
+******************************************************************/
+@import "cjmt";
+/******************************************************************/
+
+/*********************
+GENERAL STYLES
+*********************/
+
+.bg-frontpage {
+  background: url("https://dummyimage.com/1920x1080/dee2e6/6c757d.jpg") no-repeat center center fixed;
+  background-size: cover;
+}
+
+.masthead {
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 0px 0px;
+  grid-auto-flow: column dense;
+  justify-content: stretch;
+  align-content: start;
+  justify-items: start;
+  align-items: start;
+  justify-self: stretch;
+  align-self: center;
+  line-height: 1;
+  border-bottom: 5px solid $red;
+  grid-area: 1 / 1 / 2 / 16;
+  background: $blue;
+}
+
+.page-name {
+  display: flex;
+  flex-wrap: wrap;
+  justify-self: stretch;
+  align-self: start;
+  grid-area: 1 / 1 / 5 / 10;
+  padding-top: 1.5rem;
+  padding-left: 7.25rem;
+}
+
+#page-title {
+  font-size: 2rem;
+}

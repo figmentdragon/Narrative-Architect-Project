@@ -1,0 +1,33 @@
+/* # SITE-FOOTER
+================================================================== */
+footer {
+  background: $blue;
+  color: white;
+  padding: $pad * 2;
+
+  div {
+    @extend .container
+  }
+}
+
+.site-footer {
+
+}
+.site-info {
+
+}
+
+.copyright {
+
+}
+
+.email {}
+
+.social-media{}
+
+.credits {
+  font-size: 13px;
+  padding-top: 5px;
+  text-align: right;
+  color: #eaebf0;
+}

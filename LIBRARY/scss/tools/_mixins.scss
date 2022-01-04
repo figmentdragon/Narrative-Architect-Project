@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+// 1. Configuration and helpers
+@import
+  'mixins/global/main',
+  'mixins/grid',
+  'mixins/responsive',
+  'mixins/border-box',
+  'mixins/border-radius',
+  'mixins/box-shadows',
+  'mixins/cards',
+  'mixins/container',
+  'mixins/font-size',
+  'mixins/gradients',
+  'mixins/hover',
+  'mixins/list',
+  'mixins/ltr',
+  'mixins/navigation',
+  'mixins/text-truncate',
+  'mixins/visually-hidden',
+  'mixins/clearfix';

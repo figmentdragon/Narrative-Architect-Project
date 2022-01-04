@@ -1,0 +1,59 @@
+.alert
+{
+    margin-bottom: $spacer;
+    padding: $spacer;
+
+    border: 1px solid transparent;
+
+    > p,
+    > ul
+    {
+        margin-bottom: 0;
+    }
+
+    > p + p
+    {
+        margin-top: $spacer;
+    }
+
+    &.alert-success
+    {
+        color: $success-color;
+        border-color: $success-color;
+        background: #e6efc2;
+    }
+
+    &.alert-info-color
+    {
+        color: $info-color;
+        border-color: $info-color;
+        background: $info-color-background;
+    }
+
+    &.alert-warning
+    {
+        color: $warning-color;
+        border-color: $warning-color;
+        background: $warning-background;
+    }
+
+    &.alert-alert-color
+    {
+        color: $alert-color;
+        border-color: $alert-color;
+        background: $alert-background;
+    }
+
+    &.alert-help
+    {
+        color: inherit;
+        border-color: #e8dc59;
+        background: #ebe16f;
+    }
+
+    &.alert-error
+    {
+        border-color: #f8cdce;
+        background: #fbe3e4;
+    }
+}

@@ -1,0 +1,52 @@
+// scss-docs-start form-input-variables
+$input-offset-y:                       $input-btn-padding-y;
+$input-offset-x:                       $input-btn-padding-x;
+$input-font-family:                    $input-btn-font-family;
+$input-font-size:                      $input-btn-font-size;
+$input-font-weight:                     $font-weight-base;
+$input-line-height:                     $input-btn-line-height;
+
+$input-offset-y-sm:                    $input-btn-padding-y-sm;
+$input-offset-x-sm:                    $input-btn-padding-x-sm;
+$input-font-size-sm:                    $input-btn-font-size-sm;
+
+$input-offset-y-lg:                    $input-btn-padding-y-lg;
+$input-offset-x-lg:                    $input-btn-padding-x-lg;
+$input-font-size-lg:                    $input-btn-font-size-lg;
+
+$input-color:                           $input-text-color;
+$input-border-color:                    $input-border-color;
+$input-border-width:                    $input-btn-border-width;
+$input-box-shadow:                      $box-shadow-inset;
+
+$input-bg:                              $input-bg-color;
+$input-disabled-bg:                     $input-disabled-bg-color;
+$input-disabled-border:                 $input-disabled-border-color;
+
+$input-border-radius:                   $border-radius;
+$input-border-radius-sm:                $border-radius-sm;
+$input-border-radius-lg:                $border-radius-lg;
+
+$input-focus-bg:                        $input-focus-bg-color;
+$input-focus-border:                    $input-focus-border-color;
+$input-focus-color:                     $input-text-color;
+$input-focus-width:                     $border-width-focus;
+$input-focus-box-shadow:                $input-btn-focus-box-shadow;
+
+$input-placeholder-color:               $input-placeholder-text-color;
+$input-plaintext-color:                 $input-plaintext-text-color;
+
+$input-height-border:                   $input-border-width * 2;
+
+$input-height-inner:                    add($input-line-height * 1em, $input-offset-y * 2);
+$input-height-inner-half:               add($input-line-height * .5em, $input-offset-y);
+$input-height-inner-quarter:            add($input-line-height * .25em, $input-offset-y * .5);
+
+$input-height:                          add($input-line-height * 1em, add($input-offset-y * 2, $input-height-border, false));
+$input-height-sm:                       add($input-line-height * 1em, add($input-offset-y-sm * 2, $input-height-border, false));
+$input-height-lg:                       add($input-line-height * 1em, add($input-offset-y-lg * 2, $input-height-border, false));
+
+$input-transition:                      border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+$form-color-width:                      3rem;
+// scss-docs-end form-input-variables

@@ -1,0 +1,31 @@
+/* Misc –––––––––––––––––––––––––––––––––––––––––––––––––– */
+hr {
+  overflow: visible;
+  box-sizing: content-box;
+  height: 1px;
+  margin-top: calc(1.05 * 4)
+  margin-bottom: calc(1.05 * 5);
+  border: $hr-border-width;
+  background-color: $body-bg;
+    color: $hr-color;
+      opacity: $hr-opacity;
+}
+
+hr:not([size]) {
+  height: $hr-height; // 2
+}
+
+[hidden],
+template {
+  display: none;
+}
+
+/* If you want to give a common style to all of the titles in your theme, here's a place to do it (you can style them individually later) */
+.site-title,
+.entry-title,
+.page-title,
+.widget-title,
+.comments-title,
+#reply-title {
+
+}

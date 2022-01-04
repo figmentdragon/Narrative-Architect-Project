@@ -1,0 +1,16 @@
+/* ______________________________________________________ Link */
+$component-active-color       : $active-text-color;
+$component-active-bg          : lighten($component-active-color, $background-percentage);
+
+/* Style anchor elements. */
+$link-text-color              : $active-text-color;
+$link-decoration              : bold;
+$link-text-hover              : $link-hover-color;
+$link-hover-color-decoration  : underline, bold;
+
+$link-text-visited            : $link-visited-color;
+$link-visited-decoration      : underline;
+$link-text-visited-hover      : $link-visited-hover-color;
+
+$stretched-link-pseudo-element: after;
+$stretched-link-z-index       : 1;

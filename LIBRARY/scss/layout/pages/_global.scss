@@ -1,0 +1,129 @@
+/*________________________________________________________________ GLOBAL */
+ *,
+ *::after,
+ *::before,
+ *:after,
+ *:before {
+   padding: 0;
+   margin: 0;
+   @include border-box;
+ }
+
+
+ div {
+   display: flex;
+   float: left;
+   justify-content: space-evenly;
+ }
+
+
+html {
+  width: 100%;
+  max-width: 100vw;
+  height: 100%;
+  max-height: 100vh;
+  z-index: $z-index-html-body;
+  background-image: $primary-color-gradient;
+  @include border-box;
+  overflow: hidden;
+  @media screen and (min-width: 768px){
+    font-size: 75%;
+  }
+}
+
+body,
+html
+{
+  position: relative;
+  margin: 0;
+
+  z-index: $z-index-html-body;
+  @include border-box;
+  * {
+    box-sizing: inherit;
+  }
+}
+
+body {
+  text-align: left;
+  color: $body-text;
+  font-family: $secondary-font;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  z-index: $z-index-page;
+  padding-top: .75rem;
+  padding-right: 0;
+  padding-bottom: .75rem;
+  padding-left: 1.75rem;
+  height: 100%;
+  max-height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+}
+
+header {
+  display: inline-block;
+  height: 100%;
+  max-height: 4rem;
+  width: 100%;
+  max-width: 95vw;
+  margin-left: 0;
+
+  box-shadow:  0 .5rem .4rem -.15rem $shadow-color;
+  border: 3px solid $orange;
+}
+
+nav {
+  height: 100%;
+  max-height: 3.75rem;
+  width: 100%;
+  max-width: 30vw;
+  border: 3px solid $pink;
+  background-image: $accent-color-gradient;
+}
+
+main {
+  width: 100%;
+  max-width: 99vw;
+  height: 100%;
+  max-height: 96vh;
+  z-index: $z-index-main;
+  background-image: $accent-color-gradient;
+  @include main;
+}
+
+
+article {
+  display: block;
+  margin-top: 1rem;
+  margin-right: 2rem;
+  margin-bottom: 1rem;
+  margin-left: 14rem;
+  width: 100%;
+  max-width: 85vw;
+  height: 100%;
+  max-height: 92vh;
+  background: $white;
+  outline-style: solid;
+  outline-color: $chocolate;
+  outline-width: 3px;
+  @include border-radius($border-radius-md);
+}
+
+footer {
+  font-family: $footer-text-font;
+  display: inline-block;
+  height: 100%;
+  max-height: 4rem;
+  width: 100%;
+  max-width: 116.75rem;
+  box-shadow:  0 .5rem .4rem -.1rem $shadow-color;
+  background-image: $footer-gradient;
+  justify-content: space-between;
+  align-content: space-evenly;
+  align-items: center;
+  border: 3px solid $indigo;
+  color: $footer-text-color;
+  font-weight: $font-weight-bold;
+  font-size: $font-size-md;
+}

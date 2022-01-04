@@ -1,0 +1,149 @@
+/* TEXT SELECTORS ___ */
+p {
+  -ms-word-wrap: break-word;
+  word-break: break-word; //non-standart css for webkit
+  word-wrap: break-word;
+  // cleaning up the ragged lines and breaks
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+  // sets a minimum number of characters before and after the break
+  -webkit-hyphenate-before: 2;
+  -webkit-hyphenate-after: 3;
+  hyphenate-lines: 3;
+  // enabling fancy ligatures when available
+  -webkit-font-feature-settings: "liga", "dlig";
+  -moz-font-feature-settings: "liga=1, dlig=1";
+  -ms-font-feature-settings: "liga", "dlig";
+  -o-font-feature-settings: "liga", "dlig";
+  font-feature-settings: "liga", "dlig";
+}
+
+body {
+  text-align: left;
+  color: $body-text;
+  font-family: $secondary-font;
+  font-size: $font-size-base;
+  line-height: 1.6;
+  margin: auto;
+  padding: 2em 2em 5em;
+  background: $body-bg-color;
+}
+
+a {
+  outline: none !important;
+  font-weight: bold;
+  text-decoration: underline;
+  color: $link-text-color;
+
+    @include on-event {
+      text-decoration: underline, bold
+    }
+}
+
+a:link {
+  color: $link-text-color;
+}
+
+a:visited {
+  color: $link-text-visited;
+}
+a:hover {
+  color: $link-text-hover;
+}
+a:active {
+  color: $link-text-color;
+  outline: none;
+}
+
+p {
+  text-align: left;
+  font-size: 100%;
+  margin: 1em 0 0;
+}
+
+p.lead {
+  font-size: $lead-font-size;
+  margin: 1em 0;
+  font-weight: $lead-font-weight;
+}
+
+p + p {
+  margin: 0;
+  text-indent: $xl;
+}
+
+p + ul,
+p + ol,
+p + dl {
+  margin-bottom: $xl;
+}
+p.lead + p {
+  text-indent: 0;
+}
+
+blockquote {
+  font-family: $emphasis-font;
+  border-left: 5px solid $accent-color;
+  padding-left: $xl;
+  margin: 1em 0;
+}
+blockquote small {
+  display: block;
+  line-height: 1.7em;
+}
+
+
+ul,
+ol,
+dl {
+  text-align: left;
+}
+
+dt {
+  font-weight: bold;
+}
+code {
+  font-family: courier, monospace;
+}
+p > code {
+  padding: 0.25em;
+  background: #eee;
+}
+pre {
+  text-align: left;
+  font-size: 100%;
+}
+hr {
+  height: $hr-height;
+  color: $hr-color;
+  border: 1px solid #eee;
+  margin: 2em 0 $hr-margin-y;
+}
+
+.normal {
+  font-weight: normal;
+}
+.quiet {
+  color: #999;
+}
+.pull-left {
+  float: left;
+  margin: 0.5em 2em 1em 0;
+}
+.pull-right {
+  float: right;
+  margin: 0.5em 0 1em 2em;
+}
+
+/* RESPONSIVE SETTINGS */
+@media (max-width: 500px) {
+  body {
+    font-size: 80%;
+  }
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    float: none !important;
+  }
+}

@@ -1,0 +1,8 @@
+/*
+ * Output font size in px/rem
+ */
+
+@mixin font-size($px) {
+    font-size: $px + px;
+    font-size: #{$px / 16}rem;
+}

@@ -1,0 +1,48 @@
+// scss-docs-start gray-color-variables
+$white:    #FAFAFA !default;
+$gray-100: #F5F5F5 !default;
+$gray-200: #EDEDED !default;
+$gray-300: #DBDBDB !default;
+$gray-400: #B5B5B5 !default;
+$gray-500: #7A7A7A !default;
+$gray-600: #4A4A4A !default;
+$gray-700: #363636 !default;
+$gray-800: #242424 !default;
+$gray-900: #121212 !default;
+$black:    #0A0A0A !default;
+// scss-docs-end gray-color-variables
+
+
+// scss-docs-start color-variables
+$blue:    #485FC7 !default;
+$indigo:  #6610f2 !default;
+$purple:  #B86BFF !default;
+$pink:    #d63384 !default;
+$red:     #F14668 !default;
+$orange:  #FF470F !default;
+$yellow:  #FFE08A !default;
+$green:   #48C78E !default;
+$teal:    #00D1B2 !default;
+$cyan:    #3E8ED0 !default;
+$gray:    $gray-600 !default;
+// scss-docs-end color-variables
+
+
+// scss-docs-start theme-color-variables
+$primary-color:       $cyan !default;
+$secondary-color:     $yellow !default;
+$accent-color:        $silver !default;
+$valid-color:         $green !default;
+$info-color:          $blue !default;
+$attention-color:     $orange !default;
+$invalid-color:       $red !default;
+$alert-color:         $pink !default;
+// scss-docs-end theme-color-variables
+
+
+/* The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7. */
+/* See https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast */
+$min-contrast-ratio:   4.5 !default;
+
+$dark-contrast:      $black;
+$light-contrast:     $white;

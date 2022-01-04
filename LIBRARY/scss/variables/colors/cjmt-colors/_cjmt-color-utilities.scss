@@ -1,0 +1,90 @@
+/* Utitities Color */
+
+/* Utilities Typography */
+$text-muted:            $cjmt-gray-400;
+$text-color:            $cjmt-gray-200;
+$body-bg-color:         $cjmt-gray-800;
+
+$site-title:            $cjmt-primary;
+$page-title:            $cjmt-secondary;
+$post-title:            $cjmt-accent;
+
+$light:                 $cjmt-gray-100;
+$dark:                  $cjmt-gray-900;
+
+/* Utilities Input*/
+$input:                     $cjmt-gray-500;
+$input-bg:                  $cjmt-gray-100;
+$input-border:              $cjmt-gray-900;
+$input-focus:               $cjmt-gray-800;
+$input-focus-bg:            $cjmt-white;
+$input-focus-border:        $cjmt-gray-100;
+
+$cjmt-shadow-color:     $cjmt-gray-800;
+$cjmt-shadow:           .5rem .75rem .25rem $cjmt-shadow-color;
+
+
+/* Link Utilities */
+$active-component-color:    $cjmt-primary;
+$active-component-bg:       $cjmt-secondary;
+$active-component-border:   $cjmt-accent;
+
+
+$link-active-hover-decoration: bold, underline;
+
+$disabled:            $cjmt-dark-vanilla;
+$disabled-bg:         $cjmt-white-chocolate;
+$disabled-border:     $cjmt-dark-vanilla;
+
+/* Nav Utilities */
+$nav-active:                      $cjmt-chocolate;
+$nav-link-transition:               color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out !default;
+
+$tabs-border:                   $cjmt-chocolate;
+$tabs-active:                   $cjmt-chocolate;
+$tabs-active-bg:                $cjmt-camel;
+$tabs-active-border:            $cjmt-chocolate;
+
+
+$border:      $cjmt-chocolate;
+
+$divider:     $border;
+$separator:   $border;
+$visited:     $cjmt-purple;
+$table:       $cjmt-teal;
+$widget:      $cjmt-silver;
+
+$valid:       #0bda51;
+$invalid:     #dc3545;
+
+
+
+
+
+
+
+
+$utilities-active-colors:(
+active-component:       $active-component,
+disabled:               $disabled,
+nav-active:             $nav-active,
+table:                  $table,
+widget:                 $widget,
+valid:                  $valid,
+invalid:                $invalid
+);
+
+$utilties-border-colors: (
+tabs-active-border:   $tabs-active-border,
+);
+
+
+
+
+/* The contrast ratio to reach against cjmt-white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7. */
+/* See https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast */
+$min-contrast-ratio:   4.5;
+
+/* Customize the light and dark text colors for use in our color contrast function. */
+$color-contrast-dark:      $cjmt-black;
+$color-contrast-light:     $cjmt-white;

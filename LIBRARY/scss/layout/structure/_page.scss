@@ -1,0 +1,28 @@
+.page {
+  height: 100%;
+  width: 100%;
+  margin: 0.25rem;
+}
+
+.page {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  height: auto;
+  width: fluid;
+  padding-top: 1rem;
+  padding-right: 2rem;
+  padding-bottom: .75rem;
+  padding-left: 10rem;
+  @include border-start-radius($border-radius-xxl);
+  @include make-grid;
+  box-shadow: $card-box-shadow;
+  overflow: hidden;
+
+  opacity: .75;
+  @include border-start-radius($border-radius-xl);
+  z-index: $z-index-page;
+  flex: 1 1 auto;
+  color: $body-text;
+}

@@ -1,0 +1,71 @@
+/* Utitities Color */
+
+$light:             $light-color !default;
+$dark:              $dark-color !default;
+
+/* The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7. */
+/* See https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast */
+$min-contrast-ratio:   4.5 !default;
+
+/* Customize the light and dark text colors for use in our color contrast function. */
+$color-contrast-dark:      $dark-contrast !default;
+$color-contrast-light:     $light-contrast !default;
+
+$shadow:                    $shadow-color !default;
+$shadow-text:               $shadow-text-color !default;
+$shadow-box:                $shadow-box-color !default;
+
+/* Link Utilities */
+$active-component:          $active-component-color !default;
+$active-component-bg:       $active-component-bg-color !default;
+$active-component-border:   $active-component-border-color !default;
+
+$disabled-text:       $disabled-text-color !default;
+$disabled-bg:         $disabled-bg-color !default;
+$disabled-border:     $disabled-border-color !default;
+
+
+/* Utilities Typography */
+$text:              $body-text-color !default;
+$body-bg:           $body-bg-color
+$text-muted:        $text-muted-color !default;
+
+$site-title:              $site-title-color !default;
+$page-title:              $page-title-color !default;
+$post-title:              $post-title-color !default;
+$lead-text:               $lead-text-color !default;
+$caption-text:            $caption-text-color !default;
+$nav-text:                $nav-text-color !default;
+$btn-text:                $btn-text-color !default;
+$quote-text:              $quote-text-color !default;
+$footer-text:             $footer-text-color !default;
+
+/* Nav Utilities */
+$nav-link-color:          $nav-link-text-color !default;
+$nav-link-hover-color:    $nav-link-text-hover-color !default;
+$nav-link-disabled-color: $nav-link-text-disabled-color !default;
+
+
+$nav-link-text:          $nav-link-color !default;
+$nav-link-text-hover:    $nav-link-text-hover-color !default;
+$nav-link-disabled:      $nav-link-disabled-color !default;
+
+$nav-tabs-link-active-bg:   $tabs-active-bg-color;
+
+
+/* Utilities Input*/
+$input-text:          $input-text-color !default;
+$input-bg:            $input-bg-color !default;
+$input-border:        $input-border-color !default;
+$input-text-focus:    $input-text-focus-color !default;
+$input-bg-focus:      $input-bg-focus-color !default;
+$input-border-focus:  $input-border-focus-color !default;
+
+$btn-bg-primary:        $btn-bg-primary-color !default;
+$btn-bg-secondary:      $btn-bg-secondary-color !default;
+$btn-bg-accent:         $btn-bg-accent-color !default;
+$btn-bg-info:           $btn-bg-info-color !default;
+$btn-bg-valid:          $btn-bg-valid-color !default;
+$btn-bg-alert:          $btn-bg-alert-color !default;
+$btn-bg-attention:      $btn-bg-attention-color !default;
+$btn-bg-invalid:        $btn-bg-invalid-color !default;

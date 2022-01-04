@@ -1,0 +1,86 @@
+/* Grid columns */
+/* Set the number of columns and specify the width of the gutters. */
+/* @see https://getbootstrap.com/docs/5.1/layout/grid/#variables */
+$grid-columns: $column-number;
+$grid-gutter: $gutter-width;
+$grid-row-columns: $row-number;
+
+$gutter-x: $grid-gutter * 2.5;
+$gutter-y: $grid-gutter;
+
+$grid-max-width: 1320px + ($grid-gutter * 2);
+
+$default-width: 610px;
+$max-content-width: 1320px;
+
+$width: 100;
+$gutter: 2%;
+
+$gutters: $spacers;
+$rows: $grid-row-columns;
+
+/* Grid breakpoints */
+/* Define the minimum dimensions at which your layout will change, adapting to different screen sizes, for use in media queries. */
+$grid-breakpoints: (
+xs: 0,
+sm: 576px,
+md: 768px,
+lg: 992px,
+xl: 1200px,
+xxl: 1400px
+);
+
+$breakpoint-xs: 0;
+$breakpoint-sm: 576px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 992px;
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
+
+$breakpoint: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+$breakpoint: (
+    'xxl' '(min-width: ' + ($breakpoint-xl + 1) + ') and (max-width: ' + $breakpoint-xxl + ')',
+    'xl' '(min-width: ' + ($breakpoint-lg + 1) + ') and (max-width: ' + $breakpoint-xl + ')',
+    'lg' '(min-width: ' + ($breakpoint-md + 1) + ') and (max-width: ' + $breakpoint-lg + ')',
+    'md' '(min-width: ' + ($breakpoint-sm + 1) + ') and (max-width: ' + $breakpoint-md + ')',
+    'sm' '(min-width: ' + ($breakpoint-xs + 1) + ') and (max-width:'  + $breakpoint-sm + ')',
+    'xs' '(max-width: ' + $breakpoint-xs + ')'
+);
+
+
+/* Grid containers */
+/* Define the maximum width of `.container` for different screen sizes. */
+$container-max-widths: (
+sm: 540px,
+md: 720px,
+lg: 960px,
+xl: 1199px,
+xxl: 1368px
+);
+
+/* Container padding */
+$container-padding-x: $base-offset * .5;
+$container-padding-y: $base-offset;
+
+$container-offset: (2 * $base-offset);
+
+$default-width: 610px;
+$max-content-width: 1400 - ($container-offset * 2);
+
+$container-xxl-content-max-width: $breakpoint-xxl - $container-offset;
+$container-xl-content-max-width: $breakpoint-xl - $container-offset;
+$container-lg-content-max-width: $breakpoint-lg - $container-offset;
+$container-md-content-max-width: $breakpoint-md - $container-offset;
+$container-sm-content-max-width: $breakpoint-sm - $container-offset;
+
+$size                       : nth($grid-breakpoints, 1);
+$name                       : nth($grid-breakpoints, 1);
+$declaration                : nth($breakpoint, 2);

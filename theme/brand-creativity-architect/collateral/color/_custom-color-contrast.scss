@@ -1,0 +1,229 @@
+// fusv-enable
+$deep-sky-blue-100: tint-color($deep-sky-blue, 80%);
+$deep-sky-blue-200: tint-color($deep-sky-blue, 60%);
+$deep-sky-blue-300: tint-color($deep-sky-blue, 40%);
+$deep-sky-blue-400: tint-color($deep-sky-blue, 20%);
+$deep-sky-blue-500: $deep-sky-blue;
+$deep-sky-blue-600: shade-color($deep-sky-blue, 20%);
+$deep-sky-blue-700: shade-color($deep-sky-blue, 40%);
+$deep-sky-blue-800: shade-color($deep-sky-blue, 60%);
+$deep-sky-blue-900: shade-color($deep-sky-blue, 80%);
+
+$silver-100: tint-color($silver, 80%);
+$silver-200: tint-color($silver, 60%);
+$silver-300: tint-color($silver, 40%);
+$silver-400: tint-color($silver, 20%);
+$silver-500: $silver;
+$silver-600: shade-color($silver, 20%);
+$silver-700: shade-color($silver, 40%);
+$silver-800: shade-color($silver, 60%);
+$silver-900: shade-color($silver, 80%);
+
+$chocolate-100: tint-color($chocolate, 80%);
+$chocolate-200: tint-color($chocolate, 60%);
+$chocolate-300: tint-color($chocolate, 40%);
+$chocolate-400: tint-color($chocolate, 20%);
+$chocolate-500: $chocolate;
+$chocolate-600: shade-color($chocolate, 20%);
+$chocolate-700: shade-color($chocolate, 40%);
+$chocolate-800: shade-color($chocolate, 60%);
+$chocolate-900: shade-color($chocolate, 80%);
+
+$camel-100: tint-color($camel, 80%);
+$camel-200: tint-color($camel, 60%);
+$camel-300: tint-color($camel, 40%);
+$camel-400: tint-color($camel, 20%);
+$camel-500: $camel;
+$camel-600: shade-color($camel, 20%);
+$camel-700: shade-color($camel, 40%);
+$camel-800: shade-color($camel, 60%);
+$camel-900: shade-color($camel, 80%);
+
+$saltpan-100: tint-color($saltpan, 80%);
+$saltpan-200: tint-color($saltpan, 60%);
+$saltpan-300: tint-color($saltpan, 40%);
+$saltpan-400: tint-color($saltpan, 20%);
+$saltpan-500: $saltpan;
+$saltpan-600: shade-color($saltpan, 20%);
+$saltpan-700: shade-color($saltpan, 40%);
+$saltpan-800: shade-color($saltpan, 60%);
+$saltpan-900: shade-color($saltpan, 80%);
+
+$white-chocolate-100: tint-color($white-chocolate, 80%);
+$white-chocolate-200: tint-color($white-chocolate, 60%);
+$white-chocolate-300: tint-color($white-chocolate, 40%);
+$white-chocolate-400: tint-color($white-chocolate, 20%);
+$white-chocolate-500: $white-chocolate;
+$white-chocolate-600: shade-color($white-chocolate, 20%);
+$white-chocolate-700: shade-color($white-chocolate, 40%);
+$white-chocolate-800: shade-color($white-chocolate, 60%);
+$white-chocolate-900: shade-color($white-chocolate, 80%);
+
+$dark-vanilla-100: tint-color($dark-vanilla, 80%);
+$dark-vanilla-200: tint-color($dark-vanilla, 60%);
+$dark-vanilla-300: tint-color($dark-vanilla, 40%);
+$dark-vanilla-400: tint-color($dark-vanilla, 20%);
+$dark-vanilla-500: $dark-vanilla;
+$dark-vanilla-600: shade-color($dark-vanilla, 20%);
+$dark-vanilla-700: shade-color($dark-vanilla, 40%);
+$dark-vanilla-800: shade-color($dark-vanilla, 60%);
+$dark-vanilla-900: shade-color($dark-vanilla, 80%);
+
+$ghost-white-100: tint-color($ghost-white, 80%);
+$ghost-white-200: tint-color($ghost-white, 60%);
+$ghost-white-300: tint-color($ghost-white, 40%);
+$ghost-white-400: tint-color($ghost-white, 20%);
+$ghost-white-500: $ghost-white;
+$ghost-white-600: shade-color($ghost-white, 20%);
+$ghost-white-700: shade-color($ghost-white, 40%);
+$ghost-white-800: shade-color($ghost-white, 60%);
+$ghost-white-900: shade-color($ghost-white, 80%);
+
+$coral-100: tint-color($coral, 80%);
+$coral-200: tint-color($coral, 60%);
+$coral-300: tint-color($coral, 40%);
+$coral-400: tint-color($coral, 20%);
+$coral-500: $coral;
+$coral-600: shade-color($coral, 20%);
+$coral-700: shade-color($coral, 40%);
+$coral-800: shade-color($coral, 60%);
+$coral-900: shade-color($coral, 80%);
+
+$maroon-100: tint-color($maroon, 80%);
+$maroon-200: tint-color($maroon, 60%);
+$maroon-300: tint-color($maroon, 40%);
+$maroon-400: tint-color($maroon, 20%);
+$maroon-500: $maroon;
+$maroon-600: shade-color($maroon, 20%);
+$maroon-700: shade-color($maroon, 40%);
+$maroon-800: shade-color($maroon, 60%);
+$maroon-900: shade-color($maroon, 80%);
+
+$deep-sky-blues: (
+  deep-sky-blue-100: $deep-sky-blue-100,
+  deep-sky-blue-200: $deep-sky-blue-200,
+  deep-sky-blue-300: $deep-sky-blue-300,
+  deep-sky-blue-400: $deep-sky-blue-400,
+  deep-sky-blue-500: $deep-sky-blue-500,
+  deep-sky-blue-600: $deep-sky-blue-600,
+  deep-sky-blue-700: $deep-sky-blue-700,
+  deep-sky-blue-800: $deep-sky-blue-800,
+  deep-sky-blue-900: $deep-sky-blue-900
+)
+!default;
+
+$silvers: (
+  silver-100: $silver-100,
+  silver-200: $silver-200,
+  silver-300: $silver-300,
+  silver-400: $silver-400,
+  silver-500: $silver-500,
+  silver-600: $silver-600,
+  silver-700: $silver-700,
+  silver-800: $silver-800,
+  silver-900: $silver-900
+)
+!default;
+
+$chocolates: (
+  chocolate-100: $chocolate-200,
+  chocolate-200: $chocolate-100,
+  chocolate-300: $chocolate-300,
+  chocolate-400: $chocolate-400,
+  chocolate-500: $chocolate-500,
+  chocolate-600: $chocolate-600,
+  chocolate-700: $chocolate-700,
+  chocolate-800: $chocolate-800,
+  chocolate-900: $chocolate-900
+)
+!default;
+
+$camels: (
+  camel-100: $camel-100,
+  camel-200: $camel-200,
+  camel-300: $camel-300,
+  camel-400: $camel-400,
+  camel-500: $camel-500,
+  camel-600: $camel-600,
+  camel-700: $camel-700,
+  camel-800: $camel-800,
+  camel-900: $camel-900
+)
+!default;
+
+$saltpans: (
+  saltpan-100: $saltpan-100,
+  saltpan-200: $saltpan-200,
+  saltpan-300: $saltpan-300,
+  saltpan-400: $saltpan-400,
+  saltpan-500: $saltpan-500,
+  saltpan-600: $saltpan-600,
+  saltpan-700: $saltpan-700,
+  saltpan-800: $saltpan-800,
+  saltpan-900: $saltpan-900
+)
+!default;
+
+$white-chocolates: (
+  white-chocolate-100: $white-chocolate-100,
+  white-chocolate-200: $white-chocolate-200,
+  white-chocolate-300: $white-chocolate-300,
+  white-chocolate-400: $white-chocolate-400,
+  white-chocolate-500: $white-chocolate-500,
+  white-chocolate-600: $white-chocolate-600,
+  white-chocolate-700: $white-chocolate-700,
+  white-chocolate-800: $white-chocolate-800,
+  white-chocolate-900: $white-chocolate-900
+)
+!default;
+
+$dark-vanillas: (
+  dark-vanilla-100: $dark-vanilla-100,
+  dark-vanilla-200: $dark-vanilla-200,
+  dark-vanilla-300: $dark-vanilla-300,
+  dark-vanilla-400: $dark-vanilla-400,
+  dark-vanilla-500: $dark-vanilla-500,
+  dark-vanilla-600: $dark-vanilla-600,
+  dark-vanilla-700: $dark-vanilla-700,
+  dark-vanilla-800: $dark-vanilla-800,
+  dark-vanilla-900: $dark-vanilla-900
+)
+!default;
+
+$ghost-whites: (
+  ghost-white-100: $ghost-white-100,
+  ghost-white-200: $ghost-white-200,
+  ghost-white-300: $ghost-white-300,
+  ghost-white-400: $ghost-white-400,
+  ghost-white-500: $ghost-white-500,
+  ghost-white-600: $ghost-white-600,
+  ghost-white-700: $ghost-white-700,
+  ghost-white-800: $ghost-white-800,
+  ghost-white-900: $ghost-white-900
+)
+!default;
+
+$corals: (
+  coral-100: $coral-100,
+  coral-200: $coral-200,
+  coral-300: $coral-300,
+  coral-400: $coral-400,
+  coral-500: $coral-500,
+  coral-600: $coral-600,
+  coral-700: $coral-700,
+  coral-800: $coral-800,
+  coral-900: $coral-900
+)
+!default;
+
+$maroons: (
+  maroon-100: $maroon-100,
+  maroon-200: $maroon-200,
+  maroon-300: $maroon-300,
+  maroon-400: $maroon-400,
+  maroon-500: $maroon-500,
+  maroon-600: $maroon-600,
+  maroon-700: $maroon-700,
+  maroon-800: $maroon-800,
+  maroon-900: $maroon-900
+);

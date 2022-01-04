@@ -1,0 +1,75 @@
+$cjmt-gray-rgb: (
+cjmt-gray-100-rgb: $cjmt-gray-100-rgb,
+cjmt-gray-200-rgb: $cjmt-gray-200-rgb,
+cjmt-gray-300-rgb: $cjmt-gray-300-rgb,
+cjmt-gray-400-rgb: $cjmt-gray-400-rgb,
+cjmt-gray-500-rgb: $cjmt-gray-500-rgb,
+cjmt-gray-600-rgb: $cjmt-gray-600-rgb,
+cjmt-gray-700-rgb: $cjmt-gray-700-rgb,
+cjmt-gray-800-rgb: $cjmt-gray-800-rgb,
+cjmt-gray-900-rgb: $cjmt-gray-900-rgb
+);
+
+$cjmt-theme-rgb: (
+  cjmt-primary-rgb:   $cjmt-primary-rgb,
+  cjmt-secondary-rgb: $cjmt-secondary-rgb,
+  cjmt-accent-rgb:    $cjmt-accent-rgb,
+  success-rgb:        $success-rgb,
+  info-rgb:           $info-rgb,
+  warning-rgb:        $warning-rgb,
+  danger-rgb:         $danger-rgb
+);
+
+$utilities-text-rgb:(
+cjmt-text-muted-rgb:     $cjmt-text-muted-rgb,
+cjmt-text-rgb:           $cjmt-text-rgb,
+cjmt-bg-rgb:             $cjmt-bg-rgb,
+caption-rgb:             $caption-rgb,
+caption-border-rgb:      $caption-border-rgb,
+light-rgb:               $light-rgb,
+dark-rgb:                $dark-rgb,
+input-rgb:               $input-rgb,
+input-bg-rgb:            $input-bg-rgb,
+input-border-rgb:        $input-border-rgb,
+input-focus-rgb:         $input-focus-rgb,
+input-focus-bg-rgb:      $input-focus-bg-rgb,
+input-focus-border-rgb:  $input-focus-border-rgb
+);
+
+/* Utilities Colors */
+$info-rgb:       rgb(65,105,225);
+$success-rgb:    rgb(11,218,81);
+$warning-rgb:    rgb(255,153,102);
+$danger-rgb:     rgb(220,53,69);
+$active-rgb:      rgb(10,186,181);
+$border-rgb:      rgb(98,52,18);
+$danger-rgb:      rgb(220,53,69);
+$invalid-rgb:    rgb(220,53,69);
+$disabled-rgb:    rgb(192,192,192);
+$focus-rgb:      rgb(81,11,218);
+$hover-rgb:      shift-color(rgb(10,186,181), $link-shade-percentage);
+$info-rgb:       rgb(65,105,225);
+$nav-rgb:        rgb(98,52,18);
+$success-rgb:    rgb(11,218,81);
+$valid-rgb:      rgb(11,218,81);
+$table-rgb:      rgb(202,255,255);
+$warning-rgb:    rgb(255,153,102);
+$widget-rgb:     rgb(168,169,173);
+$visited-rgb:    rgb(81,11,218);
+
+$utilitis-colors-rgb: (
+  success-rgb:    $success-rgb,
+  info-rgb:       $info-rgb,
+  warning-rgb:    $warning-rgb,
+  danger-rgb:     $danger-rgb,
+  active-rgb:     $active-rgb,
+  border-rgb:     $border-rgb,
+  disabled-rgb:   $disabled-rgb,
+  focus-rgb:      $focus-rgb,
+  hover-rgb:      $hover-rgb,
+  nav-rgb:        $nav-rgb,
+  valid-rgb:      $valid-rgb,
+  table-rgb:      $table-rgb,
+  widget-rgb:     $widget-rgb,
+  visited-rgb:    $visited-rgb
+);

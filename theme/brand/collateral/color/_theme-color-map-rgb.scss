@@ -1,0 +1,12 @@
+$theme-color-rgb: (
+  primary-rgb: $primary-rgb,
+  secondary-rgb: $secondary-rgb,
+  accent-rgb: $accent-rgb
+);
+$contextual-color: (
+  valid-color-rgb: $valid-color-rgb,
+  info-color-rgb: $info-color-rgb,
+  attention-color-rgb: $attention-color-rgb,
+  alert-color-rgb: $alert-color-rgb,
+  invalid-color-rgb: $invalid-color-rgb
+);

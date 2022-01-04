@@ -1,0 +1,58 @@
+/* Variables - Colors */
+
+/* Utitities Color */
+
+$light-color:             $white;
+$dark-color:              $gray-900;
+
+$shadow-color:            $gray-800;
+$shadow-text-color:       $gray-800;
+$shadow-box-color:        $gray-800;
+
+/* Link Utilities */
+$active-component-color:  $primary-color;
+$active-component-bg-color  shade($active-component-color, $background-shade-percentage);
+$active-component-border-color: $active-component-color;
+
+$disabled-text-color:       $gray-500;
+$disabled-bg-color:         shade($disabled-text-color, $background-shade-percentage);
+$disabled-border-color:     $disabled-text-color;
+
+/* Utilities Typography */
+$body-text-color:         $black;
+$body-bg-color:           shade($primary-color, $background-shade-percentage);
+$text-muted-color:        ting($text-body-color, $muted-change-percentage);
+
+$site-title-color:        $primary-color;
+$page-title-color:        $secondary-color;
+$post-title-color:        $accent-color;
+$lead-text-color:         tint($post-title-color, $muted-change-percentage);
+$caption-text-color:      tint($body-text-color, $muted-change-percentage);
+$nav-text-color:          $secondary-color;
+$quote-text-color:        $accent-color;
+$footer-text-color:       $accent-color;
+
+/* Utilities Input*/
+$input-text-color:          $gray-500;
+$input-bg-color:            $gray-100;
+$input-border-color:        $gray-900;
+$input-text-focus-color:    $gray-800;
+$input-bg-focus-color:      $white;
+$input-border-focus-color:  $gray-100;
+
+/* Nav Utilities */
+$nav-active-color:                  $gray-800;
+$nav-link-transition-color:         color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out !default;
+
+$tabs-active-color:                   $gray-800;
+$tabs-active-bg-color:                $gray-600;
+$tabs-active-border-color:            $gray-800;
+
+$btn-bg-primary-color:          tint($primary-color, $background-tint-percentage);
+$btn-bg-secondary-color:        tint($secondary-color, $background-tint-percentage);
+$btn-bg-accent-color:           tint($accent-color, $background-tint-percentage);
+$btn-bg-info-color:             tint($info-color, $background-tint-percentage);
+$btn-bg-valid-color:            tint($valid-color, $background-tint-percentage);
+$btn-bg-alert-color:            tint($alert-color, $background-tint-percentage);
+$btn-bg-attention-color:        tint($attention-color, $background-tint-percentage);
+$btn-bg-invalid-color:          tint($invalid-color, $background-tint-percentage);

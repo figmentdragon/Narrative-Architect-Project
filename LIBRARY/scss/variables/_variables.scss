@@ -1,0 +1,87 @@
+
+$active-text-hover-color            : shift-color($active-text-color, $active-hover-change-percentage);
+$active-bg-color                    : tint-color($active-text-color, $active-bg-tint-color-percentage);
+$active-border-color                : shade($active-text-color, $active-border-shade-border);
+
+$active-border-hover-color          : shift-color($active-text-color, $active-hover-change-percentage);
+$active-bg-hover-color              : shift-color($active-bg-color, $active-hover-change-percentage);
+
+$disabled-bg-color                  : color-mix( in srgb, $active-bg-color $disabled-bg-tint-percentage, $disabled-color);
+$disabled-border-color              : color-mix( in srgb, $active-border-color $disabled-border-shade-border, $disabled-color);
+
+/* ______________________________________________________ Typography */
+
+
+
+
+$jumbotron-bg-color                 : lighten($gray-400, $muted-tint-percentage);
+
+
+/* ______________________________________________________ Link */
+/* Style anchor elements. */
+$link-text-color                 : $active-text-color;
+$link-decoration:                         bold;
+$link-text-hover-color              : shift-color($link-text-color, $link-shade-percentage);
+$link-hover-decoration    : bold, underline;
+
+$link-text-visited-color            : shade-color($link-text-color, $link-visited-shade-percentage);
+$link-visited-decoration:                 underline;
+$link-text-visited-hover            : shade-color($link-text-visited-color, $link-hover-shade-percentage);
+
+$stretched-link-pseudo-element:           after;
+$stretched-link-z-index:                  1;
+
+$nav-link-text-color             : $active-text-color;
+$nav-link-text-hover-color       : shift-color($nav-link-text-color, $link-shade-percentage);
+$nav-link-transition             : color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+
+$tabs-active-bg                  : $gradient-tabs-bg;
+$tabs-active-border              : shade-color($nav-link-text-color, $active-border-shade-border);
+
+
+
+
+
+
+
+
+/* ____________________________________________ Card */
+$card-text-color                 : $text;
+$card-bg-color                   : tint-color($primary-color, $background-tint-percentage);
+
+$card-body-text-color            : $card-text-color;
+$card-body-bg-color              : tint-color($accent-color, $background-tint-percentage);
+$card-body-border-color          : shade-color($secondary-color, $border-shade-percentage);
+
+$card-cap-text-color             : $primary-color;
+$card-cap-bg-color               : tint-color($card-cap-text-color, $background-tint-percentage);
+
+/* ____________________________________________ Buttons + Form */
+$input-text-color                : $text;
+
+$input-bg-color                  : tint-color($primary-color, 35%);
+$input-border-color              : shade-color($primary-color, $border-shade-percentage);
+
+$input-disabled-bg-color         : color-mix($input-bg-color $disabled-bg-tint-percentage, $disabled-color);
+$input-disabled-border-color     : color-mix($input-border-color $disabled-border-shade-border, $disabled-color);
+
+$input-text-focus          : shade-color($input-text-color, $focus-shade-percentage);
+$input-focus-bg-color            : shade-color($input-bg-color, $focus-shade-percentage);
+$input-focus-border-color        : shade-color($input-border-color, $focus-shade-percentage);
+
+$input-placeholder-text-color    : tint-color($input-text-color, $muted-tint-percentage);
+$input-plaintext-text-color      : tint-color($primary-color, $muted-tint-percentage);
+
+$form-file-button-hover-bg-color : shade-color($input-bg-color, $hover-shade-percentage);
+
+$input-group-bg-color            : tint-color($accent-color, $background-tint-percentage);
+$form-switch-text-color          : $input-bg-color;
+
+/* __________________________________________________ Lists */
+
+$list-group-text-color           : $gray-900;
+$list-group-bg-color             : tint-color($list-group-text-color, $background-tint-percentage);
+$list-group-border-color         : shade-color($list-group-text-color, $border-shade-percentage);
+$list-group-hover-bg             : shift-color($list-group-bg-color, $hover-shade-percentage);
+$list-group-active-bg-color      : shift-color($list-group-text-color, $active-hover-change-percentage);
+$list-group-disabled-bg-color    : $disabled-border-color;

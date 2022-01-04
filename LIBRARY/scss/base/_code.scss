@@ -1,0 +1,88 @@
+/* Code  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+code,
+kbd,
+pre,
+samp,
+tt,
+var {
+  font-family: $font-family-code;
+  @include font-size(1em);
+}
+// Inline code
+code {
+  padding: 0.2rem 0.4rem;
+  @include font-size($code-font-size);
+  color: $code-color;
+  background-color: $code-bg;
+  margin: 0 0.2rem;
+  padding: 0.2rem 0.5rem;
+  white-space: nowrap;
+    border-width: $border-width;
+  @include border-radius($border-radius);
+  a > & {
+    color: inherit;
+  }
+}
+
+// User input typically entered via keyboard
+kbd {
+  padding: $kbd-padding-y $kbd-padding-x;
+  @include font-size($kbd-font-size);
+  color: $kbd-color;
+  background-color: $kbd-bg;
+  @include border-radius($border-radius-sm);
+  @include box-shadow(inset 0 -.1rem 0 rgba(0,0,0,.25));
+
+  kbd {
+    padding: 0;
+    font-size: 100%;    @include font-size(1em);    font-weight: $nested-kbd-font-weight;
+    @include box-shadow(none);
+  }
+}
+
+dd {
+  margin: 0 1.5em 1.5em;
+}
+
+/* Code Blocks  –––––––––––––––––––––––––––––––––––––––––––––––––– */
+pre {
+  display: block;
+  margin: 0;
+  padding: 1.6em;
+  @include font-size($code-font-size);
+  line-height: $line-height;
+  color: $pre-color;
+  overflow: auto;
+  line-height: 1.6;
+  max-width: 100vw;
+  white-space: pre-wrap;
+  // Account for some code outputs that place code tags in pre tags
+  code {
+    padding: 0;
+    font-size: inherit;
+    color: inherit;
+    background-color: transparent;
+    border-radius: 0;
+  }
+
+  pre > code {
+    display: block;
+    padding: 1rem 1.5rem;
+    white-space: pre;
+  }
+  > code {
+    @include font-size(inherit);
+    color: inherit;
+    word-break: normal;
+    display: block;
+    padding: 1rem 1.5rem;
+    white-space: pre;
+  }
+}
+
+
+// Enable scrollable blocks of code
+.pre-scrollable {
+  max-height: $pre-scrollable-max-height;
+  overflow-y: scroll;
+}

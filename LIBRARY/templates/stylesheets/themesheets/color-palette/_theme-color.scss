@@ -1,0 +1,24 @@
+/* ____________________________________ THEME */
+  /* Variables */
+  $primary-color         : #0abab5;
+  $secondary-color       : #ffe41e;
+  $accent-color          : #a8a9ad;
+
+  /* Utility Colors */
+  $valid-color:              $green;
+  $info-color:               $blue;
+  $alert-color:              $orange;
+  $invalid-color:            $red;
+  $attention-color:          $pink;
+
+  $valid-border-color:       shade-color($valid-color, $border-shade-percentage);
+  $info-border-color:        shade-color($info-color, $border-shade-percentage);
+  $alert-border-color:       shade-color($alert-color, $border-shade-percentage);
+  $invalid-border-color:     shade-color($invalid-color, $border-shade-percentage);
+  $attention-border-color:   shade-color($attention-color,$border-shade-percentage);
+
+  $valid-bg-color:                $light-cyan;
+  $info-bg-color:                 $neon-blue;
+  $alert-bg-color:                $salomie;
+  $invalid-bg-color:              $wild-watermelon;
+  $attention-bg-color:            $hot-pink;

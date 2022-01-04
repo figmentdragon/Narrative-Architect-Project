@@ -1,0 +1,10 @@
+// container mixins
+@mixin make-container($gutter: $container-padding-x) {
+  gutter-x: $gutter;
+  gutter-y: 0;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: $gutter;
+  padding-left: $gutter;
+}

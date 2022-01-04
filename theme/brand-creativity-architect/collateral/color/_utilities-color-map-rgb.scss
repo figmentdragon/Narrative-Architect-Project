@@ -1,0 +1,17 @@
+$utilities-text-rgb: (
+  text-muted-rgb: $text-muted-rgb,
+  text-rgb: $text-rgb,
+  bg-rgb: $bg-rgb,
+  caption-rgb: $caption-rgb,
+  caption-border-rgb: $caption-border-rgb,
+  light-rgb: $light-rgb,
+  dark-rgb: $dark-rgb
+)
+$utilities-input: (
+  input-rgb: $input-rgb,
+  input-bg-rgb: $input-bg-rgb,
+  input-border-rgb: $input-border-rgb,
+  input-focus-rgb: $input-focus-rgb,
+  input-focus-bg-rgb: $input-focus-bg-rgb,
+  input-focus-border-rgb: $input-focus-border-rgb
+);

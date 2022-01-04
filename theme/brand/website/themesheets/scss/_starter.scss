@@ -1,0 +1,106 @@
+/* CJMTheme _________________________________________________________
+
+  Theme                          : CJMT - Creativity Architect Default
+  Author                         : CJMT
+
+  Stylesheet                     : Default Theme
+
+  = TOC =
+   ()
+   ()
+   ()
+
+_________________________________________________________ CJMTheme */
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-caret:                true !default;
+$enable-rounded:              true !default;
+$enable-shadows:              true !default;
+$enable-gradients:            true !default;
+$enable-transitions:          true !default;
+$enable-reduced-motion:       true !default;
+$enable-smooth-scroll:        true !default;
+$enable-grid-classes:         true !default;
+$enable-container-classes:    true !default;
+$enable-cssgrid:              true !default;
+$enable-button-pointers:      true !default;
+$enable-rfs:                  true !default;
+$enable-validation-icons:     true !default;
+$enable-negative-margins:     true !default;
+$enable-deprecation-messages: true !default;
+$enable-important-utilities:  true !default;
+
+// Prefix for :root CSS variables
+
+$variable-prefix:             ca- !default;
+
+/* ________________________ PROPERTIES CONTROLED BY DEFAULT*/
+
+/* _____________________________________ SPACING */
+$spacing                         : 1;
+$base-number                     : 1.15;
+
+/* _____________________________________ POSITIONING */
+$base-offset                     : 16px;
+$horizontal-offset-px            : 16px; // 1vh = 8px;
+$horizontal-offset:              : 2vh;
+$vertical-offset:                : 2.75vw;
+$vertical-offset-px:             : 16px; // 1vw = 6px;
+
+/* _____________________________________ GRID */
+$column-number                   : 16;
+$row-number                      : 16;
+
+/* _____________________________________ BODY */
+  /* Type */
+  $body-align-text                 : null;
+  $text-margin-bottom              : $spacing;
+
+/* ____________________________________ COMPONENTS */
+  /* Border */
+  $base-width                      : 1px;
+  $base-radius                     : .95rem;
+
+  /* Links */
+  $disabled-text                   : color-mix(srgb, $secondary-color 40%, $white);
+
+    $link-hover-color                : shift-color($link-text-color, $link-hover-percentage);
+    $link-visited-color              : shade-color($link-text-color, $link-visited-percentage);
+    $link-visited-hover-color        : shade-color($link-text-color, $link-visited-percentage);
+
+  /*  Lists */
+  $list-group-bg-color             : tint-color($list-group-text-color, $background-percentage);
+  $list-group-border-color         : shade-color($list-group-text-color, $border-percentage);
+  $list-group-hover-bg             : shift-color($list-group-bg-color, $hover-percentage);
+  $list-group-bg-color             : shift-color($list-group-text-color, $hover-percentage);
+  $list-group-disabled-bg-color    : color-mix($list-group-bg-color $disabled-bg-percentage, $disabled-color);
+
+  /* ____________________________________ OBJECTS */
+  /* Nav */
+  $nav-text-hover                  : darken($nav-text-color, $hover-percentage);
+
+  $tabs-hover-border               : shade-color($border-color, $hover-percentage);
+
+  $navbar-dark-hover               : shift-color($navbar-dark-text, $hover-percentage);
+  $navbar-dark-disabled-text       : color-mix(srgb $navbar-dark-text $disabled-percentage, $disabled-color);
+
+  $navbar-light-hover              : shift-color($navbar-light-text, $hover-percentage);
+  $navbar-light-disabled-text      : color-mix(srgb $navbar-light-text $disabled-percentage, $disabled-color);
+
+  /* Buttons + Forms */
+  $input-disabled-bg-color         : color-mix($input-text-color $disabled-bg-percentage, $disabled-color);
+  $input-disabled-border-color     : color-mix($input-text-color $disabled-border-percentage, $disabled-color);
+
+  $input-text-focus-color          : shade-color($input-text-color, $focus-percentage);
+  $input-focus-bg-color            : shade-color($input-bg-color, $focus-percentage);
+  $input-focus-border-color        : shade-color($input-border-color, $focus-percentage);
+
+  $input-placeholder-text-color    : tint-color($input-text-color, $muted-percentage);
+  $input-plaintext-text-color      : tint-color($primary-color, $muted-percentage);
+
+  $form-file-button-hover-bg-color : shade-color($input-bg-color, $hover-percentage);
+
+  $input-group-bg-color            : tint-color($accent-color, $background-percentage);

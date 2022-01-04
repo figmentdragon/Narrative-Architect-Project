@@ -1,0 +1,53 @@
+
+  /* Typography */
+  $headings-text-color   : $primary-color;
+  $footer-text-color     : $accent-color;
+
+/* ____________________________________ FOUNDATION */
+  /* Background */
+  $body-bg-color         : tint-color($secondary-color, $background-percentage);
+  $page-bg-color         : tint-color($primary-color, $background-percentage);
+  $main-bg-color         : tint-color($accent-color, $background-percentage);
+
+  /* Borders */
+  $border-color          : $chocolate;
+
+  /* Links */
+  $active-link-color     : $secondary-color;
+  $disabled-color        : $saltpan;
+
+/* ____________________________________ OBJECTS */
+  /* Shadow */
+  $shadow-color          : darken($primary-color, $shadow-percentage);
+
+  /* Nav */
+  $nav-link-color        : $active-link-color;
+    // Navbar
+    $navbar-dark-text    : $accent-color;
+    $navbar-light-text   : $primary-color;
+
+  /* Lists */
+  $list-group-text-color : $gray-900;
+
+  /* Color Maps */
+  $theme-colors            : (
+    primary-color          : #0abab5,
+    secondary-color        : #ffe41e,
+    accent-color           : #a8a9ad,
+    valid-color            : #cdffff,
+    info-color             : #555aff,
+    alert-color            : #ffd080,
+    invalid-color          : #ff555a,
+    attention-color        : #ff6fa9
+    );
+
+/* ______________________________________________________ BACKGROUNDS */
+  /* Theme BG Colors */
+  $primary-bg            : tint-color($primary-color, $background-percentage);
+  $secondary-bg          : tint-color($secondary-color, $background-percentage);
+  $accent-bg             : tint-color($accent-color, $background-percentage);
+  $valid-bg              : tint-color($valid-color, $background-percentage);
+  $alert-bg              : tint-color($alert-color, $background-percentage);
+  $invalid-bg            : tint-color($invalid-color, $background-percentage);
+  $attention-bg          : tint-color($attention-color, $background-percentage);
+  $info-bg               : tint-color($info-color, $background-percentage);

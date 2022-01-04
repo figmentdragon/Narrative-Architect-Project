@@ -1,0 +1,146 @@
+/* CJMT colorpalette _________________________________________________________
+
+Theme/Brand Name             : CJMT
+Author                       : CJMT
+
+Stylesheet                   : CJMT Brand Stylesheet
+
+  = TOC =
+  [] Color Palette
+    (1) Color Variables
+    (2) Brand Colors
+    (3) Utilities Colors
+  [] Properties
+  [] Utilities
+
+_________________________________________________________ CJMT colorpalette */
+
+
+/* _______________________________________ COLOR PALETTE */
+/* Color Variables */
+
+/* scss-docs-start gray-color-variables */
+$white                       : #e4edf4;
+$gray-100                    : #c0c0c0;
+$gray-200                    : #9a9a9a;
+$gray-300                    : #7b7b7b;
+$gray-400                    : #626262;
+$gray-500                    : #4e4e4e;
+$gray-600                    : #3e3e3e;
+$gray-700                    : #323232;
+$gray-800                    : #282828;
+$gray-900                    : #1a1a1a;
+$black                       : #000100;
+/* scss-docs-end gray-color-variables */
+
+/* Color Variables */
+$blue                        : #0a0fba;
+$indigo                      : #6600ff;
+$purple                      : #510bda;
+$pink                        : #fc89ac;
+$red                         : #ba0a0f;
+$orange                      : #fd8535;
+$yellow                      : #ffe41e;
+$green                       : #82ded1;
+$teal                        : #b5ede4;
+$cyan                        : #0abab5;
+$gray                        : $gray-600;
+
+$silver                      : #a8a9ad;
+
+/* Tabs */
+$chocolate                   : #623412;
+$camel                       : #c19a6b;
+$saltpan                     : #ffffcc;
+$white-chocolate             : #ede6d6;
+$dark-vanilla                : #d1bea8;
+$ghost-white                 : #fbfbfd;
+
+$deep-sky-blue               : #0dcaf0;
+$coral                       : #ff7f50;
+$maroon                      : #800000;
+
+/* Brand Colors */
+$primary-color               : $cyan;
+$secondary-color             : $yellow;
+$accent-color                : $silver;
+
+$light-cyan                  : #cdffff; /* Light Green */
+$neon-blue                   : #555aff; /* light blue */
+$salomie                     : #ffd080; /* light orange */
+$wild-watermelon             : #ff555a; /* light red */
+$hot-pink                    : #ff6fa9;
+
+/* Utility Colors */
+$valid-color                 : $light-cyan;
+$info-color                  : $neon-blue;
+$alert-color                 : $salomie;
+$invalid-color               : $wild-watermelon;
+$attention-color             : $hot-pink;
+
+$valid-border-color          : $valid-color;
+$info-border-color           : $info-color;
+$alert-border-color          : $alert-color;
+$invalid-border-color        : $invalid-color;
+$attention-border-color      : $attention-color;
+
+/* Theme BG Colors */
+$valid-bg-color              : $green;
+$info-bg-color               : $blue;
+$alert-bg-color              : $orange;
+$invalid-bg-color            : $red;
+$attention-bg-color          : $pink;
+
+/* ________________________ PROPERTIES CONTROLED BY DEFAULT*/
+/* Contrast */
+$dark-contrast               : $black;
+$light-contrast              : $white;
+
+/* Shadow _________ */
+$shadow                : $gray-800;
+$shadow-button-color         : $white;
+
+/*Gradient */
+$gradient-tabs-bg            : linear-gradient(320deg, transparent, rgba($white, .10) 20%, rgba($accent-color, .20) 35%, rgba($accent-color, .30) 50%, rgba($accent-color, .40) 65%);
+
+$border-color                : $chocolate;
+$active-text-color           : $secondary-color;
+$disabled-text-color         : $saltpan;
+
+/* Link ___________ */
+$link-text-color             : $secondary-color;
+$link-active-hover-decoration: bold, underline;
+$nav-text-color              : $secondary-color;
+$nav-link-transition         : color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+
+$tabs-active-bg              : $gradient-tabs-bg;
+
+/* ______________________________________________________ Typography */
+$text             : $gray-800;
+
+$site-title                  : $primary-color;
+$page-title                  : $secondary-color;
+$post-title                  : $accent-color;
+
+$headings-text-color         : $primary-color;
+$blockquote-text-footer-color: $accent-color;
+
+$list-group-text-color       : $black;
+
+/* ____________________________________________ Card */
+
+$card-text-color             : $text;
+$card-cap-text-color         : $primary-color;
+
+/* ____________________________________________ Buttons + Form */
+
+$input-text-color            : $gray-500;
+$input-bg-color              : $gray-100;
+$input-border-color          : $gray-900;
+
+$input-group-bg-color        : $gray-200;
+$form-switch-text-color      : $input-bg-color;
+
+/* __________________________________________________ Lists */
+
+$list-group-text-color       : $gray-900;

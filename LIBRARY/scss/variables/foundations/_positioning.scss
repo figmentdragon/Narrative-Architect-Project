@@ -1,0 +1,34 @@
+$position-values: (
+  0: 0,
+  25: 25%,
+  50: 50%,
+  75: 75%,
+  100: 100%
+);
+
+$aspect-ratios: (
+  '1x1': 100%,
+  '4x3': calc(3 / 4 * 100%),
+  '16x9': calc(9 / 16 * 100%),
+  '21x9': calc(9 / 21 * 100%)
+);
+
+$offset:        $base-offset; /* 32 px */
+$offset-sm:     $offset * $sm; /* 28px */
+$offset-md:     $offset * $md; /* 33.06px */
+$offset-lg:     $offset * $lg; /* 40px */
+
+$offset-x:          calc($offset * divide($xs, 3));
+$offset-y:          divide($offset, $xs);
+$offset-y-lg:       divide($offset, $md);
+
+$padding-xs: calc($offset * $xs);
+$padding-sm: calc($offset * $sm);
+$padding-md: calc($offset * $md);
+$padding-lg: calc($offset * $lg);
+$padding-xl: calc($offset * $xxl);
+$padding-xxl: calc($offset * $xxl);
+
+// Spacing
+
+$block-spacing: 1.5rem;

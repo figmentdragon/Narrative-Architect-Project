@@ -1,0 +1,15 @@
+$utilities-text-colors:(
+  text:               $text,
+  body:               $body,
+  light:              $light,
+  dark:               $dark
+);
+
+$utilities-input:(
+  input:              $input,
+  input-bg:           $input-bg,
+  input-border:       $input-border,
+  input-focus:        $input-focus,
+  input-focus-bg:     $input-focus-bg,
+  input-focus-border: $input-focus-border
+);

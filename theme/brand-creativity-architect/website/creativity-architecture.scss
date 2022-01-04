@@ -1,0 +1,367 @@
+/*
+Theme Name: Architecture
+Theme URI: Your Theme URL
+Author: CJMT
+Author URI: Your URL
+Description: Describe your theme and its features.
+Version: Your Theme's Version Number
+License: GNU General Public License
+License URI: license.txt
+Tags: insert tags to describe your theme to help users search for it. Find the list of tags at: http://wordpress.org/extend/themes/about/
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+IMPORTANT: This stylesheet is designed for learning and includes comments for guidance. It's a good idea to remove the comments when preparing your them for distribution. However, keep the section headers (the word "Reset" below is an example of a section header) intact.
+
+Resetting and rebuilding styles have been helped along thanks to the fine work of Eric Meyer http://meyerweb.com/eric/tools/css/reset/index.html
+along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/ and Blueprint http://www.blueprintcss.org/
+*/
+
+/* ________________________________________________________ RESET */
+
+@import "node_modules/the-new-css-reset/css/reset";
+//@import "docs/library/vendors/starter-kit/scss/typeplate-index";
+
+/* ________________________________________________________ TOOLS */
+
+@import "lib/scss/functions";
+
+@import "docs/theme/branding/color-palette";
+@import "docs/theme/starter";
+@import "docs/theme/color-maps";
+@import "lib/scss/foundation";
+@import "docs/theme/branding/typography";
+
+//@import "docs/lib/vendors/starter-kit/scss/typeplate-index";
+@import "lib/scss/base/root";
+
+@import "lib/scss/mixins";
+
+@import "lib/scss/helpers";
+
+
+/* OBJECTS ________________________________________________________________*/
+@import "lib/scss/card";
+@import "lib/scss/objects/shadows";
+
+
+/* _______________________________________________________ GLOBAL */
+/* Base/Default settings. */
+ul,
+ol,
+dl {
+  text-align: left;
+}
+
+ul,
+ol {
+  margin: 0 0 1.5em 3em;
+}
+ul {
+  list-style: none;
+}
+ol {
+  list-style: decimal;
+}
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+  margin-bottom: 0;
+  margin-left: 1.5em;
+}
+
+li {
+  display: inline;
+}
+
+
+@import "lib/scss/layout/section";
+
+*,
+*::after,
+*::before,
+*:after,
+*:before {
+
+  @include border-box;
+}
+
+html {
+  position: absolute;
+  @include border-box;
+
+  z-index: 100;
+  @media screen and (min-width: 768px) {
+    font-size: 75%;
+  }
+}
+
+body,
+html {
+  position: absolute;
+
+  background: linear-gradient(
+    290deg,
+    transparent,
+    rgba($white, 0.05) 5%,
+    rgba($white, 0.1) 15%,
+    rgba($white, 0.25) 30%,
+    rgba($primary-color, 0.4) 45%,
+    rgba($primary-color, 0.7) 60%,
+    rgba($primary-color, 0.8) 75%,
+    rgba($primary-color, 0.95) 90%,
+    rgba($primary-color, .5) 100%
+  );
+  @include border-box;
+}
+
+
+
+
+
+
+
+
+
+/**
+ * Set up a decent box model on the root element
+ */
+
+/* =Structure
+----------------------------------------------- */
+
+/* Refer to the HTML structure graphic (http://themeshaper.com/wp-content/uploads/2012/10/html-visual.png) to see how these elements are nested in the mark-up.
+
+Use this section to set widths and margins, and to build a layout. For examples of layouts that you can copy and paste into this section, see:
+https://github.com/Automattic/_s/blob/master/layouts/
+*/
+
+.site .container {
+  @include border-box;
+  width: auto;
+  height: 100%;
+  display: grid;
+  flex-direction: row;
+  margin: 0;
+  padding-bottom: 5rem;
+}
+
+
+
+
+
+
+
+
+
+.
+#primary {
+  /* The container for your primary content.*/
+}
+#content {
+  /* The container for your post and page content. */
+}
+
+#tertiary {
+  /* Container for your second widget area */
+}
+
+#architecture{
+  display: inline-block;
+  font-family: $nav-text-font;
+}
+/*________________________________________________________________ HEADER */
+
+.site-header {
+  /* Container for site title and description */
+  position: absolute;
+  height: 3.5rem;
+  display: grid;
+  flex-wrap: nowrap;
+  justify-content: stretch;
+  align-content: start;
+  align-items: start;
+  align-self: auto;
+  z-index: $z-index-header;
+  margin-right: -.25rem;
+  background-image: linear-gradient(
+    205deg,
+    transparent,
+    rgba($white, 0.05) 5%,
+    rgba($accent-color, 0.15) 10%,
+    rgba($accent-color, 0.3) 20%,
+    rgba($primary-color, 0.45) 30%,
+    rgba($primary-color, 0.6) 40%,
+    rgba($primary-color, 0.75) 50%,
+    rgba($primary-color, 0.9) 60%
+  );
+}
+
+.nameplate {
+  margin-left: 12rem;
+  width: 50%;
+  display: block;
+}
+
+#author-name {
+  font-family: $author-font;
+  font-size: $font-size-lg;
+  color: $author-name-color;
+  font-weight: $font-weight-bold;
+}
+
+
+#site-title {
+  font-family: $site-title-font;
+  color: $site-title-color;
+
+}
+
+/* =Menu
+----------------------------------------------- */
+
+/* Style your navigation menu, which is inside .site-header. A basic drop-down menu structure is provided. */
+
+.main-navigation {
+  /* wraps the entire navigation menu */
+  margin-top: 0;
+  margin-right: 0;
+  margin-left: 50%;
+  display: inline-block;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: space-between;
+  align-items: start;
+  align-self: auto;
+  z-index: $z-index-main-navigation;
+}
+
+.main-navigation:after {
+  /* Clears the floats after the menu */
+  clear: both;
+  content: "";
+  display: block;
+}
+.main-navigation ul {
+  /* The menu is an unordered list */
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+.main-navigation li {
+  /* Makes the menu "list" items horizontal */
+  float: left;
+  margin: 0.5em 0;
+  position: relative;
+  display: inline;
+}
+.main-navigation a {
+  /* The individual list item links */
+  display: block;
+  text-decoration: none;
+}
+.main-navigation ul ul {
+  /* Submenu drop-down "box" */
+  display: none;
+  float: left;
+  position: absolute;
+  top: 1.2em;
+  left: 0;
+  z-index: 99999;
+}
+.main-navigation ul ul ul {
+  /* 3rd+ level drop-down "box" */
+  left: 100%;
+  top: 0;
+}
+.main-navigation ul ul li {
+  /* List items inside the drop-down box */
+}
+.main-navigation ul ul a {
+  /* Menu links inside the drop-down "box" */
+  padding: 0 1.5em;
+  width: 200px;
+}
+.main-navigation li:hover > a,
+.main-navigation li.current_page_item a,
+.main-navigation li.current-menu-item a,
+.main-navigation ul ul a:hover {
+  /* Hover styles for menu items */
+}
+.main-navigation ul ul :hover > a {
+}
+.main-navigation ul li:hover > ul {
+  display: block;
+}
+
+/* Small menu toggle area for screens < 600 pixels wide. The small menu requires some simple JavaScript in order to take affect. See http://themeshaper.com/2012/10/31/the-wordpress-theme-header-template/ for instructions on setting up this script. */
+.menu-toggle {
+  cursor: pointer;
+}
+.main-small-navigation .menu {
+  display: none;
+}
+
+/* FOOTER ________________________________________________________________*/
+#site-info {
+  /* Container for the entire site footer area */
+width: 98.8%;
+  margin-right: 3rem;
+  margin-bottom: .12rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: center;}
+
+.copyright {
+  justify-content: end;
+  align-self: end;
+  margin-top: -1rem;
+}
+
+#copyright {
+  font-size: 0.75vw;
+  line-height: 1rem;
+  color: $alert-color;
+}
+
+.email {
+  justify-content: end;
+  align-self: end;
+}
+
+#email {
+  font-size: 0.75vw;
+  line-height: 1rem;
+  color: $alert-color;
+}
+
+.social-media {
+  width: 90rem;
+  margin-left: 2rem;
+  align-self: center;
+  color: $alert-color;
+  font-weight: bolder;
+}
+
+.contact {
+  font-family: 'Hand Typewriter';
+  width: auto;
+  padding-right: 1.75rem;
+  align-self: stretch;
+  align-items: stretch;
+  color: $alert-color;
+  font-weight: bolder;
+}
+
+/* Search widget */
+#searchsubmit {
+	display: none;
+}
+.widget_search #s {
+
+}
+
+@import "lib/scss/layout/front-page";

@@ -1,0 +1,116 @@
+$primary-color-gradient: linear-gradient(
+  290deg,
+  transparent,
+  rgba($white, 0.05) 3%,
+  rgba($accent-color, 0.1) 15%,
+  rgba($secondary-color, 0.25) 27%,
+  rgba($secondary-color, 0.30) 39%,
+  rgba($primary-color, 0.6) 45%,
+  rgba($primary-color, 0.35) 51%,
+  rgba($primary-color, 0.4) 63%,
+  rgba($primary-color, 0.45) 75%,
+  rgba($primary-color, .5) 90%
+  );
+
+$secondary-color-gradient: linear-gradient(
+  290deg,
+  transparent,
+  rgba($white, .3) 40%,
+  rgba($primary-color, .5) 35%
+  rgba($accent-color, 0.4) 25%,
+  rgba($accent-color, 0.5) 40%,
+  rgba($secondary-color, 0.6) 45%,
+  rgba($secondary-color, 0.7) 55%,
+  rgba($secondary-color, 0.8) 65%,
+  rgba($secondary-color, 0.9) 70%,
+  rgba($secondary-color, 1) 90%,
+);
+
+$accent-color-gradient: linear-gradient(
+  290deg,
+  transparent,
+  rgba($white, .3) 40%,
+  rgba($secondary-color, .5) 35%
+  rgba($primary-color, 0.4) 25%,
+  rgba($primary-color, 0.5) 40%,
+  rgba($accent-color, 0.6) 45%,
+  rgba($accent-color, 0.7) 55%,
+  rgba($accent-color, 0.8) 65%,
+  rgba($accent-color, 0.9) 80%,
+  rgba($accent-color, 1) 90%,
+);
+
+
+$footer-gradient2: linear-gradient(
+  90deg,
+  transparent,
+  rgba($white, 0.2) 5%,
+  rgba($white, 0.3) 5%,
+  rgba($accent-color, 0.4) 15%,
+  rgba($accent-color, 0.5) 30%,
+  rgba($primary-color, 0.6) 45%,
+  rgba($primary-color, 0.7) 60%,
+  rgba($primary-color, 0.8) 75%,
+  rgba($primary-color, 0.9) 90%,
+  rgba($primary-color, 1) 95%
+);
+
+$footer-gradient: linear-gradient(
+  90deg,
+  transparent,
+  rgba($accent-color, 0.9) 15%,
+  rgba($accent-color, 0.85) 20%,
+  rgba($accent-color, 0.8) 25%,
+  rgba($accent-color, 0.7) 30%,
+  rgba($primary-color, 0.6) 35%,
+  rgba($primary-color, 0.55) 50%,
+  rgba($primary-color, 0.50) 65%,
+  rgba($primary-color, 0.45) 80%,
+  rgba($primary-color, .4) 95%
+);
+
+$nav-gradient: linear-gradient(
+  205deg,
+  rgba($accent-color, 0.65) 5%,
+  rgba($gray-300, 0.7) 25%,
+  rgba($gray-400, 0.75) 35%,
+  rgba($gray-500, 0.8) 40%,
+  rgba($accent-color, 0.85) 45%,
+  rgba($accent-color, 0.9) 60%,
+  rgba($accent-color, 1) 75%
+  rgba($accent-color, 0.5) 80%,
+  rgba($accent-color, 0.25) 90%
+);
+
+/* _____________________________________ SHADOWS */
+$shadow-button                   : darken($shadow-color, $shadow-btn-percentage );
+$shadow-hover                    : tint-color($shadow-color, $hover-percentage);
+$shadow-focus                    : shift-color($shadow-color, $focus-percentage);
+$shadow-inset-a                  : darken($shadow-color, $shadow-inset-percentage);
+$shadow-inset-b                  : tint-color($shadow-color, $shadow-inset-percentage);
+
+
+/* BOX SHADOW */
+$box-shadow: 1.75rem 1.5rem 1.75rem $shadow-color;
+$box-shadow-sm: 1.25rem 1rem 1.25rem rgba($shadow-color, .5);
+$box-shadow-lg: 2.25rem 2rem 2.25rem rgba($shadow-color, .75);
+$box-shadow-hover: .25rem .50rem .75rem $shadow-hover;
+$box-shadow-focus: -.25rem .50rem .75rem $shadow-focus, -.25rem -.50rem .75rem tint-color(rgba(50,50,50), 25%);
+
+$box-shadow-inset: inset -.25rem -.25rem -.50rem 0px rgb($shadow-inset-a, .7) 25%, inset .25rem .25rem .50rem 0px rgb($shadow-inset-b, .35) 25%;
+
+$masthead-shadow: 0 1.2rem .9rem 1rem shift-color($shadow-color, $active-percentage);
+
+
+
+/* CARD SHADOW */
+$card-box-shadow: 1.5rem 1.25rem 1.25rem $shadow-color;
+$card-box-shadow-inset: $shadow-inset-a -.25rem -.25rem -.50rem 0px inset, $shadow-inset-b .25rem .25rem .50rem 0px inset;
+
+/* INPUT SHADOW */
+$input-box-shadow: 0 0 $input-btn-focus-blur $border-width-focus $input-text-focus;
+
+
+/* BUTTON SHADOW */
+$button-shadow: inset 0 1px 0 rgba($white, .15), 0 1px 1px rgba($shadow-button, .075);
+$btn-shadow-focus: inset 0 -1px 0 rgba($white, .15), 0 -1px 1px rgba($shadow-button, .075);

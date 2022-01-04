@@ -1,0 +1,11 @@
+// Links
+//
+// Style anchor elements.
+
+$link-color:                              $active-component-color;
+$link-decoration:                         underline;
+$link-hover-color:                        shift-color($link-color, $link-active-shade-percentage);
+$link-active-hover-decoration:            bold, underline;
+
+$stretched-link-pseudo-element:           after;
+$stretched-link-z-index:                  1;

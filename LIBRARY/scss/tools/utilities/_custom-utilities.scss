@@ -1,0 +1,38 @@
+@use "functions-dir";
+@use "variables-dir";
+@use "utilities-dir";
+
+$utilities: map-merge(
+  $utilities, (
+    "color": (
+      property: color,
+      class: text,
+      values: map-merge(
+      $theme-colors, (
+        "white": $white,
+        "body": $body-color,
+        "muted": $text-muted,
+        "black-50": rgba($black, .5),
+        "white-50": rgba($white, .5),
+        "reset": inherit,
+        )
+      )
+    )
+  ),
+);
+
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/utilities";
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "cursor": (
+      property: cursor,
+      class: cursor,
+      responsive: true,
+      values: auto pointer grab,
+    )
+  )
+);
