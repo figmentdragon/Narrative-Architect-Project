@@ -1,0 +1,76 @@
+// Navs
+$caret-width: .33rem;
+$caret-vertical-align: $caret-width * .875;
+$caret-spacing: $caret-width * .875;
+
+// scss-docs-start nav-variables
+$nav-link-padding-y: .5rem;
+$nav-link-padding-x: 1rem;
+$nav-link-font-size: 1.25rem;
+$nav-link-font-weight: bold;
+$nav-link-color: $nav;
+$nav-link-hover-color: $hover;
+$nav-link-text-shadow: $text-shadow;
+$nav-link-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+$nav-link-disabled-color: $disabled;
+$nav-link-line-height: ($base-unit * $line-height-body) * 2;
+
+$nav-link-spacer-xs: calc($spacer * $xs);
+$nav-link-spacer-sm: calc($spacer * $sm);
+$nav-link-spacer-md: calc($spacer * $xl);
+$nav-link-spacer-lg: calc($spacer * $lg);
+$nav-link-spacer-xl: calc($spacer * $xl);
+$nav-link-spacer-xxl: calc($spacer * $xxl);
+
+$nav-link-color: $active;
+$nav-link-hover-color: $hover;
+$nav-link-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+$nav-link-disabled-color: $disabled;
+
+$nav-tabs-border-color: $border;
+$nav-tabs-border-width: $border-width-md;
+$nav-tabs-border-radius: $border-radius-sm;
+$nav-tabs-link-hover-border-color: $hover;
+$nav-tabs-link-active-color: $active;
+$nav-tabs-link-active-bg: $nav-bg;
+$nav-tabs-link-active-border-color: $active;
+
+$nav-pills-link-active-color: $active;
+$nav-pills-link-active-bg: $active-bg;
+$nav-pills-border-radius: $border-radius-pill;
+// scss-docs-end nav-variables
+
+// Navbar
+
+// scss-docs-start navbar-variables
+$navbar-padding-y: $base-unit * .5;
+$navbar-padding-x: $spacer * .75;
+
+$navbar-nav-link-padding-x: .5rem;
+
+$navbar-brand-font-size: font-lg;
+// Compute the navbar-brand padding-y so the navbar-brand will have the same height as navbar-text and nav-link
+$nav-link-height: line-height-lg;
+$navbar-brand-height: 4vh;
+$navbar-brand-padding-y: $spacer * .75;
+$navbar-brand-margin-end: 1rem;
+
+$navbar-toggler-padding-y: .25rem;
+$navbar-toggler-padding-x: .75rem;
+$navbar-toggler-font-size: font-lg;
+$navbar-toggler-border-radius: $btn-border-radius;
+$navbar-toggler-focus-width: $btn-focus-width;
+$navbar-toggler-transition: box-shadow .15s ease-in-out;
+// scss-docs-end navbar-variables
+
+// scss-docs-start navbar-theme-variables
+$navbar-dark-color: rgba($black, .55);
+$navbar-dark-hover-color: rgba($hover, .75);
+$navbar-dark-active-color: $active;
+$navbar-dark-disabled-color: rgba($disabled, .25);
+$navbar-dark-toggler-icon-bg: url('data:image/svg+xml,<svg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 30 30\'><path stroke=\'#{$navbar-dark-color}\' stroke-linecap=\'round\' stroke-miterlimit=\'10\' stroke-width=\'2\' d=\'M4 7h22M4 15h22M4 23h22\'/></svg>');
+$navbar-dark-toggler-border-color: rgba($active, .1);
+
+$navbar-dark-brand-color: $primary;
+$navbar-dark-brand-hover-color: $hover;
+// scss-docs-end navbar-theme-variables

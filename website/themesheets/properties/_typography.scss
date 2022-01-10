@@ -1,0 +1,27 @@
+@use "properties";
+@import "style/type/variables/font-face";
+@import "style/type/variables/font-stacks";
+@import "style/type/variables/font-properties";
+@import "style/type/variables/font-variables";
+
+
+/* ____________________________________ BODY */
+  $body-text-color-align :         null;
+  $text-margin-bottom :            $offset;
+  $paragraph-margin-bottom :       $text-margin-bottom;
+
+  $quotation :                     oblique;
+  $citation :                      italic;
+  $link :                          underline;
+
+/* ______________________________________________________ TEXT SHADOW */
+    $shadow-text             : darken($body-text-color,$active-percentage);
+    $shadow-title            : darken($primary-color, $active-percentage);
+
+  $text-shadow             : .75rem .25rem .10rem $shadow-text;
+  $title-shadow            : .65rem .5rem .15rem $shadow-title;
+
+  @import "style/type/variables/headings-variables";
+  @import "style/type/variables/type-variables";
+  @import "style/type/variables/quote-variables";
+  @import "style/type/variables/code";

@@ -1,0 +1,15 @@
+// base-offset.scss
+$offset :                   16px;
+$offsets :                        (
+  xs :                             0,
+  sm :                             $offset * .25 /* ! 4px */,
+  md :                             $offset * .5 /* ! 8px */,
+  lg :                             $offset /* ! 16px */,
+  xl :                             $offset * 1.5 /* ! 24px */,
+  xxl :                            $offset * 3 /* ! 48px */
+  );
+
+$negative-offset :               negativify-map($offset);
+
+$vertical-offset :                 1vh /* ! 1vh=8px */;
+$horizontal-offset :               1vw /* ! 1vw=6.5px */;

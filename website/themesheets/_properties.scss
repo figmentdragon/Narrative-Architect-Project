@@ -1,0 +1,60 @@
+/* PROPERTIES _________________________________________________________
+
+  _________________________________________________________ PROPERTIES */
+@import "properties/color-palette";
+
+  /* __________________________________ SPACING */
+  $base-unit :                     1.15;
+
+  /* ____________________________________ SIZING */
+  $base-size : 1.05;
+
+    $xs        : $base-size * .75 /*! .86 14px 10.5pt */;
+    $sm        : $base-size * .875 /* ! 1.0 16px 12pt medium */;
+    $md        : $base-size * 1.05 /* ! 1.20 19px 14pt */;
+    $lg        : $base-size * 1.25 /* ! 1.44 23px 17pt */;
+    $xl        : $base-size * 1.50 /* ! 1.73 26-29px 20-22 large */;
+    $xxl       : $base-size * 1.75 /* ! 2.01 32px 24pt */;
+
+  // block-spacing.scss
+  $block-spacing :                 1.5rem;
+
+  @import "properties/padding";
+
+  /* ____________________________________ BORDER */
+  $base-width :                    1px;
+  $base-radius :                   .95rem;
+
+  /* ____________________________________ ANIMATION */
+  $animation-speed :               250ms;
+  $animation :                     ease-in-out;
+
+/* _____________________________________ ESCAPED CHARACTERS */
+  // Characters which are escaped by the escape-svg function
+  $escaped-characters :            (
+	("<", "%3c"),
+	(">", "%3e"),
+	("#", "%23"),
+	("(", "%28"),
+	(")", "%29"),
+  );
+
+/* ____________________________________ BORDER */
+  $base-width :                    1px;
+  $base-radius :                   .95rem;
+
+/* _____________________________________ GRID */
+  $grid-columns :                  16;
+  $grid-row-columns :              16;
+  $grid-gutter :                   16px;
+
+@import "properties/typesetting";
+@import "properties/typography";
+
+  @import "properties/col-width";
+
+  @import "properties/row-height";
+
+  @import "properties/zindex";
+
+  @import "properties/maps";

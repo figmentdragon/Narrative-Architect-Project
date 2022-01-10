@@ -1,0 +1,36 @@
+@use 'sass:math';
+
+/* MIXIN: Grid Loop */
+@mixin grid-loop($name) {
+  @for $i from 0 through $grid-columns {
+    @if $i != 0 {
+      .col--#{$name}-#{$i} {
+        width : divide($i, $grid-columns));
+
+        .row--flex & {
+          width      : auto;
+          max-width  : percentage(math.div($i, $grid-columns));
+          float      : none;
+          flex-basis : percentage(math.div($i, $grid-columns));
+        }
+      }
+    }
+    .col--#{$name}-offset-#{$i} {
+      margin-left : percentage(divide($i, $grid-columns));
+    }
+  }
+}
+
+/* Max width of container */
+
+/* Number of total columns */
+
+/* Breakpoints */
+
+/* Grid loop mixin */
+
+/* Clearfix */
+
+/* Default variables and helper mixins */
+
+/* Grid scaffolding */

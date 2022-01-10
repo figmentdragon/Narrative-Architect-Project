@@ -1,0 +1,90 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+.btn {
+	font-family: $btn-font-family;
+	font-weight: $btn-font-weight;
+	line-height: $btn-line-height;
+	text-decoration: $link-decoration;
+  background-color: transparent;
+  color: $body-color;
+  border: $btn-border-width solid transparent;
+  display: inline-block;
+    padding: #{$base-unit / 4} $base-unit;
+  text-align: center;
+  white-space: $btn-white-space;
+  vertical-align: middle;
+    touch-action: manipulation;
+    cursor: pointer;
+  user-select: none;
+	border-radius: $btn-border-radius;
+  transition: $btn-transition;
+
+    &::-moz-focus-inner {
+        border: 0;
+        padding: 0;
+    }
+
+    &:hover {
+        text-decoration: $link-hover-decoration;
+        background-color: var(--body-bg);
+    		color: $body-color;
+        border-color: $primary-color;
+    }
+
+		.btn-check:focus + &,
+		&:focus {
+			outline: 0;
+			box-shadow: $btn-focus-box-shadow;
+		}
+
+    &.disabled,
+    &:disabled,
+		fieldset:disabled & {
+        pointer-events: none;
+        opacity: $btn-disabled-opacity;
+				box-shadow: none;
+    }
+}
+
+@each $color, $value in $theme-colors {
+  .btn-#{$color} {
+    @include button-variant($value, $value);
+  }
+}
+
+@each $color, $value in $theme-colors {
+  .btn-outline-#{$color} {
+    @include button-outline-variant%value;
+  }
+}
+
+.btn-link {
+  font-weight: $font-weight-base;
+  color: $btn-link-color;
+  text-decoration: $link-decoration;
+
+  &:hover {
+    color: $btn-link-hover-color;
+    text-decoration: $link-hover-decoration;
+  }
+
+  &:focus {
+    text-decoration: $link-hover-decoration;
+  }
+
+  &:disabled,
+  &.disabled {
+    color: $btn-link-disabled-color;
+  }
+
+  // No need for an active state here
+}
+
+.btn-lg {
+  @include button-size ($btn-padding-y-lg, $btn-padding-x-lg, $btn-large-font-size, $btn-border-radius-lg);
+}
+
+.btn-sm {
+  @include button-size ($btn-padding-y-sm, $btn-padding-x-sm, $btn-font-size-sm, $btn-border-radius-sm);
+}

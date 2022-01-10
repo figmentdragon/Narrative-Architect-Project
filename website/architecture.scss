@@ -1,0 +1,68 @@
+/* CJMTheme _________________________________________________________
+
+  Theme                          : CJMT - Creativity Architect Default
+  Author                         : CJMT
+
+  Stylesheet                     : Default Theme
+
+  = TOC =
+   ()
+   ()
+   ()
+
+_________________________________________________________ CJMTheme */
+
+/* __________________________________________________ DEMOLITION */
+
+  @import "lib/scss/grid/grid";
+
+/* __________________________________________________ FUNCTIONS */
+
+  @import "lib/scss/abstracts/tools/functions";
+  @import "lib/scss/abstracts/tools/mixins";
+
+/* __________________________________________________ THEME */
+
+  @import "docs/themesheets/change-percentage";
+  @import "docs/themesheets/color-palette";
+  @import "properties";
+  @import "docs/themesheets/color-palette/patterns";
+  @import "docs/themesheets/typesetting";
+
+  @import "lib/scss/abstracts/materials/zindex";
+  @import "lib/scss/abstracts/materials/escaped-characters";
+  @import "lib/scss/abstracts/materials/gradient";
+
+  @import "shame";
+
+/* __________________________________________________ ROOT */
+
+  @import "lib/scss/abstracts/tools/helpers";
+
+  @import "lib/scss/abstracts/root";
+
+/* __________________________________________________ OBJECTS */
+
+  @import "lib/scss/objects/elements/base";
+  @import "lib/scss/objects/elements/headings";
+  @import "lib/scss/objects/elements/text-elements";
+  @import "lib/scss/objects/elements/lists";
+  @import "lib/scss/objects/elements/code";
+  @import "lib/scss/objects/elements/table";
+  @import "lib/scss/objects/elements/form-elements";
+  @import "lib/scss/objects/elements/input";
+  @import "lib/scss/objects/elements/links";
+  @import "lib/scss/objects/elements/social";
+  @import "lib/scss/objects/elements/alignment";
+  @import "lib/scss/objects/elements/assistive-tech";
+
+  @import "lib/scss/objects/widgets";
+
+  @import "lib/scss/objects/modules/shadows";
+  @import "lib/scss/objects/modules/card";
+
+/* __________________________________________________ PAGES */
+
+  @import "lib/scss/pages/global";
+
+  @import "lib/scss/pages/structure";

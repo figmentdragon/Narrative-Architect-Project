@@ -1,0 +1,11 @@
+// container mixins
+@mixin make-container() {
+  @include clearfix;
+  @include border-box;
+  min-width: 100%;
+  max-width : $grid-max-width;
+  margin: 0 0 auto;
+  padding: 0 $offset;
+  overflow: hidden;
+  display: block;
+}

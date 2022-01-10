@@ -1,0 +1,142 @@
+/* CJMTheme _________________________________________________________
+
+  Theme                          : CJMT - Creativity Architect Default
+  Author                         : CJMT
+
+  Stylesheet                     : Default Theme
+
+  = TOC =
+   ()
+   ()
+   ()
+
+_________________________________________________________ CJMTheme */
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-caret:                true !default;
+$enable-rounded:              true !default;
+$enable-shadows:              true !default;
+$enable-gradients:            true !default;
+$enable-transitions:          true !default;
+$enable-reduced-motion:       true !default;
+$enable-smooth-scroll:        true !default;
+$enable-grid-classes:         true !default;
+$enable-container-classes:    true !default;
+$enable-cssgrid:              true !default;
+$enable-button-pointers:      true !default;
+$enable-rfs:                  true !default;
+$enable-validation-icons:     true !default;
+$enable-negative-margins:     true !default;
+$enable-deprecation-messages: true !default;
+$enable-important-utilities:  true !default;
+
+// Prefix for :root CSS variables
+
+$variable-prefix:             ca- !default;
+
+/* ________________________ PROPERTIES CONTROLED BY DEFAULT*/
+/* Contrast */
+/* The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7. */
+/* See https                     ://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast */
+$min-contrast-ratio              : 4.5;
+
+$dark-contrast                   : $dark;
+$light-contrast                  : $light;
+
+/* Customize the light and dark text colors for use in our color contrast function. */
+$color-contrast-dark             : $dark-contrast;
+$color-contrast-light            : $light-contrast;
+
+/* _____________________________________ SPACING */
+$spacing                         : 1;
+$base-number                     : 1.15;
+
+/* _____________________________________ POSITIONING */
+$base-offset                     : 16px;
+$horizontal-offset-px            : 16px; // 1vh = 8px;
+$horizontal-offset:              : 2vh;
+$vertical-offset:                : 2.75vw;
+$vertical-offset-px:             : 16px; // 1vw = 6px;
+
+/* _____________________________________ GRID */
+$column-number                   : 16;
+$row-number                      : 16;
+
+
+/* _____________________________________ BODY */
+$body-text-color                 : darken($primary-color, 60%);
+$body-bg-color                   : tint-color($secondary-color, $background-percentage);
+$page-bg-color                   : tint-color($primary-color, $background-percentage);
+$main-bg-color                   : tint-color($accent-color, $background-percentage);
+$body-align-text                 : null;
+$text-margin-bottom              : $spacing;
+$text-muted-color                : color-mix(srgb, $accent-color 40%, $white);
+
+/* _____________________________________ BORDERS */
+$base-width                      : 1px;
+$base-radius                     : .95rem;
+$border-color                    : $chocolate;
+
+
+/* _____________________________________ SHADOWS */
+$shadow              : darken($primary-color, $shadow-percentage);
+$shadow-text         : darken($body-text-color, $active-percentage);
+$shadow-title        : darken($accent-color, $focus-percentage);
+$shadow-button       : darken($primary-color, $shadow-btn-percentage);
+$shadow-hover        : darken($primary-color, $hover-percentage);
+$shadow-focus        : darken($primary-color, $focus-percentage);
+$shadow-inset-a:     : darken($primary-color, $shadow-inset-percentage);
+$shadow-inset-b        : tint-color($primary-color, $shadow-inset-percentage);
+
+/* _____________________________________ LINK */
+$link-decoration              : underline;
+$link-hover-decoration        : underline, bold;
+$link-visited-decoration      : underline;
+
+$link-hover-color                : shift-color($link-text-color, $link-hover-percentage);
+$link-visited-color              : shade-color($link-text-color, $link-visited-percentage);
+$link-visited-hover-color        : shade-color($link-text-color, $muted-percentage);
+
+
+
+$navbar-dark-hover               : shift-color($navbar-dark-text, $hover-percentage);
+$navbar-dark-disabled-text       : color-mix(srgb $navbar-dark-text $disabled-percentage, $disabled-color);
+$navbar-dark-toggler-border      :     $navbar-dark-text;
+
+$navbar-light-hover              : shift-color($navbar-light-text, $hover-percentage);
+$navbar-light-disabled-text      : color-mix(srgb $navbar-light-text $disabled-percentage, $disabled-color);
+
+
+
+/* ____________________________________________ Buttons + Form */
+
+$input-text-color                : darken($primary-color, 50%);
+$input-bg-color                  : tint-color($primary-color, 35%);
+$input-border-color              : shade-color($primary-color, $border-percentage);
+
+$input-disabled-bg-color         : color-mix($input-text-color $disabled-bg-percentage, $disabled-color);
+$input-disabled-border-color     : color-mix($input-text-color $disabled-border-percentage, $disabled-color);
+
+$input-text-focus-color          : shade-color($input-text-color, $focus-percentage);
+$input-focus-bg-color            : shade-color($input-bg-color, $focus-percentage);
+$input-focus-border-color        : shade-color($input-border-color, $focus-percentage);
+
+$input-placeholder-text-color    : tint-color($input-text-color, $muted-percentage);
+$input-plaintext-text-color      : tint-color($primary-color, $muted-percentage);
+
+$form-file-button-hover-bg-color : shade-color($input-bg-color, $hover-percentage);
+
+$input-group-bg-color            : tint-color($accent-color, $background-percentage);
+$form-switch-text-color          : $input-bg-color;
+
+/* __________________________________________________ Lists */
+
+$list-group-text-color           : $gray-900;
+$list-group-bg-color             : tint-color($list-group-text-color, $background-percentage);
+$list-group-border-color         : shade-color($list-group-text-color, $border-percentage);
+$list-group-hover-bg             : shift-color($list-group-bg-color, $hover-percentage);
+$list-group-bg-color             : shift-color($list-group-text-color, $hover-percentage);
+$list-group-disabled-bg-color    : color-mix($list-group-bg-color $disabled-bg-percentage, $disabled-color);

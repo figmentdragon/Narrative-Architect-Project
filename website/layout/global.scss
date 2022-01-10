@@ -1,0 +1,133 @@
+
+
+	/* Line Height */
+	--global--line-height-body: 1.7;
+	--global--line-height-heading: 1.3;
+	--global--line-height-page-title: 1.1;
+
+	/* Headings */
+	--heading--font-family: $font-primary);
+
+
+
+
+
+	/* Block: Latest posts */
+
+
+	--list--font-family: $font-secondary);
+	--definition-term--font-family: $font-primary);
+
+	/* Spacing */
+	--global--spacing-unit: #{2 * $baseline-unit}; // 20px
+	--global--spacing-measure: unset; // Use ch units here. ie: 60ch = 60 character max-width
+	--global--spacing-horizontal: #{2.5 * $baseline-unit}; // 25px
+	--global--spacing-vertical: #{3 * $baseline-unit}; // 30px.
+
+	/* Elevation */
+	--global--elevation: 1px 1px 3px 0 rgba(0, 0, 0, 0.2);
+
+	/* Forms */
+	--form--font-family: $font-secondary);
+<<<<<<< HEAD
+	--form--font-size: $sm);
+=======
+	--form--font-size: var(--sm));
+>>>>>>> core-stylesheet
+	--form--line-height: $line-height-body);
+	--form--color-text: $color-dark-gray); // Text color in input fields is always dark over light background.
+	--form--color-ranged: $secondary-color);
+	--form--label-weight: 500;
+	--form--border-color: $secondary-color);
+	--form--border-width: 3px;
+	--form--border-radius: 0;
+	--form--spacing-unit: calc(0.5 * $spacing-unit));
+
+	/* Cover block */
+	--cover--height: calc(15 * $spacing-vertical));
+	--cover--color-foreground: $color-white);
+	--cover--color-background: $color-black);
+
+	/* Buttons */
+	// Colors
+
+
+	/* entry */
+
+	/* Header */
+	--branding--color-text: $primary-color);
+	--branding--color-link: $primary-color);
+	--branding--color-link-hover: $secondary-color);
+	--branding--title--font-family: $font-primary);
+	--branding--title--font-size: font-lg);
+	--branding--title--font-size-mobile: var(--heading--font-size-h4);
+	--branding--title--font-weight: normal;
+	--branding--title--text-transform: uppercase;
+	--branding--description--font-family: $font-secondary);
+<<<<<<< HEAD
+	--branding--description--font-size: $sm);
+=======
+	--branding--description--font-size: var(--sm));
+>>>>>>> core-stylesheet
+	--branding--description--font-family: $font-secondary);
+
+	--branding--logo--max-width: 300px;
+	--branding--logo--max-height: 100px;
+	--branding--logo--max-width-mobile: 96px;
+	--branding--logo--max-height-mobile: 96px;
+
+
+	/* Pagination */
+	--pagination--color-text: $primary-color);
+	--pagination--color-link-hover: $primary-color-hover);
+	--pagination--font-family: $font-secondary);
+	--pagination--font-size: font-lg);
+	--pagination--font-weight: normal;
+	--pagination--font-weight-strong: 600;
+
+	/* Footer */
+	--footer--color-text: $primary-color);
+	--footer--color-link: $primary-color);
+	--footer--color-link-hover: $primary-color-hover);
+	--footer--font-family: $font-primary);
+<<<<<<< HEAD
+	--footer--font-size: $sm);
+=======
+	--footer--font-size: var(--sm));
+>>>>>>> core-stylesheet
+
+	--separator--border-color: $color-border);
+	--separator--height: 1px;
+
+	/* Block: Table */
+	--table--stripes-border-color: $color-light-gray);
+	--table--stripes-background-color: $color-light-gray);
+	--table--has-background-text-color: $color-dark-gray);
+
+	/* Widgets */
+	--widget--line-height-list: 1.9;
+	--widget--line-height-title: 1.4;
+	--widget--font-weight-title: 700;
+	--widget--spacing-menu: calc(0.66 * $spacing-unit));
+
+	/* Admin-bar height */
+	--global--admin-bar--height: 0;
+}
+
+.admin-bar {
+	--global--admin-bar--height: 32px;
+
+	@media only screen and (max-width: 782px) {
+		--global--admin-bar--height: 46px;
+	}
+}
+
+@media only screen and (min-width: 652px) { // Not using the mixin because it's compiled after this file
+	:root {
+		--global--font-size-xl: 2.5rem; // 40px / 16px
+		--global--font-size-xxl: 6rem; // 96px / 16px
+		--global--font-size-xxxl: 9rem; // 144px / 16px
+		--heading--font-size-h3: 2rem; // 32px / 16px
+		--heading--font-size-h2: 3rem; // 48px / 16px
+	}
+}

@@ -1,0 +1,31 @@
+/* Links */
+a {
+  outline: none !important;
+  font-family: $nav-text-font;
+  font-weight: bold;
+
+  :active {
+    text-decoration: underline;
+    color: $link-text-color;
+
+    & :hover {
+      text-decoration: underline, bold;
+      color: $link-hover-color;
+    }
+  }
+
+  :hover {
+    text-decoration: underline, bold;
+    color: $link-hover-color;
+  }
+
+  :disabled {
+    color: $disabled-text;
+    text-decoration: none;
+
+  }
+}
+
+a:focus {
+
+}

@@ -1,0 +1,80 @@
+$gray-100-rgb: rgb(192,192,192);
+$gray-200-rgb: rgb(154,154,154);
+$gray-300-rgb: rgb(123,123,123);
+$gray-400-rgb: rgb(98,98,98);
+$gray-500-rgb: rgb(78,78,78);
+$gray-600-rgb: rgb(62,62,62);
+$gray-700-rgb: rgb(50,50,50);
+$gray-800-rgb: rgb(40,40,40);
+$gray-900-rgb: rgb(26,26,26);
+// scss-docs-end gray-color-variables
+
+// fusv-disable
+// scss-docs-start gray-colors-map
+$grays-rgb: (
+  gray-100-rgb: $gray-100-rgb,
+  gray-200-rgb: $gray-200-rgb,
+  gray-300-rgb: $gray-300-rgb,
+  gray-400-rgb: $gray-400-rgb,
+  gray-500-rgb: $gray-500-rgb,
+  gray-600-rgb: $gray-600-rgb,
+  gray-700-rgb: $gray-700-rgb,
+  gray-800-rgb: $gray-800-rgb,
+  gray-900-rgb: $gray-900-rgb
+);
+
+$teal-rgb: rgb(202,255,255);
+$yellow-rgb: rgb(255,228,30);
+$red-rgb: rgb(220,53,69);
+$orange-rgb: rgb(255,153,102);
+$green-rgb: rgb(11,218,81);
+$blue-rgb: rgb(65,105,225);
+$indigo-rgb: rgb(102,0,255);
+$purple-rgb: rgb(81,11,218);
+$cyan-rgb: rgb(10,186,181);
+$pink-rgb: rgb(204,51,153);
+$white-rgb: rgb(228,237,244);
+$black-rgb: rgb(0,1,0);
+
+$colors-rgb: (
+  teal-rgb: $teal-rgb,
+  yellow-rgb: $yellow-rgb,
+  red-rgb: $red-rgb,
+  orange-rgb: $orange-rgb,
+  green-rgb: $green-rgb,
+  blue-rgb: $blue-rgb,
+  indigo-rgb: $indigo-rgb,
+  purple-rgb: $purple-rgb,
+  cyan-rgb: $cyan-rgb,
+  pink-rgb: $pink-rgb
+);
+
+$cjmt-primary-color-rgb: rgb(202,255,255);
+$cjmt-secondary-color-rgb: rgb(255,228,30);
+$cjmt-accent-color-rgb: rgb(204,51,153);
+
+$cjmt-colors-rgb: (
+cjmt-primary-color-rgb: $cjmt-primary-color-rgb,
+cjmt-secondary-color-rgb: $cjmt-secondary-color-rgb,
+cjmt-accent-color-rgb: $cjmt-accent-color-rgb
+);
+
+$primary-color-rgb:    rgb(10,186,181);
+$secondary-color-rgb:  rgb(255,228,30);
+$accent-color-rgb:      rgb(168,169,173);
+$color-valid-rgb:          rgb(11,218,81);
+$color-warning-rgb:          rgb(255,153,102);
+$color-invalid-rgb:          rgb(220,53,69);
+$info-color-rgb:            rgb(65,105,225);
+$light-rgb:           rgb(192,192,192);
+$dark-rgb:            rgb(26,26,26);
+
+$theme-color-rgb:(
+primary-color-rgb:        $primary-color-rgb,
+secondary-color-rgb:      $secondary-color-rgb,
+accent-color-rgb:         $accent-colorrgb,
+color-valid-rgb:          $color-valid-rgb,
+color-warning-rgb:        $color-warning-rgb,
+color-invalid-rgb:        $color-invalid-rgb,
+info-color-rgb:           $info-color-rgb
+);

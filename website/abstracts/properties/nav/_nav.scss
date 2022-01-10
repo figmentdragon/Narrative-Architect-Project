@@ -1,0 +1,26 @@
+// Navs
+
+// scss-docs-start nav-variables
+$nav-link-padding-y:                .5rem !default;
+$nav-link-padding-x:                1rem !default;
+$nav-link-font-size:                null !default;
+$nav-link-font-weight:              null !default;
+$nav-link-color:                    $nav-link-text-color;
+$nav-link-hover-color:              $nav-link-text-hover-color;
+$nav-link-transition:               color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out !default;
+$nav-link-disabled:                 $nav-link-disabled-color;
+$nav-link-font-size:                1.25rem !default;
+$nav-link-line-height:            ($base-unit * $line-height-body) * 2;
+
+$nav-link-spacer-xs: var(--xs);
+$nav-link-spacer-sm: var(--sm);
+$nav-link-spacer-md: var(--md);
+$nav-link-base: $base-unit;
+$nav-link-spacer-xl: $xl;
+$nav-link-spacer-xxl: $xxl;
+
+$nav-link-color: $active-color !default;
+$nav-link-hover-color: $hover-color !default;
+$nav-link-transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out !default;
+$nav-link-disabled-color: $disabled-color !default;
+@import 'navbar';

@@ -1,0 +1,163 @@
+/* CJMTheme _________________________________________________________
+
+  Theme                          : CJMT - Creativity Architect Default
+  Author                         : CJMT
+
+  Stylesheet                     : Default Theme
+
+  = TOC =
+   ()
+   ()
+   ()
+
+_________________________________________________________ CJMTheme */
+
+// Options
+//
+// Quickly modify global styling by enabling or disabling optional features.
+
+$enable-caret                    : true !default;
+$enable-rounded                  : true !default;
+$enable-shadows                  : true !default;
+$enable-gradients                : true !default;
+$enable-transitions              : true !default;
+$enable-reduced-motion           : true !default;
+$enable-smooth-scroll            : true !default;
+$enable-grid-classes             : true !default;
+$enable-container-classes        : true !default;
+$enable-cssgrid                  : true !default;
+$enable-button-pointers          : true !default;
+$enable-rfs                      : true !default;
+$enable-validation-icons         : true !default;
+$enable-negative-margins         : true !default;
+$enable-deprecation-messages     : true !default;
+$enable-important-utilities      : true !default;
+
+// Prefix for                    :root CSS variables
+
+$variable-prefix                 : ca- !default;
+
+/* ________________________ PROPERTIES CONTROLED BY DEFAULT*/
+/* Contrast */
+/* The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7. */
+/* See https                     ://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast */
+$min-contrast-ratio              : 4.5;
+
+$dark-contrast                   : $dark;
+$light-contrast                  : $light;
+
+/* Customize the light and dark text colors for use in our color contrast function. */
+$color-contrast-dark             : $dark-contrast;
+$color-contrast-light            : $light-contrast;
+
+/* _____________________________________ SPACING */
+  /* Base Number */
+  $base-number                   : 1;
+    /* Map */
+    $base-numbers                : (
+      0                          : 0,
+      1                          : $base-number * .25,
+      2                          : $base-number * .5,
+      3                          : $base-number,
+      4                          : $base-number * 1.5,
+      5                          : $base-number * 3
+      );
+
+  $negative-numbers              : negativify-map($base-number);
+
+  $vertical-base                 : 1vh;
+  $horizontal-base               : 1vw;
+
+  /* Base Size */
+  $base-size                     : 1.05;
+    $xs                          : $base-size * .75; // .86 14px 10.5pt
+    $sm                          : $base-size * .875; // 1.0 16px 12pt medium
+    $md                          : $base-size * 1.05; // 1.20 19px 14pt
+    $lg                          : $base-size * 1.25; // 1.44 23px 17pt
+    $xl                          : $base-size * 1.50; // 1.73 26-29px 20-22pt
+    $xxl                         : $base-size * 1.75; // 2.01 32px 24pt
+
+    /* Map */
+    $sizes                       : (
+      'xs'                       : $xs,
+      'sm'                       : $sm,
+      'md'                       : $md,
+      'lg'                       : $lg,
+      'xl'                       : $xl,
+      'xxl'                      : $xxl
+    );
+
+  /* Base Offset */
+  $base-offset                   : 16px;
+
+  /* Block Spacing */
+  $block-spacing                 : 1.5rem;
+
+/* _____________________________________ POSITIONING */
+    /* Position Values Map */
+    $position-values             : (
+      0                          : 0,
+      25                         : 25%,
+      50                         : 50%,
+      75                         : 75%,
+      100                        : 100%
+    );
+
+    /* Aspect Ratios Map */
+    $aspect-ratios               : (
+      '1x1'                      : 100%,
+      '4x3'                      : calc(3 / 4 * 100%),
+      '16x9'                     : calc(9 / 16 * 100%),
+      '21x9'                     : calc(9 / 21 * 100%)
+    );
+
+/* _____________________________________ PADDING */
+  @import "lib/scss/abstracts/materials/padding";
+
+/* _____________________________________ GRID */
+  $grid-columns                  : 16;
+  $grid-row-columns              : 16;
+  $grid-gutter                   : 16px;
+
+/* ____________________________________ BORDERS */
+  $base-width                    : 1px;
+  $base-radius                   : .95rem;
+  @import "lib/scss/abstracts/materials/borders";
+
+/* ____________________________________ ANIMATION */
+  $animation-speed: 250ms;
+  $animation: ease-in-out;
+
+/* _____________________________________ LINK */
+  $disabled-text                 : color-mix(srgb, $secondary-color 40%, $white);
+
+
+/* ____________________________________________ Buttons + Form */
+
+$input-text-color                : darken($primary-color, 50%);
+$input-bg-color                  : tint-color($primary-color, 35%);
+$input-border-color              : shade-color($primary-color, $border-percentage);
+
+$input-disabled-bg-color         : color-mix($input-text-color $disabled-bg-percentage, $disabled-color);
+$input-disabled-border-color     : color-mix($input-text-color $disabled-border-percentage, $disabled-color);
+
+$input-text-focus-color          : shade-color($input-text-color, $focus-percentage);
+$input-focus-bg-color            : shade-color($input-bg-color, $focus-percentage);
+$input-focus-border-color        : shade-color($input-border-color, $focus-percentage);
+
+$input-placeholder-text-color    : tint-color($input-text-color, $muted-percentage);
+$input-plaintext-text-color      : tint-color($primary-color, $muted-percentage);
+
+$form-file-button-hover-bg-color : shade-color($input-bg-color, $hover-percentage);
+
+$input-group-bg-color            : tint-color($accent-color, $background-percentage);
+$form-switch-text-color          : $input-bg-color;
+
+/* __________________________________________________ Lists */
+
+$list-group-text-color           : $gray-900;
+$list-group-bg-color             : tint-color($list-group-text-color, $background-percentage);
+$list-group-border-color         : shade-color($list-group-text-color, $border-percentage);
+$list-group-hover-bg             : shift-color($list-group-bg-color, $hover-percentage);
+$list-group-bg-color             : shift-color($list-group-text-color, $hover-percentage);
+$list-group-disabled-bg-color    : color-mix($list-group-bg-color $disabled-bg-percentage, $disabled-color);

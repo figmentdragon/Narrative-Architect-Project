@@ -1,0 +1,408 @@
+.card {
+  position: relative;
+  top: 0.75rem;
+  right: 0.75rem;
+  bottom: 0.75rem;
+  left: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  word-wrap: break-word;
+  background-color: $card-bg;
+  background-clip: border-box;
+  @include border-radius($card-border-radius);
+  @include box-shadow($card-box-shadow);
+
+  > hr {
+    margin-right: 0;
+    margin-left: 0;
+  }
+
+  > .list-group {
+    border-top: inherit;
+    border-bottom: inherit;
+
+    &:first-child {
+      border-top-width: 0;
+      @include border-top-radius($card-inner-border-radius);
+    }
+
+    &:last-child {
+      border-bottom-width: 0;
+      @include border-bottom-radius($card-inner-border-radius);
+    }
+  }
+
+  // Due to specificity of the above selector (`.card > .list-group`), we must
+  // use a child selector here to prevent double borders.
+  > .card-header + .list-group,
+  > .list-group + .card-footer {
+    border-top: 0;
+  }
+}
+
+.card-body {
+  // Enable `flex-grow: 1` for decks and groups so that card blocks take up
+  // as much space as possible, ensuring footers are aligned to the bottom.
+  position: absolute;
+  top: 0.5rem;
+  right: 1.5rem;
+  bottom: 0.75rem;
+  left: 8.75rem;
+
+  flex: 1 1 auto;
+  padding: $card-spacer-y $card-spacer-x;
+  color: $card-color;
+  border-radius: $border-radius-lg;
+  @include box-shadow($card-box-shadow);
+  border: 3px solid $yellow;
+}
+
+.card-title {
+  margin-bottom: $card-title-offset-y;
+}
+
+.card-subtitle {
+  margin-top: -$card-title-offset-y * 0.5;
+  margin-bottom: 0;
+}
+
+.card-text:last-child {
+  margin-bottom: 0;
+}
+
+.card-link {
+  &:hover {
+    text-decoration: if($link-hover-decoration == underline, none, null);
+  }
+
+  + .card-link {
+    margin-left: $card-offset-x;
+  }
+}
+
+//
+// Optional textual caps
+//
+
+#menu-site-navigation,
+.card-header {
+  margin-bottom: 0; // Removes the default margin-bottom of <hN>
+  color: $card-cap-color;
+  background-color: $card-cap-bg;
+  border-bottom: $card-border-width solid $secondary-color;
+
+  &:first-child {
+    @include border-radius(
+      $card-inner-border-radius $card-inner-border-radius 0 0
+    );
+  }
+}
+
+.card-footer {
+  padding: $card-cap-padding-y $card-cap-padding-x;
+  color: $card-cap-color;
+  background-color: $card-cap-bg;
+  border-top: $card-border-width solid $card-border-color;
+
+  &:last-child {
+    @include border-radius(
+      0 0 $card-inner-border-radius $card-inner-border-radius
+    );
+  }
+}
+
+//
+// Header navs
+//
+
+.card-header-tabs {
+  margin-right: -$card-cap-padding-x * 0.5;
+  margin-bottom: -$card-cap-padding-y;
+  margin-left: -$card-cap-padding-x * 0.5;
+  border-bottom: 0;
+
+  @if $nav-tabs-link-active-bg != $card-bg {
+    .nav-link.active {
+      background-color: $card-bg;
+      border-bottom-color: $card-bg;
+    }
+  }
+}
+
+.card-header-pills {
+  margin-right: -$card-cap-padding-x * 0.5;
+  margin-left: -$card-cap-padding-x * 0.5;
+}
+
+// Card image
+.card-img-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: $card-img-overlay-padding;
+  @include border-radius($card-inner-border-radius);
+}
+
+.card-img,
+.card-img-top,
+.card-img-bottom {
+  width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
+  margin: -1.325rem;
+  @include border-radius(.25rem);
+}
+
+.card-img,
+.card-img-top {
+  @include border-start-radius($card-border-radius-inner $card-border-radius-inner 0 0);
+}
+
+.card-img,
+.card-img-bottom {
+  @include border-end-radius(0 0 $card-border-radius-inner $card-border-radius-inner);
+}
+
+//
+// Card groups
+//
+
+.card-group {
+  // The child selector allows nested `.card` within `.card-group`
+  // to display properly.
+  > .card {
+    margin-bottom: $card-group-margin;
+  }
+
+  @include media-breakpoint-up(sm) {
+    display: flex;
+    flex-flow: row wrap;
+    // The child selector allows nested `.card` within `.card-group`
+    // to display properly.
+    > .card {
+      // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
+      flex: 1 0 0%;
+      margin-bottom: 0;
+
+      + .card {
+        margin-left: 0;
+        border-left: 0;
+      }
+
+      // Handle rounded corners
+
+      &:not(:last-child) {
+        @include border-end-radius(0);
+
+        .card-img-top,
+        .card-header {
+          // stylelint-disable-next-line property-disallowed-list
+          border-top-right-radius: 0;
+        }
+        .card-img-bottom,
+        .card-footer {
+          // stylelint-disable-next-line property-disallowed-list
+          border-bottom-right-radius: 0;
+        }
+
+        &:not(:first-child) {
+          @include border-start-radius(0);
+
+          .card-img-top,
+          .card-header {
+            // stylelint-disable-next-line property-disallowed-list
+            border-top-left-radius: 0;
+          }
+          .card-img-bottom,
+          .card-footer {
+            // stylelint-disable-next-line property-disallowed-list
+            border-bottom-left-radius: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+//
+// Background variations
+//
+
+.card-primary {
+  @include card-variant($brand-primary, $brand-primary);
+}
+.card-success {
+  @include card-variant($brand-success, $brand-success);
+}
+.card-info {
+  @include card-variant($brand-info, $brand-info);
+}
+.card-warning {
+  @include card-variant($brand-warning, $brand-warning);
+}
+.card-danger {
+  @include card-variant($brand-danger, $brand-danger);
+}
+
+// Remove all backgrounds
+.card-primary-outline {
+  @include card-outline-variant($btn-primary-bg);
+}
+.card-secondary-outline {
+  @include card-outline-variant($btn-secondary-border);
+}
+.card-info-outline {
+  @include card-outline-variant($btn-info-bg);
+}
+.card-success-outline {
+  @include card-outline-variant($btn-success-bg);
+}
+.card-warning-outline {
+  @include card-outline-variant($btn-warning-bg);
+}
+.card-danger-outline {
+  @include card-outline-variant($btn-danger-bg);
+}
+
+//
+// Inverse text within a card for use with dark backgrounds
+//
+
+.card-inverse {
+  @include card-inverse;
+}
+
+//
+// Blockquote
+//
+
+.card-blockquote {
+  padding: 0;
+  margin-bottom: 0;
+  border-left: 0;
+}
+
+
+//
+// Card set
+//
+
+@if $enable-flex {
+  @include media-breakpoint-up(sm) {
+    .card-deck {
+      display: flex;
+      flex-flow: row wrap;
+      margin-right: -.625rem;
+      margin-left: -.625rem;
+
+      .card {
+        flex: 1 0 0;
+        margin-right: .625rem;
+        margin-left: .625rem;
+      }
+    }
+  }
+} @else {
+  @include media-breakpoint-up(sm) {
+    .card-deck {
+      display: table;
+      table-layout: fixed;
+      border-spacing: 1.25rem 0;
+
+      .card {
+        display: table-cell;
+        width: 1%;
+        vertical-align: top;
+      }
+    }
+    .card-deck-wrapper {
+      margin-right: -1.25rem;
+      margin-left: -1.25rem;
+    }
+  }
+}
+
+
+//
+// Card groups
+//
+@include media-breakpoint-up(sm) {
+  .card-group {
+  // The child selector allows nested `.card` within `.card-group`
+  // to display properly.
+  @if $enable-flex {
+    display: flex;
+    flex-flow: row wrap;
+  }
+  @else {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+  }
+  .card {
+    @if $enable-flex {
+      flex: 1 0 0;
+    }
+    @else {
+      display: table-cell;
+      vertical-align: top;
+    }
+
+    + .card {
+      margin-left: 0;
+      border-left: 0;
+    }
+
+    > .card {
+    margin-bottom: $card-group-margin;
+  }
+  // Handle rounded corners
+  @if $enable-rounded {
+    &:first-child {
+      @include border-right-radius(0);
+      .card-img-top {
+        border-top-right-radius: 0;
+      }
+      .card-img-bottom {
+        border-bottom-right-radius: 0;
+      }
+    }
+    &:last-child {
+      @include border-left-radius(0);
+
+      .card-img-top {
+        border-top-left-radius: 0;
+      }
+      .card-img-bottom {
+        border-bottom-left-radius: 0;
+      }
+    }
+
+    &:not(:first-child):not(:last-child) {
+      border-radius: 0;
+
+      .card-img-top,
+      .card-img-bottom {
+        border-radius: 0;
+      }
+    }
+  }
+}
+
+//
+// Card
+//
+
+@include media-breakpoint-up(sm) {
+  .card-columns {
+    column-count: 3;
+    column-gap: 1.25rem;
+
+    .card {
+      display: inline-block;
+      width: 100%; // Don't let them exceed the column width
+    }
+  }
+}

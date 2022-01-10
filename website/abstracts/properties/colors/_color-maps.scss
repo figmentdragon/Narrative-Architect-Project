@@ -1,0 +1,61 @@
+// fusv-disable
+// scss-docs-start gray-colors-map
+$grays: (
+  100: $gray-100,
+  200: $gray-200,
+  300: $gray-300,
+  400: $gray-400,
+  500: $gray-500,
+  600: $gray-600,
+  700: $gray-700,
+  800: $gray-800,
+  900: $gray-900
+) !default;
+// scss-docs-end gray-colors-map
+
+// scss-docs-start colors-map
+$colors: (
+  blue:       $blue,
+  indigo:     $indigo,
+  purple:     $purple,
+  pink:       $pink,
+  red:        $red,
+  orange:     $orange,
+  yellow:     $yellow,
+  green:      $green,
+  teal:       $teal,
+  cyan:       $cyan
+);
+// scss-docs-end colors-map
+
+
+$theme-colors: (
+  primary-color:          $primary-color,
+  secondary-color:        $secondary-color,
+  accent-color:           $accent-color
+) !default;
+
+$contextual-colors: (
+  valid-color:            $valid-color,
+  info-color:             $info-color,
+  attention-color:        $attention-color,
+  alert-color:            $alert-color,
+  invalid-color:          $invalid-color
+) !default;
+
+$utilities-colors:(
+  text:               $text,
+  body:               $body,
+  light:              $light,
+  dark:               $dark
+) !default;
+
+$utilities-text:(
+  text-muted:         $text-muted,
+  input:              $input,
+  input-bg:           $input-bg,
+  input-border:       $input-border,
+  input-focus:        $input-focus,
+  input-focus-bg:     $input-focus-bg,
+  input-focus-border: $input-focus-border
+) !default;

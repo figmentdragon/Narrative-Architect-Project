@@ -1,0 +1,27 @@
+/* ____________________________________ PADDING */
+$offset :                   16px;
+$offsets :                        (
+  0 :                             0,
+  1 :                             $offset * .25 /* ! 4px */,
+  2 :                             $offset * .5 /* ! 8px */,
+  3 :                             $offset /* ! 16px */,
+  4 :                             $offset * 1.5 /* ! 24px */,
+  5 :                             $offset * 3 /* ! 48px */
+);
+
+$negative-offset :               negativify-map($offset);
+
+$vertical-offset :                 1vh /* ! 1vh=8px */;
+$horizontal-offset :               1vw /* ! 1vw=6.5px */;
+
+$offset-x                      : $vertical-offset;
+$offset-y                      : $horizontal-offset;
+$offset-y-lg                   : $horizontal-offset * $xxl;
+$offset-x-lg                   : calc($vertical-offset * ($xl  * 2));
+ 
+$offset-sm                     : 1;
+$offset-md                     : 2;
+$offset-lg                     : 3;
+$offset-xl                     : 4;
+$offset-xxl                    : 5;
+$offset-xs                     : 0;

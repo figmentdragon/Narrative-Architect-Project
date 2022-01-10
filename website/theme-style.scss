@@ -1,0 +1,237 @@
+/* themeSTYLE __________________________________________________________
+Site Name                     : CJMT
+Author                        : CJ Montes-Termini
+
+Stylesheet                    : Brand Style
+
+	= TOC =
+		(1) @FONTFACE (In Your Face)
+		(2) Font Stacks
+		(3) Font Variables
+			- [] Font Families
+			- [] Font Colors
+				- Shadows
+				- Gradients
+				- Stroke Outline
+		(4) Text Level CSS Selectors
+			- [] Text Level
+			- [] Headings
+			- [] Links
+		(5) Text Level HTML Elements
+		(6) Responsive Settings
+
+ __________________________________________________________ THEMEstyle */
+
+ @import "style/color/color";
+ @import "style/color/custom-color";
+ @import "style/color/theme-color";
+ @import "style/color/utilities-color";
+ @import "style/color/rgb";
+ @import "style/color/maps";
+ @import "style/color/contast";
+ @import "style/color/patterns";
+
+ /* ____________________________________ LINKS */
+
+   /* Links */
+   $active-color :                  $secondary-color;
+   $disabled-color :                $accent-color;
+
+   $border-color :                  shade-color($primary-color, $border-percentage);
+   $body-bg-color :                 tint-color($primary-color, $background-percentage);
+
+   $link-color :                    $active-color;
+   $link-disabled :                 shade-color($link-color, $disabled-percentage);
+
+   $link-text-decoration:            underline;
+   $link-active-hover-decoration:    bold, underline;
+
+   /* Lists */
+   $list-group-text-color :         $gray-700;
+
+ /* ____________________________________ TYPE */
+   /* Body */
+   $body-text-color :               shade-color($primary-color, 60%);
+   $text-muted-color :              color-mix(srgb, $accent-color 40%, $white);
+   $headings-text-color :           shade-color($accent-color, $title-percentage);
+
+   /* Headings */
+   $site-title-color :              $primary-color;
+   $page-title-color :              $secondary-color;
+   $post-title-color :              $accent-color;
+
+   /* Text Elements */
+   $footer-text-color :             $accent-color;
+   $quote-text-color :              shade-color($accent-color, $focus-percentage);
+   $lead-text-color :               shade-color($post-title-color, $muted-change-percentage);
+   $caption-text-color :            shade-color($body-text-color, $focus-percentage);
+   $nav-text-color :                shade-color($secondary-color, 10%);
+   $code-text-color :               shade-color($hot-pink, $focus-percentage);
+
+
+
+   /* Nav */
+   $nav-text-color :                $active-link-color;
+   $nav-bg-color :                  $gradient-tabs-bg;
+   $nav-border-color:               shade-color($nav-text-color, $border-percentage);
+
+   $nav-text-hover                  : darken($nav-text-color, $hover-percentage);
+   $nav-hover-border                 : shade-color($nav-text-color, $hover-percentage);
+
+     // Navbar
+     $navbar-dark-text :            $accent-color;
+     $navbar-dark-toggler-border :  $navbar-dark-text;
+     $navbar-light-text :           $primary-color;
+     $navbar-light-toggler-border : $navbar-dark-text;
+
+   $nav-link-transition         : color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+
+   /* Buttons + Forms */
+   $input-text-color       : shade-color($primary-color, $text-percentage);
+   $input-bg-color         : tint-color($primary-color, $background-percentage);
+   $input-border-color     : shade-color($primary-color, $border-percentage);
+
+   $input-group-bg-color   : $gray-200;
+   $form-switch-text-color : $input-bg-color;
+
+   $form-switch-text-color : $input-bg-color;
+
+   /* Card */
+   $card-text-color :               $body-text-color;
+   $card-bg-color: tint-color($primary-color, $background-percentage);
+   $card-border-color :             shade-color($card-text-color, $active-border-border);
+
+     /* Card Header */
+     $card-cap-text-color :           $primary-color;
+     $card-cap-bg-color:   tint-color($card-cap-text-color, $background-percentage);
+
+
+ /* ______________________________________________________ BACKGROUNDS */
+   /* Theme BG Colors */
+   $primary-bg :                    tint-color($primary-color, $background-percentage);
+   $secondary-bg :                  tint-color($secondary-color, $background-percentage);
+   $accent-bg :                     tint-color($accent-color, $background-percentage);
+   $valid-bg :                      tint-color($valid-color, $background-percentage);
+   $alert-bg :                      tint-color($alert-color, $background-percentage);
+   $invalid-bg :                    tint-color($invalid-color, $background-percentage);
+   $attention-bg :                  tint-color($attention-color, $background-percentage);
+   $info-bg :                       tint-color($info-color, $background-percentage);
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+// scss-docs-start font-variables
+// stylelint-disable value-keyword-case
+$font-sans-serif: Euphorigenic, 'Hand Typewriter', 'Enjoy Writing', Avdira, Wanda 'Glass Antiqua', 'Love Ya Likes A Sister', Pompiere, 'Hadley';
+$font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; // stylelint-enable value-keyword-case
+
+$font-family-brand: $font-sans-serif;
+$font-family-brand-code: 'Courier New';
+
+$body-text-font: 'Avdira';
+$author-text-font: 'Euphorigenic';
+$site-title-font: 'Raylig';
+$page-title-font: 'TELETYPE 1945-1985';
+$tagline-text-font: 'Enjoy Writing';
+$post-title-font: 'Hand Typewriter';
+$nav-text-font: 'Enjoy Writing';
+$btn-text-font: 'Hadley';
+$lead-text-font: 'Pompiere';
+$footer-text-font: 'Love Ya Like A Sister';
+
+$body-bg: #000100;
+$body-text: #e4edf4;
+$body-text-align: null;
+
+$z-index-article: 400;
+$z-index-decorative-blue-ribbon: 440;
+$z-index-nav: 450;
+$z-index-header: 500;
+$z-index-author-name: 515;
+$z-index-site-title: 525;
+$z-index-main-navigation: 550;
+$z-index-footer: 700;
+$z-index-main: 725;
+$z-index-site-information: 800;
+$z-index-html-body: 850;
+$z-index-page: 850;
+
+
+#author-name {
+  font-family: $author-text-font;
+  font-size: 8vh;
+  font-weight: bold;
+  line-height: 1.05rem;
+  z-index: $z-index-author-name;
+  color: $primary-color;
+  text-shadow: 1 1 0 $secondary-color, -1 -1 0 $secondary-color;
+}
+
+#site-title {
+  font-family: $site-title-font;
+  font-size: 9.25vh;
+  font-weight: bolder;
+  line-height: 1rem;
+  z-index: $z-index-site-title;
+  color: $secondary-color;
+  text-shadow: $title-shadow;
+  writing-mode: vertical-lr;
+  text-orientation: upright;
+  -webkit-text-stroke-color: darken($primary-color, 40%);
+  -webkit-text-stroke-width: 2px;
+}
+
+#page-title {
+  font-family: $page-title-font;
+  font-size: 9vh;
+  font-weight: bold;
+  line-height: 2.75rem;
+  color: $secondary-color;
+  text-shadow: $title-shadow;
+  -webkit-text-stroke-color: darken($accent-color, 75%);
+  -webkit-text-stroke-width: 1px;
+}
+
+#site-description {
+  font-family: $tagline-text-font;
+  font-size: 5vh;
+  color: $secondary-color;
+  text-shadow: 0.01rem 0.01rem 0.10rem darken($secondary-color, 55%), -.01rem -.01rem 0.10rem darken($secondary-color, 65%), 0.02rem 0.02rem 0.10rem darken($secondary-color, 75%);
+}
+
+#navigation {
+  font-family: $nav-text-font;
+  font-size: 4.75vh;
+  color: $secondary-color;
+}
+
+#site-information{
+  font-family: $footer-text-font;
+}
+
+
+.decorative {
+  position: absolute;
+  top: 2.50rem;
+  right: 95.73rem;
+  left: 0;
+  width: auto;
+  height: 3.5rem;
+  padding-left: 4rem;
+  z-index: $z-index-decorative-blue-ribbon;
+}
+
+#the {
+  font-family: $site-title-font;
+  font-size: 4vh;
+  font-weight: bolder;
+  line-height: .5rem;
+  color: $secondary-color;
+  text-shadow: $title-shadow;
+  -webkit-text-stroke-color: darken($primary-color, 40%);
+  -webkit-text-stroke-width: 2px;
+}
+
+#primary-color-ribbon {
+background-image: linear-gradient(to left bottom, #0abab5, #5cc7d0, #91d3e3, #bedfef, #e4edf4);
+}

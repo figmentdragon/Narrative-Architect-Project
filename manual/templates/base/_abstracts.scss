@@ -1,0 +1,40 @@
+/* BASE ________________________________________________________ BASE
+
+ BASE ________________________________________________________ BASE */
+
+  /* __________________________________________________ ABSTRACTS */
+    /* ________________________________ Functions */
+    @import "themesheets/base/abstracts/tools/functions";
+
+
+    /* ________________________________ Properties */
+    @import "themesheets/base/properties";
+    @import "themesheets/base/abstracts/variables/padding";
+    @import "themesheets/base/abstracts/variables/width";
+    @import "themesheets/base/abstracts/variables/zindex";
+    @import "themesheets/base/change-percentage";
+
+    /* ________________________________ Style */
+        /* Color Palette */
+        @import "themesheets/base/style/color/palette";
+        @import "themesheets/base/style/color/theme";
+        @import "themesheets/base/style/color/patterns";
+        @import "themesheets/base/style/color/utilities";
+        @import "themesheets/base/style/color/color-maps";
+
+        /* Typography */
+        @import "themesheets/base/style/type/variables/font-face";
+        @import "themesheets/base/style/type/variables/font-stacks";
+        @import "themesheets/base/style/type/variables/font-variables";
+        @import "themesheets/base/style/type/variables/headings-variables";
+        @import "themesheets/base/style/type/variables/type-variables";
+
+        @import "themesheets/base/style/type/typography";
+
+        @import "themesheets/base/style/type/text-elements/titles";
+        @import "themesheets/base/style/type/text-elements/blockquote";
+        @import "themesheets/base/style/type/text-elements/code";
+
+/* __________________________________________________ ROOT */
+
+@import "themesheets/abstracts/root";

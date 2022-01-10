@@ -1,0 +1,10 @@
+// Badges
+
+// scss-docs-start badge-variables
+$badge-font-size:     $xs !default;
+$badge-font-weight:   $font-weight-bold !default;
+$badge-color:         $body-color !default;
+$badge-padding-y:     divide($xs, 2) !default;
+$badge-padding-x:     $xs !default;
+$badge-border-radius: $border-radius-lg !default;
+// scss-docs-end badge-variables

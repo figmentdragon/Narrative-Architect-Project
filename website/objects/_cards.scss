@@ -1,0 +1,151 @@
+
+
+.card-title {
+  font-family: $post-font;
+  margin-bottom: $spacer;
+  padding-left: 12.50%;
+  text-align: left;
+}
+
+.card-subtitle {
+  margin-top: $card-title-spacer-y * .5;
+  margin-bottom: 0;
+}
+
+.card-text:last-child {
+  margin-bottom: 0;
+}
+
+.card-link {
+  &:hover {
+    text-decoration: $link-hover-decoration;
+  }
+
+  + .card-link {
+    margin-left: $card-spacer-x;
+  }
+}
+//
+// Optional textual caps
+//
+
+.card-header {
+  z-index: $zindex-card-header;
+  height: $col5;
+  max-height: $col5;
+  margin-bottom: 0; // Removes the default margin-bottom of <hN>
+  padding: $card-spacer-y $card-spacer-x;
+  align-items: center;
+  line-height: normal;
+  overflow: hidden;
+  color: $nav;
+  background-color: $card-cap-bg;
+  border-bottom: $card-border-width;
+  border-style: solid;
+  border-color: $card-border-color;
+  @include box-sizing($border-box);
+  @include box-shadow($card-box-shadow);
+
+  &:first-child {
+    @include border-radius($card-border-radius-inner $card-border-radius-inner 0 0);
+  }
+
+  .card-title {
+    font-family: $post-title-font;
+    align-self: flex-end;
+    color: $color-post-title;
+    display: block;
+    display: flex;
+    font-size: $card-title-font-size;
+    font-weight: $card-title-text-font-weight;
+    line-height: normal;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  .card-subtitle {
+    font-size: $card-subtitle-font-size;
+    color: $card-subtitle-color;
+    margin: 0;
+  }
+
+  .card-lead {
+    font-family: $lead-font;
+    font-size: $lead-font-size;
+    color: $color-lead-text;
+    line-height: $card-supporting-text-line-height;
+    overflow: hidden;
+    width: 90%;
+  }
+
+  &.card-header-bottom-border {
+    border-bottom: 1px solid $card-border-color;
+  }
+}
+
+.card-footer {
+  padding: $card-spacer-y $card-spacer-x;
+  color: $card-cap-color;
+  border-top: $card-border-width solid $card-border-color;
+  background-color: $card-cap-bg;
+
+  &:last-child {
+    @include border-radius(0 0 $card-border-radius-inner $card-border-radius-inner);
+  }
+}
+//
+// Header navs
+//
+.card-header-tabs {
+  font-family: $btn-font;
+  margin-right: calc($md * .5);
+  margin-bottom: $md;
+  margin-left: calc($md * .5);
+  border-width: $border-width-md;
+  border-color: $border;
+  border-bottom: 0;
+  border-radius: $border-radius-sm;
+  @if $nav-tabs-link-active-bg != $card-bg {
+    .nav-link.active {
+      border-bottom-color: $active;
+      background-color: $active-bg;
+    }
+  }
+}
+
+.card-header-pills {
+  margin-right: -$card-cap-padding-x * 0.5;
+  margin-left: -$card-cap-padding-x * 0.5;
+}
+// Card image
+.card-img-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: $card-img-overlay-padding;
+  border-width: $border-width-xs;
+  border-style: solid;
+  border-color: $active;
+  border-radius: $border-radius-lg;
+}
+
+// Card image
+.card-img,
+.card-img-bottom,
+.card-img-top {
+  width: 100%; // Required because we use flexbox and this inherently applies align-self: stretch
+  margin: -1.325rem;
+  @include border-radius(.25rem);
+}
+
+.card-img,
+.card-img-top {
+  @include border-start-radius($card-border-radius-inner $card-border-radius-inner 0 0);
+}
+
+.card-img,
+.card-img-bottom {
+  @include border-end-radius(0 0 $card-border-radius-inner $card-border-radius-inner);
+}

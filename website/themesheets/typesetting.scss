@@ -1,0 +1,36 @@
+/* TYPOGRAPHY __________________________________________________________
+Site Name                     : CJMT
+Author                        : CJ Montes-Termini
+
+Stylesheet                    : CJMT Brand Typography
+
+	= TOC =
+		(1) @FONTFACE (In Your Face)
+		(2) Font Stacks
+		(3) Font Variables
+			- [] Font Families
+			- [] Font Colors
+				- Shadows
+				- Gradients
+				- Stroke Outline
+		(4) Text Level CSS Selectors
+			- [] Text Level
+			- [] Headings
+			- [] Links
+		(5) Text Level HTML Elements
+		(6) Responsive Settings
+
+ __________________________________________________________ TYPOGRAPHY */
+
+@import "typography/fonts/font-face";
+@import "typography/fonts/font-stacks";
+@import "typography/fonts/font-variables";
+@import "typography/fonts/headings-variables";
+@import "typography/fonts/type-variables";
+@import "typography/fonts/code";
+
+@import "typography/typography";
+
+@import "typography/text-elements/titles";
+@import "typography/text-elements/blockquote";
+@import "typography/text-elements/code";

@@ -1,0 +1,23 @@
+{
+  "name": "project-folder-structure",
+  "version": "1.0.0",
+  "description": "template for starting an online web project",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/figmentdragon/Project-Folder-Structure.git"
+  },
+  "author": "CJMT",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/figmentdragon/Project-Folder-Structure/issues"
+  },
+  "homepage": "https://github.com/figmentdragon/Project-Folder-Structure#readme"
+}

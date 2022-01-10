@@ -1,0 +1,90 @@
+/* COLORpalette ______________________________________________________
+
+Theme/Brand Name: CJMT
+Author: CJMT
+
+Stylesheet: COLOR PALETTE
+
+  = TOC =
+  [] Color Palette
+    (1) Color Variables
+    (2) Color Theme
+    (3) Utilities Colors
+  [] Color Theme
+  [] Utilities
+
+ __________________________________________________________ colorPALETTE */
+
+ @import "audio+visual/color-palette";
+ @import "style/color/rgb";
+ @import "style/color/contrast";
+
+ /* ____________________________________ LINKS */
+
+   /* Links */
+
+
+
+   $link-color                  : $active-color;
+   $link-disabled               : shade-color($link-color, $disabled-percentage);
+
+   $link-text-decoration        : underline;
+   $link-active-hover-decoration: bold, underline;
+
+   /* Lists */
+   $list-group-text-color       : $gray-700;
+
+   /* _____________________________________ GRADIENT */
+   @import "backgrounds/theme-gradient";
+   @import "backgrounds/global-gradient";
+
+
+
+
+   $nav-link-transition         : color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
+
+
+
+   /* Link ___________ */
+   $link-text-color             : $secondary-color;
+   $link-active-hover-decoration: bold, underline;
+   $nav-text-color              : $secondary-color;
+
+
+   $tabs-active-bg              : $gradient-tabs-bg;
+
+
+
+   $list-group-text-color       : $black;
+
+   /* ____________________________________________ Card */
+
+   $card-text-color             : $body-text-color;
+   $card-cap-text-color         : $primary-color;
+   $card-body-border-color      : shade-color($card-text-color, $active-border-shade-border);
+
+   /* ____________________________________________ Buttons + Form */
+
+   $input-text-color            : $gray-500;
+   $input-bg-color              : $gray-100;
+   $input-border-color          : $gray-900;
+
+   $input-text-focus-color      : $gray-800;
+   $input-bg-focus-color        : $white;
+   $input-border-focus-color    : $gray-100;
+
+   $input-group-bg-color        : $gray-200;
+   $form-switch-text-color      : $input-bg-color;
+
+   /* __________________________________________________ Lists */
+
+   $list-group-text-color       : $gray-900;
+
+
+   /* Jumbotron */
+   $jumbotron-bg-color          : lighten($gray-400, $muted-change-percentage);
+
+   /* Gradient */
+   $brand-gradient              : linear-gradient(-270deg, rgba($primary-color-rgb, .5) 40%, rgba($secondary-color-rgb, .35), 30%, rgba($accent-color-rgb, .65) 20%, transparent);
+
+   $color-gradient-white        : linear-gradient(-220deg, rgba($color-gray-500-rgb, .35) 20%, rgba($primary-color-rgb, .4) 30%, rgba($color-gray-700-rgb, .4) 40%, rgba($color-gray-600-rgb, .5) 50%, transparent, rgba($color-gray-400-rgb, .55) 60%, rgba($color-gray-200-rgb, .6) 65%, rgba($color-gray-500-rgb, .5) 75%);

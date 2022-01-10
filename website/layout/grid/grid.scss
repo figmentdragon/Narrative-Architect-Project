@@ -1,0 +1,124 @@
+/******************************************************************
+Site Name: The Creativity Architect
+Author: CJM Termini
+
+Stylesheet: CJMT Grid Stylesheet
+
+Be light and don't over style since everything here will be
+loaded by mobile devices. You want to keep it as minimal as
+possible. This is called at the top of the main stylsheet
+and will be used across all viewports.
+
+******************************************************************/
+
+@import 'tools/functions/breakpoint';
+@import 'variables/colors/colors';
+@import 'variables/grid/breakpoints';
+@import 'variables/grid/variables';
+@import 'variables/grid/containers';
+@import 'tools/mixins/media-breakpoint';
+@import 'tools/mixins/border-box';
+@import 'tools/mixins/clearfix';
+@import 'tools/mixins/container';
+@import 'tools/mixins/grid/grid';
+@import 'tools/mixins/grid/cols';
+@import 'tools/mixins/grid/rows';
+@import 'tools/mixins/grid/grid-breakpoint';
+@import 'production';
+$size: nth($grid-breakpoints, 1);
+$name: nth($grid-breakpoints, 1);
+
+$infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+/*********************
+GENERAL STYLES
+*********************/
+*,
+*::after,
+*::before,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  @include border-box();
+}
+
+body,
+html {
+  font-size: 100%;
+  overflow: hidden;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.page {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0.25rem;
+}
+
+.container,
+[class^='container-'],
+.container-fluid {
+  @include make-container($gutter: $container-padding-x);
+  height: 100%;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  overflow: hidden;
+  box-sizing: border-box;
+
+  &:after,
+  &:before {
+    line-height: 0;
+    display: table;
+    content: '';
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+.grid {
+  @include make-grid();
+
+  > * {
+    border-width: medium;
+    border-style: solid;
+  }
+  @include grid-breakpoint();
+}
+
+.row {
+  list-style: none;
+  margin-left: -$grid-gutter;
+  @include make-row($gutter: $grid-gutter);
+
+  &:not(.row--flex) {
+    @include clearfix;
+  }
+
+  &.row-flex {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+.col {
+  float: left;
+  padding-left: $grid-gutter;
+  box-sizing: border-box;
+
+  .row--gutterless & {
+    padding-left: 0;
+  }
+  @each $breakpoint in $breakpoints {
+    $name: nth($breakpoint, 1);
+    $declaration: nth($breakpoint, 2);
+    @media only screen and #{$declaration} {
+      @include grid-loop($name);
+    }
+  }
+}

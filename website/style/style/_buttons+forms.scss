@@ -1,0 +1,11 @@
+/* ______________________________________________________ BUTTONS+FORMS */
+$input-disabled-bg-color :      tint-color($input-text-color, $disabled-bg-percentage);
+$input-disabled-border-color :  shade-color($input-text-color, $disabled-border-border);
+
+$input-text-focus-color :       shade-color($input-text-color, $focus-percentage);
+$input-focus-bg-color :         shade-color($input-bg-color, $focus-percentage);
+$input-focus-border-color :     shade-color($input-border-color, $focus-percentage);
+
+$input-placeholder-text-color : tint-color($input-text-color, $muted-percentage);
+$input-plaintext-text-color :   tint-color($primary-color, $muted-percentage);
+s

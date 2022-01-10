@@ -1,0 +1,43 @@
+/* Set up a decent box model on the root element */
+
+html {
+  @include box-sizing(border-box);
+  font-family: $sans-serif;
+  font-weight: $font-weight-normal;
+  color: $text;
+  line-height: $line-height-base;
+  font-size: $font-size-base;
+  @media only screen and (min-width: $breakpoint-sm) {
+    font-size: $font-size-sm;
+  }
+  @media only screen and (min-width: $breakpoint-lg) {
+    font-size: $font-size-base;
+  }
+}
+
+body {
+  color: $text;
+  font-family: $text-font;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  @include font-size($font-size-base);
+}
+
+
+body,
+body .page {
+  position: fixed;
+  margin: 0.75rem 0.65rem;
+  overflow: hidden;
+  background-color: $white;
+  opacity: 100%;
+  border-radius: $border-radius-xl;
+  background-image: linear-gradient(120deg, rgba($cjmt-white-rgb, .7) , rgba($cjmt-saltpan-rgb, .5));
+}
+
+.page {
+  @include make-grid();
+  height: auto;
+  width: auto;
+  margin: 0.25rem;
+}
