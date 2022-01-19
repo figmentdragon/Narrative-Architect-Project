@@ -1,5 +1,5 @@
 {
-  "name": "creativity-architect-css",
+  "name": "ca-scss",
   "version": "1.0.0",
   "description": "custom CSS library with SASS, postcss, and clean-css",
   "main": "index.scss",
@@ -20,5 +20,13 @@
     "postcss-cli": "^9.1.0",
     "rimraf": "^3.0.2",
     "sass": "^1.45.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/figmentdragon/ca-scss.git"
+  },
+  "bugs": {
+    "url": "https://github.com/figmentdragon/ca-scss/issues"
+  },
+  "homepage": "https://github.com/figmentdragon/ca-scss#readme"
 }

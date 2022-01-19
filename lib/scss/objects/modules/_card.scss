@@ -11,7 +11,7 @@ $card-box-shadow                      : $card-box-shadow;
 $card-inner-border-radius             : subtract($card-border-radius, $card-border-width);
 
 $card-bg-color                        : tint-color($accent-color, $background-percentage);
-$card-text-color                      : $body-text;
+$card-text-color                      : $body-text-color;
 $card-height                          : null;
 $card-body-bg-color                   : tint-color($accent-color, $background-percentage);
 $card-body-border-color               : shade-color(
@@ -50,7 +50,7 @@ $card-badge-right                     : 15px;
 $card-badge-height                    : 22px;
 $card-badge-padding-horizontal        : 10px;
 $card-badge-background                : $secondary-color;
-$card-badge-color                     : $body-text;
+$card-badge-color                     : $body-text-color;
 $card-badge-font-size                 : $font-size-base * $sm;
 
 $card-font-size                       : $font-size-base;

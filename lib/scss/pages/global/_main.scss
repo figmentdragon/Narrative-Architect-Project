@@ -1,13 +1,46 @@
-/* # MAIN
-================================================================== */
-.main {
+/*________________________________________________________________ MAIN */
+
+@mixin main {
+
+  @include border-start-radius($border-radius-xxl);
+  box-shadow: $card-box-shadow;
+}
+
+.absolute-main {
   position: absolute;
-  top: 1.25rem;
-  right: 2rem;
-  bottom: 0.25rem;
+  top: .75rem;
+  right: 0rem;
+  bottom: .75rem;
   left: 2rem;
-  display: grid;
-  width: auto;
-  padding: 0.5rem 2rem 0.5rem 1.5rem;
   z-index: $z-index-main;
+}
+
+main,
+main .main {
+  position: absolute;
+  top: 1.5vh;
+  right: 3vw;
+  bottom: 1.5vh;
+  left: 1vw;
+
+  height: 100%;
+  max-height: 97vh;
+  width: 100%;
+  max-width: 99vw;
+
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  margin-left: 1vw;
+  @include main;
+  @include border-start-radius($border-radius-xxl);
+
+  main .main {
+  border: 2px solid $orange;
+  @include main;
+  @include box-shadow($card-box-shadow);
+}
+}
+
+#main {
+  shadow: $card-box-shadow;
 }

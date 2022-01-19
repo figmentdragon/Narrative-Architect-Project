@@ -1,0 +1,104 @@
+/* ________________________ PROPERTIES CONTROLED BY DEFAULT*/
+/* Contrast */
+/* The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7. */
+/* See https                     ://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast */
+$min-contrast-ratio              : 4.5;
+
+$dark-contrast                   : $dark;
+$light-contrast                  : $light;
+
+/* Customize the light and dark text colors for use in our color contrast function. */
+$color-contrast-dark             : $dark-contrast;
+$color-contrast-light            : $light-contrast;
+
+$grays: (
+  100: $gray-100,
+  200: $gray-200,
+  300: $gray-300,
+  400: $gray-400,
+  500: $gray-500,
+  600: $gray-600,
+  700: $gray-700,
+  800: $gray-800,
+  900: $gray-900
+) !default;
+
+$grays-rgb: (
+  gray-100-rgb: $gray-100-rgb,
+  gray-200-rgb: $gray-200-rgb,
+  gray-300-rgb: $gray-300-rgb,
+  gray-400-rgb: $gray-400-rgb,
+  gray-500-rgb: $gray-500-rgb,
+  gray-600-rgb: $gray-600-rgb,
+  gray-700-rgb: $gray-700-rgb,
+  gray-800-rgb: $gray-800-rgb,
+  gray-900-rgb: $gray-900-rgb
+);
+
+$colors: (
+  blue:       $blue,
+  indigo:     $indigo,
+  purple:     $purple,
+  pink:       $pink,
+  red:        $red,
+  orange:     $orange,
+  yellow:     $yellow,
+  green:      $green,
+  teal:       $teal,
+  cyan:       $cyan
+);
+
+$colors-rgb: (
+  'teal-rgb': $teal-rgb,
+  'yellow-rgb': $yellow-rgb,
+  'red-rgb': $red-rgb,
+  'orange-rgb': $orange-rgb,
+  'green-rgb': $green-rgb,
+  'blue-rgb': $blue-rgb,
+  'indigo-rgb': $indigo-rgb,
+  'purple-rgb': $purple-rgb,
+  'cyan-rgb': $cyan-rgb,
+  'pink-rgb': $pink-rgb,
+  'white-rgb': $white-rgb,
+  'black-rgb': $black-rgb,
+  'gray-rgb': $gray-600-rgb
+);
+
+$theme-colors: (
+  'primary':          $primary,
+  'secondary':        $secondary,
+  'accent':           $accent,
+  'valid':            $valid,
+  'info':             $info,
+  'attention':          $attention,
+  'alert':            $alert,
+  'invalid':          $invalid
+);
+
+$theme-colors-rgb:(
+'primary-rgb':   $primary-rgb,
+'secondary-rgb': $secondary-rgb,
+'accent-rgb':    $accent-rgb,
+'valid-rgb':         $success-rgb,
+'attention-rgb':         $attention-rgb,
+'alert-rgb':          $alert-rgb,
+'info-rgb':            $info-rgb,
+'invalid-rgb': $invalid-rgb
+);
+
+$utilitiess:(
+  text:               $text,
+  body:               $body,
+  light:              $light,
+  dark:               $dark
+) !default;
+
+$utilities-text:(
+  text-muted:         $text-muted,
+  input:              $input,
+  input-bg:           $input-bg,
+  input-border:       $input-border,
+  input-focus:        $input-focus,
+  input-focus-bg:     $input-focus-bg,
+  input-focus-border: $input-focus-border
+) !default;

@@ -1,154 +1,105 @@
-/* Theme Properties _____________________________________________
 
-  Theme Name:
-  Author:
+@import "vendors/bootstrap/scss/functions"; // Required
+@import "functions/ascending";
 
-  Stylesheet:
+// Toggle global options
+$enable-caret:                true !default;
+$enable-rounded:              true !default;
+$enable-shadows:              true;
+$enable-gradients:            true;
+$enable-transitions:          true !default;
+$enable-reduced-motion:       true !default;
+$enable-smooth-scroll:        true !default;
+$enable-grid-classes:         true !default;
+$enable-container-classes:    true !default;
+$enable-cssgrid:              true;
+$enable-button-pointers:      true !default;
+$enable-rfs:                  true !default;
+$enable-validation-icons:     true !default;
+$enable-negative-margins:     true;
+$enable-deprecation-messages: true !default;
+$enable-important-utilities:  true !default;
 
-  _____________________________________________ Theme Properties */
+// Customize some defaults
+@import "cjmt";
 
-/* Properties _____________________________________________ */
+@import "vendors/bootstrap/scss/variables"; // Required
+@import "vendors/bootstrap/scss/mixins"; // Required
+@import "vendors/bootstrap/scss/root"; // Required
+@import "vendors/bootstrap/scss/reboot"; // Required
 
+//@import "vendors/bootstrap/scss/accordion";
+@import "vendors/bootstrap/scss/alert";
+@import "vendors/bootstrap/scss/badge";
+//@import "vendors/bootstrap/scss/breadcrumb";
+//@import "vendors/bootstrap/scss/button-group";
+@import "vendors/bootstrap/scss/buttons";
+@import "vendors/bootstrap/scss/card";
+@import "vendors/bootstrap/scss/carousel";
+@import "vendors/bootstrap/scss/close";
+@import "vendors/bootstrap/scss/containers";
+@import "vendors/bootstrap/scss/dropdown";
+//@import "vendors/bootstrap/scss/forms";
+@import "vendors/bootstrap/scss/maps";
+@import "vendors/bootstrap/scss/grid";
+@import "vendors/bootstrap/scss/helpers";
+@import "vendors/bootstrap/scss/images";
+//@import "vendors/bootstrap/scss/list-group";
+@import "vendors/bootstrap/scss/modal";
+@import "vendors/bootstrap/scss/nav";
+@import "vendors/bootstrap/scss/navbar";
+//@import "vendors/bootstrap/scss/offcanvas";
+@import "vendors/bootstrap/scss/pagination";
+//@import "vendors/bootstrap/scss/placeholders";
+@import "vendors/bootstrap/scss/popover";
+@import "vendors/bootstrap/scss/progress";
+//@import "vendors/bootstrap/scss/spinners";
+//@import "vendors/bootstrap/scss/tables";
+//@import "vendors/bootstrap/scss/toasts";
+//@import "vendors/bootstrap/scss/tooltip";
+@import "vendors/bootstrap/scss/transitions";
+@import "vendors/bootstrap/scss/type";
+@import "vendors/bootstrap/scss/utilities";
 
+//
+// Custom styles
+//
 
-/* The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7. */
-/* See https            :/*www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast */
-$min-contrast-ratio     : 4.5 !default;
+@import "icon-list";
+@import 'functions/ascending';
+@import 'mixins/border-box';
+@import 'mixins/grid';
 
+*,
+*::after,
+*::before,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  @include border-box();
+}
 
-/* ____________________________________________ VariablePrefix */
-$variable-prefix                            : -- !default;
+div {
+  display: flex;
+  float: left;
+  justify-content: space-evenly;
+}
 
-/* ______________________________________________________ Body */
+html {
+  @include border-box();
+  background-image: linear-gradient(110deg, rgba($gray-100-rgb, .20) 15%, rgba($gray-200-rgb, .30) 25%, rgba($gray-400-rgb, .40) 35%, rgba($gray-600-rgb, .50) 45%, rgba($gray-800-rgb, .65) 55%, rgba($chocolate-rgb, .90) 85%, rgba($chocolate-rgb, .95) 90%);
+  z-index: $z-index-html-body;
+}
 
-
-
-
-/* ________________________________________________ Components */
-/* Define common padding and border radius sizes and more.*/
-/* scss-docs-start border-variables*/
-$thickness              : 1px;
-$radius                 : .95rem;
-$caret-width            : .3em;
-
-
-/* ________________________________________________ Typography */
-@import "theme/typography";
-
-
-/* ____________________________________________ Buttons + Form */
-
-
-
-
-/* Gradients */
-$gradient-tabs-bg: linear-gradient(320deg, transparent, rgba($white-rgb, .10) 20%, rgba($accent-rgb, .20) 35%, rgba($accent-rgb, .30) 50%, rgba($accent-rgb, .40) 65%);
-
-
-
-
-/* Nav Utilities */
-$nav-link-text-color:                 tint($link-text-color, $link-active-shade-percentage);
-$nav-link-text-hover-color:           shift-color($nav-link-text-color, $link-active-shade-percentage);
-$nav-link-text-disabled-color:
-
-$nav-link-bg-color:                 linear-gradient(-250deg, transparent, rgba($ghost-white-rgb, .40) 50%, rgba($white-chocolate-rgb, .30) 60%, rgba($saltpan-rgb, .20) 70%, rgba($dark-vanilla-rgb, .15) 80%, rgba($secondary-color-rgb, .10) 90%);
-
-
-/* Utilities Input*/
-
-/* ___________________________________________________ Link */
-
-/* Link Utilities */
-
-
-/* Style anchor elements. */
-
-
-
-
-
-/* _____________________________________________ Typography */
-/*
-/* Font, line-height, and color for body text, headings, and more.
-
-/* scss-docs-start font-variables
-/* stylelint-disable value-keyword-case
-
-$font-family-sans-serif : system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-$font-family-monospace  : SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-/* stylelint-enable value-keyword-case
-$font-family-base       : var(--#{$variable-prefix}font-sans-serif);
-$font-family-code       : var(--#{$variable-prefix}font-monospace);
-
-/* Utilities Typography */
-
-$site-title-color:        $primary-color;
-$page-title-color:        $secondary-color;
-$post-title-color:        $accent-color;
-$lead-text-color:         shift-color($post-title-color, $muted-change-percentage);
-$caption-text-color:      darken($body-text-color, 10%);
-$nav-text-color:          darken($secondary-color, 10%);
-$btn-text-color:          darken($body-text-color, 10%);
-$quote-text-color:        darken($primary-color, 10%);
-$footer-text-color:       darken($accent-color, 10%);
-
-/* Nav Utilities */
-$nav-link-color          : $nav-link-text-color;
-$nav-link-hover-color    : $nav-link-text-hover-color !default;
-$nav-link-disabled-color      : $nav-link-text-disabled-color !default;
-
-
-/* Utilities Input*/
-$input-text             : $input-text-color !default;
-$input-bg               : $input-bg-color !default;
-$input-border           : $input-border-color !default;
-$input-text-focus       : $input-text-focus-color !default;
-$input-bg-focus         : $input-bg-focus-color !default;
-$input-border-focus     : $input-border-focus-color !default;
-
-$btn-bg-primary         : $btn-bg-primary-color !default;
-$btn-bg-secondary       : $btn-bg-secondary-color !default;
-$btn-bg-accent          : $btn-bg-accent-color !default;
-$btn-bg-info            : $btn-bg-info-color !default;
-$btn-bg-valid           : $btn-bg-valid-color-color !default;
-$btn-bg-alert           : $btn-bg-alert-color !default;
-$btn-bg-attention       : $btn-bg-attention-color !default;
-$btn-bg-invalid         : $btn-bg-invalid-color-color !default;
-
-
-/* Nav Utilities */
-$nav-link-text-color:                 tint($secondary-color, $link-active-shade-percentage);
-
-
-
-
-$tabs-active-bg-color:                $gradient-tabs-bg;
-
-$nav-tabs-border-color:             $gray-300;
-$nav-tabs-link-hover-border-color:  shift-color($nav-tabs-border-color, $link-active-hover-shade-percentage);
-$nav-tabs-link-active-color:        snav-link-color;
-$nav-tabs-link-active-bg:           $nav-link-bg-color;
-$nav-tabs-link-active-border-color: $nav-tabs-border-color;
-
-$nav-tabs-link-hover-active-bg:     shift-color($nav-tabs-link-active-bg, $link-active-hover-bg-shade-percentage);
-$nav-tabs-link-hover-active-border-color: shift-color($nav-tabs-link-active-border-color, $link-active-hover-shade-percentage);
-
-$navbar-dark-color:                 rgba($secondary-color, .55);
-$navbar-dark-hover-color:           shift-color($navbar-dark-color, $link-active-hover-shade-percentage);
-$navbar-dark-active-color:          $navbar-dark-color;
-$navbar-dark-disabled-color:        $disabled-text-color;
-
-$navbar-light-color:                rgba($primary-color, .55);
-$navbar-light-hover-color:          shift-color($navbar-light-color, $link-active-hover-shade-percentage);
-$navbar-light-active-color:         $navbar-light-color;
-$navbar-light-disabled-color:       $disabled-text-color, .3;
-
-
-/* Utilities Input*/
-$input:               $gray-500;
-$input-bg:            $gray-100;
-$input-border:        $gray-900;
-$input-focus:         $gray-800;
-$input-focus-bg:      $white;
-$input-focus-border:  $gray-100;
+body,
+html {
+  float: left;
+  overflow: hidden;
+  align-items: left;
+  justify-content: flex-start;
+  height: auto;
+  width: auto;
+  margin: 0;
+  font-size: 100%;
+}

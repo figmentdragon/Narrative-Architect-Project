@@ -1,0 +1,23 @@
+/* Spacing */
+/* @see https://getbootstrap.com/docs/5.1/customize/options/ */
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * .25,
+  2: $spacer * .5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+);
+
+$negative-spacers: negativify-map($spacer);
+
+$spacer-x: $spacer;
+$spacer-y: $spacer;
+
+$spacer-xs: $base * .75;
+$spacer-sm: $base * .875;
+$spacer-md: $base * 1.05;
+$spacer-lg: $base * 1.25;
+$spacer-xl: $base * 1.50;
+$spacer-xxl: $base * 2.50;

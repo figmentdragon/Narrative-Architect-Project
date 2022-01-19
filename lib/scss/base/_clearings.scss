@@ -26,3 +26,12 @@ span.amp {
 .clearfix {
   @include clearfix;
 }
+
+/**
+ * Clear inner floats
+ */
+.clearfix::after {
+  clear: both;
+  content: '';
+  display: table;
+}

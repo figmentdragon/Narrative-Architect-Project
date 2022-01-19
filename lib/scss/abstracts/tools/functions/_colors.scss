@@ -1,6 +1,6 @@
 // Colors
-@function to-rgb($value) {
-  @return red($value), green($value), blue($value);
+@function to-rgba($value) {
+  @return   red($value), green($value), blue($value) ;
 }
 
 // stylelint-disable scss/dollar-variable-pattern

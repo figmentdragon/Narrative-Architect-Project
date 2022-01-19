@@ -234,7 +234,7 @@
             a:hover:active,
             a:hover:focus
             {
-                color: $body-text;
+                color: $body-text-color;
             }
         }
 
@@ -259,7 +259,7 @@
         margin-right: .66 * $base-unit;
         margin-left: .66 * $base-unit;
 
-        color: $body-text;
+        color: $body-text-color;
 
         &.current
         {

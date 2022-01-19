@@ -16,7 +16,7 @@
             }
         }
         .col--#{$name}-offset-#{$i} {
-            margin-left: divide($name, $grid-columns);
+          margin-left : percentage($grid-columns * $i);
         }
     }
 }
@@ -35,4 +35,22 @@
     &:after {
         clear: both;
     }
+}
+
+@mixin border-box {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    }
+
+// container mixins
+@mixin make-container() {
+  @include clearfix;
+  @include border-box;
+  min-width: 100%;
+  max-width : $grid-max-width;
+  margin: 0 0 auto;
+  padding: 0 $offset;
+  overflow: hidden;
+  display: block;
 }

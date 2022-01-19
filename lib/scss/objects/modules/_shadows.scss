@@ -15,7 +15,7 @@ $box-shadow-focus: -.25rem .50rem .75rem $shadow-focus, -.25rem -.50rem .75rem t
 
 $box-shadow-inset: inset -.25rem -.25rem -.50rem 0px rgb($shadow-inset-a, .7) 25%, inset .25rem .25rem .50rem 0px rgb($shadow-inset-b, .35) 25%;
 
-$masthead-shadow: 0 1.2rem .9rem 1rem shift-color($shadow-color, $active-percentage);
+$masthead-shadow: 0 .2rem .9rem .25rem shift-color($shadow-color, $active-percentage);
 
 
 

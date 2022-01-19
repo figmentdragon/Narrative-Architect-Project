@@ -1,0 +1,192 @@
+/* Utitities Color */
+/* The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7. */
+/* See https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast */
+$min-contrast-ratio:   4.5 !default;
+
+/* Customize the light and dark text colors for use in our color contrast function. */
+$color-contrast-dark:      $dark-contrast !default;
+$color-contrast-light:     $light-contrast !default;
+
+$shadow:                    $shadow !default;
+$shadow-text:               $shadow-text !default;
+$shadow-box:                $shadow-box !default;
+
+/* Link Utilities */
+$active-component:          $active-component !default;
+$active-component-bg:       $active-component-bg !default;
+$active-component-border:   $active-component-border !default;
+
+$disabled-text:       $disabled-text !default;
+$disabled-bg:         $disabled-bg !default;
+$disabled-border:     $disabled-border !default;
+
+
+/* Utilities Typography */
+$text:              $body-text !default;
+$body-bg:           $body-bg
+$text-muted:        $text-muted !default;
+
+$site-title:              $site-title !default;
+$page-title:              $page-title !default;
+$post-title:              $post-title !default;
+$lead-text:               $lead-text !default;
+$caption-text:            $caption-text !default;
+$nav-text:                $nav-text !default;
+$btn-text:                $btn-text !default;
+$quote-text:              $quote-text !default;
+$footer-text:             $footer-text !default;
+
+/* Nav Utilities */
+$nav-link:          $nav-link-text !default;
+$nav-link-hover:    $nav-link-text-hover !default;
+$nav-link-disabled: $nav-link-text-disabled !default;
+
+
+$nav-link-text:          $nav-link !default;
+$nav-link-text-hover:    $nav-link-text-hover !default;
+$nav-link-disabled:      $nav-link-disabled !default;
+
+$nav-tabs-link-active-bg:   $tabs-active-bg;
+
+
+/* Utilities Input*/
+$input-text:          $input-text !default;
+$input-bg:            $input-bg !default;
+$input-border:        $input-border !default;
+$input-text-focus:    $input-text-focus !default;
+$input-bg-focus:      $input-bg-focus !default;
+$input-border-focus:  $input-border-focus !default;
+
+$btn-bg-primary:        $btn-bg-primary !default;
+$btn-bg-secondary:      $btn-bg-secondary !default;
+$btn-bg-accent:         $btn-bg-accent !default;
+$btn-bg-info:           $btn-bg-info !default;
+$btn-bg-valid:          $btn-bg-valid !default;
+$btn-bg-alert:          $btn-bg-alert !default;
+$btn-bg-attention:      $btn-bg-attention !default;
+$btn-bg-invalid:        $btn-bg-invalid !default;
+
+/* Utitities Color */
+$cjmt-primary:   $cyan;
+$cjmt-secondary: $yellow;
+$cjmt-accent:    $silver;
+
+$active:              $cjmt-primary;
+$active-border:       $cjmt-secondary;
+$active-hover:        shift($active, $active-percentage);
+$active-border-hover: shift($active-border, $active-percentage);
+$active-bg-hover:     $cjmt-accent;
+$active-bg:           $active-bg-hover;
+
+$disabled:            $gray-200;
+$disabled-border:     $gray-400;
+$disabled-bg:         $gray-300;
+
+$hover:               $active-hover;
+$hover-border:        $active-border-hover;
+$hover-bg:            $active-bg-hover;
+
+$component-active:    $active;
+$component-active-bg:       $active-bg;
+$component-active-border:   $active-border;
+
+$link-active:                   $active;
+$link-active-border:            $active-border;
+$link-active-decoration:        none;
+$link-active-hover:             $hover;
+$link-active-hover-border:      $hover-border;
+$link-active-hover-bg:          $active-bg;
+$link-active-hover-decoration:  underline;
+
+$nav:         $brown;
+$border:      $brown;
+$nav-border:  $border;
+$divider:     $border;
+$separator:   $border;
+$visited:     $purple;
+$table:       $teal;
+$widget:      $silver;
+
+$valid:       #0bda51;
+$invalid:     #dc3545;
+
+* _________________________________________________ Elements */
+$body-bg-color                   : tint-color($primary-color, $background-tint-percentage);
+$active-bg-color                 : tint-color($active-text-color, $active-bg-percentage);
+$active-border-color             : shade($active-text-color, $active-border-shade-border);
+
+$active-text-hover-color         : shift-color($active-text-color, $active-hover-change-percentage);
+$active-border-hover-color       : shift-color($active-text-color, $active-hover-change-percentage);
+$active-bg-hover-color           : shift-color($active-bg-color, $active-hover-change-percentage);
+
+$disabled-bg-color               : tint-color($disabled-text-color, $disabled-bg-tint-percentage);
+$disabled-border-color           : shade($disabled-text-color, $disabled-border-shade-border);
+
+/* ________________________________________________ Components */
+
+/* Shadow _________ */
+
+$active-bg-color                 : tint($active-text-color, active-bg-tint-percentage);
+$active-border-color             : shade($active-text-color, $active-border-shade-border);
+
+$link-text-hover-color           : shift-color($nav-text-color, $link-shade-percentage);
+$link-text-visited-color         : shade-color($link-text-color, $link-visited-shade-percentage);
+$link-text-visited-hover         : shade-color($link-text-visited-color, $link-hover-shade-percentage);
+
+/* Nav Utilities */
+
+$nav-link-text-hover-color       : shift-color($nav-text-color, $link-shade-percentage);
+$tabs-active-border              : shade-color($nav-text-color, $active-border-shade-border);
+
+/* ______________________________________________________ Typography */
+$lead-text-color                 : shift-color($post-title, $muted-tint-percentage);
+$caption-text-color              : darken($text, 10%);
+$nav-text-color                  : darken($secondary-color, 10%);
+$btn-text-color                  : darken($text, 10%);
+$quote-text-color                : darken($primary-color, 10%);
+$footer-text-color               : darken($accent-color, 10%);
+
+
+/* ____________________________________________________________ Card */
+$card-body-border-color          : shade-color($card-text-color, $border-shade-percentage);
+$card-cap-bg-color               : tint-color($card-cap-text-color, $background-tint-percentage);
+$card-bg-color                   : tint-color($primary-color, $background-tint-percentage);
+
+/* __________________________________________________ Buttons + Form */
+$input-border-color              : shade-color($input-text-color, $active-border-shade-border);
+$input-focus-border-color        : tint-color($input-border-color, $focus-shade-percentage);
+
+$input-bg-color                  : $body-bg-color;
+$input-disabled-bg-color         : tint-color($input-text-color, $disabled-bg-tint-percentage);
+$input-disabled-border-color     : shade-color($input-text-color, $disabled-border-shade-border);
+
+$input-text-focus-color          : shade-color($input-text-color, $focus-shade-percentage);
+$input-focus-bg-color            : shade-color($input-bg-color, $focus-shade-percentage);
+$input-focus-border-color        : shade-color($input-border-color, $focus-shade-percentage);
+
+$input-placeholder-text-color    : tint-color($input-text-color, $muted-tint-percentage);
+$input-plaintext-text-color      : tint-color($primary-color, $muted-tint-percentage);
+
+$form-file-button-hover-bg-color : shade-color($input-bg-color, $hover-shade-percentage);
+
+$jumbotron-bg-color              : lighten($gray-400, $muted-tint-percentage);
+
+$list-group-bg-color             : tint-color($list-group-text-color, $background-tint-percentage);
+$list-group-border-color         : shade-color($list-group-text-color, $border-shade-percentage);
+$list-group-hover-bg             : shift-color($list-group-bg-color, $hover-shade-percentage);
+$list-group-active-bg-color      : shift-color($list-group-text-color, $active-hover-change-percentage);
+
+$list-group-disabled-bg-color    : $disabled-border-color;
+
+
+$component-active:    $active;
+$component-active-bg:       $active-bg;
+$component-active-border:   $active-border;
+
+$link-active:                   $active;
+$link-active-border:            $active-border;
+$link-active-decoration:        none;
+$link-active-hover:             $hover;
+$link-active-hover-border:      $hover-border;
+$link-active-hover-bg:          $active-bg;
+$link-active-hover-decoration:  underline;

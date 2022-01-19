@@ -1,0 +1,24 @@
+/* Text */
+$text          : shade($primary, $text-percentage);
+$quote         : shade($accent, $quote-percentage);
+$comment       : shade($primary, $comment-percentage);
+$muted         : tint(%color, $muted-percentage);
+
+$heading       : shade($primary, $heading-percentage);
+$site          : shade($primary, $site-percentage);
+$page          : shade($secondary, $page-percentage);
+$post          : shade($accent, $post-percentage);
+$lead          : shade($accent, $lead-percentage);
+
+$background    : tint(%theme-color, $background-percentage);
+$button        : shade($secondary, $button-percentage);
+$border        : shade($accent, $border-percentage);
+
+
+
+
+$caption       : shade($text, $focus-percentage);
+$border-hover  : shade($border, $hover-percetnage);
+$border-visited: shade($border, $visited-percentage);
+$footer-quote  : shade($quote, $footer-percentage);
+  $footer-info : shade($info, $footer-percentage);

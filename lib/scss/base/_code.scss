@@ -17,7 +17,7 @@ code {
   margin: 0 0.2rem;
   padding: 0.2rem 0.5rem;
   white-space: nowrap;
-    border-width: $border-width;
+    border-width: $border-width-md;
   @include border-radius($border-radius);
   a > & {
     color: inherit;

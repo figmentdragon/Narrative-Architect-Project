@@ -17,9 +17,9 @@
     --#{$variable-prefix}#{$color}: #{$value};
   }
 
-//  @each $color, $value in $theme-colors-rgb {
-//    --#{$variable-prefix}#{$color}-rgb: #{$value};
-  //}
+  @each $color, $value in $theme-colors-rgb {
+     --#{$variable-prefix}#{$color}-rgb: #{$value};
+  }
 
   --#{$variable-prefix}white-rgb: #{to-rgb($white)};
   --#{$variable-prefix}black-rgb: #{to-rgb($black)};
@@ -45,8 +45,8 @@
   --#{$variable-prefix}body-font-weight: #{$font-weight-base};
   --#{$variable-prefix}line-height-body: #{line-height-md};
   --#{$variable-prefix}text: #{$body-bg-color};
-  @if $body-text-align != null {
-    --#{$variable-prefix}body-text-align: #{$body-text-align};
+  @if $body-text-color-align != null {
+    --#{$variable-prefix}body-text-color-align: #{$body-text-color-align};
   }
   --#{$variable-prefix}body-bg: #{$body-bg-color};
   // scss-docs-end root-body-variables

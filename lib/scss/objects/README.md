@@ -1,5 +1,13 @@
-# Components
+Objects are context independent
 
-For small components, there is the `components/` folder. While `layout/` is macro (defining the global wireframe), `components/` is more focused on widgets. It contains all kind of specific modules like a slider, a loader, a widget, and basically anything along those lines. There are usually a lot of files in components/ since the whole site/application should be mostly composed of tiny modules.
+When I say objects are context independent, I mean they don’t know where they’re used. You could pick any object up, throw it somewhere else and it won’t break the structure of your site.
 
-Reference: [Sass Guidelines](http://sass-guidelin.es/) > [Architecture](http://sass-guidelin.es/#architecture) > [Components folder](http://sass-guidelin.es/#components-folder)
+This also means objects should not change any structure outside itself. So, object blocks cannot contain any of these properties/values:
+
+    absolute or fixed position.
+    margin.
+    padding (unless you have a background-color applied. In this case, it doesn’t interrupt break the alignment outside the object).
+    float.
+    etc…
+
+Since you know objects need to be context independent, you immediately know the .button in our site-wide navigation example earlier cannot contain any margins.

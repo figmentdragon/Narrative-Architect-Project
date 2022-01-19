@@ -1,3 +1,38 @@
+/* ______________________________________________________ LINK */
+$active-color                 : $active-color;
+
+
+/* Style anchor elements. */
+$link-color                   : $active-color;
+$link-text-decoration         : $link-decoration;
+
+$link-hover                   : $hover-color;
+$link-hover-decoration        : $hover-decoration;
+
+$link-visited                 : $visited-color;
+$link-visited-decoration      : $visited-decoration;
+$visited-color-hover      : $visited-hover-color;
+
+$stretched-link-pseudo-element: after;
+$stretched-link-z-index       : 1;
+
+//
+// Stretched link
+//
+
+.stretched-link {
+  &::#{$stretched-link-pseudo-element} {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: $stretched-link-z-index;
+    content: "";
+  }
+}
+
+
 /* Links */
 a {
   outline: none !important;
@@ -6,21 +41,21 @@ a {
 
   :active {
     text-decoration: underline;
-    color: $link-text-color;
+    color: $link-color;
 
     & :hover {
       text-decoration: underline, bold;
-      color: $link-hover-color;
+      color: $hover-color;
     }
   }
 
   :hover {
     text-decoration: underline, bold;
-    color: $link-hover-color;
+    color: $hover-color;
   }
 
   :disabled {
-    color: $disabled-text;
+    color: $disabled-color;
     text-decoration: none;
 
   }

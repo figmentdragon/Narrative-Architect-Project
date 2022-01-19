@@ -1,21 +1,6 @@
 .primary
 {
-    position: fixed;
-    top: 1vh;
-    right: $col1;
-    bottom: 1vh;
-    left: $col2;
 
-    flex: 1 1 auto;
-
-    width: $col14;
-    height: $row15;
-    margin: $spacer;
-    padding: $padding-x $padding-y;
-
-    word-wrap: break-word;
-
-    color: $body;
 }
 
 .primary .card-body
@@ -33,7 +18,7 @@
 {
     flex: 1 1 auto;
 
-    padding: $card-spacer-y $card-spacer-x;
+    padding: $card-offset-y $card-offset-x;
 
     color: $card-text-color;
 }
@@ -47,7 +32,7 @@
     left: 9.37%;
 
     border-style: solid;
-    border-color: $cjmt-accent-color;
+    border-color: $accent-color;
     border-radius: $border-radius-lg;
     background-clip: border-box;
     box-shadow: $box-shadow;

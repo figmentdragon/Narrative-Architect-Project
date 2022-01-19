@@ -1,0 +1,184 @@
+/* CJMT colorpalette ______________________________________________________
+
+Theme/Brand Name         : CJMT
+Author                   : CJMT
+
+Stylesheet               : CJMT Brand Stylesheet
+
+  = TOC =
+  [] Color Palette
+    (1) Color Variables
+    (2) Theme Colors
+    (3) Utilities Colors
+  [] Properties
+  [] Utilities
+________________________________________________________ CJMT colorpalette */
+
+
+/* _______________________________________ VARIABLES */
+/* Gray Scale */
+$white                   : #e4edf4;
+$gray-100                : #c0c0c0;
+$gray-200                : #9a9a9a;
+$gray-300                : #7b7b7b;
+$gray-400                : #626262;
+$gray-500                : #4e4e4e;
+$gray-600                : #3e3e3e;
+$gray-700                : #323232;
+$gray-800                : #282828;
+$gray-900                : #1a1a1a;
+$black                   : #000100;
+/* scss-docs-end gray-variables */
+
+/* Core Colors */
+$blue                    : #0a0fba;
+$indigo                  : #6600ff;
+$purple                  : #510bda;
+$pink                    : #fc89ac;
+$red                     : #ba0a0f;
+$orange                  : #fd8535;
+$yellow                  : #ffcc33;
+$green                   : #82ded1;
+$teal                    : #b5ede4;
+$cyan                    : #0abab5;
+$gray                    : $gray-600;
+$light                   : $gray-200;
+$dark                    : $gray-900;
+
+/* Custom Colors */
+$silver                  : #a8a9ad;
+
+$chocolate               : #623412;
+$camel                   : #c19a6b;
+$saltpan                 : #ffffcc;
+$white-chocolate         : #ede6d6;
+$dark-vanilla            : #d1bea8;
+$ghost-white             : #fbfbfd;
+
+$deep-sky-blue           : #0dcaf0;
+$coral                   : #ff7f50;
+$maroon                  : #800000;
+
+/* ____________________________________ Utilities Colors */
+  /* Brand Color Variables */
+    $primary       : #0abab5;
+    $secondary     : #ffe41e;
+    $accent        : #a8a9ad;
+
+  /* Functional Color Variables */
+    $light-cyan          : #cdffff; /* Light Green */
+    $neon-blue           : #555aff; /* light blue */
+    $salomie             : #ffd080; /* light orange */
+    $wild-watermelon     : #ff555a; /* light red */
+    $hot-pink            : #ff6fa9;
+
+
+/* ____________________________________ THEME */
+  /* Variables */
+  $primary         : #0abab5;
+  $secondary       : #ffe41e;
+  $accent          : #a8a9ad;
+
+  /* Utility Colors */
+    $valid         : $light-cyan;
+    $info          : $neon-blue;
+    $alert         : $salomie;
+    $invalid       : $wild-watermelon;
+    $attention     : $hot-pink;
+
+  /* Typography */
+  $headings-text   : $primary;
+  $footer-text     : $accent;
+
+/* ____________________________________ FOUNDATION */
+  /* Background */
+  $body-bg         : tint($secondary, $background-percentage);
+  $page-bg         : tint($primary, $background-percentage);
+  $main-bg         : tint($accent, $background-percentage);
+
+  /* Borders */
+  $border          : $chocolate;
+
+
+  $active                  : color-mix(srgb, $primary 40%, $white);
+  $disabled                : color-mix(srgb, $primary 40%, $black);
+
+/* ____________________________________ OBJECTS */
+  /* Shadow */
+  $shadow          : $primary;
+
+  /* Nav */
+  $nav-link        : $active;
+    // Navbar
+    $navbar-dark-text    : $accent;
+    $navbar-light-text   : $primary;
+
+  /* Lists */
+  $list-group-text : $gray-900;
+
+  /* The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7. */
+  /* See https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast */
+  $min-contrast-ratio:   4.5 !default;
+
+  $dark-contrast:      $black;
+  $light-contrast:     $white;
+
+  $shadow-color:               $gray-800;
+  $shadow-text-color:          .5rem .75rem .25rem $shadow-color;
+  $shadow-box-color:           .5rem .75rem .25rem $shadow-color;
+
+  /* Gradients */
+  $gradient-tabs-bg: linear-gradient(320deg, transparent, rgba($white-rgb, .10) 20%, rgba($accent-rgb, .20) 35%, rgba($accent-rgb, .30) 50%, rgba($accent-rgb, .40) 65%);
+
+
+  /* Link Utilities */
+  $active-component-color:          $primary-color;
+  $active-component-bg-color:       tint($primary-color, $background-tint-percentage);
+  $active-component-border-color:   $active-component-color;
+
+  $disabled-text-color:           $gray-500;
+  $disabled-bg-color:             $gray-200;
+  $disabled-border-color:         $gray-500;
+
+
+  /* Utilities Typography */
+  $body-text-color:         $gray-700;
+  $body-bg-color:           lighten($primary-color, 5%);
+  $text-muted-color:        shift-color($body-text-color, $muted-change-percentage);
+
+  $site-title-color:        $primary-color;
+  $page-title-color:        $secondary-color;
+  $post-title-color:        $accent-color;
+  $lead-text-color:         shift-color($post-title-color, $muted-change-percentage);
+  $caption-text-color:      darken($body-text-color, 10%);
+  $nav-text-color:          darken($secondary-color, 10%);
+  $btn-text-color:          darken($body-text-color, 10%);
+  $quote-text-color:        darken($primary-color, 10%);
+  $footer-text-color:       darken($accent-color, 10%);
+
+
+  /* Nav Utilities */
+  $nav-link-text-color:           tint($secondary-color, $link-active-shade-percentage) !default;
+  $nav-link-text-hover-color:     shift-color($nav-link-text-color, $link-active-shade-percentage);
+  $nav-link-text-disabled-color:       $disabled-text-color;
+
+  $tabs-active-bg-color:          $gradient-tabs-bg;
+
+  /* Utilities Input*/
+  $input-text-color:          $gray-500;
+  $input-bg-color:            $gray-100;
+  $input-border-color:        $gray-900;
+  $input-text-focus-color:    $gray-800;
+  $input-bg-focus-color:      $white;
+  $input-border-focus-color:  $gray-100;
+
+/* ______________________________________________________ BACKGROUNDS */
+  /* Theme BG Colors */
+  $primary-bg            : tint($primary, $background-percentage);
+  $secondary-bg          : tint($secondary, $background-percentage);
+  $accent-bg             : tint($accent, $background-percentage);
+  $valid-bg              : tint($valid, $background-percentage);
+  $alert-bg              : tint($alert, $background-percentage);
+  $invalid-bg            : tint($invalid, $background-percentage);
+  $attention-bg          : tint($attention, $background-percentage);
+  $info-bg               : tint($info, $background-percentage);

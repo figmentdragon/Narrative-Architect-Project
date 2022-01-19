@@ -40,35 +40,58 @@ along with Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normali
 
 @import "lib/scss/helpers";
 
+
+/* OBJECTS ________________________________________________________________*/
+@import "lib/scss/card";
+@import "lib/scss/objects/shadows";
+
+
 /* _______________________________________________________ GLOBAL */
 /* Base/Default settings. */
+ul,
+ol,
+dl {
+  text-align: left;
+}
+
+ul,
+ol {
+  margin: 0 0 1.5em 3em;
+}
+ul {
+  list-style: none;
+}
+ol {
+  list-style: decimal;
+}
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+  margin-bottom: 0;
+  margin-left: 1.5em;
+}
+
+li {
+  display: inline;
+}
+
+
+@import "lib/scss/layout/section";
 
 *,
 *::after,
 *::before,
 *:after,
 *:before {
-  margin: 0;
-  padding: 0;
+
   @include border-box;
-  text-rendering: geometricPrecision;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 html {
   position: absolute;
   @include border-box;
-  background: linear-gradient(
-    260deg,
-    rgba($accent-color, 0.3) 15%,
-    rgba($accent-color, 0.4) 25%,
-    rgba($accent-color, 0.6) 35%,
-    rgba($accent-color, 0.7) 45%,
-    rgba($accent-color, 0.8) 55%,
-    rgba($accent-color, 0.9) 85%,
-    $chocolate 90%
-  );
+
   z-index: 100;
   @media screen and (min-width: 768px) {
     font-size: 75%;
@@ -77,103 +100,30 @@ html {
 
 body,
 html {
-  float: left;
-  align-items: left;
-  justify-content: flex-start;
-  overflow: hidden;
-  font-size: 100%;
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  @include border-box;
+  position: absolute;
 
-  * {
-    @include border-box;
-  }
-}
-
-body {
-  @include border-box;
-  text-align: left;
-  color: $text;
-  font-family: $secondary-font;
-  font-size: $font-size-base;
-  line-height: $line-height-base;
-  margin: auto;
   background: linear-gradient(
-    260deg,
-    rgba($accent-color, 0.3) 15%,
-    rgba($accent-color, 0.4) 25%,
-    rgba($accent-color, 0.6) 35%,
-    rgba($accent-color, 0.7) 45%,
-    rgba($accent-color, 0.8) 55%,
-    rgba($accent-color, 0.9) 85%,
-    $chocolate 90%
-  );
-}
-
-main {
-  position: absolute;
-  top: 3.75;
-  right: 0.25rem;
-  bottom: 3.5rem;
-  left: 9rem;
-  border-radius: $border-radius-sm;
-  background: #f0f0f3;
-  box-shadow: inset 13px 13px 26px $gray-900, inset -13px -13px 26px $black;
-}
-
-header {
-  position: relative;
-  top: 1.75rem;
-  right: 0;
-  left: 0;
-  width: 100%;
-  background-image: linear-gradient(
-    205deg,
+    290deg,
     transparent,
     rgba($white, 0.05) 5%,
-    rgba($accent-color, 0.15) 10%,
-    rgba($accent-color, 0.3) 20%,
-    rgba($primary-color, 0.45) 30%,
-    rgba($primary-color, 0.6) 40%,
-    rgba($primary-color, 0.75) 50%,
-    rgba($primary-color, 0.9) 60%
-  );
-}
-
-nav {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 3.5rem;
-}
-
-article {
-  width: 100%;
-  height: auto;
-  margin: 0;
-}
-
-footer {
-  display: block;
-  background-image: linear-gradient(
-    90deg,
-    transparent,
-    rgba($white, 0.05) 5%,
-    rgba($accent-color, 0.1) 15%,
-    rgba($accent-color, 0.25) 30%,
+    rgba($white, 0.1) 15%,
+    rgba($white, 0.25) 30%,
     rgba($primary-color, 0.4) 45%,
-    rgba($primary-color, 0.55) 60%,
-    rgba($primary-color, 0.7) 75%,
-    rgba($primary-color, 0.85) 90%
+    rgba($primary-color, 0.7) 60%,
+    rgba($primary-color, 0.8) 75%,
+    rgba($primary-color, 0.95) 90%,
+    rgba($primary-color, .5) 100%
   );
-  z-index: $z-index-footer;
-  justify-content: space-between;
-  align-content: space-evenly;
+  @include border-box;
 }
+
+
+
+
+
+
+
+
 
 /**
  * Set up a decent box model on the root element
@@ -188,99 +138,230 @@ Use this section to set widths and margins, and to build a layout. For examples 
 https://github.com/Automattic/_s/blob/master/layouts/
 */
 
-body,
-body .site {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: linear-gradient(
-    260deg,
-    rgba($accent-color, 0.3) 15%,
-    rgba($accent-color, 0.4) 25%,
-    rgba($accent-color, 0.6) 35%,
-    rgba($accent-color, 0.7) 45%,
-    rgba($accent-color, 0.8) 55%,
-    rgba($accent-color, 0.9) 85%,
-    $chocolate 90%
-  );
-}
-
-.container {
-  margin: 0;
-  width: 99%;
-  height: 100%;
+.site .container {
   @include border-box;
-}
-
-
-.page {
-  /* The the outer-most container, wraps the entire site */
-  border-top-left-radius: $border-radius-lg;
-  height: auto;
-  overflow: hidden;
-  margin-top: 0;
-  margin-right: 1rem;
-  margin-bottom: 1rem;
-  margin-left: 1;
   width: auto;
   height: 100%;
-
-  z-index: $z-index-page;
-  background-color: tint-color($accent-color, $background-percentage);
-}
-
-.main {
-  /* The container for #primary, #secondary, and #tertiary */
-  margin: 3.75rem 1.75rem 1.5rem 8.5rem;
-  height: auto;
-  width: auto;
-  display: flex;
-  flex: 1 1 auto;
-  flex-direction: column;
-  border-radius: $border-radius-sm;
-  background: #f0f0f3;
-  box-shadow: inset 13px 13px 26px #606061, inset -13px -13px 26px #ffffff;
-  z-index: $z-index-main;
-}
-
-.primary {
-  /* The container for your primary content.*/
-  position: absolute;
-  top: 1rem;
-  right: 0.25rem;
-  bottom: 0.75rem;
-  left: 0;
-  flex: 1 1 auto;
-  padding-top: 2.5rem;
-  padding-right: 8.5rem;
-  padding-bottom: 1.75rem;
-  color: $card-text-color;
-}
-
-.site-footer {
-  /* Container for the entire site footer area */
-  /* Container for the entire site footer area */
-  width: 100%;
-  margin-left: 0;
-  margin-bottom: 1rem;
-  display: flex;
+  display: grid;
   flex-direction: row;
-  align-items: center;
-  align-self: center;
-  z-index: $z-index-site-information;
+  margin: 0;
+  padding-bottom: 5rem;
 }
 
+
+
+
+
+
+
+
+
+.
 #primary {
   /* The container for your primary content.*/
 }
 #content {
   /* The container for your post and page content. */
 }
-#secondary {
-  /* Container for your first widget area */
-}
+
 #tertiary {
   /* Container for your second widget area */
 }
+
+#architecture{
+  display: inline-block;
+  font-family: $nav-text-font;
+}
+/*________________________________________________________________ HEADER */
+
+.site-header {
+  /* Container for site title and description */
+  position: absolute;
+  height: 3.5rem;
+  display: grid;
+  flex-wrap: nowrap;
+  justify-content: stretch;
+  align-content: start;
+  align-items: start;
+  align-self: auto;
+  z-index: $z-index-header;
+  margin-right: -.25rem;
+  background-image: linear-gradient(
+    205deg,
+    transparent,
+    rgba($white, 0.05) 5%,
+    rgba($accent-color, 0.15) 10%,
+    rgba($accent-color, 0.3) 20%,
+    rgba($primary-color, 0.45) 30%,
+    rgba($primary-color, 0.6) 40%,
+    rgba($primary-color, 0.75) 50%,
+    rgba($primary-color, 0.9) 60%
+  );
+}
+
+.nameplate {
+  margin-left: 12rem;
+  width: 50%;
+  display: block;
+}
+
+#author-name {
+  font-family: $author-font;
+  font-size: $font-size-lg;
+  color: $author-name-color;
+  font-weight: $font-weight-bold;
+}
+
+
+#site-title {
+  font-family: $site-title-font;
+  color: $site-title-color;
+
+}
+
+/* =Menu
+----------------------------------------------- */
+
+/* Style your navigation menu, which is inside .site-header. A basic drop-down menu structure is provided. */
+
+.main-navigation {
+  /* wraps the entire navigation menu */
+  margin-top: 0;
+  margin-right: 0;
+  margin-left: 50%;
+  display: inline-block;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-content: space-between;
+  align-items: start;
+  align-self: auto;
+  z-index: $z-index-main-navigation;
+}
+
+.main-navigation:after {
+  /* Clears the floats after the menu */
+  clear: both;
+  content: "";
+  display: block;
+}
+.main-navigation ul {
+  /* The menu is an unordered list */
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+.main-navigation li {
+  /* Makes the menu "list" items horizontal */
+  float: left;
+  margin: 0.5em 0;
+  position: relative;
+  display: inline;
+}
+.main-navigation a {
+  /* The individual list item links */
+  display: block;
+  text-decoration: none;
+}
+.main-navigation ul ul {
+  /* Submenu drop-down "box" */
+  display: none;
+  float: left;
+  position: absolute;
+  top: 1.2em;
+  left: 0;
+  z-index: 99999;
+}
+.main-navigation ul ul ul {
+  /* 3rd+ level drop-down "box" */
+  left: 100%;
+  top: 0;
+}
+.main-navigation ul ul li {
+  /* List items inside the drop-down box */
+}
+.main-navigation ul ul a {
+  /* Menu links inside the drop-down "box" */
+  padding: 0 1.5em;
+  width: 200px;
+}
+.main-navigation li:hover > a,
+.main-navigation li.current_page_item a,
+.main-navigation li.current-menu-item a,
+.main-navigation ul ul a:hover {
+  /* Hover styles for menu items */
+}
+.main-navigation ul ul :hover > a {
+}
+.main-navigation ul li:hover > ul {
+  display: block;
+}
+
+/* Small menu toggle area for screens < 600 pixels wide. The small menu requires some simple JavaScript in order to take affect. See http://themeshaper.com/2012/10/31/the-wordpress-theme-header-template/ for instructions on setting up this script. */
+.menu-toggle {
+  cursor: pointer;
+}
+.main-small-navigation .menu {
+  display: none;
+}
+
+/* FOOTER ________________________________________________________________*/
+#site-info {
+  /* Container for the entire site footer area */
+width: 98.8%;
+  margin-right: 3rem;
+  margin-bottom: .12rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-self: center;}
+
+.copyright {
+  justify-content: end;
+  align-self: end;
+  margin-top: -1rem;
+}
+
+#copyright {
+  font-size: 0.75vw;
+  line-height: 1rem;
+  color: $alert-color;
+}
+
+.email {
+  justify-content: end;
+  align-self: end;
+}
+
+#email {
+  font-size: 0.75vw;
+  line-height: 1rem;
+  color: $alert-color;
+}
+
+.social-media {
+  width: 90rem;
+  margin-left: 2rem;
+  align-self: center;
+  color: $alert-color;
+  font-weight: bolder;
+}
+
+.contact {
+  font-family: 'Hand Typewriter';
+  width: auto;
+  padding-right: 1.75rem;
+  align-self: stretch;
+  align-items: stretch;
+  color: $alert-color;
+  font-weight: bolder;
+}
+
+/* Search widget */
+#searchsubmit {
+	display: none;
+}
+.widget_search #s {
+
+}
+
+@import "lib/scss/layout/front-page";

@@ -1,146 +1,96 @@
-/* CJMT colorpalette _________________________________________________________
+// scss-docs-start gray-color-variables
+$white    : #e4edf4 !default;
+$gray-100 : #c0c0c0 !default;
+$gray-200 : #9a9a9a !default;
+$gray-300 : #7b7b7b !default;
+$gray-400 : #626262 !default;
+$gray-500 : #4e4e4e !default;
+$gray-600 : #3e3e3e !default;
+$gray-700 : #323232 !default;
+$gray-800 : #282828 !default;
+$gray-900 : #1a1a1a !default;
+$black    : #000100 !default;
 
-Theme/Brand Name             : CJMT
-Author                       : CJMT
+$blue     : #c0c0c0 !default;
+$indigo   : #9a9a9a !default;
+$purple   : #7b7b7b !default;
+$pink     : #626262 !default;
+$red      : #4e4e4e !default;
+$orange   : #3e3e3e !default;
+$yellow   : #323232 !default;
+$green    : #282828 !default;
+$teal     : #1a1a1a !default;
+$cyan     : #e4edf4 !default;
+$gray     : #000100 !default;
 
-Stylesheet                   : CJMT Brand Stylesheet
+$primary  : $cyan !default;
+$secondary: $yellow !default;
+$accent   : $silver !default;
+$valid    : $green !default;
+$info     : $blue !default;
+$attention: $orange !default;
+$invalid  : $red !default;
+$alert    : $pink !default;
+$light    : $gray-200 !default;
+$dark     : $gray-800 !default;
 
-  = TOC =
-  [] Color Palette
-    (1) Color Variables
-    (2) Brand Colors
-    (3) Utilities Colors
-  [] Properties
-  [] Utilities
+/* Typography */
+  $body-text       : $primary !default;
+  $headings-text   : null !default;
+  $footer-text     : $accent !default;
+  $quote-text      : color-mix( in srgb, $primary 35%, $black) !default;
 
-_________________________________________________________ CJMT colorpalette */
+  $muted-text      : color-mix( in srgb, $accent 30%, $muted-mix) !default;
 
+  @import "style/change-percentage" !default;
 
-/* _______________________________________ COLOR PALETTE */
-/* Color Variables */
+/* ____________________________________ COMPONENTS */
+  /* Border */
+  $base-border          : color-mix( in srgb, $primary $border-percentage, $border-mix) !default;
 
-/* scss-docs-start gray-color-variables */
-$white                       : #e4edf4;
-$gray-100                    : #c0c0c0;
-$gray-200                    : #9a9a9a;
-$gray-300                    : #7b7b7b;
-$gray-400                    : #626262;
-$gray-500                    : #4e4e4e;
-$gray-600                    : #3e3e3e;
-$gray-700                    : #323232;
-$gray-800                    : #282828;
-$gray-900                    : #1a1a1a;
-$black                       : #000100;
-/* scss-docs-end gray-color-variables */
+  /* SHADOWS */
+  $base-shadow          : color-mix( in srgb, $primary, $shadow-percentage, $shadow-mix) !default;
 
-/* Color Variables */
-$blue                        : #0a0fba;
-$indigo                      : #6600ff;
-$purple                      : #510bda;
-$pink                        : #fc89ac;
-$red                         : #ba0a0f;
-$orange                      : #fd8535;
-$yellow                      : #ffe41e;
-$green                       : #82ded1;
-$teal                        : #b5ede4;
-$cyan                        : #0abab5;
-$gray                        : $gray-600;
+  $base-shadow-button                   : color-mix( in srgb $base-shadow $shadow-percentage, $shadow-mix) !default;
+  $base-shadow-hover                    : color-mix( in srgb $base-shadow $hover-percentage, $hover-mix) !default;
+  $base-shadow-focus                    : color-mix( in srgb $base-shadow $focus-percentage, $focus-mix) !default;
+  $base-shadow-inset-a                  : color-mix( in srgb $base-shadow $inset-perecentage, $shadow-mix) !default;
+  $base-shadow-inset-b                  : color-mix( in srgb $base-shadow $inset-perecentage, $shadow-mix) !default;
 
-$silver                      : #a8a9ad;
+  /* Link */
+  $link-text       : $active !default;
+  $visited   : color-mix( in srgb $active $visited-percentage, $visited-mix) !default;
+  $hover      : color-mix( in srgb $active $hover-mix, $hover-mix) !default;
+  $nav-link        : $active !default;
+   // Nav
+   $navbar-dark-text    : $accent !default;
+   $navbar-light-text   : $primary !default;
+  /* Lists */
+  $list-group-text : $gray-900 !default;
 
-/* Tabs */
-$chocolate                   : #623412;
-$camel                       : #c19a6b;
-$saltpan                     : #ffffcc;
-$white-chocolate             : #ede6d6;
-$dark-vanilla                : #d1bea8;
-$ghost-white                 : #fbfbfd;
+/* ______________________________________________________ BACKGROUNDS */
+  @import "style/color/patterns" !default;
 
-$deep-sky-blue               : #0dcaf0;
-$coral                       : #ff7f50;
-$maroon                      : #800000;
+  /* Background */
+    $body-bg         : $gradient !default;
+    $page-bg         : color-mix( in srgb $secondary $background-percentage, $background-mix) !default;
+    $main-bg         : color-mix( in srgb $accent $background-percentage, $background-mix) !default;
 
-/* Brand Colors */
-$primary-color               : $cyan;
-$secondary-color             : $yellow;
-$accent-color                : $silver;
+  /* Theme BG Colors */
+  $primary-bg            : color-mix($primary, $background-percentage) !default;
+  $secondary-bg          : color-mix($secondary, $background-percentage) !default;
+  $accent-bg             : color-mix($accent, $background-percentage) !default;
+  $valid-bg              : color-mix($valid, $background-percentage) !default;
+  $alert-bg              : color-mix($alert, $background-percentage) !default;
+  $invalid-bg            : color-mix($invalid, $background-percentage) !default;
+  $attention-bg          : color-mix($attention, $background-percentage) !default;
+  $info-bg  :               color-mix($info, $background-percentage) !default;
 
-$light-cyan                  : #cdffff; /* Light Green */
-$neon-blue                   : #555aff; /* light blue */
-$salomie                     : #ffd080; /* light orange */
-$wild-watermelon             : #ff555a; /* light red */
-$hot-pink                    : #ff6fa9;
+  /* Contrast */
+/* ! The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7. */
+/* See https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast */
+$min-contrast-ratio:   4.5 !default;
 
-/* Utility Colors */
-$valid-color                 : $light-cyan;
-$info-color                  : $neon-blue;
-$alert-color                 : $salomie;
-$invalid-color               : $wild-watermelon;
-$attention-color             : $hot-pink;
-
-$valid-border-color          : $valid-color;
-$info-border-color           : $info-color;
-$alert-border-color          : $alert-color;
-$invalid-border-color        : $invalid-color;
-$attention-border-color      : $attention-color;
-
-/* Theme BG Colors */
-$valid-bg-color              : $green;
-$info-bg-color               : $blue;
-$alert-bg-color              : $orange;
-$invalid-bg-color            : $red;
-$attention-bg-color          : $pink;
-
-/* ________________________ PROPERTIES CONTROLED BY DEFAULT*/
-/* Contrast */
-$dark-contrast               : $black;
-$light-contrast              : $white;
-
-/* Shadow _________ */
-$shadow                : $gray-800;
-$shadow-button-color         : $white;
-
-/*Gradient */
-$gradient-tabs-bg            : linear-gradient(320deg, transparent, rgba($white, .10) 20%, rgba($accent-color, .20) 35%, rgba($accent-color, .30) 50%, rgba($accent-color, .40) 65%);
-
-$border-color                : $chocolate;
-$active-text-color           : $secondary-color;
-$disabled-text-color         : $saltpan;
-
-/* Link ___________ */
-$link-text-color             : $secondary-color;
-$link-active-hover-decoration: bold, underline;
-$nav-text-color              : $secondary-color;
-$nav-link-transition         : color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out;
-
-$tabs-active-bg              : $gradient-tabs-bg;
-
-/* ______________________________________________________ Typography */
-$text             : $gray-800;
-
-$site-title                  : $primary-color;
-$page-title                  : $secondary-color;
-$post-title                  : $accent-color;
-
-$headings-text-color         : $primary-color;
-$blockquote-text-footer-color: $accent-color;
-
-$list-group-text-color       : $black;
-
-/* ____________________________________________ Card */
-
-$card-text-color             : $text;
-$card-cap-text-color         : $primary-color;
-
-/* ____________________________________________ Buttons + Form */
-
-$input-text-color            : $gray-500;
-$input-bg-color              : $gray-100;
-$input-border-color          : $gray-900;
-
-$input-group-bg-color        : $gray-200;
-$form-switch-text-color      : $input-bg-color;
-
-/* __________________________________________________ Lists */
-
-$list-group-text-color       : $gray-900;
+// Customize the light and dark text colors for use in our color contrast function.
+$color-contrast-dark:      $gray-800 !default;
+$color-contrast-light:     $gray-200 !default;

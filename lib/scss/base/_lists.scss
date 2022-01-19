@@ -1,23 +1,48 @@
-ul,
 ol,
-dl {
-  text-align: left;
-}
-
-ul,
-ol {
+ul {
+  list-style: none;
+  padding-left: 0;
   margin: 0 0 1.5em 3em;
 }
+
+
 ul {
   list-style: disc;
 }
+
 ol {
   list-style: decimal;
 }
-ul ul,
+
+
+li {
+  > ul,
+  > ol {
+    margin-bottom: 0;
+  }
+
+  .list-unstyled {
+      margin-left: 0;
+      list-style: none;
+  }
+}
+
 ol ol,
+ol ul,
 ul ol,
-ol ul {
+ul ul {
   margin-bottom: 0;
   margin-left: 1.5em;
 }
+
+dl,
+ol,
+ul {
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+dt {
+  font-weight: $dt-font-weight;
+}
+// 1. Undo browser default
