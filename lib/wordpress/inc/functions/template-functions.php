@@ -28,7 +28,7 @@ function architecture_body_classes( $classes ) {
 		$classes[] = 'has-main-navigation';
 	}
 
-	// Add a body class if there are no footer widgets.
+//	// Add a body class if there are no footer widgets.
 	if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 		$classes[] = 'no-widgets';
 	}
@@ -45,12 +45,12 @@ add_filter( 'body_class', 'architecture_body_classes' );
  * @param array $classes An array of CSS classes.
  * @return array
  */
-function architecture_post_classes( $classes ) {
-	$classes[] = 'entry';
+//function architecture_post_classes( $classes ) {
+//	$classes[] = 'entry';
 
-	return $classes;
-}
-add_filter( 'post_class', 'architecture_post_classes', 10, 3 );
+//	return $classes;
+//}
+//add_filter( 'post_class', 'architecture_post_classes', 10, 3 );
 
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
@@ -328,7 +328,7 @@ function architecture_get_non_latin_css( $type = 'front-end' ) {
 
 	// Include file if function doesn't exist.
 	if ( ! function_exists( 'architecture_generate_css' ) ) {
-		require_once get_theme_file_path( 'inc/custom-css.php' ); // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+		require_once get_theme_file_path( 'inc/custom/custom-css.php' ); // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 	}
 
 	// Return the specified styles.

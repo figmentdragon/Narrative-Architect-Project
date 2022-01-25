@@ -1,8 +1,5 @@
 <?php /* Template Page: Single */ ?>
- /**
- * The template for displaying any single post.
- *
- */
+<!-- The template for displaying any single post. -->
 
 <? get_header(); ?>
 

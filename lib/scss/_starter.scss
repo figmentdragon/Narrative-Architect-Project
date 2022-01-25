@@ -55,11 +55,17 @@ $spacing                         : 1;
 $base-number                     : 1.15;
 
 /* _____________________________________ POSITIONING */
-$base-offset                     : 16px;
+$offset                     : 16px;
 $horizontal-offset-px            : 16px; // 1vh = 8px;
 $horizontal-offset:              : 2vh;
 $vertical-offset:                : 2.75vw;
 $vertical-offset-px:             : 16px; // 1vw = 6px;
+
+$offset-y: calc($offset * 1.5);
+$offset-x: $offset;
+
+$offset-y-sm: calc($offset-y * $sm);
+$offset-x-sm: calc($offset-x * $sm);
 
 /* _____________________________________ GRID */
 $column-number                   : 16;

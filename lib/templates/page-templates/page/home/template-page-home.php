@@ -1,7 +1,5 @@
-<?php /* Template Name: Sidebar R/Home Page */ ?>
-
-<?php
-get_header(); // This fxn gets the header.php file and renders it ?>
+<?php /* Template Name : Home Sidebar R*/ ?>
+<?php get_header(); // This fxn gets the header.php file and renders it ?>
 	<div id="primary" class="row-fluid">
 		<div id="content" role="main" class="span8">
 			<?php if ( have_posts() ) :
