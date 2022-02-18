@@ -1,0 +1,37 @@
+//
+// Card set
+//
+
+
+  @include media-breakpoint-up(sm) {
+    .card-deck {
+      display:                          flex;
+      flex-flow:                        row wrap;
+      margin-right:                     -0.625rem;
+      margin-left:                      -0.625rem;
+
+      .card {
+        flex:                           1 0 0;
+        margin-right:                   0.625rem;
+        margin-left:                    0.625rem;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(sm) {
+    .card-deck {
+      display:                          table;
+      table-layout:                     fixed;
+      border-spacing:                   1.25rem 0;
+
+      .card {
+        display:                        table-cell;
+        width:                          1%;
+        vertical-align:                 top;
+      }
+    }
+    .card-deck-wrapper {
+      margin-right:                     -1.25rem;
+      margin-left:                      -1.25rem;
+    }
+  }

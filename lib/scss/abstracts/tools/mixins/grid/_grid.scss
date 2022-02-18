@@ -1,84 +1,38 @@
 /* Grid system */
 /* Generate semantic grid columns with these mixins. */
 @mixin make-grid() {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: repeat($grid-columns, 1fr);
-  grid-template-rows: repeat($grid-row-columns, 1fr);
-  grid-auto-columns: repeat($grid-columns, 1fr);
-  grid-auto-rows: repeat($grid-row-columns, 1fr);
-  gap: $grid-gutter $grid-gutter;
-  grid-auto-flow: row dense;
-  align-items: start;
-  align-self: baseline;
+    display: grid;
+    grid-template-columns: repeat(16, 1fr);
+    grid-template-rows: repeat(16, 1fr);
+    gap: 0px 0px;
+    grid-auto-flow: row dense;
+    justify-content: start;
+    align-content: stretch;
+    justify-items: start;
+    align-items: stretch;
+    grid-template-areas:
+      "site-header site-header . . . . . . . . . . . . . ."
+      "site-header site-header . . . . . . . . . . . . . ."
+      "site-header site-header . . . . . . . . . . . . . ."
+      "site-header site-header . . . . . . . . . . . . . ."
+      "site-header site-header . . . . . . . . . . . . . ."
+      "site-header site-header . . . . . . . . . . . . . ."
+      "site-header site-header . . . . . . . . . . . . . ."
+      "site-header site-header . . . . . . . . . . . . . ."
+      "site-header site-header . . . . . . . . . . . . . ."
+      "site-header site-header . . . . . . . . . . . . . ."
+      "site-header site-header . . . . . . . . . . . . . ."
+      "site-header site-header . . . . . . . . . . . . . ."
+      "site-header site-header . . . . . . . . . . . . . ."
+      "site-header site-header . . . . . . . . . . . . . ."
+      "site-header site-header . . . . . . . . . . . . . ."
+      "site-header site-header f f f f f f f f f f f f f f";
 
-  @include make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter, $breakpoints: $grid-breakpoints);
-  @include grid-loop($name);
-}
+  .site-header {
 
-// Framework grid generation
-//
-// Used only by Bootstrap to generate the correct number of grid classes given
-// any value of `$grid-columns`.
-
-@mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter, $breakpoints: $grid-breakpoints) {
-  @each $breakpoint in map-keys($breakpoints) {
-    $infix: breakpoint-infix($breakpoint, $breakpoints);
-
-    @include media-breakpoint-up($breakpoint, $breakpoints) {
-      // Provide basic `.col-{bp}` classes for equal-width flexbox columns
-      .col#{$infix} {
-        flex: 1 0 0%; // Flexbugs #4: https://github.com/philipwalton/flexbugs#flexbug-4
-      }
-
-      .row-cols#{$infix}-auto > * {
-        @include make-col-auto();
-      }
-
-      @if $grid-row-columns > 0 {
-        @for $i from 1 through $grid-row-columns {
-          .row-cols#{$infix}-#{$i} {
-            @include row-cols($i);
-          }
-        }
-      }
-
-      .col#{$infix}-auto {
-        @include make-col-auto();
-      }
-
-      @if $columns > 0 {
-        @for $i from 1 through $columns {
-          .col#{$infix}-#{$i} {
-            @include make-col($i, $columns);
-          }
-        }
-
-        // `$columns - 1` because offsetting by the width of an entire row isn't possible
-        @for $i from 0 through ($columns - 1) {
-          @if not ($infix == "" and $i == 0) { // Avoid emitting useless .offset-0
-            .offset#{$infix}-#{$i} {
-              @include make-col-offset($i, $columns);
-            }
-          }
-        }
-      }
-
-      // Gutters
-      //
-      // Make use of `.g-*`, `.gx-*` or `.gy-*` utilities to change spacing between the columns.
-      @each $key, $value in $gutters {
-        .g#{$infix}-#{$key},
-        .gx#{$infix}-#{$key} {
-          --#{$variable-prefix}gutter-x: #{$value};
-        }
-
-        .g#{$infix}-#{$key},
-        .gy#{$infix}-#{$key} {
-          --#{$variable-prefix}gutter-y: #{$value};
-        }
-      }
-    }
+    justify-self: start;
+    align-self: stretch;
+    grid-area: site-header;
+    height: 100%;
   }
 }

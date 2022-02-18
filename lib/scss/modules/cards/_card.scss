@@ -1,0 +1,34 @@
+$card-height:                           null;
+$card-width:                            null;
+$card-color:                            $card-text;
+$card-bg:                               tint($accent-bg, $card-percentage);
+
+$card-offset-y:                         $offset * $sm;
+$card-offset-x:                         $offset;
+
+$card-text-color:                       $card-color;
+
+$card-title-spacer-y:                   $spacer * .5 !default;
+
+$card-border-width:                     $border-width !default;
+$card-border-color:                     rgba($black, .125) !default;
+$card-border-radius:                    $border-radius !default;
+
+$card-inner-border-radius:              subtract($card-border-radius, $card-border-width) !default;
+
+$card-cap-padding-y:                    $card-spacer-y * .5 !default;
+$card-cap-padding-x:                    $card-spacer-x !default;
+$card-cap-bg:                           rgba($black, .03) !default;
+$card-cap-color:                        null !default;
+
+$card-img-overlay-padding:              $spacer !default;
+$card-group-margin:                     $grid-gutter-width * .5 !default;
+
+/* Cover image */
+$card-cover-image-height:               186px;
+$card-background-image-url:             "";
+
+$card-footer-offset-horizontal:         $offset;
+$card-footer-offset-vertical:           ($offset * 0.5);
+$card-footer-offset-horizontal-l:       $offset-md;
+$card-footer-offset-vertical-l:         round(($offset-md * 0.5));

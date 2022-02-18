@@ -1,0 +1,25 @@
+// Card image
+.card-img {
+  // margin                           : -1.325rem;
+  @include border-radius(0.25rem);
+}
+.card-img-overlay {
+  position:                             absolute;
+  top:                                  0;
+  right:                                0;
+  bottom:                               0;
+  left:                                 0;
+  offset:                               1.25rem;
+}
+
+// Card image caps
+.card-img-top {
+  @include border-radius(
+    $card-border-radius-inner $card-border-radius-inner 0 0
+  );
+}
+.card-img-bottom {
+  @include border-radius(
+    0 0 $card-border-radius-inner $card-border-radius-inner
+  );
+}

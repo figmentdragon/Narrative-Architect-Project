@@ -1,5 +1,4 @@
 /* ##Columns generator## */
-
 @mixin make-col-ready() {
   // Add box sizing if only the grid is loaded
   box-sizing: if(variable-exists(include-column-box-sizing) and $include-column-box-sizing, border-box, null);
@@ -27,12 +26,47 @@
   }
 }
 
-@mixin make-col-auto() {
-  flex: 0 0 auto;
-  width: auto;
+@mixin make-col($gutter: 16px) {
+  position: relative;
+  float: left;
+  min-height: 1px;
+  padding-left:  divide($gutter, 2);
+  padding-right: divide($gutter, 2);
+}
+
+@mixin make-col-span($size, $columns: $grid-columns) {
+  @if $enable-flex {
+    flex: 0 0 percentage(divide($size, $columns));
+  } @else {
+    width: percentage(divide($size, $columns));
+  }
 }
 
 @mixin make-col-offset($size, $columns: $grid-columns) {
   $num: divide($size, $columns);
   margin-left: if($num == 0, 0, percentage($num));
+}
+
+@mixin make-col-auto() {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+@mixin make-col-push($size, $columns: $grid-columns) {
+  left: if($size > 0, percentage($size / $columns), auto);
+}
+
+@mixin make-col-pull($size, $columns: $grid-columns) {
+  right: if($size > 0, percentage($size / $columns), auto);
+}
+
+@mixin make-col-modifier($type, $size, $columns) {
+  // Work around the lack of dynamic mixin @include support (https://github.com/sass/sass/issues/626)
+  @if $type == push {
+    @include make-col-push($size, $columns);
+  } @else if $type == pull {
+    @include make-col-pull($size, $columns);
+  } @else if $type == offset {
+    @include make-col-offset($size, $columns);
+  }
 }

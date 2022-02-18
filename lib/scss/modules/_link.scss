@@ -1,0 +1,10 @@
+$link-text : tint($body-text, $link-percentage);
+$link-text-active : tint($link-text, $active-percentage);
+$link-text-hover : tint($link-text-active, $hover-percentage);
+$link-text-focus : tint($link-text-active, $focus-percentage);
+$link-text-visited : tint($link-text-active, $visited-percentage);
+
+$link-text-inactive : shade($link-text, $inactive-percentage);
+$link-text-inactive-hover : shade($link-text-inactive, $hover-percentage);
+$link-text-inactive-focus : shade($link-text-inactive, $focus-percentage);
+$link-text-inactive-visited : shade($link-text-inactive, $visited-percentage);

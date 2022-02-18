@@ -1,0 +1,101 @@
+/**
+ * 14.4 - Team Content Section
+ */
+
+.team-content-wrapper .hentry {
+    height: auto;
+}
+
+.team-content-wrapper .hentry-inner {
+    overflow: hidden;
+    position: relative;
+}
+
+.team-content-wrapper .post-thumbnail,
+.team-content-wrapper .entry-title,
+.team-content-wrapper .entry-meta {
+    margin: 0;
+}
+
+.team-content-wrapper.section-content-wrapper .entry-title {
+    margin: 0;
+}
+
+.team-content-wrapper .entry-container {
+    display: block;
+    padding: 28px 35px;
+    position: relative;
+}
+
+.team-content-wrapper .hentry-inner:hover .entry-container,
+.team-content-wrapper .hentry-inner:focus .entry-container {
+    -moz-transform: translate(0%, 0%);
+    -ms-transform: translate(0%, 0%);
+    -webkit-transform: translate(0%, 0%);
+    -o-transform: translate(0%, 0%);
+    transform: translate(0%, 0%);
+}
+
+.team-content-wrapper .entry-summary,
+.team-content-wrapper .entry-content {
+    margin: 14px 0 0;
+}
+
+
+.team-content-wrapper .entry-meta {
+    line-height: 1.75;
+    letter-spacing: 0;
+    text-transform: capitalize;
+}
+
+.team-content-wrapper .artist-social-profile {
+    margin-top: 0;
+    position: absolute;
+    right: 30px;
+    top: -0px;
+    opacity: 0;
+    transition: all 0.4s;
+    visibility: hidden;
+}
+.team-content-wrapper article:hover .artist-social-profile {
+    top: -25px;
+    opacity: 1;
+    visibility: visible;
+}
+
+.artist-social-profile li a {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    line-height: 50px;
+    padding: 0;
+    text-align: center;
+    transition: all 0.4s;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.team-content-wrapper.section-content-wrapper .post-thumbnail {
+    margin: 0;
+}
+
+#team-content-section .wrapper {
+    position: relative;
+}
+
+.team-content-wrapper .button:before {
+    display: flex;
+}
+
+.team-content-wrapper.section-content-wrapper .post-thumbnail a img {
+    width: 100%;
+}
+
+.team-content-wrapper.section-content-wrapper .post-thumbnail {
+    margin: 0;
+    transition: 0.6s ease-in-out;
+}
+
+.team-content-wrapper .view-more {
+    text-align: center;
+}

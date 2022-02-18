@@ -1,0 +1,197 @@
+/**
+ * 14.7 - Promotional Headline
+ */
+
+ .promotion-section.section {
+    border: none;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    padding: 63px 0 21px;
+}
+
+.promotion-section .hentry {
+    position: initial;
+}
+
+.post-thumbnail-background {
+    background-position: center center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.promotion-section .post-thumbnail-background {
+    z-index: 1;
+    background-attachment: fixed;
+}
+
+.promotion-section .content-wrapper {
+    padding: 0 30px;
+}
+
+.promotion-section.text-align-left .section-heading-wrapper {
+    padding: 0 30px 28px 0;
+    text-align: left;
+}
+.promotion-section.text-align-left .section-heading-wrapper:before {
+    left: 0;
+    transform: none;
+}
+
+.promotion-section.text-align-right .section-heading-wrapper {
+    padding: 0 0px 28px 30px;
+    text-align: right;
+}
+.promotion-section.text-align-right .section-heading-wrapper::before{
+    left: auto;
+    transform: none;
+    right: 0
+
+}
+.promotion-section .entry-container {
+    max-width: 680px;
+    position: relative;
+    z-index: 2;
+}
+#promotion-section .section-heading-wrapper {
+    margin-bottom: 35px;
+}
+.promotion-section.content-align-right .entry-container {
+    float: right;
+}
+
+.promotion-section.content-align-center .entry-container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.promotion-section.content-frame .entry-container-frame {
+    padding: 3em;
+    opacity: 0.8;
+}
+
+.promotion-section .cover-link {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+}
+
+#hero-section.text-align-left,
+.promotion-section.text-align-left {
+    text-align: left;
+}
+
+#hero-section.text-align-right,
+.promotion-section.text-align-right {
+    text-align: right;
+}
+
+.text-align-left .post-thumbnail img {
+    margin-left: 0;
+}
+
+.text-align-right .post-thumbnail img {
+    margin-right: 0;
+}
+
+#promotion-section .play-video {
+    margin-top: 28px;
+}
+
+#promotion-section .play-button {
+    border-radius: 50%;
+    display: inline-block;
+    padding: 12px;
+    width: 60px;
+    height: 60px;
+    position: relative;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    transition: all 0.4s;
+}
+#promotion-section .play-button:hover {
+    transform: scale(1.04);
+}
+#promotion-section .play-button-icon {
+    background-color: #484949;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    display: block;
+    height: 30px;
+     display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-pack:center;
+    -ms-flex-pack:center;
+        justify-content:center;
+    -webkit-box-align:center;
+    -ms-flex-align:center;
+        align-items:center;
+    width: 30px;
+}
+
+#promotion-section .play-button-icon .icon {
+    width: 21px;
+    height: 14px;
+}
+
+.admin-bar .flashy-overlay .flashy-close {
+    top: 50px;
+}
+
+#promotion-section .more-link .readmore svg {
+    display: none;
+}
+
+#promotion-section .entry-header + .video-wrapper {
+    margin-top: 21px;
+}
+a.mixed.button.play-button {
+    box-sizing: border-box;
+}
+a.mixed.button.play-button::before,
+a.mixed.button.play-button::after {
+    box-sizing: inherit;
+    content: "";
+    position: absolute;
+    width: calc(100% + 8px);
+    height: calc(100% + 8px);
+    border-radius: 100%;
+    top: -4px;
+    left: -4px;
+}
+a.mixed.button.play-button::before {
+    border: 4px solid rgba(255,255,255,0.3);
+    transition: all 1s;
+    transition: border-right-color 0.2s, border-top-color 0.15s linear 0.1s, border-left-color 0.15s linear 0.15s;
+}
+a.mixed.button.play-button::after {
+    border: 0 solid transparent;
+}
+a.mixed.button.play-button:hover::before {
+    // border-top-color: #ff2906;
+    // border-right-color: #ff2906;
+    // border-left-color: #ff2906;
+    transition: border-left-color 0.15s linear, border-top-color 0.15s linear 0.1s, border-right-color 0.15s linear 0.2s ;
+}
+a.mixed.button.play-button:after {
+    border-top: 4px solid;
+
+    border-left-width: 4px;
+    border-right-width: 4px;
+    transform: rotate(180deg);
+    transition: transform 0.4s linear 0s, border-left-width 0s linear 0.35s;
+}

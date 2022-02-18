@@ -1,0 +1,294 @@
+/**
+ * 14.1 - Slider
+ */
+
+#feature-slider-section {
+    border: none;
+    padding: 0;
+}
+
+#feature-slider-section .wrapper {
+    max-width: 100%;
+    padding: 0;
+}
+
+#feature-slider-section .tagline {
+    text-transform: uppercase;
+    margin-bottom: 21px;
+    letter-spacing: 1px;
+    line-height: 1.75;
+    font-weight: 600;
+}
+
+#feature-slider-section .hentry {
+    margin: 0;
+    padding: 0;
+    position: relative;
+
+     &:after{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        content: '';
+        top: 0;
+        left: 0;
+        z-index: 9;
+    }
+
+    .view-more{
+        margin-bottom: 0;
+    }
+}
+
+#feature-slider-section .hentry-inner {
+    background-position: center;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    background-size: cover;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: end;
+    -webkit-justify-content: center;
+    -ms-flex-pack: end;
+    justify-content: center;
+    min-height: 100vh;
+    overflow: hidden;
+    padding: 100px 30px;
+    position: relative;
+}
+
+#feature-slider-section .post-thumbnail {
+    margin: 0;
+    position: unset;
+
+
+   
+}
+
+#feature-slider-section .post-thumbnail img {
+    height: auto;
+    left: 50%;
+    max-width: 1000%;
+    min-height: 100%;
+    min-width: 100vw;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    width: auto;
+    z-index: -1;
+}
+
+@supports (object-fit: cover) {
+    #feature-slider-section .post-thumbnail img {
+        height: 100%;
+        left: 0;
+        object-fit: cover;
+        top: 0;
+        transform: none;
+        width: 100%;
+    }
+}
+
+#feature-slider-section .entry-container {
+    display: block;
+    opacity: 0;
+    position: relative;
+    visibility: hidden;
+    left: 80px;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    transition: all 1s ease;
+    -webkit-transition-delay: .4s;
+    -moz-transition-delay: .4s;
+    -o-transition-delay: .4s;
+    -ms-transition-delay: .4s;
+    transition-delay: .4s;
+    z-index: 9;
+}
+
+#feature-slider-section .active .entry-container {
+    opacity: 1;
+    visibility: visible;
+    left: 0;
+    z-index: 99;
+}
+
+
+// #feature-slider-section .entry-container > * {
+//     max-width: 1400px;
+//     margin-left: auto;
+//     margin-right: auto;
+//     text-align: center; ,
+// }
+
+#feature-slider-section.content-algin-center .entry-container .content-wrapper,
+.content-align-center .custom-header-content-wrapper {
+    margin: 0 auto
+}
+#feature-slider-section .entry-container {
+    max-width: 1500px;
+    width: 100% ;
+    margin: 0 auto;
+}
+#feature-slider-section .entry-container .content-wrapper,
+.custom-header-content-wrapper {
+    max-width: 480px ;
+    z-index: 9;
+    position: relative;
+}
+#feature-slider-section.content-align-right .entry-container > * {
+    margin-right: 0;
+}
+
+#feature-slider-section.content-align-left .entry-container > * {
+    margin-left: 0;
+}
+
+#feature-slider-section.content-align-center .entry-container > * {
+    margin: 0 auto;
+}
+
+#feature-slider-section.content-align-left .entry-container .content-wrapper {
+    margin: 0 auto 0 0;
+}
+
+#feature-slider-section.text-align-left .entry-container > * {
+    text-align: left;
+}
+
+#feature-slider-section.text-align-right .entry-container > * {
+    text-align: right;
+}
+
+#feature-slider-section .entry-header{
+    padding-bottom: 0;
+}
+
+#feature-slider-section .entry-title {
+    font-weight: 700;
+    margin: 0 auto;
+}
+
+#feature-slider-section .entry-summary {
+    margin: 0;
+    font-size: 19px;
+    font-size: 1.1875rem;
+}
+
+#feature-slider-section .entry-container .more-link {
+    margin-top: 21px;
+}
+
+#feature-slider-section .owl-carousel .owl-dots {
+    position: absolute;
+    bottom: 5%;
+    display: block;
+    left: 50px;
+    width: auto;
+    display: none;
+}
+
+#feature-slider-section .owl-carousel .owl-dots button{
+    display: block;
+    margin: 18px 0;
+}
+
+.section .owl-carousel .owl-dots {
+    @include flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    font-weight: 700;
+    width: 100%;
+}
+
+.single-item .featured-video-content-wrapper .hentry:first-child {
+    float: none;
+    margin: 0 auto;
+    width: 100%;
+}
+
+#feature-slider-section .owl-prev,
+#feature-slider-section .owl-next {
+    background-image: none;
+    border: none;
+    border-radius: 0;
+    cursor: pointer;
+    outline: none;
+    opacity: 1;
+    filter: alpha(opacity=1);
+    letter-spacing: 0;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    right: 50px;
+    text-align: center;
+    text-decoration: none;
+    text-shadow: none;
+    z-index: 199;
+}
+
+#feature-slider-section .owl-next {
+    right: 0;
+}
+
+#feature-slider-section .owl-prev .icon,
+#feature-slider-section .owl-next .icon {
+    width: 32px;
+    height: 32px;
+}
+
+#feature-slider-section .owl-prev:hover,
+#feature-slider-section .owl-prev:focus,
+#feature-slider-section .owl-next:hover,
+#feature-slider-section .owl-next:focus {
+    border-color: transparent;
+    text-decoration: none;
+}
+
+.color-scheme-music.home .header-media .section-title,
+.color-scheme-music #feature-slider-section .entry-title,
+.color-scheme-wedding.home .header-media .section-title,
+.color-scheme-wedding #feature-slider-section .entry-title,
+.color-scheme-corporate.home .header-media .section-title,
+.color-scheme-corporate #feature-slider-section .entry-title,
+.color-scheme-ecommerce.home .header-media .section-title,
+.color-scheme-ecommerce #feature-slider-section .entry-title {
+    line-height: 1.31;
+}
+
+.color-scheme-wedding.home .header-media .section-title,
+.color-scheme-wedding #feature-slider-section .entry-title {
+    font-weight: 700;
+    text-transform: capitalize;
+}
+
+@media (min-width: 320px) and (max-width: 813px) and (orientation:landscape){
+    .custom-header-content .site-header-text, 
+    #feature-slider-section .entry-summary,
+    #feature-slider-section .entry-content,
+    #feature-slider-section .more-link, 
+    .header-media .custom-header-content .more-link {
+        display: none;
+    }
+    
+}
+
+.site-header-logo + .section-title-wrapper {
+    display: none;
+}
+
+#feature-slider-section .entry-container p:not(.more-link) {
+    display: none;
+}

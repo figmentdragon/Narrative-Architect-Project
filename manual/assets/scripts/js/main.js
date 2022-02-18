@@ -1,6 +1,0 @@
-import '.src/vendor/bootstrap/js/dist/base-components.js'
-import '.src/vendor/bootstrap/js/dist/button.js'
-import '.src/vendor/bootstrap/js/dist/carousel.js'
-import '.src/vendor/bootstrap/js/dist/dropdown.js'
-import '.src/vendor/bootstrap/js/dist/scrollspy.js'
-import '.src/vendor/bootstrap/js/dist/tab.js'

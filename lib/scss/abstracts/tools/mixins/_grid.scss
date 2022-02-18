@@ -1,13 +1,5 @@
-/******************************************************************
-Site Name: The Creativity Architect
-Author: CJM Termini
-
-Stylesheet: Grid Mixin Stylesheet
-
-******************************************************************/
-
-@import "grid/grid-breakpoint";
-@import "grid/grid";
-@import "grid/css-grid";
-@import "grid/rows";
-@import "grid/cols";
+@import
+  'grid/grid',
+  'grid/rows',
+  'grid/cols',
+  'grid/grid-breakpoint';

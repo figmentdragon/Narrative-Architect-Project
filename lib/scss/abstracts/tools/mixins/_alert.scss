@@ -1,14 +1,14 @@
-// scss-docs-start alert-variant-mixin
-@mixin alert-variant($background, $border, $color)
-{
-    color: $color;
-    border-color: $border;
+// invalids
 
-    @include gradient-bg($background);
+@mixin invalid-variant($background, $border, $body-color) {
+  background-color: $background;
+  border-color: $border;
+  color: $body-color;
 
-    .alert-link
-    {
-        color: shade-color($color, 20%);
-    }
+  hr {
+    border-top-color: shade-color($border, 5%);
+  }
+  .invalid-link {
+    color: shade-color($body-color, 10%);
+  }
 }
-// scss-docs-end alert-variant-mixin

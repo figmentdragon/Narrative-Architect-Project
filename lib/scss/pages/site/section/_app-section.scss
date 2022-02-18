@@ -1,0 +1,114 @@
+/**
+ * 8.3.20 - App Section
+ */
+
+ 
+
+ .app-section .post-thumbnail {
+    margin-top: 28px;
+ }
+
+ .app-section .entry-container {
+    max-width: 660px;
+    padding: 35px 30px 42px 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.app-image-container .app-image  {
+    margin: 10px;
+}
+
+.app-image-container img {
+    margin: 0 auto;
+    transition: 0.3s;
+}
+
+.app-image-container img:hover,
+.app-image-container img:focus {
+    opacity: 0.6;
+    -webkit-transform: scale(1.08);
+    -moz-transform: scale(1.08);
+    -ms-transform: scale(1.08);
+    transform: scale(1.08);
+}
+
+.app-image-container {
+   
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+     -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-left: -10px;
+}
+
+.text-align-center .app-image-container{
+     -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+
+}
+ .app-section .hentry {
+    position: static;
+ }
+
+ .app-section .post-thumbnail-background::before {
+    background-color: rgba(0,0,0,0.5);
+}
+
+ .app-section .post-thumbnail-background::before {
+    bottom: 0;
+    content: "";
+    left: 0;
+    right: 0;
+    position: absolute;
+    top: 0;
+}
+
+.app-section .app-wrap {
+    margin-top: 28px;
+}
+
+ .app-section .app-wrap > p {
+    font-size: 16px;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.75;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.app-section .entry-content > p:last-of-type {
+    margin-bottom: 0;
+}
+
+.app-section .section-heading-wrapper{
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.app-section.text-align-left .section-heading-wrapper{
+    text-align: left;
+
+}
+.app-section.text-align-left .section-heading-wrapper::before{
+    left: 0;
+    transform: none;
+}
+.app-section.text-align-right .section-heading-wrapper{
+    text-align: right;
+ 
+}
+.app-section.text-align-right .section-heading-wrapper::before{
+    left: auto;
+    transform: none;
+    right: 0;
+}
+.app-section.text-align-center .section-heading-wrapper{
+    text-align: center;
+ 
+}

@@ -1,0 +1,105 @@
+/**
+ * 14.6 - Events Section
+ */
+
+
+#events-section {
+	background-size: cover;
+	position: relative;
+
+}
+#events-section::before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    content: '';
+    top: 0;
+    left: 0;
+    display: block;
+}
+
+#events-section .wrapper {
+	padding: 0 30px;
+}
+
+.dates-location {
+	font-weight: 600;
+}
+
+.events-section.section {
+    padding-bottom: 7px;
+}
+
+.events-section .entry-meta a {
+	opacity: 1;
+	display: inline-block;
+}
+
+#events-section .view-more {
+    text-align: center;
+    position: relative;
+}
+
+.events-section .entry-date {
+    display: flex;
+	align-items: flex-end;
+}
+
+.events-section .entry-header {
+	margin: 0;
+}
+
+.events-section .entry-title {
+	line-height: 1.46;
+}
+
+.events-section .entry-meta a,
+.events-section .entry-meta a:hover,
+.events-section .entry-meta a:focus {
+	text-decoration: none;
+}
+
+
+.events-section.single-layout .entry-meta {
+	padding-bottom: 21px;
+}
+
+.events-section.single-layout .date-week-day {
+	font-size: 38px;
+	font-size: 2.375rem;
+	font-weight: 300;
+	line-height: 1;
+	margin-right: 14px;
+}
+
+.events-section.single-layout .date-month-year {
+	font-size: 16px;
+	font-size: 1rem;
+	line-height: 1.33;
+}
+
+.events-section.single-layout .entry-content,
+.events-section.single-layout .entry-summary {
+	margin-top: 7px;
+	opacity: 0.6;
+}
+
+.events-section.single-layout .location-icon {
+	display: inline-block;
+	margin: 13px 10px 0 0;
+	float: left;
+}
+
+.events-section .event-button {
+	margin-top: 21px;
+}
+ 
+.event-title-wrap .time {
+    margin-top: 14px;
+}
+.entry-date sep {
+    font-size: 24px;
+    position: relative;
+    margin-right: 7px;
+    top: 3px;
+}

@@ -6,14 +6,12 @@ $z-index-page: 200;
 $z-index-main: 300;
 $z-index-sidebar: 325;
 $z-index-article: 400;
-
+$z-index-masthead: 450;
 $z-index-header: 500;
 $z-index-site-title: 525;
 $z-index-footer: 700;
-$z-index-site-information: 725;
-
 $z-index-nav: 900;
-$z-index-main-navigation: 950;
+
 $z-index-dropdown: 1000;
 $z-index-sticky: 1020;
 $z-index-fixed: 1030;
@@ -23,5 +21,7 @@ $z-index-modal-backdrop: 1050;
 $z-index-modal: 1055;
 $z-index-popover: 1070;
 $z-index-tooltip: 1080;
+$z-index-header: 1200;
 
-$z-index-masthead: 1400;
+
+$z-index-page-container: 1400;

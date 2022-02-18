@@ -1,0 +1,29 @@
+//
+// Base styles
+//
+
+.card {
+  position:                             relative;
+  display:                              block;
+  margin-bottom:                        $card-offset-y;
+  background-color:                     $card-bg-color;
+  border:                               $card-border-width solid $card-border-color;
+  @include border-radius($card-border-radius);
+}
+
+.card-block {
+  offset:                               $card-offset-x;
+}
+
+.card-title {
+  margin-bottom:                        $card-offset-y;
+}
+
+.card-subtitle {
+  margin-top:                           divide($card-offset-y, 2);
+  margin-bottom:                        0;
+}
+
+.card-text                            :last-child {
+  margin-bottom:                        0;
+}

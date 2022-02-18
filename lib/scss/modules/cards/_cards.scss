@@ -1,0 +1,77 @@
+.card {
+  background-color:    $card-bg-color;
+  position:            relative;
+  overflow:            hidden;
+  @include border-radius($card-border-radius);
+  border:              $card-border-width solid $card-border-color;
+  padding:             $offset * 20px;
+  margin-bottom:                        $card-offset-y;
+
+  & .body {
+    padding:           $offset-x $offset-y;
+
+    & .card-text {
+      margin-bottom:   $offset;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  & .footer {
+    padding:           $offset-x $offset-y;
+  }
+
+  & .card-title {
+    font-size:         $font-size-base * 26 !important;
+    margin-bottom:     $card-offset-y;
+  }
+
+  &.hoverable {
+    transition:        all 0.2s ease;
+
+    &:hover , &:focus {
+      @include elevation(6);
+    }
+  }
+
+  > .list-group                     :first-child {
+    .list-group-item                :first-child {
+      border-radius:   $card-border-radius $card-border-radius 0 0;
+    }
+  }
+
+  > .list-group                     :last-child {
+    .list-group-item                :last-child {
+      border-radius:   0 0 $card-border-radius $card-border-radius;
+    }
+  }
+}
+
+.card-link {
+  & :hover{
+    text-decoration:   none;
+  }
+
+  + .card-link {
+    margin-left:       $card-offset-x;
+  }
+}
+
+
+//
+// Card
+//
+
+@include media-breakpoint-up(sm) {
+  .card-columns {
+    column-count:      3;
+    column-gap:        1.25rem;
+
+    .card {
+      display:         inline-block;
+      width:           100%; // Don't let them exceed the column width
+    }
+  }
+}

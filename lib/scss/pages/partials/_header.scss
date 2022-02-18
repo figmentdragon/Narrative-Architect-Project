@@ -1,0 +1,27 @@
+.nameplate {
+  display: inline-block;
+  align-items: flex-end;
+}
+
+.site-title {
+  @include hue-rotate;
+  font-size: 5.9vw;
+  writing-mode: vertical-rl;
+  rotate: 180deg;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: $header-gradient;
+  -webkit-text-stroke-color: $chocolate;
+  -webkit-text-stroke-width: 2px;
+}
+
+.tagline {
+  position: absolute;
+  top: 0;
+  right: 2vw;
+  left: 55vw;
+  text-align: right;
+  -webkit-background-clip: text;
+  -webkit-text-stroke-color: $chocolate;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-fill-color: $gradient-secondary;
+}

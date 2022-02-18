@@ -1,0 +1,66 @@
+/**
+ * 12.0 - Content
+ */
+
+#page {
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    -ms-word-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.boxed-layout #page {
+    max-width: 1600px;
+}
+
+.wrapper,
+.custom-header-content,
+.archive .site-footer .wrapper {
+    margin: 0 auto;
+    max-width: 1500px;
+    width: 100%;
+}
+
+.site-header-main .wrapper {
+    max-width: 100%;
+}
+
+.recent-blog-content .archive-post-wrap .post-thumbnail,
+.site-content .content-area .post-thumbnail {
+    margin: 0;
+}
+
+.home.blog .site-content.section .wrapper {
+    margin: 0 auto;
+    max-width: 1500px;
+    width: 100%;
+}
+body:not(.home) .site-content {
+    padding: 42px 0;
+}
+
+
+.header-media .wrapper,
+#footer-instagram .wrapper,
+.gallery-section .wrapper {
+    width: 100%;
+    max-width: 1920px;
+}
+
+.no-sidebar.full-width-layout .recent-blog-content .wrapper {
+    max-width: 100%;
+}
+
+.page.no-sidebar #primary.content-area,
+.page.no-sidebar .content-area,
+.single.no-sidebar .content-area {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+    outline: 0;
+}

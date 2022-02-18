@@ -1,12 +1,9 @@
-$offset                        : $base-offset; /* 16 px */
-$offset-x                      : calc($offset * divide($xs, 3));
-$offset-y                      : divide($offset, $xs);
-$offset-y-lg                   : divide($offset, $md);
-$offset-x-lg                   : calc($offset * divide($sm, 2));
+$offset-xs: calc($spacer-xs * $xs); /* 56px */
+$offset-sm: calc($spacer-sm * $sm); /* .76 */
+$offset-md: calc($spacer-md * $md); /* 1.10px */
+$offset-lg: calc($spacer-lg * $lg); /* 1.56 */
+$offset-xl: calc($spacer-xl * $xl); /* 2.25 */
+$offset-xxl: calc($spacer-xxl * $xxl); /* 3.06px */
 
-$offset-xs                     : calc($offset * $xs);
-$offset-sm                     : calc($offset * $sm);
-$offset-md                     : calc($offset * $md);
-$offset-lg                     : calc($offset * $lg);
-$offset-xl                     : calc($offset * $xxl);
-$offset-xxl                    : calc($offset * $xxl);
+$offest-y: calc($offset * $offset-xs);
+$offset-x: $offset;

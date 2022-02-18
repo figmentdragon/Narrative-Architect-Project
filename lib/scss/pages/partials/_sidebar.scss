@@ -1,0 +1,24 @@
+/**
+ * partials/sidebar
+ * ---
+ */
+
+
+.sidebar {}
+
+#sidebar {
+  @include media-breakpoint-down(sm) {
+		margin-top: 35px;
+  }
+
+  @include list-padding(15px);
+
+}
+
+.loop + #sidebar.sidebar-pos-left {
+	order: 2;
+}
+
+#sidebar.sidebar-pos-left {
+	order: 1;
+}

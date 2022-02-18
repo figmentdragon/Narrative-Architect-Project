@@ -1,0 +1,89 @@
+.services-section.section {
+
+    
+
+    .hentry {
+        width: 100%;
+
+        .hentry-inner {
+            padding: 30px;
+            transition: all 0.4s;
+
+            &:hover {
+                transform: translateY(-4px);
+            }
+         
+            .post-thumbnail {
+                margin-bottom: 21px;
+                margin-left: auto;
+                margin-right: auto;
+                max-width: 125px;
+                text-align: center;
+
+                &:hover {
+
+                    @include media(tablet) {
+        
+                        img {
+                            transform: scale(.9);
+                            -o-transform: scale(.9);
+                            -moz-transform: scale(.9);
+                            -webkit-transform: scale(.9);
+                        }
+                    }    
+                }
+                
+                img {
+                    margin: 0 auto;
+
+                    @include media(mobile_horizontal) {
+                        margin: 0;
+                    }
+                }
+            }
+
+            .entry-container {
+                text-align: center;
+
+                p{
+                    margin-bottom: 0;
+                }
+
+                .entry-category {
+                    margin-bottom: 14px;
+                }
+
+                .entry-meta {
+                    margin-top: 7px;
+                }
+
+                .more-link {
+                    margin: 0;
+                   
+                    
+                    .button,
+                    .readmore {
+                        margin-top: 28px;
+                        border: none;
+                        padding: 0;
+                        font-family: 'poppins',sans-serif;
+                        text-transform: uppercase;
+                        display: none;
+                    }
+
+                }
+                
+            }
+        }
+    }
+}
+
+.services-section .hentry .hentry-inner .post-thumbnail a {
+    display: inline-block;
+    position: relative;
+}
+
+div#services-section .section-description + .view-more {
+    margin: 35px 0 0;
+    padding: 0;
+}
