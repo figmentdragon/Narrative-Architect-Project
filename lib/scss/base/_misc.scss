@@ -6,9 +6,9 @@ hr {
   margin-top: calc(1.05 * 4)
   margin-bottom: calc(1.05 * 5);
   border: $hr-border-width;
-  background-color: $body-bg;
-    color: $hr-color;
-      opacity: $hr-opacity;
+  background-color: $body-bg
+  color: $hr-color;
+  opacity: $hr-opacity;
 }
 
 hr:not([size]) {

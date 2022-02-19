@@ -5,7 +5,7 @@ $level-item-spacing: ($block-spacing * 0.5);
   align-items: center;
   justify-content: space-between;
   code {
-    border-radius: $border-radius;
+    border-radius: $base-radius;
   }
   img {
     display: inline-block;

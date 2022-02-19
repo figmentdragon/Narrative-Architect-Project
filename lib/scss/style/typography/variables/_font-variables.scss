@@ -1,0 +1,91 @@
+/* _______________________________________________________ FONT VARIABLES */
+/* Enable keyword, short hand for callig font Stack. */
+$primary-font-family     : $font-sans-serif;
+$secondary-font-family   : $font-serif;
+
+
+$body-font               : sans-serif;
+$code-font               : monospace;
+
+$primary-font            : "Hand Typewriter", $body-font;
+$text-font               : Avdira, $body-font;
+$content-font            : Raylig, $body-font;
+$article-font            : "TELETYPE1945-1985";
+$secondary-font          : "Enjoy Writing", $body-font;
+$tertiary-font           : "Raleway", $body-font;
+$emphasis-font           : "GlassAntiqua-Regular", $body-font;
+
+$text-align         : null;
+$text-margin-bottom      : $offset;
+$paragraph-margin-bottom : $text-margin-bottom;
+
+$quotation               : obalique;
+$citation                : italic;
+$link                    : underline;
+
+/* ________________________________________________________ TEXTS & TITLES */
+  /* Color */
+  $text             : shade($primary, 60%);
+  $btn-text        : shade($text,10%);
+  $caption-text    : shade($text,10%);
+  $entry-header    : shade($primary, 10%);
+  $footer          : shade($accent, 10%);
+  $nav-text        : shade($secondary, 10%);
+  $page-title      : $secondary;
+  $post-title      : $accent;
+  $quote-text      : shade($primary, 10%);
+  $site-title      : $primary;
+  $text-muted      : color-mix(srgb, $accent 40%, $white);
+
+  /* Font Family */
+  $article-text-font     : "TELETYPE1945-1985", $body-font;
+  $author-text-font      : Euphorigenic, $body-font;
+  $text-font        : $text-font;
+  $btn-font-text-font    : "Raleway", $body-font;
+  $emphasis-text-font    : "GlassAntiqua-Regular";
+  $footer-text-font      : $tertiary-font;
+  $lead-text-font        : "Pompiere";
+  $nav-text-font         : "Raleway", $body-font;
+  $page-title-font       : "Raylig", $body-font;
+  $post-title-font       : "TELETYPE1945-1985", $body-font;
+  $site-title-font       : $primary-font;
+
+
+/* ______________________________________________________ FONT SIZE */
+  $font-size-xs          : calc($font-size-base * $xs);
+  $font-size-sm          : calc($font-size-base * $sm);
+  $font-size-md          : $font-size-base;
+  $font-size-lg          : calc($font-size-base * $lg);
+  $font-size-xl          : calc($font-size-base * $xl);
+  $font-size-xxl         : calc($font-size-base * $xxl);
+
+  /* Font Weight */
+  $font-weight-lighter   : lighter;
+  $font-weight-light     : 300;
+  $font-weight-normal    : 400;
+  $font-weight-bold      : 700;
+  $font-weight-bolder    : bolder;
+
+  $font-weight-base      : $font-weight-normal;
+
+  /* Letter Spacing */
+  $letter-spacing-xs     : calc($xs * $base-unit) rem;
+  $letter-spacing-sm     : calc($sm * $base-unit) rem;
+  $letter-spacing-md     : calc($md * $base-unit) rem;
+  $letter-spacing-lg     : calc($lg * $base-unit) rem;
+  $letter-spacing-xl     : calc($xl * $base-unit) rem;
+  $letter-spacing-xxl    : calc(3 * $base-unit) rem;
+
+  /* Line Height */
+  $line-height-base      : 1.15;
+  $line-height-xs        : calc($xs * $line-height-base) rem;
+  $line-height-sm        : calc($sm * $line-height-base) rem;
+  $line-height-md        : calc($md * $line-height-base) rem;
+  $line-height-lg        : calc($lg * $line-height-base) rem;
+  $line-height-xl        : calc($xl * $line-height-base) rem;
+  $line-height-xxl       : calc($xxl * $line-height-base) rem;
+
+  $line-height-body      : $line-height-base;
+
+  $heading-base-unit     : 1.25vh;
+  // scss-docs-end font-variables

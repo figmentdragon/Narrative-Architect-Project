@@ -1,15 +1,5 @@
 
 // Logo
-.logo {
-  position: absolute;
-  top: -1vh;
-  left: 3vw;
-  width: 20vw;
-  height: 20vh;
-  filter: drop-shadow(20px 10px 1px rgba(0, 0, 0, 0.432));
-  z-index: $z-index-logo;
-}
+.logo {}
 
-.logo-img {
-  border-radius: 50%;
-}
+.logo-img {}

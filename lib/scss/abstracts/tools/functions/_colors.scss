@@ -1,6 +1,27 @@
+@use "sass:color";
 // Colors
-@function to-rgba($value) {
-  @return   red($value), green($value), blue($value) ;
+@function to-rgb($value) {
+  @return red($value), green($value), blue($value);
+}
+
+@function create-map($map, $callback-func, $args...) {
+  $_created-map: ();
+
+  @each $key, $value in $map {
+    $_args: ();
+    @each $arg in $args {
+      $_args: append(
+        $_args, if($arg == "key", $key, if($arg == "value", $value, $arg))
+      );
+    }
+
+    $_created-map: map.map-merge(
+      $_created-map,
+      meta.call(meta.get-function($callback-func), $_args...)
+    );
+  }
+
+  @return $_created-map;
 }
 
 // stylelint-disable scss/dollar-variable-pattern

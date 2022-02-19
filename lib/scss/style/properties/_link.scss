@@ -1,0 +1,18 @@
+/* ______________________________________________________ Link */
+
+//@import "colored-links";
+
+/* Style anchor elements. */
+$link            : tint($secondary, $link-percentage);
+$link-decoration              : underline;
+$hover              : shade($link, $hover-percentage);
+$hover-decoration  : bold;
+
+$visited            : shade($link, $visited-percentage);
+$visited-decoration      : strike-through;
+$visited-hover      : shade($visited, $hover-percentage);
+
+$stretched-link-pseudo-element: after;
+$stretched-link-z-index       : 1;
+
+@import "links/stretched-link";

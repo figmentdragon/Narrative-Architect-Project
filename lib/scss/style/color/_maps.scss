@@ -11,30 +11,6 @@ $light-contrast                  : $light;
 $color-contrast-dark             : $dark-contrast;
 $color-contrast-light            : $light-contrast;
 
-$grays: (
-  100: $gray-100,
-  200: $gray-200,
-  300: $gray-300,
-  400: $gray-400,
-  500: $gray-500,
-  600: $gray-600,
-  700: $gray-700,
-  800: $gray-800,
-  900: $gray-900
-) !default;
-
-$grays-rgb: (
-  gray-100-rgb: $gray-100-rgb,
-  gray-200-rgb: $gray-200-rgb,
-  gray-300-rgb: $gray-300-rgb,
-  gray-400-rgb: $gray-400-rgb,
-  gray-500-rgb: $gray-500-rgb,
-  gray-600-rgb: $gray-600-rgb,
-  gray-700-rgb: $gray-700-rgb,
-  gray-800-rgb: $gray-800-rgb,
-  gray-900-rgb: $gray-900-rgb
-);
-
 $colors: (
   blue:       $blue,
   indigo:     $indigo,
@@ -71,34 +47,34 @@ $theme-colors: (
   'valid':            $valid,
   'info':             $info,
   'attention':          $attention,
-  'alert':            $alert,
-  'invalid':          $invalid
+  'invalid':            $invalid,
+  'alert':          $alert
 );
 
 $theme-colors-rgb:(
 'primary-rgb':   $primary-rgb,
 'secondary-rgb': $secondary-rgb,
 'accent-rgb':    $accent-rgb,
-'valid-rgb':         $success-rgb,
+'valid-rgb':         $valid-rgb,
 'attention-rgb':         $attention-rgb,
-'alert-rgb':          $alert-rgb,
+'invalid-rgb':          $invalid-rgb,
 'info-rgb':            $info-rgb,
-'invalid-rgb': $invalid-rgb
+'alert-rgb': $alert-rgb
 );
 
 $utilitiess:(
   text:               $text,
-  body:               $body,
+  body-bg:               $body-bg,
   light:              $light,
   dark:               $dark
 ) !default;
 
 $utilities-text:(
   text-muted:         $text-muted,
-  input:              $input,
+  input-text:              $input-text,
   input-bg:           $input-bg,
   input-border:       $input-border,
-  input-focus:        $input-focus,
-  input-focus-bg:     $input-focus-bg,
-  input-focus-border: $input-focus-border
+  input-text-focus:        $input-text-focus,
+  input-bg-focus:     $input-bg-focus,
+  input-border-focus: $input-border-focus
 ) !default;

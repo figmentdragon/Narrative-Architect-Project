@@ -387,7 +387,7 @@ Stylesheet: CJMT Brand Typography
   --ca-accent-color: #a8a9ad;
   --ca-valid-color: #cdffff;
   --ca-info-color: #555aff;
-  --ca-alert-color: #ffd080;
+  --ca-invalid-color: #ffd080;
   --ca-invalid-color: #ff555a;
   --ca-attention-color: #ff6fa9;
   --ca-light: #9a9a9a;
@@ -877,7 +877,7 @@ textarea {
   border-color: #555aff;
 }
 
-.card-alert {
+.card-invalid {
   background-color: #ffd080;
   border-color: #ffd080;
 }
@@ -907,7 +907,7 @@ textarea {
   border-color: #e6ffff;
 }
 
-.card-alert-outline {
+.card-invalid-outline {
   background-color: transparent;
   border-color: #ffe8c0;
 }
@@ -1500,10 +1500,10 @@ img .float-center {
   color: #666bff;
 }
 
-.link-alert-color {
+.link-invalid-color {
   color: #ffd080;
 }
-.link-alert-color:hover, .link-alert-color:focus {
+.link-invalid-color:hover, .link-invalid-color:focus {
   color: #ffd58d;
 }
 

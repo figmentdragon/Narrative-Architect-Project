@@ -1,141 +1,152 @@
-// The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0 are 3, 4.5 and 7.
-// See https://www.w3.org/TR/WCAG20/#visual-audio-contrast-contrast
+// The contrast ratio to reach against white, to determine if color changes from "light" to "dark". Acceptable values for WCAG 2.0' are 3, 4.5 and 7.
+// See https://www.w3.org/TR/WCAG20'/#visual-audio-contrast-contrast
 
-$min-contrast-ratio: 4.5;
+$min-contrast-ratio: 4.5 !default;
 // Customize the light and dark text colors for use in our color contrast function.
-$color-contrast-dark: black;
-$color-contrast-light: white;
+$color-contrast-dark: black !default;
+$color-contrast-light: white !default;
 
 // fusv-disable
-$blue-100': tint-color($blue, 80%);
-$blue-200': tint-color($blue, 60%);
-$blue-300': tint-color($blue, 40%);
-$blue-400': tint-color($blue, 20%);
-$blue-500': $blue;
-$blue-600': shade-color($blue, 20%);
-$blue-700': shade-color($blue, 40%);
-$blue-800': shade-color($blue, 60%);
-$blue-900': shade-color($blue, 80%);
+$blue-100: tint-color($blue, 80%);
+$blue-200: tint-color($blue, 60%);
+$blue-300: tint-color($blue, 40%);
+$blue-400: tint-color($blue, 20%);
+$blue-500: $blue;
+$blue-600: shade-color($blue, 20%);
+$blue-700: shade-color($blue, 40%);
+$blue-800: shade-color($blue, 60%);
+$blue-900: shade-color($blue, 80%);
 
-$indigo-100': tint-color($indigo, 80%);
-$indigo-200': tint-color($indigo, 60%);
-$indigo-300': tint-color($indigo, 40%);
-$indigo-400': tint-color($indigo, 20%);
-$indigo-500': $indigo;
-$indigo-600': shade-color($indigo, 20%);
-$indigo-700': shade-color($indigo, 40%);
-$indigo-800': shade-color($indigo, 60%);
-$indigo-900': shade-color($indigo, 80%);
+$indigo-100: tint-color($indigo, 80%);
+$indigo-200: tint-color($indigo, 60%);
+$indigo-300: tint-color($indigo, 40%);
+$indigo-400: tint-color($indigo, 20%);
+$indigo-500: $indigo;
+$indigo-600: shade-color($indigo, 20%);
+$indigo-700: shade-color($indigo, 40%);
+$indigo-800: shade-color($indigo, 60%);
+$indigo-900: shade-color($indigo, 80%);
 
-$purple-100': tint-color($purple, 80%);
-$purple-200': tint-color($purple, 60%);
-$purple-300': tint-color($purple, 40%);
-$purple-400': tint-color($purple, 20%);
-$purple-500': $purple;
-$purple-600': shade-color($purple, 20%);
-$purple-700': shade-color($purple, 40%);
-$purple-800': shade-color($purple, 60%);
-$purple-900': shade-color($purple, 80%);
+$purple-100: tint-color($purple, 80%);
+$purple-200: tint-color($purple, 60%);
+$purple-300: tint-color($purple, 40%);
+$purple-400: tint-color($purple, 20%);
+$purple-500: $purple;
+$purple-600: shade-color($purple, 20%);
+$purple-700: shade-color($purple, 40%);
+$purple-800: shade-color($purple, 60%);
+$purple-900: shade-color($purple, 80%);
 
-$pink-100': tint-color($pink, 80%);
-$pink-200': tint-color($pink, 60%);
-$pink-300': tint-color($pink, 40%);
-$pink-400': tint-color($pink, 20%);
-$pink-500': $pink;
-$pink-600': shade-color($pink, 20%);
-$pink-700': shade-color($pink, 40%);
-$pink-800': shade-color($pink, 60%);
-$pink-900': shade-color($pink, 80%);
+$pink-100: tint-color($pink, 80%);
+$pink-200: tint-color($pink, 60%);
+$pink-300: tint-color($pink, 40%);
+$pink-400: tint-color($pink, 20%);
+$pink-500: $pink;
+$pink-600: shade-color($pink, 20%);
+$pink-700: shade-color($pink, 40%);
+$pink-800: shade-color($pink, 60%);
+$pink-900: shade-color($pink, 80%);
 
-$red-100': tint-color($red, 80%);
-$red-200': tint-color($red, 60%);
-$red-300': tint-color($red, 40%);
-$red-400': tint-color($red, 20%);
-$red-500': $red;
-$red-600': shade-color($red, 20%);
-$red-700': shade-color($red, 40%);
-$red-800': shade-color($red, 60%);
-$red-900': shade-color($red, 80%);
+$red-100: tint-color($red, 80%);
+$red-200: tint-color($red, 60%);
+$red-300: tint-color($red, 40%);
+$red-400: tint-color($red, 20%);
+$red-500: $red;
+$red-600: shade-color($red, 20%);
+$red-700: shade-color($red, 40%);
+$red-800: shade-color($red, 60%);
+$red-900: shade-color($red, 80%);
 
-$orange-100': tint-color($orange, 80%);
-$orange-200': tint-color($orange, 60%);
-$orange-300': tint-color($orange, 40%);
-$orange-400': tint-color($orange, 20%);
-$orange-500': $orange;
-$orange-600': shade-color($orange, 20%);
-$orange-700': shade-color($orange, 40%);
-$orange-800': shade-color($orange, 60%);
-$orange-900': shade-color($orange, 80%);
+$orange-100: tint-color($orange, 80%);
+$orange-200: tint-color($orange, 60%);
+$orange-300: tint-color($orange, 40%);
+$orange-400: tint-color($orange, 20%);
+$orange-500: $orange;
+$orange-600: shade-color($orange, 20%);
+$orange-700: shade-color($orange, 40%);
+$orange-800: shade-color($orange, 60%);
+$orange-900: shade-color($orange, 80%);
 
-$yellow-100': tint-color($yellow, 80%);
-$yellow-200': tint-color($yellow, 60%);
-$yellow-300': tint-color($yellow, 40%);
-$yellow-400': tint-color($yellow, 20%);
-$yellow-500': $yellow;
-$yellow-600': shade-color($yellow, 20%);
-$yellow-700': shade-color($yellow, 40%);
-$yellow-800': shade-color($yellow, 60%);
-$yellow-900': shade-color($yellow, 80%);
+$yellow-100: tint-color($yellow, 80%);
+$yellow-200: tint-color($yellow, 60%);
+$yellow-300: tint-color($yellow, 40%);
+$yellow-400: tint-color($yellow, 20%);
+$yellow-500: $yellow;
+$yellow-600: shade-color($yellow, 20%);
+$yellow-700: shade-color($yellow, 40%);
+$yellow-800: shade-color($yellow, 60%);
+$yellow-900: shade-color($yellow, 80%);
 
-$green-100': tint-color($green, 80%);
-$green-200': tint-color($green, 60%);
-$green-300': tint-color($green, 40%);
-$green-400': tint-color($green, 20%);
-$green-500': $green;
-$green-600': shade-color($green, 20%);
-$green-700': shade-color($green, 40%);
-$green-800': shade-color($green, 60%);
-$green-900': shade-color($green, 80%);
+$green-100: tint-color($green, 80%);
+$green-200: tint-color($green, 60%);
+$green-300: tint-color($green, 40%);
+$green-400: tint-color($green, 20%);
+$green-500: $green;
+$green-600: shade-color($green, 20%);
+$green-700: shade-color($green, 40%);
+$green-800: shade-color($green, 60%);
+$green-900: shade-color($green, 80%);
 
-$teal-100': tint-color($teal, 80%);
-$teal-200': tint-color($teal, 60%);
-$teal-300': tint-color($teal, 40%);
-$teal-400': tint-color($teal, 20%);
-$teal-500': $teal;
-$teal-600': shade-color($teal, 20%);
-$teal-700': shade-color($teal, 40%);
-$teal-800': shade-color($teal, 60%);
-$teal-900': shade-color($teal, 80%);
+$teal-100: tint-color($teal, 80%);
+$teal-200: tint-color($teal, 60%);
+$teal-300: tint-color($teal, 40%);
+$teal-400: tint-color($teal, 20%);
+$teal-500: $teal;
+$teal-600: shade-color($teal, 20%);
+$teal-700: shade-color($teal, 40%);
+$teal-800: shade-color($teal, 60%);
+$teal-900: shade-color($teal, 80%);
 
-$cyan-100': tint-color($cyan, 80%);
-$cyan-200': tint-color($cyan, 60%);
-$cyan-300': tint-color($cyan, 40%);
-$cyan-400': tint-color($cyan, 20%);
-$cyan-500': $cyan;
-$cyan-600': shade-color($cyan, 20%);
-$cyan-700': shade-color($cyan, 40%);
-$cyan-800': shade-color($cyan, 60%);
-$cyan-900': shade-color($cyan, 80%);
+$cyan-100: tint-color($cyan, 80%);
+$cyan-200: tint-color($cyan, 60%);
+$cyan-300: tint-color($cyan, 40%);
+$cyan-400: tint-color($cyan, 20%);
+$cyan-500: $cyan;
+$cyan-600: shade-color($cyan, 20%);
+$cyan-700: shade-color($cyan, 40%);
+$cyan-800: shade-color($cyan, 60%);
+$cyan-900: shade-color($cyan, 80%);
 
-$silver-100': tint-color($silver, 80%);
-$silver-200': tint-color($silver, 60%);
-$silver-300': tint-color($silver, 40%);
-$silver-400': tint-color($silver, 20%);
-$silver-500': $silver;
-$silver-600': shade-color($silver, 20%);
-$silver-700': shade-color($silver, 40%);
-$silver-800': shade-color($silver, 60%);
-$silver-900': shade-color($silver, 80%);
+$silver-100: tint-color($silver, 80%);
+$silver-200: tint-color($silver, 60%);
+$silver-300: tint-color($silver, 40%);
+$silver-400: tint-color($silver, 20%);
+$silver-500: $silver;
+$silver-600: shade-color($silver, 20%);
+$silver-700: shade-color($silver, 40%);
+$silver-800: shade-color($silver, 60%);
+$silver-900: shade-color($silver, 80%);
 
-$secondary-100': tint-color($secondary, 80%);
-$secondary-200': tint-color($secondary, 60%);
-$secondary-300': tint-color($secondary, 40%);
-$secondary-400': tint-color($secondary, 20%);
-$secondary-500': $secondary;
-$secondary-600': shade-color($secondary, 20%);
-$secondary-700': shade-color($secondary, 40%);
-$secondary-800': shade-color($secondary, 60%);
-$secondary-900': shade-color($secondary, 80%);
 
-$primary-100': tint-color($primary, 80%);
-$primary-200': tint-color($primary, 60%);
-$primary-300': tint-color($primary, 40%);
-$primary-400': tint-color($primary, 20%);
-$primary-500': $primary;
-$primary-600': shade-color($primary, 20%);
-$primary-700': shade-color($primary, 40%);
-$primary-800': shade-color($primary, 60%);
-$primary-900': shade-color($primary, 80%);
+$primary-100: tint-color($primary, 80%);
+$primary-200: tint-color($primary, 60%);
+$primary-300: tint-color($primary, 40%);
+$primary-400: tint-color($primary, 20%);
+$primary-500: $primary;
+$primary-600: shade-color($primary, 20%);
+$primary-700: shade-color($primary, 40%);
+$primary-800: shade-color($primary, 60%);
+$primary-900: shade-color($primary, 80%);
+
+$secondary-100: tint-color($secondary, 80%);
+$secondary-200: tint-color($secondary, 60%);
+$secondary-300: tint-color($secondary, 40%);
+$secondary-400: tint-color($secondary, 20%);
+$secondary-500: $secondary;
+$secondary-600: shade-color($secondary, 20%);
+$secondary-700: shade-color($secondary, 40%);
+$secondary-800: shade-color($secondary, 60%);
+$secondary-900: shade-color($secondary, 80%);
+
+$accent-100: tint-color($accent, 80%);
+$accent-200: tint-color($accent, 60%);
+$accent-300: tint-color($accent, 40%);
+$accent-400: tint-color($accent, 20%);
+$accent-500: $accent;
+$accent-600: shade-color($accent, 20%);
+$accent-700: shade-color($accent, 40%);
+$accent-800: shade-color($accent, 60%);
+$accent-900: shade-color($accent, 80%);
 
 $blues: (
   'blue-100': $blue-100,
@@ -293,6 +304,18 @@ $secondarys: (
   'secondary-900': $secondary-900
 );
 
+$accents: (
+  'accent-100': $accent-100,
+  'accent-200': $accent-200,
+  'accent-300': $accent-300,
+  'accent-400': $accent-400,
+  'accent-500': $accent-500,
+  'accent-600': $accent-600,
+  'accent-700': $accent-700,
+  'accent-800': $accent-800,
+  'accent-900': $accent-900
+);
+
 $primarys: (
   'primary-100': $primary-100,
   'primary-200': $primary-200,
@@ -304,4 +327,3 @@ $primarys: (
   'primary-800': $primary-800,
   'primary-900': $primary-900
 );
-// fusv-enable

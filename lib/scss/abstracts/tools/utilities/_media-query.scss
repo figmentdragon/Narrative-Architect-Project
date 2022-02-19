@@ -5,8 +5,8 @@
 $default-width: 38.125rem;
 $max-content-width: 1240px;
 $responsive-horizontal-spacing: 1.05vw;
-$responsive-aligndefault-width: subtract(100vw - $responsive-horizontal-spacing);
-$responsive-alignwide-width: subtract(100vw - $responsive-horizontal-spacing);
+$responsive-aligndefault-width: 100vw - $responsive-horizontal-spacing;
+$responsive-alignwide-width: 100vw - $responsive-horizontal-spacing;
 $responsive-alignfull-width: 100vw;
 
 /**

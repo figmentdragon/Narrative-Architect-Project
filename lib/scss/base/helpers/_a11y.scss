@@ -9,9 +9,9 @@
  * read this text aloud, making it easier for users to locate structural
  * sections in your theme.
  */
-
-.screen-reader-text,
-.sr-only
+ .assistive-text,
+ .screen-reader-text,
+ .sr-only
 {
     position: absolute !important;
 

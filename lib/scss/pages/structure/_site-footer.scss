@@ -40,7 +40,7 @@
   line-height: 2rem;
   align-self: center;
   align-content: center;
-
+  border: 2px solid $red;
 }
 
 .news-scroll {
@@ -50,7 +50,7 @@
   margin-left: 1rem;
   align-items: start;
   align-content: start;
-
+  border: 2px solid $black;
 }
 
 #updates {
@@ -58,6 +58,10 @@
   font-weight: bolder;
   text-transform: capitalize;
   text-shadow: 0 .12rem, .12rem, .05rem $hot-pink;
+}
+
+#social-icons {
+  font-family: fab
 }
 
 .copyright {

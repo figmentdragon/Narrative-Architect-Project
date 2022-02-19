@@ -1,33 +1,28 @@
 // container mixins
-@mixin container-base {
-  @include clearfix;
-  @include border-box;
-}
-
-@mixin container($body-text) {
-  @include container-base;
+@mixin container($offset: 16px) {
+  display: inline;
   align-items: left;
   justify-content: flex-start;
+  margin: auto;
   padding-top: $offset-y * 2;
   padding-bottom: $offset-y;
-
+    @include clearfix();
 }
 
 // container mixins
-@mixin make-container {
-  @include container-base;
-  display: inline-block;
-  overflow: hidden;
-}
-
-
-// container mixins
-@mixin container($offset) {
-  @include container-base;
+@mixin container() {
+  @include clearfix;
+  @include border-box;
+  min-width: 100%;
+  max-width : $grid-max-width;
+  margin: 0 0 auto;
   padding-top: $offset-x;
-  padding-right: calc($offset * 2);
+  padding-right: 0;
   padding-bottom: $offset-x;
   padding-left: calc($offset * 2);
+  overflow: hidden;
+  display: block;
+  @include clearfix();
 }
 
 // For each breakpoint, define the maximum width of the container in a media query

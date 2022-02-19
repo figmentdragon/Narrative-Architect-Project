@@ -1,21 +1,3 @@
-@charset "UTF-8";
-
-@import
-  "tools/mixins/global/main",
-  "tools/mixins/grid",
-  "tools/mixins/responsive",
-  "tools/mixins/border-box",
-  "tools/mixins/border-radius",
-  "tools/mixins/box-shadows",
-  "tools/mixins/cards",
-  "tools/mixins/container",
-  "tools/mixins/font-size",
-  "tools/mixins/gradients",
-  "tools/mixins/hover",
-  "tools/mixins/list",
-  "tools/mixins/ltr",
-  "tools/mixins/navigation",
-  "tools/mixins/placeholder",
-  "tools/mixins/text-truncate",
-  "tools/mixins/visually-hidden",
-  "tools/mixins/clearfix/clearfix";
+@charset "UTF-8"; // 1. Configuration and helpers
+//"mixins/grid",
+@import "mixins/responsive", "mixins/border-box", "mixins/buttons", "mixins/cards", "mixins/caret", "mixins/center-block", "mixins/color-scheme", "mixins/container", "mixins/elevation", "mixins/font-size", "mixins/hover", "mixins/hue-rotate", "mixins/list", "mixins/ltr", "mixins/navigation", "mixins/placeholder", "mixins/text-truncate", "mixins/text-truncate", "mixins/transition", "mixins/visually-hidden", "mixins/clearfix";

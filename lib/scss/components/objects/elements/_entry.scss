@@ -1,0 +1,212 @@
+$entry-header-color: shade-color($primary-color, 10%);
+
+.entry-title {
+
+	color: $entry-header-color;
+	font-size: $entry-header-font-size;
+	letter-spacing: $letter-spacing-lg;;
+	line-height: $line-height-md;
+	overflow-wrap: break-word;
+
+	a {
+		color: $link-color;
+		text-underline-offset: 0.15em;
+
+		&:hover {
+			color: $hover-color;
+		}
+
+		&:focus {
+			color: $focus-color;
+		}
+
+		&:active {
+			color: $link-color;
+		}
+	}
+}
+
+.singular .entry-title {
+	font-size: h3;
+}
+
+h1.entry-title {
+	line-height: $lg;
+	font-weight: bold;
+}
+
+/**
+ * Entry Content
+ */
+
+.entry-content,
+.entry-summary {
+	font-family: $tertiary-font;
+}
+
+.entry-content {
+
+	p {
+		word-wrap: break-word;
+	}
+
+	// Overwrite iframe embeds that have inline styles.
+	> iframe[style] {
+
+		margin: $vertical-offset 0 !important;
+		max-width: 100% !important;
+	}
+
+	// Classic editor audio embeds.
+	.wp-audio-shortcode {
+		@extend %responsive-aligndefault-width;
+	}
+}
+
+.entry-footer {
+
+	color: $primary-color;
+	clear: both;
+	float: none;
+	font-size: $xs;
+	display: block;
+
+	> span {
+		display: inline-block;
+	}
+
+	a {
+		color: currentColor;
+
+		&:hover,
+		&:focus {
+			color: $hover-color;
+		}
+
+		&:active {
+			color: #active-color;
+		}
+	}
+}
+
+// Extra specificity to override rules in _vertical-margins.scss
+.site-main > article > .entry-footer {
+	margin-top: $vertical-offset;
+	padding-top: $offset;
+	padding-bottom: calc(3 * $vertical-offset);
+	border-bottom: $border-width solid $border-color;
+}
+
+body:not(.single) .site-main > article:last-of-type .entry-footer {
+	border-bottom: $border-width solid transparent;
+}
+
+.single .site-main > article > .entry-footer {
+	margin-top: calc(3.4 * $vertical-offset);
+	margin-bottom: calc(3.4 * $vertical-offset);
+	padding-bottom: 0;
+	padding-top: calc(0.8 * $vertical-offset);
+	border-top: 3px solid $border-color;
+	border-bottom: $border-width solid transparent;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	column-gap: calc(2 * $horizontal-offset);
+
+	.post-taxonomies,
+	.full-size-link {
+		justify-content: flex-end;
+		text-align: right;
+	}
+
+	.full-size-link:first-child:last-child {
+		grid-column: span 2;
+	}
+
+	.posted-on,
+	.byline,
+	.cat-links,
+	.tags-links {
+		display: block;
+	}
+
+	@include media(mobile-only) {
+		display: block;
+
+		.full-size-link {
+			display: block;
+		}
+
+		.post-taxonomies,
+		.full-size-link {
+			text-align: left;
+		}
+	}
+}
+
+/**
+ * Post Thumbnails
+ */
+
+.post-thumbnail {
+	@extend %responsive-aligndefault-width;
+	text-align: center;
+
+	.entry-header &,
+	.singular & {
+		@extend %responsive-alignwide-width-nested;
+	}
+
+	.wp-post-image {
+		display: block;
+		width: auto;
+		max-width: 100%;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: calc(2 * $vertical-offset);
+	}
+}
+
+/**
+ * Author
+ */
+
+.author-bio {
+	position: relative;
+	font-size: $xs;
+	max-width: $responsive-aligndefault-width;
+
+	.site-main > article > & {
+		margin-top: calc(2 * $vertical-offset);
+	}
+
+	// Avatars are optional and can be turned off.
+	&.show-avatars {
+
+		.avatar {
+			display: inline-block;
+			vertical-align: top;
+			border-radius: 50%;
+		}
+
+		.author-bio-content {
+			display: inline-block;
+			padding-left: $horizontal-offset;
+			max-width: calc($responsive-aligndefault-width - 90px);
+		}
+	}
+
+	.author-bio-content {
+
+		.author-title {
+			font-family: $emphasis-font;
+			font-size: $font-size-md;
+			display: inline;
+		}
+
+		.author-description {
+			font-size: $xs;
+			margin-top: calc(0.5 * $vertical-offset);
+			margin-bottom: calc(0.5 * $vertical-offset);
+		}
+	}
+}

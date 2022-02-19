@@ -1,0 +1,49 @@
+/* Border Radius */
+$border-radius-sm:      $base-radius * $sm;
+$border-radius-md:      $base-radius * $md;
+$border-radius-lg:      $base-radius * $lg;
+$border-radius-xl:      $base-radius * $xl;
+$border-radius-xxl:     $base-radius * $xxl;
+$border-radius-pill:    50rem;
+
+$thumbnail-radius:      $base-radius * divide($md, 2);
+$card-border-radius-inner: $border-radius-sm;
+$border-radius    :     $base-radius;
+
+// Single side border-radius
+
+@mixin border-radius($radius: $border-radius) {
+    border-top-right-radius: $radius;
+    border-top-left-radius: $radius;
+    border-bottom-right-radius: $radius;
+    border-bottom-left-radius: $radius;
+}
+
+@mixin border-radius($radius: $border-radius-md) {
+    border-top-right-radius: $radius;
+    border-top-left-radius: $radius;
+    border-bottom-right-radius: $radius;
+    border-bottom-left-radius: $radius;
+}
+
+@mixin border-top-radius($radius) {
+    border-top-right-radius: $radius;
+    border-top-left-radius: $radius;
+}
+
+@mixin border-end-radius($radius) {
+    border-bottom-right-radius: $radius;
+    border-top-right-radius: $radius;
+}
+
+@mixin border-bottom-radius($radius) {
+
+    border-bottom-right-radius: $radius;
+    border-bottom-left-radius: $radius;
+
+}
+
+@mixin border-start-radius($radius) {
+    border-bottom-left-radius: $radius;
+    border-top-left-radius: $radius;
+}

@@ -1,0 +1,28 @@
+.card {
+  background: white;
+  @include elevation(2);
+  position: relative;
+  overflow: hidden;
+  border-radius: $border-radius-lg;
+  $a: $offset * 20px;
+
+  & .body {
+    padding: $offset-x $offset-y;
+  }
+
+  & .footer {
+    padding: $offset-x $offset-y;
+  }
+
+  & .card-title {
+    font-size: $font-size-base * 26 !important;
+  }
+
+  &.hoverable {
+    transition: all 0.2s ease;
+
+    &:hover , &:focus {
+      @include elevation(6);
+    }
+  }
+}

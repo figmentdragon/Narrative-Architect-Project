@@ -5,6 +5,7 @@ $offset-lg: 18rem 6rem !default;
 
 .section {
   padding: $offset;
+  border: 3px solid $orange;
   background: $white;
   // Responsiveness
   @include desktop {

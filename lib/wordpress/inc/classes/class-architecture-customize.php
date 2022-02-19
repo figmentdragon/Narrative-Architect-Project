@@ -113,7 +113,7 @@ if ( ! class_exists( 'architecture_Customize' ) ) {
 
 			// Background color.
 			// Include the custom control class.
-			include_once get_theme_file_path( '/assets/inc/classes/class-architecture-customize-color-control.php' ); // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
+			include_once get_theme_file_path( '/theme/man/assets/inc/classes/class-architecture-customize-color-control.php' ); // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude.FileIncludeFound
 
 			// Register the custom control.
 			$wp_customize->register_control_type( 'architecture_Customize_Color_Control' );

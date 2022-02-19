@@ -583,7 +583,7 @@ there are a few articles below that will help do that. What I will
 tell you is that this will help speed up simple changes like
 changing a color or adding CSS3 techniques gradients.
 
-A WORD OF WARNING: It's very easy to overdo it here. Be careful and
+A WORD OF attention: It's very easy to overdo it here. Be careful and
 remember less is more.
 
 Helpful:
@@ -854,30 +854,30 @@ you hate oysters, then the world is your peanut butter & jelly sandwich.
 Site Name:
 Author:
 
-Stylesheet: Alert Styles
+Stylesheet: invalid Styles
 
-If you want to use these alerts in your design, you can. If not,
+If you want to use these invalids in your design, you can. If not,
 you can just remove this stylesheet.
 
 ******************************************************************/
-.alert-help, .alert-info, .alert-error, .alert-success {
+.invalid-help, .invalid-info, .invalid-error, .invalid-valid {
   margin: 10px;
   padding: 5px 18px;
   border: 1px solid; }
 
-.alert-help {
+.invalid-help {
   border-color: #e8dc59;
   background: #ebe16f; }
 
-.alert-info {
+.invalid-info {
   border-color: #bfe4f4;
   background: #d5edf8; }
 
-.alert-error {
+.invalid-error {
   border-color: #f8cdce;
   background: #fbe3e4; }
 
-.alert-success {
+.invalid-valid {
   border-color: #deeaae;
   background: #e6efc2; }
 
@@ -1067,38 +1067,38 @@ textarea,
     background-repeat: no-repeat;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAWCAYAAADEtGw7AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMy1jMDExIDY2LjE0NTY2MSwgMjAxMi8wMi8wNi0xNDo1NjoyNyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNiAoTWFjaW50b3NoKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo2NDM0NDREQkYwNEIxMUUyOTI4REZGQTEzMzA2MDcyNiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo2NDM0NDREQ0YwNEIxMUUyOTI4REZGQTEzMzA2MDcyNiI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjQ3ODRGRkE2RjA0QTExRTI5MjhERkZBMTMzMDYwNzI2IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjY0MzQ0NERBRjA0QjExRTI5MjhERkZBMTMzMDYwNzI2Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+U8iT5wAAAedJREFUeNqk1U9I02Ecx/HtV3aIFAc1hcRDUoGXRAq0oNLA2CrsEFmHbikZu0iQYIFGYAiegkCpLipBxPpDEBMUzB0EhSG2LhG7hMR2GviPgUTvB57Bw8P3+U23B16HPX8+e/b8nt93wezZSMCnhXETF3AcB5BDCnH8Dq98ExcGHcFn8Ah3cdDni+fxnPDv9oAnTB7CKu6VCFXtChZy56LxUjt+jfuB8toSOth9wd7xWAWhqrUjYR/FRTwWJm+iIPT/w7bQf5ljiZnBg45dtKFX6H+LU8gIY8OEV6vgTkStwXWE8BPTGDHGPqNPz2mCfSOOYkA99TvCt1bhGPL68zMcwmncMuape10jrI+q4BbHi/FLn31S9z2x5tRhTc+1W506ipM+T3oRD4X+8+qtc4SqFvL0z/Fr14S+Szjis8bz9Lvvaq8cwS/wwGfdlqfPSWqTiFlX77o13u9Ym1PBs8JAytpRoy44X9Ft9E/gvbA+rYKn8NcaaMVc8UHgBw4b9/iqUQZ6hOAJFbyDcUflmsEX4a6+wTtHGfhAIUqa1U29Zc2BytouThD8x6xuN5CtMPi2CrXLZkZf/HyZoRFCP7n+QVR4PV7uI/AjGghN7OU/r1ilnqILtfpNC+o6vIFljBKYlhb/F2AAgaBsWR5wRiIAAAAASUVORK5CYII=);
     outline-color: #fbe3e4; }
-  input[type="text"].success, input[type="text"].is-valid,
-  input[type="password"].success,
+  input[type="text"].valid, input[type="text"].is-valid,
+  input[type="password"].valid,
   input[type="password"].is-valid,
-  input[type="datetime"].success,
+  input[type="datetime"].valid,
   input[type="datetime"].is-valid,
-  input[type="datetime-local"].success,
+  input[type="datetime-local"].valid,
   input[type="datetime-local"].is-valid,
-  input[type="date"].success,
+  input[type="date"].valid,
   input[type="date"].is-valid,
-  input[type="month"].success,
+  input[type="month"].valid,
   input[type="month"].is-valid,
-  input[type="time"].success,
+  input[type="time"].valid,
   input[type="time"].is-valid,
-  input[type="week"].success,
+  input[type="week"].valid,
   input[type="week"].is-valid,
-  input[type="number"].success,
+  input[type="number"].valid,
   input[type="number"].is-valid,
-  input[type="email"].success,
+  input[type="email"].valid,
   input[type="email"].is-valid,
-  input[type="url"].success,
+  input[type="url"].valid,
   input[type="url"].is-valid,
-  input[type="search"].success,
+  input[type="search"].valid,
   input[type="search"].is-valid,
-  input[type="tel"].success,
+  input[type="tel"].valid,
   input[type="tel"].is-valid,
-  input[type="color"].success,
+  input[type="color"].valid,
   input[type="color"].is-valid,
-  select.success,
+  select.valid,
   select.is-valid,
-  textarea.success,
+  textarea.valid,
   textarea.is-valid,
-  .field.success,
+  .field.valid,
   .field.is-valid {
     color: #e6efc2;
     border-color: #e6efc2;
@@ -1766,7 +1766,7 @@ tweeners.
   This isn't ideal because then you would be loading all those
   extra styles on that same mobile connection.
   
-  A word of warning. This size COULD be a larger mobile device,
+  A word of attention. This size COULD be a larger mobile device,
   so you still want to keep it pretty light and simply expand
   upon your base.scss styles.
   

@@ -3,16 +3,12 @@
   @include border-box;
   @include make-col;
   display: inline-flex;
-  height: 102%;
-  max-height: 100vh;
-  width: 100%;
-  max-width: 8vw;
+
   margin-bottom: -1vh;
 }
 
 @mixin vertical {
-    writing-mode: vertical-lr;
-    rotate: 180deg;
+
     align-items: end;
     height: 100%;
     max-height: 100vh;

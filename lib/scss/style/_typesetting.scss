@@ -1,0 +1,115 @@
+/* TYPOGRAPHY __________________________________________________________
+Site Name           : CJMT
+Author              : CJ Montes-Termini
+
+Stylesheet          : CJMT Brand Typography
+
+	= TOC =
+		(1) Fonts
+		(2) Color Pallette
+		(3) Text Elements
+        (4) Mixins
+			- [] Font Families
+			- [] Font Colors
+				- Shadows
+				- Gradients
+				- Stroke Outline
+		(4) Text Level CSS Selectors
+			- [] Text Level
+			- [] Headings
+			- [] Links
+		(5) Text Level HTML Elements
+		(6) Responsive Settings
+
+ __________________________________________________________ TYPOGRAPHY */
+ /* _____________________________________________ VARIABLES */
+ /*! ____________________________________ BODY */
+    $body-text-color                 : shade-color($primary-color, $text-percentage);
+    $text-muted-color                : color-mix(srgb, $body-text-color $muted-percentage, $muted-color);
+
+    $body-text-align                 : null;
+    $text-margin-bottom              : $offset;
+    $paragraph-margin-bottom         :       $text-margin-bottom;
+
+ /*! ____________________________________ FONT */
+
+
+    $quotation :                     oblique;
+    $citation :                      italic;
+    $link :                          underline;
+
+/*! ____________________________________ COLOR */
+    $btn-text-color        : shade-color($button-color, 10%);
+    $entry-header-color    : shade-color($entry-color, 10%);
+    $headings-text-color      : mix-color($title-color $title-percentage, $body-text-color);
+    $site-title-color   : shade-color($site-color, $title-percentage);
+    $page-title-color   : shade-color($page-color, $title-percentage);
+    $post-title-color   : $post-color;
+    $footer-text-color  : $footer-color ;
+    $quote-text-color   : shade-color($quote-color, $focus-percentage);
+    $lead-text-color    : shade-color($lead-color, $muted-percentage);
+    $caption-text-color : shade-color($caption-color, $focus-percentage);
+    $nav-text-color     : shade-color($nav-color, $active-percentage);
+    $code-text-color    : shade-color($hot-pink, $focus-percentage);
+
+
+ @import "docs/visual-branding/typography/fonts/font-face";
+ @import "docs/visual-branding/typography/fonts/font-stacks";
+ @import "docs/visual-branding/typography/fonts/font-variables";
+ @import "docs/visual-branding/typography/fonts/font-properties";
+
+ @import "docs/visual-branding/typography/variables/base-typography";
+ @import "docs/visual-branding/typography/variables/headings";
+ @import "docs/visual-branding/typography/variables/display";
+ @import "docs/visual-branding/typography/variables/hr";
+ @import "docs/visual-branding/typography/variables/lead-entry";
+ @import "docs/visual-branding/typography/variables/links";
+ @import "docs/visual-branding/typography/variables/quote";
+ @import "docs/visual-branding/typography/variables/type-variables";
+ @import "docs/visual-branding/typography/variables/code";
+
+ @import "docs/visual-branding/typography/tools/mixins/font-size";
+ @import "docs/visual-branding/typography/tools/mixins/heading";
+ @import "docs/visual-branding/typography/tools/mixins/list";
+ @import "docs/visual-branding/typography/tools/mixins/shadow";
+ @import "docs/visual-branding/typography/tools/mixins/text-stroke";
+ @import "docs/visual-branding/typography/tools/mixins/text-transform";
+ @import "docs/visual-branding/typography/tools/mixins/text-truncate";
+ @import "docs/visual-branding/typography/tools/mixins/titles";
+
+ @import "docs/visual-branding/typography/text-elements/base";
+ @import "docs/visual-branding/typography/text-elements/type";
+ @import "docs/visual-branding/typography/text-elements/quote";
+ @import "docs/visual-branding/typography/text-elements/emphasis";
+ @import "docs/visual-branding/typography/text-elements/headings";
+ @import "docs/visual-branding/typography/text-elements/lists";
+ @import "docs/visual-branding/typography/text-elements/links";
+ @import "docs/visual-branding/typography/text-elements/input";
+ @import "docs/visual-branding/typography/text-elements/form-elements";
+ @import "docs/visual-branding/typography/text-elements/table";
+ @import "docs/visual-branding/typography/text-elements/code";
+ @import "docs/visual-branding/typography/text-elements/hr";
+
+ @import "themesheets/abstracts/tools/helpers/alignment";
+ @import "themesheets/abstracts/tools/helpers/colored-links";
+ @import "themesheets/abstracts/tools/helpers/stacks";
+ @import "themesheets/abstracts/tools/helpers/stretched-link";
+ @import "themesheets/abstracts/tools/helpers/text-truncation";
+
+ @import "themesheets/abstracts/tools/helpers/visibility";
+ @import "themesheets/abstracts/tools/helpers/visually-hidden";
+ @import "themesheets/abstracts/tools/helpers/vr";
+
+ @import "themesheets/abstracts/tools/helpers/clearfix";
+ @import "themesheets/abstracts/tools/helpers/a11y";
+
+
+ /* If you want to give a common style to all of the titles in your theme, here's a place to do it (you can style them individually later) */
+ .site-title,
+ .entry-title,
+ .page-title,
+ .widget-title,
+ .comments-title,
+ #reply-title {
+
+ }

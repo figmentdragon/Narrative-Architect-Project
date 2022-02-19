@@ -1,0 +1,182 @@
+
+body {
+  text-align: left;
+  color: $text;
+  font-family: $secondary-font;
+  font-size: $font-size-base;
+  line-height: 1.6;
+  margin: auto;
+  padding: 2em 2em 5em;
+  background: $body-bg;
+}
+
+/* Text elements */
+    p {
+    	margin-bottom: 1.5em;
+    }
+    b, strong {
+    	font-weight: bold;
+    }
+    dfn, cite, em, i {
+    	font-style: italic;
+    }
+
+    address {
+    	margin: 0 0 1.5em;
+    }
+
+
+/* ______________________________________________ HEADINGS */
+
+/* ______________________________________________________ LINK */
+
+a {
+  outline: none !important;
+  font-family: $nav-text-font;
+
+  :active {
+    text-decoration: $link-decoration;
+    color: $link;
+
+    & :hover {
+      text-decoration: $hover-decoration;
+      color: $hover;
+    }
+  }
+
+  :hover {
+    text-decoration: $hover-decoration;
+    color: $hover;
+  }
+
+  :inactive {
+    color: $inactive;
+    text-decoration: none;
+
+  }
+  :focus {
+
+  }
+}
+
+
+/* ______________________________________________ QUOTE */
+
+    /* Blockquote */
+    blockquote {
+      font-family: $emphasis-font;
+      font-style: italic;
+      border-left: 5px solid $accent;
+      padding-left: $xl;
+      margin: 0 1.5em;
+    }
+    blockquote small {
+      display: block;
+      line-height: 1.7em;
+    }
+
+/* ______________________________________________ LIST */
+    ol,
+    ul {
+        margin: 0 0 1.5em 3em;
+    }
+
+    ul {
+        list-style: disc;
+    }
+
+    ol {
+        list-style: decimal;
+    }
+
+    ol ol,
+    ol ul,
+    ul ol,
+    ul ul {
+        margin-bottom: 0;
+        margin-left: 1.5em;
+    }
+
+    li {
+        > ol,
+        > ul {
+            margin-bottom: 0;
+        }
+    }
+
+    dt {
+        font-weight: bold;
+    }
+
+    dd {
+        margin: 0 1.5em 1.5em;
+    }
+
+    .list--unstyled {
+        margin-left: 0;
+        list-style: none;
+    }
+/* ______________________________________________ CODE */
+    abbr, acronym {
+        border-bottom: 1px dotted #666;
+        cursor: help;
+    }
+
+    sup,
+    sub {
+        font-size: 75%;
+        height: 0;
+        line-height: 0;
+        position: relative;
+        vertical-align: baseline;
+    }
+    sup {
+        bottom: 1ex;
+    }
+    sub {
+        top: .5ex;
+    }
+
+    big {
+        font-size: 125%;
+    }
+
+
+/* ______________________________________________ TABLE */
+figure {
+	margin: 0;
+}
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+th {
+	font-weight: bold;
+}
+
+.normal {
+  font-weight: normal;
+}
+.quiet {
+  color: #999;
+}
+.pull-left {
+  float: left;
+  margin: 0.5em 2em 1em 0;
+}
+.pull-right {
+  float: right;
+  margin: 0.5em 0 1em 2em;
+}
+
+/* RESPONSIVE SETTINGS */
+@media (max-width: 500px) {
+  body {
+    font-size: 80%;
+  }
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    float: none !important;
+  }
+}

@@ -1,0 +1,37 @@
+/* =Site Header
+----------------------------------------------- */
+
+/* Style elements inside of the .site-header container */
+
+.site-header {
+  /* Container for site title and description */
+  display: inline;
+  height: 3.5rem;
+  flex-wrap: nowrap;
+  justify-content: stretch;
+  align-content: start;
+  align-items: start;
+  align-self: auto;
+  z-index: $z-index-header;
+  background-image: $primary-color-gradient;
+}
+
+/* Style elements inside of the .site-header container */
+.nameplate,
+.site-header hgroup { /* Container for site title and description */
+  margin-left: 12rem;
+  width: 100%;
+  max-width: 40vw;
+  border: 2px solid $red;
+}
+
+.site-title,
+.site-title a {
+}
+
+.site-description {
+  /* This is the tagline */
+  margin-left: 8rem;
+  margin-right: 0;
+  width: 30rem;
+}

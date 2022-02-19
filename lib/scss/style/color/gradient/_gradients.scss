@@ -1,0 +1,91 @@
+/* GRADIENTS */
+$gradient: linear-gradient(-120deg, rgba($primary, .95), rgba($secondary, .65), rgba($accent, .45), transparent, 95%);
+
+$gradient-tabs-bg: linear-gradient(320deg, transparent, rgba($white-rgb, .10) 20%, rgba($accent-rgb, .20) 35%, rgba($accent-rgb, .30) 50%, rgba($accent-rgb, .40) 65%);
+
+/* THEME */
+$gradient-primary: linear-gradient(
+  290deg,
+  transparent,
+  rgba($white, 0.05) 3%,
+  rgba($accent, 0.1) 15%,
+  rgba($secondary, 0.25) 27%,
+  rgba($secondary, 0.30) 39%,
+  rgba($primary, 0.6) 45%,
+  rgba($primary, 0.35) 51%,
+  rgba($primary, 0.4) 63%,
+  rgba($primary, 0.45) 75%,
+  rgba($primary, .5) 90%
+  );
+
+$gradient-secondary: linear-gradient(
+  290deg,
+  transparent,
+  rgba($white, .3) 40%,
+  rgba($primary, .5) 35%
+  rgba($accent, 0.4) 25%,
+  rgba($accent, 0.5) 40%,
+  rgba($secondary, 0.6) 45%,
+  rgba($secondary, 0.7) 55%,
+  rgba($secondary, 0.8) 65%,
+  rgba($secondary, 0.9) 70%,
+  rgba($secondary, 1) 90%,
+);
+
+$gradient-accent: linear-gradient(
+  290deg,
+  transparent,
+  rgba($white, .3) 40%,
+  rgba($secondary, .5) 35%
+  rgba($primary, 0.4) 25%,
+  rgba($primary, 0.5) 40%,
+  rgba($accent, 0.6) 45%,
+  rgba($accent, 0.7) 55%,
+  rgba($accent, 0.8) 65%,
+  rgba($accent, 0.9) 80%,
+  rgba($accent, 1) 90%,
+);
+
+/* GLOBAL */
+$header-gradient: linear-gradient(
+  90deg,
+  transparent,
+  rgba($white, 0.2) 5%,
+  rgba($white, 0.3) 5%,
+  rgba($accent, 0.4) 15%,
+  rgba($accent, 0.5) 30%,
+  rgba($primary, 0.6) 45%,
+  rgba($primary, 0.7) 60%,
+  rgba($primary, 0.8) 75%,
+  rgba($primary, 0.9) 90%,
+  rgba($primary, 1) 95%
+);
+
+$footer-gradient: linear-gradient(
+  90deg,
+  transparent,
+  rgba($accent, 0.9) 15%,
+  rgba($accent, 0.85) 20%,
+  rgba($accent, 0.8) 25%,
+  rgba($accent, 0.7) 30%,
+  rgba($primary, 0.6) 35%,
+  rgba($primary, 0.55) 50%,
+  rgba($primary, 0.50) 65%,
+  rgba($primary, 0.45) 80%,
+  rgba($primary, .4) 95%
+);
+
+$nav-gradient: linear-gradient(
+  205deg,
+  rgba($accent, 0.65) 5%,
+  rgba($gray-300, 0.7) 25%,
+  rgba($gray-400, 0.75) 35%,
+  rgba($gray-500, 0.8) 40%,
+  rgba($accent, 0.85) 45%,
+  rgba($accent, 0.9) 60%,
+  rgba($accent, 1) 75%
+  rgba($accent, 0.5) 80%,
+  rgba($accent, 0.25) 90%
+);
+
+$html-gradient: radial-gradient(circle at top left, $primary, $secondary, $accent, $white);

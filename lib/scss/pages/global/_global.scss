@@ -46,7 +46,7 @@ html
 
 body {
   text-align: left;
-  color: $body-text;
+  color: $body-text-color;
   font-family: $secondary-font;
   font-size: $font-size-base;
   line-height: $line-height-base;
@@ -58,15 +58,7 @@ body {
   max-width: 100vw;
 }
 
-header {
-  display: block;
-  margin-top: 2.5rem;
-  margin-left: -9rem;
-  width: 111.25%;
-  height: 5rem;
-  background-image: $primary-color-gradient;
-  box-shadow:  0 .5rem .4rem -.2rem $shadow-color;
-}
+
 
 nav {
   position: absolute;
@@ -103,90 +95,6 @@ footer {
   margin-bottom: 3rem;
   box-shadow:  0 .5rem .4rem -.1rem $shadow-color;
   background-image: $footer-gradient2;
-  justify-content: space-between;
-  align-content: space-evenly;
-}
-
-div {
-  display: flex;
-  float: left;
-  justify-content: space-evenly;
-}
-
-*,
-*::after,
-*::before,
-*:after,
-*:before {
-  margin: 0;
-  padding: 0;
-  @include border-box;
-  text-rendering: geometricPrecision;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  width: 100%;
-  height: 100%;
-}
-
-html {
-  max-height: 100%;
-  max-width: 100%;
-  margin: 0;
-  @media screen and (min-width: 768px) {
-    font-size: 75%;
-  }
-}
-
-body,
-html {
-  position: relative;
-  overflow: hidden;
-  font-size: 100%;
-  height: 100%;
-  width: 100%;
-  @include border-box;
-
-  * {
-    box-sizing: inherit;
-  }
-}
-
-body {
-  color: $text;
-  margin: 0 auto;
-  padding: 2em 2em 5em;
-  font-family: $secondary-font;
-  font-size: $font-size-base;
-  line-height: $line-height-base;
-  max-height: 100vh;
-  max-width: 100vw;
-  text-align: left;
-  float: left;
-  align-items: left;
-  justify-content: flex-start;
-}
-
-header {
-
-}
-
-nav {
-
-}
-
-main {
-  display: block;
-  align-items: flex-start;
-  align-content: stretch;
-  @include border-radius($border-radius-sm);
-
-}
-
-article {
-}
-
-footer {
-  display: block;
   justify-content: space-between;
   align-content: space-evenly;
 }

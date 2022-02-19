@@ -1,64 +1,68 @@
-/*________________________________________________________________ GLOBAL */
- *,
- *::after,
- *::before,
- *:after,
- *:before {
-   padding: 0;
-   margin: 0;
-   @include border-box;
- }
+
+body,
+html
+{
+  position: relative;
+  margin: 0;
+  background-image: $primary-color-gradient;
+  z-index: $z-index-html-body;
+  @include border-box;
 
 
- html {
-   box-sizing: border-box;
- }
+body {
+  text-align: left;
+  color: $body-text-color;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  z-index: $z-index-page;
 
- body,
- html {
-   height: auto;
-   width: auto;
-   margin: 0;
- }
+  height: 100%;
+  max-height: 100vh;
+  width: 100%;
+  max-width: 100vw;
 
- body {
-   float: left;
-   overflow: hidden;
-   align-items: left;
-   justify-content: flex-start;
-   font-size: 100%;
- }
-
-
- div {
-   display: flex;
-   float: left;
-   justify-content: space-evenly;
- }
-
+  border: 3px solid $red;
+}
 
 header {
+  display: block;
   display: inline-block;
+  flex-direction: column;
+  align-items: center;
+  justify-content: stretch;
+  align-self: stretch;
   height: 100%;
-  max-height: 4rem;
+  max-height: 102vh;
   width: 100%;
-  max-width: 95vw;
-  margin-left: 0;
+  max-width: 8vw;
+  margin-left: 2vw;
 
-  box-shadow:  0 .5rem .4rem -.15rem $shadow-color;
-  border: 3px solid $orange;
+  img {
+      margin: 15px auto;
+      display: block;
+      width: 120px;
+      border: 8px solid #2c2f3f;
+  }
+  h1 {
+      display: inline-flex;
+      margin-top: 0;
+      margin-right: 0;
+      margin-bottom: 0;
+      margin-left: 0;
+  }
+
+
 }
 
 nav {
+    @include navbar-vertical-align($element-height);
   height: 100%;
-  max-height: 3.75rem;
+  max-height: 100vh;
   width: 100%;
-  max-width: 30vw;
-  border: 3px solid $pink;
-  background-image: $accent-color-gradient;
+  max-width: 4vw;
 }
 
-main {
+main #main {
   width: 100%;
   max-width: 99vw;
   height: 100%;
@@ -66,23 +70,24 @@ main {
   z-index: $z-index-main;
   background-image: $accent-color-gradient;
   @include main;
+  position: fixed;
+  top: 2vh;
+  right: 0;
+  bottom: 2vh;
+  left: 1vw;
+  border: 2px solid $black;
 }
 
 
 article {
-  display: block;
-  margin-top: 1rem;
-  margin-right: 2rem;
-  margin-bottom: 1rem;
-  margin-left: 14rem;
-  width: 100%;
-  max-width: 85vw;
+  width: auto;
   height: 100%;
-  max-height: 92vh;
-  background: $white;
-  outline-style: solid;
-  outline-color: $chocolate;
-  outline-width: 3px;
+  margin-top: -1.5rem;
+  margin-right: 1rem;
+  margin-bottom: .5rem;
+  margin-left: .75rem;
+  border: 3px solid $blue;
+  background-color: $indigo;
   @include border-radius($border-radius-md);
 }
 

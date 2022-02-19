@@ -1,4 +1,5 @@
 .col {
+  @includ grid-col;
   box-sizing   : border-box;
   float        : left;
   padding-left : $grid-gutter;
@@ -7,6 +8,12 @@
     padding-left : 0;
   }
 }
+
+.last-col {
+  float: right;
+  padding-right: 0 !important;
+}
+
 
 /* Columns generator */
 

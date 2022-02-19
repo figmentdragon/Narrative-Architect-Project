@@ -1,0 +1,13 @@
+//
+// Horizontal rules
+//
+
+
+hr {
+  height: $hr-height;
+  color: $hr-color;
+  margin-top: $spacer-y;
+  margin-bottom: $spacer-y;
+    border: 0;
+    border-top: $hr-border-width solid $hr-border-color;
+  }

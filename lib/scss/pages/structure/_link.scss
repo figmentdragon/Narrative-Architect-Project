@@ -1,0 +1,52 @@
+/* ___________________________________________________ MENU & NAVIGATION */
+/* LINK ____________________________________ Style anchor elements. */
+
+@import "nav/mixins/nav-divider";
+@import "nav/mixins/navbar-align";
+@import "nav/mixins/tab-focus";
+@import "nav/base/nav-variables";
+@import "nav/base/nav";
+
+ul {
+    display: flex;
+    list-style-type: none;
+    width: 500px;
+    justify-content: center;
+    font-size: 30px;
+}
+
+li {
+    text-decoration: none;
+    margin-right: 11px;
+}
+
+ul li a {
+    color: rgb(232, 231, 233);
+    text-decoration: none;
+}
+
+ul li a:hover {
+    text-decoration: underline;
+    color: rgb(150, 120, 180);
+}
+
+ul {
+    @include architecture-menu;
+    position: fixed;
+    top: 60px;
+    right: 5px;
+    height: 100vh;
+    visibility: hidden;
+    pointer-events: none;
+    list-style: none;
+    width: 35px;
+
+    li {
+        font: bold 1.5rem "Work Sans", "Arial Black", Gadget, sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        padding: 0.75em 0;
+        -ms-writing-mode: tb-lr;
+        writing-mode: vertical-lr;
+    }
+}

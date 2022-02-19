@@ -1,27 +1,18 @@
-SCSS Library
+naked-wordpress
+===============
 
-# TOOLS
-## Mixins
-## Functions
-## Utilities
+A well-commented blank Wordpress theme.
 
-# OBJECTS
-## Foundation/Variables
-## Components
-	- Items most directly influenced by Variables
-	- The classes and elements that go inside wrappers and containers
-	- Typically will not have "margins" or "padding", "heights" or "widths" identified, so as to be placed anywhere
-	- could be dropped into any project or anywhere on site
-## Widgets
+### Contributors
+- [@andjosh][0] _(maintainer)_
+  - [Buy Josh a coffee](https://www.buymeacoffee.com/andjosh)!
+- [@kodewilliams][1]
+- [@JohnnyWalkerDesign][2]
+- [@ljllewellyn][3]
+- [@Munnday][4]
 
-# PAGES
-	SCSS for specific pages or templates
-## Global
-	- large portions that wouldn't change from page to page, HTML Elements
-## Base/Modules
-	- components and widgets are styled to be project specific
-	- now include:
-		- markup
-		- mixins
-		- project specific patterns/gradients
-
+[0]: https://github.com/andjosh
+[1]: https://github.com/kodewilliams
+[2]: https://github.com/JohnnyWalkerDesign
+[3]: https://github.com/ljllewellyn
+[4]: https://github.com/Munnday

@@ -1,51 +1,96 @@
-*,
-*::after,
-*::before,
-*:after,
-*:before {
-  margin: 0;
-  padding: 0;
-  @include border-box();
-}
+/*! _______________________________________________________ PATTERN */
+/*! _____________________________________________ GRADIENT */
+/*! ___________________________________ HTML */
+  @mixin html-container {
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    padding-left: 1.25vw;
+  }
+/*! ___________________________________ BODY */
+    $body-gradient         :
+        radial-gradient( circle at top left, $primary-color 12%, transparent, $white ),
+        radial-gradient( circle at top left, $primary-color 24%, $secondary-color, transparent, $white ),
+        radial-gradient( circle at top left, $primary-color 36%, $secondary-color 24%, $accent-color, transparent, $white ),
+        radial-gradient( circle at top left, $primary-color 48%, $secondary-color 36%, $accent-color 24%, transparent, $white );
 
-div {
-  display: flex;
-  float: left;
-  justify-content: space-evenly;
-}
 
-html {
-  box-sizing: border-box;
-  background: linear-gradient(110deg, rgba($cjmt-gray-100-rgb, .20) 15%, rgba($cjmt-gray-200-rgb, .30) 25%, rgba($cjmt-gray-400-rgb, .40) 35%, rgba($cjmt-gray-600-rgb, .50) 45%, rgba($gray-800-rgb, .65) 55%, rgba($cjmt-chocolate-rgb, .90) 85%, rgba($cjmt-chocolate-rgb, .95) 90%);
-  z-index: $z-index-html-body;
-}
+    @mixin body-typography {
+        font-family: $secondary-font;
+        font-size: $font-size-base;
+        line-height: $line-height-base;
+        text-align: left;
+        color: transparent;
+    }
+    @mixin body-container {
+        margin: 0;
+        padding-top: .5vh;
+        padding-right: 0;
+        padding-bottom: .5vh;
+        padding-left: 1vw;
+    }
+/*! ___________________________________ HEADER */
 
-body,
-html {
-  float: left;
-  overflow: hidden;
-  align-items: left;
-  justify-content: flex-start;
-  height: auto;
-  width: auto;
-  margin: 0;
-  font-size: 100%;
-}
+/*! ___________________________________ MAIN */
 
-body,
-body .page {
-  position: fixed;
-  margin: 0.75rem 0.65rem;
-  overflow: hidden;
-  background-color: $white;
-  opacity: 100%;
-  border-radius: $border-radius-xl;
-  background-image: linear-gradient(120deg, rgba($cjmt-white-rgb, .7) , rgba($cjmt-saltpan-rgb, .5));
-}
+/*! ___________________________________ ARTICLE */
+    @mixin article-properties {
+        @include border-radius($border-radius-xl);
+        border-radius: $border-radius-xl;
+        display: block;
+        color: $body-text-color;
+        text-align: left;
+    }
+/*! ___________________________________ NAV */
 
-.page {
-  @include make-grid();
-  height: auto;
-  width: auto;
-  margin: 0.25rem;
-}
+/*! ___________________________________ SITE-FOOTER */
+
+/*! _______________________________________________________ CONTAINER */
+/*! ___________________________________ HTML */
+/*! ___________________________________ BODY */
+
+    }
+/*! ___________________________________ HEADER */
+
+/*! ___________________________________ MAIN */
+
+/*! ___________________________________ ARTICLE */
+    @mixin article-container {
+        @include make-container;
+        border: 2px solid $red;
+        margin-top: 1.5vh;
+        margin-right: 0vw;
+        margin-bottom: 1.5vh;
+        margin-left: 0vw;
+    }
+/*! ___________________________________ NAV */
+
+/*! ___________________________________ FOOTER */
+
+/*! _______________________________________________________ PLACEMENT */
+/*! ___________________________________ HTML */
+    @mixin html-relative {
+        position: relative;
+        z-index: 25;
+    }
+/*! ___________________________________ BODY */
+    @mixin body-absolute {
+        position: absolute;
+        z-index: 30;
+    }
+/*! ___________________________________ HEADER */
+
+/*! ___________________________________ MAIN */
+
+/*! ___________________________________ ARTICLE */
+    @mixin article-absolute {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 225;
+    }
+
+/*! ___________________________________ NAV */
+
+/*! ___________________________________ SITE-FOOTER */

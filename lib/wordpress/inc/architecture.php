@@ -1,17 +1,280 @@
 <?php
+/* Welcome to architecture :)
+This is the core architecture file where most of the
+main functions & features reside. If you have
+any custom functions, it's best to put them
+in the functions.php file.
 
-/* ____________________________________________ THEME SUPPORT */
+Developed by: Eddie Machado
+URL: http://themble.com/architecture/
+
+  - head cleanup (remove rsd, uri links, junk css, ect)
+  - enqueueing scripts & styles
+  - theme support functions
+  - custom menu output & fallbacks
+  - related post function
+  - page-navi function
+  - removing <p> from around images
+  - customizing the post excerpt
+
+*/
+
+/*********************
+WP_HEAD GOODNESS
+The default wordpress head is
+a mess. Let's clean it up by
+removing all the junk we don't
+need.
+*********************/
+
+function architecture_head_cleanup() {
+	// category feeds
+	// remove_action( 'wp_head', 'feed_links_extra', 3 );
+	// post and comment feeds
+	// remove_action( 'wp_head', 'feed_links', 2 );
+	// EditURI link
+	remove_action( 'wp_head', 'rsd_link' );
+	// windows live writer
+	remove_action( 'wp_head', 'wlwmanifest_link' );
+	// previous link
+	remove_action( 'wp_head', 'parent_post_rel_link', 10, 0 );
+	// start link
+	remove_action( 'wp_head', 'start_post_rel_link', 10, 0 );
+	// links for adjacent posts
+	remove_action( 'wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0 );
+	remove_action('wp_head', 'index_rel_link');
+	remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
+	// WP version
+	remove_action( 'wp_head', 'wp_generator' );
+	// remove WP version from css
+	add_filter( 'style_loader_src', 'architecture_remove_wp_ver_css_js', 9999 );
+	// remove Wp version from scripts
+	add_filter( 'script_loader_src', 'architecture_remove_wp_ver_css_js', 9999 );
+	remove_action('wp_head', 'print_emoji_detection_script', 7);
+	remove_action('wp_print_styles', 'print_emoji_styles');
+
+} /* end architecture head cleanup */
+
+// A better title
+// http://www.deluxeblogtips.com/2012/03/better-title-meta-tag.html
+function rw_title( $title, $sep, $seplocation ) {
+  global $page, $paged;
+
+  // Don't affect in feeds.
+  if ( is_feed() ) return $title;
+
+  // Add the blog's name
+  if ( 'right' == $seplocation ) {
+    $title .= get_bloginfo( 'name' );
+  } else {
+    $title = get_bloginfo( 'name' ) . $title;
+  }
+
+  // Add the blog description for the home/front page.
+  $site_description = get_bloginfo( 'description', 'display' );
+
+  if ( $site_description && ( is_home() || is_front_page() ) ) {
+    $title .= " {$sep} {$site_description}";
+  }
+
+  // Add a page number if necessary:
+  if ( $paged >= 2 || $page >= 2 ) {
+    $title .= " {$sep} " . sprintf( __( 'Page %s', 'dbt' ), max( $paged, $page ) );
+  }
+
+  return $title;
+
+} // end better title
+
+// remove WP version from RSS
+function architecture_rss_version() { return ''; }
+
+// remove WP version from scripts
+function architecture_remove_wp_ver_css_js( $src ) {
+	if ( strpos( $src, 'ver=' ) )
+		$src = remove_query_arg( 'ver', $src );
+	return $src;
+}
+
+// remove injected CSS for recent comments widget
+function architecture_remove_wp_widget_recent_comments_style() {
+	if ( has_filter( 'wp_head', 'wp_widget_recent_comments_style' ) ) {
+		remove_filter( 'wp_head', 'wp_widget_recent_comments_style' );
+	}
+}
+
+// remove injected CSS from recent comments widget
+function architecture_remove_recent_comments_style() {
+	global $wp_widget_factory;
+	if (isset($wp_widget_factory->widgets['WP_Widget_Recent_Comments'])) {
+		remove_action( 'wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style') );
+	}
+}
+
+/**
+ * Remove comments feed
+ *
+ * @return void
+ */
+
+function architecture_post_comments_feed_link() {
+    return;
+}
+
+// remove injected CSS from gallery
+function architecture_gallery_style($css) {
+	return preg_replace( "!<style type='text/css'>(.*?)</style>!s", '', $css );
+}
+
+
+/*********************
+SCRIPTS & ENQUEUEING
+*********************/
+function architecture_style() {
+// register main stylesheet
+	wp_enqueue_style( 'architecture-stylesheet', get_stylesheet_directory_uri() . 'style.css', array(), '', 'all' );
+}
+// loading modernizr and jquery, and reply script
+function architecture_scripts() {
+
+  global $wp_styles; // call global $wp_styles variable to add conditional wrapper around ie stylesheet the WordPress way
+
+  if (!is_admin()) {
+
+		// modernizr (without media query polyfill)
+		wp_register_script( 'architecture-modernizr', get_stylesheet_directory_uri() . 'assets/scripts/js/libs/modernizr.custom.min.js', array(), '2.5.3', false );
+
+
+		// ie-only style sheet
+		wp_register_style( 'architecture-ie-only', get_stylesheet_directory_uri() . '/assets/scripts/css/ie.css', array(), '' );
+
+    // comment reply script for threaded comments
+    if ( is_singular() AND comments_open() AND (get_option('thread_comments') == 1)) {
+		  wp_enqueue_script( 'comment-reply' );
+    }
+
+		//adding scripts file in the footer
+		wp_register_script( 'architecture-js', get_stylesheet_directory_uri() . '/library/js/scripts.js', array( 'jquery' ), '', true );
+
+		// enqueue styles and scripts
+		wp_enqueue_script( 'architecture-modernizr' );
+		wp_enqueue_style( 'architecture-stylesheet' );
+		wp_enqueue_style( 'architecture-ie-only' );
+
+		$wp_styles->add_data( 'architecture-ie-only', 'conditional', 'lt IE 9' ); // add conditional wrapper around ie stylesheet
+
+		/*
+		I recommend using a plugin to call jQuery
+		using the google cdn. That way it stays cached
+		and your site will load faster.
+		*/
+		wp_enqueue_script( 'jquery' );
+		wp_enqueue_script( 'architecture-js' );
+
+	}
+}
+
+/**
+ * Add async and defer attributes to enqueued scripts
+ *
+ * @param string $tag
+ * @param string $handle
+ * @param string $src
+ * @return void
+ */
+
+function defer_scripts( $tag, $handle, $src ) {
+
+	// The handles of the enqueued scripts we want to defer
+	$defer_scripts = [
+        'SCRIPT_ID'
+    ];
+
+    // Find scripts in array and defer
+    if ( in_array( $handle, $defer_scripts ) ) {
+        return '<script type="text/javascript" src="' . $src . '" defer="defer"></script>' . "\n";
+    }
+
+    return $tag;
+}
+
+add_filter( 'script_loader_tag', 'defer_scripts', 10, 3 );
+
+
+/**
+ * Add custom scripts to head
+ *
+ * @return string
+ */
+
+function add_gtag_to_head() {
+
+    // Check is staging environment
+    if ( strpos( get_bloginfo( 'url' ), '.test' ) !== false ) return;
+
+    // Google Analytics
+    $tracking_code = 'UA-*********-1';
+
+    ?>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo $tracking_code; ?>"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', '<?php echo $tracking_code; ?>');
+        </script>
+    <?php
+}
+
+add_action( 'wp_head', 'add_gtag_to_head' );
+
+/**
+ * Remove unnecessary scripts
+ *
+ * @return void
+ */
+
+function deregister_scripts() {
+    wp_deregister_script( 'wp-embed' );
+}
+
+add_action( 'wp_footer', 'deregister_scripts' );
+
+
+/**
+ * Remove unnecessary styles
+ *
+ * @return void
+ */
+
+function deregister_styles() {
+    wp_dequeue_style( 'wp-block-library' );
+}
+
+add_action( 'wp_print_styles', 'deregister_styles', 100 );
+
+
+
+/*********************
+THEME SUPPORT
+*********************/
+
+// Adding WP 3+ Functions & Theme Support
 function architecture_theme_support() {
 	add_theme_support( 'customize-selective-refresh-widgets' );
 	add_theme_support( 'title-tag' );
 	add_theme_support( 'align-wide' );
+
+
 	add_theme_support( 'custom-header' );
 	// wp thumbnails (sizes handled in functions.php)
 	add_theme_support( 'post-thumbnails' );
+
 	// default thumb size
-	set_post_thumbnail_size( 1200, 9999 );
-	// Add custom image size used in Cover Template.
-	add_image_size( 'architecture-fullscreen', 1980, 9999 );
+	set_post_thumbnail_size(125, 125, true);
+
 	// wp custom background (thx to @bransonwerner for update)
 	add_theme_support( 'custom-background',
 	    array(
@@ -25,11 +288,6 @@ function architecture_theme_support() {
 
 	$logo_width                                   = 300;
 	$logo_height                                  = 100;
-	// If the retina setting is active, double the recommended width and height.
-	if ( get_theme_mod( 'retina_logo', false ) ) {
-		$logo_width  = floor( $logo_width * 2 );
-		$logo_height = floor( $logo_height * 2 );
-	}
 
 	add_theme_support(
 		'custom-logo',
@@ -41,10 +299,7 @@ function architecture_theme_support() {
 			'unlink-homepage-logo'                    => true,
 		)
 	);
-	// Adds support for Jetpacks Social Menu
-	add_theme_support('jetpack-social-menu');
-	// Add support for Jetpack's Infinite Scroll
-		add_theme_support('infinite-scroll', array('container' => 'content', 'footer' => 'page',	));
+
 	// rss thingy
 	add_theme_support( 'automatic-feed-links' );
 
@@ -68,22 +323,14 @@ function architecture_theme_support() {
 	// wp menus
 	add_theme_support( 'menus' );
 
-  	function architecture_register_nav_menus() {
-		register_nav_menus([
-        	'header' => 'Header',
-        	'footer' => 'Footer',
-		]);
-    }
-
-	function architecture_custom_new_menu() {
-	  	register_nav_menus(
-		  	array(
-			  	'architecture-menu' => __( 'Site Menu' ),
-			  	'social-menu' => __( 'Extra Menu' )
-			)
-		);
-	}
-
+	// registering wp3+ menus
+	register_nav_menus(
+		array(
+			'primary'	                                  =>	__( 'Primary Menu', 'architecture' ), // Register the Primary menu
+			// Copy and paste the line above right here if you want to make another menu,
+			// just change the 'primary' to another name
+		)
+	);
 
 	/**
 	 * Nav menu args
@@ -93,9 +340,9 @@ function architecture_theme_support() {
 	 */
 
 	function architecture_nav_menu_args( $args ) {
-	    $args['container'] = true;
-	    $args['container_class'] = true;
-	    $args['menu_id'] = true;
+	    $args['container'] = false;
+	    $args['container_class'] = false;
+	    $args['menu_id'] = false;
 	    $args['items_wrap'] = '<ul class="%2$s">%3$s</ul>';
 
 	    return $args;
@@ -105,7 +352,6 @@ function architecture_theme_support() {
 	add_theme_support(
 		'html5',
 			array(
-				'search-form',
 				'comment-form',
 				'comment-list',
 				'gallery',
@@ -116,24 +362,16 @@ function architecture_theme_support() {
 			)
 		);
 
-	if ( is_customize_preview() ) {
-		require get_template_directory() . '/assets/inc/starter-content.php';
-		add_theme_support( 'starter-content',
-				architecture_get_starter_content() );
-			// Add support for responsive embedded content.
-		add_theme_support( 'responsive-embeds' );
-			// Add support for custom line height controls.
+// Add support for responsive embedded content.
+	add_theme_support( 'responsive-embeds' );
+
+// Add support for custom line height controls.
 		add_theme_support( 'custom-line-height' );
-			// Add support for experimental link color control.
-		add_theme_support( 'experimental-link-color' );
-			// Add support for experimental cover block spacing.
-		add_theme_support( 'custom-spacing' );
-			// Add support for custom units.
-			// This was removed in WordPress 5.6 but is still required to properly support WP 5.5.
-		add_theme_support( 'custom-units' );
-	}
-}
- /* end architecture theme support */
+
+// Add support for experimental link color control.
+	add_theme_support( 'experimental-link-color' );
+
+} /* end architecture theme support */
 
 
 /**
@@ -174,7 +412,7 @@ function get_post_thumbnail_url( $size = 'full', $post_id = false, $icon = false
 /**
  * Add Front Page edit link to admin Pages menu
  */
-/*
+
 function front_page_on_pages_menu() {
     global $submenu;
     if ( get_option( 'page_on_front' ) ) {
@@ -185,7 +423,12 @@ function front_page_on_pages_menu() {
         );
     }
 }
-*/
+
+
+/*********************
+PAGE NAVI
+*********************/
+
 // Numeric Page Navi (built into the theme by default)
 function architecture_page_navi() {
   global $wp_query;
@@ -223,49 +466,6 @@ function architecture_excerpt_more($more) {
 	return '...  <a class="excerpt-read-more" href="'. get_permalink( $post->ID ) . '" title="'. __( 'Read ', 'architecture' ) . esc_attr( get_the_title( $post->ID ) ).'">'. __( 'Read more &raquo;', 'architecture' ) .'</a>';
 }
 
-/**
-* Checks for single template by category
-* Check by category slug and ID
-*/
-foreach((array)get_the_category() as $cat) :
-
-	if(file_exists(SINGLE_PATH . '/docs/theme/site-templates/single-cat-' . $cat->slug . '.php'))
-		return SINGLE_PATH . '/docs/theme/theme-template/single-cat-' . $cat->slug . '.php';
-
-		elseif(file_exists(SINGLE_PATH . '/single-cat-' . $cat->term_id . '.php'))
-			return SINGLE_PATH . '/single-cat-' . $cat->term_id . '.php';
-
-			/**
-		* Define a constant path to our single template folder
-		*/
-		define(SINGLE_PATH, TEMPLATEPATH . 'docs/theme/site-templates/single');
-
-		/**
-		* Filter the single_template with our custom function
-		*/
-		add_filter('single_template', 'my_single_author_template');
-
-		/**
-		* Single template function which will choose our template
-		*/
-		function my_single_author_template($single) {
-		global $wp_query, $post;
-
-		/**
-		* Checks for single template by author
-		* Check by user nicename and ID
-		*/
-		$curauth = get_userdata($wp_query->post->post_author);
-
-		if(file_exists(SINGLE_PATH . '/single-author-' . $curauth->user_nicename . '.php'))
-		return SINGLE_PATH . '/single-author-' . $curauth->user_nicename . '.php';
-
-		elseif(file_exists(SINGLE_PATH . '/single-author-' . $curauth->ID . '.php'))
-			return SINGLE_PATH . '/single-author-' . $curauth->ID . '.php';
-
-		}
-
-endforeach;
 
 
 ?>

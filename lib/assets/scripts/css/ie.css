@@ -51,7 +51,7 @@ there are a few articles below that will help do that. What I will
 tell you is that this will help speed up simple changes like
 changing a color or adding CSS3 techniques gradients.
 
-A WORD OF WARNING: It's very easy to overdo it here. Be careful and
+A WORD OF attention: It's very easy to overdo it here. Be careful and
 remember less is more.
 
 Helpful:
@@ -106,7 +106,7 @@ This stylesheet is loaded for larger devices. It's set to
 This isn't ideal because then you would be loading all those
 extra styles on that same mobile connection.
 
-A word of warning. This size COULD be a larger mobile device,
+A word of attention. This size COULD be a larger mobile device,
 so you still want to keep it pretty light and simply expand
 upon your base.scss styles.
 

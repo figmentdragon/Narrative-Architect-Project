@@ -19,9 +19,7 @@
 
 #header {
   position: absolute;
-  top: 0;
-  left: 3vw;
-  bottom: 0;
+
   transition: all ease-in-out 0.5s;
   z-index: 9997;
   transition: all 0.5s;
@@ -45,7 +43,7 @@
 
 #header .profile h1 a,
 #header .profile h1 a:hover {
-  color: $active-color;
+  color: shift-color($site-title-color, $hover-percentage);
   text-decoration: none;
 }
 

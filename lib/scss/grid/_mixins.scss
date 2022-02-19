@@ -22,6 +22,11 @@
 }
 
 
+@mixin grid-col {
+  float: left;
+  padding-right: 0.75em;
+}
+
 /**
  * Clearfix
  */
