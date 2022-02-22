@@ -1,7 +1,8 @@
 
 $caption-font-family: 'Glass Antiqua';
-$figure-caption-font-size: var(--sm) !default;$thumbnail-padding: $spacer / 4 !default;
-$thumbnail-border-radius: $border-radius !default;
+$figure-caption-font-size: var(--sm) !default;
+$figure-caption-font-size:          $small-font-size !default;
+$figure-caption-color:              $primary-color !default;
 
 // Image thumbnails
 
@@ -18,6 +19,5 @@ $thumbnail-box-shadow:              $box-shadow-sm !default;
 // Figures
 
 // scss-docs-start figure-variables
-$figure-caption-font-size:          $small-font-size !default;
-$figure-caption-color:              $primary-color !default;
+
 // scss-docs-end figure-variables
