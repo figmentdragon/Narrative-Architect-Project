@@ -1,11 +1,3 @@
-// Horizontal description lists w/ grid classes
-.dl-horizontal {
-  margin-right: -$grid-gutter-width;
-  margin-left: -$grid-gutter-width;
-  @include clearfix;
-}
-
-
 //
 // Misc
 //
@@ -14,4 +6,19 @@
 .initialism {
   font-size: 90%;
   text-transform: uppercase;
+}
+
+.normal {
+  font-weight: normal;
+}
+.quiet {
+  color: #999;
+}
+.pull-left {
+  float: left;
+  margin: 0.5em 2em 1em 0;
+}
+.pull-right {
+  float: right;
+  margin: 0.5em 0 1em 2em;
 }

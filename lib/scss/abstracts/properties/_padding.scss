@@ -1,9 +1,0 @@
-$offset-xs: calc($spacer-xs * $xs); /* 56px */
-$offset-sm: calc($spacer-sm * $sm); /* .76 */
-$offset-md: calc($spacer-md * $md); /* 1.10px */
-$offset-lg: calc($spacer-lg * $lg); /* 1.56 */
-$offset-xl: calc($spacer-xl * $xl); /* 2.25 */
-$offset-xxl: calc($spacer-xxl * $xxl); /* 3.06px */
-
-$offest-y: calc($offset * $offset-xs);
-$offset-x: $offset;

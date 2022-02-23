@@ -1,0 +1,15 @@
+// Navbar text
+//
+//
+
+.navbar-text {
+  padding-top: $nav-link-offset-y;
+  padding-bottom: $nav-link-offset-y;
+  color: var(--#{$variable-prefix}navbar-color);
+
+  a,
+  a:hover,
+  a:focus  {
+    color: var(--#{$variable-prefix}navbar-active-color);
+  }
+}

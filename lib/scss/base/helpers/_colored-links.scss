@@ -2,11 +2,9 @@
   .link-#{$color} {
     color: $value;
 
-
-      &:hover,
-      &:focus {
-        color: if(color-contrast($value) == $color-contrast-light, shade-color($value, $active-percentage), tint-color($value, $active-percentage));
-      }
-
+    &:hover,
+    &:focus {
+      color: if(color-contrast($value) == $color-contrast-light, shade-color($value, $active-percentage), tint-color($value, $active-percentage));
+    }
   }
 }

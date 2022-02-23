@@ -1,0 +1,127 @@
+
+// Navbar
+//
+// Provide a static navbar from which we expand to create full-width, fixed, and
+// other navbar variations.
+
+.navbar {
+  --#{$variable-prefix}navbar-padding-x: #{if($navbar-offset-x == null, 0, $navbar-offset-x)};
+  --#{$variable-prefix}navbar-padding-y: #{$navbar-offset-y};
+  --#{$variable-prefix}navbar-color: #{$navbar-light-color};
+  --#{$variable-prefix}navbar-hover-color: #{$navbar-light-hover-color};
+  --#{$variable-prefix}navbar-inactive-color: #{$navbar-light-inactive-color};
+  --#{$variable-prefix}navbar-active-color: #{$navbar-light-active-color};
+  --#{$variable-prefix}navbar-brand-padding-y: #{$navbar-brand-offset-y};
+  --#{$variable-prefix}navbar-brand-margin-end: #{$navbar-brand-margin-end};
+  --#{$variable-prefix}navbar-brand-font-size: #{$navbar-brand-font-size};
+  --#{$variable-prefix}navbar-brand-color: #{$navbar-light-brand-color};
+  --#{$variable-prefix}navbar-brand-hover-color: #{$navbar-light-brand-hover-color};
+  --#{$variable-prefix}navbar-nav-link-padding-x: #{$navbar-nav-link-offset-x};
+  --#{$variable-prefix}navbar-toggler-padding-y: #{$navbar-toggler-offset-y};
+  --#{$variable-prefix}navbar-toggler-padding-x: #{$navbar-toggler-offset-x};
+  --#{$variable-prefix}navbar-toggler-font-size: #{$navbar-toggler-font-size};
+  --#{$variable-prefix}navbar-toggler-icon-bg: #{escape-svg($navbar-light-toggler-icon-bg)};
+  --#{$variable-prefix}navbar-toggler-border-color: #{$navbar-light-toggler-border-color};
+  --#{$variable-prefix}navbar-toggler-border-radius: #{$navbar-toggler-border-radius};
+  --#{$variable-prefix}navbar-toggler-focus-width: #{$navbar-toggler-focus-width};
+  --#{$variable-prefix}navbar-toggler-transition: #{$navbar-toggler-transition};
+
+  position: relative;
+  display: flex;
+  flex-wrap: wrap; // allow us to do the line break for collapsing content
+  align-items: center;
+  justify-content: space-between; // space out brand from logo
+  padding: var(--#{$variable-prefix}navbar-offset-y) var(--#{$variable-prefix}navbar-offset-x);
+  @include gradient-bg();
+
+  // Because flex properties aren't inherited, we need to redeclare these first
+  // few properties so that content nested within behave properly.
+  // The `flex-wrap` property is inherited to simplify the expanded navbars
+  // Because flex properties aren't inherited, we need to redeclare these first
+  // few properties so that content nested within behave properly.
+  // The `flex-wrap` property is inherited to simplify the expanded navbars
+  %container-flex-properties {
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  > .container,
+  > .container-fluid {
+    @extend %container-flex-properties;
+  }
+
+  @each $breakpoint, $container-max-width in $container-max-widths {
+    > .container#{breakpoint-infix($breakpoint, $container-max-width)} {
+      @extend %container-flex-properties;
+    }
+  }
+}
+
+// Navbar themes
+//
+// Styles for switching between navbars with light or dark background.
+
+// Dark links against a light background
+.navbar-light {
+  .navbar-brand {
+    color: $navbar-light-brand-color;
+
+    &:hover,
+    &:focus {
+      color: $navbar-light-brand-hover-color;
+    }
+  }
+
+  .navbar-nav {
+    .nav-link {
+      color: $navbar-light-color;
+
+      &:hover,
+      &:focus {
+        color: $navbar-light-hover-color;
+      }
+
+      &.inactive {
+        color: $navbar-light-inactive-color;
+      }
+    }
+
+    .show > .nav-link,
+    .nav-link.active {
+      color: $navbar-light-active-color;
+    }
+  }
+
+  .navbar-toggler {
+    color: $navbar-light-color;
+    border-color: $navbar-light-toggler-border-color;
+  }
+
+  .navbar-toggler-icon {
+    background-image: escape-svg($navbar-light-toggler-icon-bg);
+  }
+
+  .navbar-text {
+    color: $navbar-light-color;
+
+    a,
+    a:hover,
+    a:focus  {
+      color: $navbar-light-active-color;
+    }
+  }
+}
+
+// secondary links against a dark background
+.navbar-dark {
+  --#{$variable-prefix}navbar-color: #{$navbar-dark-color};
+  --#{$variable-prefix}navbar-hover-color: #{$navbar-dark-hover-color};
+  --#{$variable-prefix}navbar-inactive-color: #{$navbar-dark-inactive-color};
+  --#{$variable-prefix}navbar-active-color: #{$navbar-dark-active-color};
+  --#{$variable-prefix}navbar-brand-color: #{$navbar-dark-brand-color};
+  --#{$variable-prefix}navbar-brand-hover-color: #{$navbar-dark-brand-hover-color};
+  --#{$variable-prefix}navbar-toggler-border-color: #{$navbar-dark-toggler-border-color};
+  --#{$variable-prefix}navbar-toggler-icon-bg: #{escape-svg($navbar-dark-toggler-icon-bg)};
+}
