@@ -27,7 +27,7 @@
 		<span class="comments"><?php if ( comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'the_creativity_architect' ), __( '1 Comment', 'the_creativity_architect' ), __( '% Comments', 'the_creativity_architect' ) ); ?></span>
 		<!-- /post details -->
 
-		<?php html5wp_excerpt( 'html5wp_index' ); // Build your custom callback length in functions.php. ?>
+		<?php THEMENAME_wp_excerpt( 'THEMENAME_wp_index' ); // Build your custom callback length in functions.php. ?>
 
 		<?php edit_post_link(); ?>
 

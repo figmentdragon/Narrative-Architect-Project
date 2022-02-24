@@ -1,18 +1,8 @@
-<?php /* TEMPLATE NAME: Search Form */ ?>
-/**
- * The template for displaying search forms
- *
- * @package theme
- */
-
-<form method="get" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
-	<label class="sr-only" for="s"><?php esc_html_e( 'Search', 'theme' ); ?></label>
-	<div class="input-group">
-		<input class="field form-control" id="s" name="s" type="text"
-			placeholder="<?php esc_attr_e( 'Search &hellip;', 'theme' ); ?>" value="<?php the_search_query(); ?>">
-		<span class="input-group-append">
-			<input class="submit btn btn-primary" id="searchsubmit" name="submit" type="submit"
-			value="<?php esc_attr_e( 'Search', 'theme' ); ?>">
-		</span>
+<!-- search -->
+<form class="search" method="get" action="<?php echo esc_url( home_url() ); ?>">
+	<div role="search">
+		<input class="search-input" type="search" name="s" aria-label="Search site for:" placeholder="<?php esc_html_e( 'To search, type and hit enter.', 'THEMENAME' ); ?>">
+		<button class="search-submit" type="submit"><?php esc_html_e( 'Search', 'THEMENAME' ); ?></button>
 	</div>
 </form>
+<!-- /search -->

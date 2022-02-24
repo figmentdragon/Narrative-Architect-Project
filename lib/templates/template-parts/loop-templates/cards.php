@@ -14,9 +14,9 @@ This loop is used in the Archive and in the Home [.php] templates.
         <p class="card-text"><?php the_excerpt(); ?></p>
         <!--
         <div class="d-flex justify-content-between align-items-center"> 
-            <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+            <div class="button-group">
+              <button type="button" class="button button-sm button-outline-secondary">View</button>
+              <button type="button" class="button button-sm button-outline-secondary">Edit</button>
             </div>
         </div>
         -->

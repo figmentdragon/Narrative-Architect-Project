@@ -3,8 +3,8 @@
  * The template for displaying author info below posts.
  *
  * @package WordPress
- * @subpackage Twenty_Twenty_One
- * @since Twenty Twenty-One 1.0
+ * @subpackage THEMENAME
+ * @since THEMENAME 1.0
  */
 
 ?>
@@ -16,7 +16,7 @@
 			<?php
 			printf(
 				/* translators: %s: Author name. */
-				esc_html__( 'By %s', 'twentytwentyone' ),
+				esc_html__( 'By %s', 'THEMENAME' ),
 				get_the_author()
 			);
 			?>
@@ -28,7 +28,7 @@
 				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
 				sprintf(
 					/* translators: %s: Author name. */
-					esc_html__( 'View all of %s\'s posts.', 'twentytwentyone' ),
+					esc_html__( 'View all of %s\'s posts.', 'THEMENAME' ),
 					get_the_author()
 				)
 			);
