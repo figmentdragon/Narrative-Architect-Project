@@ -1,0 +1,82 @@
+
+body {
+  text-align: left;
+  color: $body-text;
+  font-family: $main-font;
+  font-size: $base-font-size;
+  line-height: $base-line-height;
+}
+
+/* Text elements */
+p {
+  text-align:left;
+  font-size: 100%;
+  font-size: $base-font-size;
+	margin-bottom: 1.5em;
+  adding: 1em 3em;
+  line-height: $base-line-height;
+  + p {
+    margin:0;
+    text-indent: 1.5em;
+  }
+  .lead {
+    font-size:150%;
+    margin:1em 0;
+
+    + p {
+      text-indent:0;
+    }
+  }
+  > code {
+    padding:0.25em;
+    background:#eee;
+  }
+  + ul,
+  + ol,
+  + dl {
+    margin-bottom: 1.5em;
+  }
+}
+
+b, strong {
+	font-weight: bold;
+}
+
+dfn, cite, em, i {
+	font-style: italic;
+}
+
+address {
+	margin: 0 0 1.5em;
+}
+
+
+
+/* ______________________________________________ CODE */
+
+
+/* ______________________________________________ TABLE */
+figure {
+	margin: 0;
+}
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+th {
+	font-weight: bold;
+}
+
+
+
+/* RESPONSIVE SETTINGS */
+@media (max-width: 500px) {
+  body {
+    font-size: 80%;
+  }
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    float: none !important;
+  }
+}

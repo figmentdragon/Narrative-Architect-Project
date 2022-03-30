@@ -1,0 +1,51 @@
+$duration: .7s;
+
+main {
+  margin-top: 0;
+  margin-right: 0;
+  margin-bottom: 0;
+  margin-left: 0;
+
+  padding-top: 4vh;
+  padding-bottom: 0;
+
+  width: 100%;
+  height: 100%;
+
+  background: $accent;
+
+  h4.page-title,
+  h4.site-description,
+  h4.tag {
+    margin-top: -1vh;
+    margin-right: 6vw;
+    margin-left: 50vh;
+
+    font-family: $primary-font;
+    text-alignt: right;
+
+    outline: 2px solid yellow;
+  }
+}
+
+
+.main {
+  overflow: hidden;
+  transition: background-color $duration;
+  *zoom: 1;
+
+  :before,
+  :after {
+    display: table;
+    content: "";
+    line-height: 0;
+  }
+
+  :after {
+    clear: both;
+  }
+}
+
+.site-description {
+    font-family: $primary-font;
+}

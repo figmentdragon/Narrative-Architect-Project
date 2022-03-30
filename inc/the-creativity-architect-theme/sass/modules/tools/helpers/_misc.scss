@@ -1,0 +1,34 @@
+// Horizontal description lists w/ grid classes
+.dl-horizontal {
+  margin-right: -$grid-gutter;
+  margin-left: -$grid-gutter;
+  @include clearfix;
+}
+
+// Builds on `abbr`
+.initialism {
+  font-size: 90%;
+  text-transform: uppercase;
+}
+
+.normal {
+  font-weight: normal;
+}
+.quiet {
+  color: lighten($primary, $muted-percentage);
+}
+.pull-left {
+  float: left;
+  margin: 0.5em 2em 1em 0;
+}
+.pull-right {
+  float: right;
+  margin: 0.5em 0 1em 2em;
+}
+
+.image-replacement,
+.ir {
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}

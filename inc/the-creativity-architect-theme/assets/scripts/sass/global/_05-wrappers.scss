@@ -1,0 +1,124 @@
+$wrapper-width: $max-content-width;
+$duration: .7s;
+
+#wrapper-site {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: $z-index-body;
+
+  width: 100%;
+
+  padding-top: 2vh;
+  padding-bottom: 2vh;
+
+  margin: 0 auto 0 auto;
+
+  outline: 2px solid orange;
+}
+
+#wrapper {
+ width: 100%;
+
+ padding-top: $horizontal-spacer * 4;
+ padding-right: $vertical-spacer-lg;
+ padding-bottom: $horizontal-spacer;
+ padding-left: 9vw;
+
+ float: left;
+ margin-top: 0;
+ margin-right: 0;
+ margin-bottom: 0;
+ margin-left: 0;
+ border: 2px solid lighten(purple, $background-percentage);
+ @include border-box;
+}
+
+#wrapper-header {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 1vw;
+
+  width: 2vw;
+  height: 100%;
+
+  z-index: $z-index-header;
+  @include border-box;
+  outline: 2px solid black;
+}
+
+#wrapper-footer {
+  position: fixed;
+  right: 0.12vw;
+  bottom: 3vh;
+  left: 10vw;
+  z-index: $z-index-footer;
+
+  height: 3vh;
+
+  outline: 2px solid red;
+
+  footer {
+    position: fixed;
+    right: 0.12vw;
+    bottom: 3vh;
+    left: 10vw;
+    z-index: $z-index-footer;
+
+    text-align: right;
+    align-items: baseline;
+
+    height: 2.5vh;
+    width: 100%;
+
+    @include links;
+    @include box-sizing($type: content-box);
+    @include footer-gradient;
+
+    .site-footer {
+      text-align: right;
+      text-shadow: 0 1px .5px $black, 1px 0px .5px $black;
+      display: inline;
+      align-items: start;
+      justify-content: flex-end;
+      margin: 0;
+
+      width: 100%;
+      border: 2px solid black;
+
+      :hover {
+        @include elevation(5);
+      }
+    }
+
+    #copyright small {
+      display: inline;
+      z-index: $z-index-footer + 5;
+
+    }
+  }
+}
+
+#site-info{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+}
+
+#wrapper-aside {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 1vw;
+
+  width: 3vw;
+  height: 100%;
+
+  z-index: $z-index-header - 5;
+  background: red;
+  border: 2px solid yellow;
+}

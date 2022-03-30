@@ -1,0 +1,116 @@
+/* MIXIN: Grid Loop */
+@mixin grid-loop($name) {
+  @for $i from 0 through $grid-columns {
+    @if $i != 0 {
+      .col$name-$i {
+        width : percentage(math.div($i, $grid-columns));
+
+        .row--flex & {
+          width      : auto;
+          max-width  : percentage(math.div($i, $grid-columns));
+          float      : none;
+          flex-basis : percentage(math.div($i, $grid-columns));
+        }
+      }
+    }
+    .col$name-offset-$i {
+      margin-left : percentage(math.div($i, $grid-columns));
+    }
+  }
+}
+
+// Row columns
+//
+// Specify on a parent element(e.g., .row) to force immediate children into NN
+// numberof columns. Supports wrapping to new lines, but does not do a Masonry
+// style grid.
+@mixin row-cols($count) {
+  > * {
+    flex: 0 0 auto;
+    width: divide(100%, $count);
+  }
+}
+
+// Responsive breakpoints mixin
+@mixin media-breakpoints( $res )
+{
+    @if mobile-only == $res
+    {
+        @media only screen and (max-width: $grid-breakpoint-sm - 1)
+        {
+            @content;
+        }
+    }
+
+    @if mobile == $res
+    {
+        @media only screen and (min-width: $grid-breakpoint-sm)
+        {
+            @content;
+        }
+    }
+
+    @if tablet-only == $res
+    {
+        @media only screen and (max-width: $grid-breakpoint-md - 1)
+        {
+            @content;
+        }
+    }
+
+    @if tablet == $res
+    {
+        @media only screen and (min-width: $grid-breakpoint-md)
+        {
+            @content;
+        }
+    }
+
+    @if laptop-only == $res
+    {
+        @media only screen and (max-width: $grid-breakpoint-lg - 1)
+        {
+            @content;
+        }
+    }
+
+    @if laptop == $res
+    {
+        @media only screen and (min-width: $grid-breakpoint-lg)
+        {
+            @content;
+        }
+    }
+
+    @if desktop-only == $res
+    {
+        @media only screen and (max-width: $grid-breakpoint-xl - 1)
+        {
+            @content;
+        }
+    }
+
+    @if desktop == $res
+    {
+        @media only screen and (min-width: $grid-breakpoint-xl)
+        {
+            @content;
+        }
+    }
+
+    @if wide-only == $res
+    {
+        @media only screen and (max-width: $grid-breakpoint-xxl - 1)
+        {
+            @content;
+        }
+    }
+
+    @if wide == $res
+    {
+        @media only screen and (min-width: $grid-breakpoint-xxl)
+        {
+            @content;
+        }
+    }
+}

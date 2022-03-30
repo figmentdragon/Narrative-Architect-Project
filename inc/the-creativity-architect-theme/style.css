@@ -1,0 +1,19 @@
+/* Error: Undefined mixin.
+ *    ,
+ * 15 |   @include make-cotainer;
+ *    |   ^^^^^^^^^^^^^^^^^^^^^^
+ *    '
+ *   sass/modules/html/_index.scss 15:3  @import
+ *   sass/_modules.scss 31:9             @import
+ *   sass/style.scss 3:9                 root stylesheet */
+
+body::before {
+  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
+      "Droid Sans Mono", monospace, monospace;
+  white-space: pre;
+  display: block;
+  padding: 1em;
+  margin-bottom: 1em;
+  border-bottom: 2px solid black;
+  content: "Error: Undefined mixin.\a    \2577 \a 15 \2502    @include make-cotainer;\a    \2502    ^^^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   sass/modules/html/_index.scss 15:3  @import\a   sass/_modules.scss 31:9             @import\a   sass/style.scss 3:9                 root stylesheet";
+}

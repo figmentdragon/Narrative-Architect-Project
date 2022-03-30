@@ -1,0 +1,55 @@
+/*********************
+COLOR FUNCTIONS
+These are helpful when you're working
+with shadows and such things. It's essentially
+a quicker way to write RGBA.
+
+Example:
+box-shadow: 0 0 4px black(0.3);
+compiles to:
+box-shadow: 0 0 4px rgba(0,0,0,0.3);
+*********************/
+
+// black
+@function black($opacity) {
+    @return rgba(0,0,0,$opacity);
+}
+
+// white
+@function white($opacity) {
+    @return rgba(255,255,255,$opacity);
+}
+
+// primary
+@function primary($opacity) {
+    @return rgba(10,186,181,$opacity);
+}
+
+// accent
+@function accent($opacity) {
+    @return rgba(168,169,173,$opacity);
+}
+
+// secondary
+@function secondary($opacity) {
+    @return rgba(255,228,30,$opacity);
+}
+
+
+// Slightly lighten a color
+// @access public
+// @param {Color} $color - color to tint
+// @param {Number} $percentage - percentage of `$color` in returned color
+// @return {Color}
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+// Slightly darken a color
+// @access public
+// @param {Color} $color - color to shade
+// @param {Number} $percentage - percentage of `$color` in returned color
+// @return {Color}
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}

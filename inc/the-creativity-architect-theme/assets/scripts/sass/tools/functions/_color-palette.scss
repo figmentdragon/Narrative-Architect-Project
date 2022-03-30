@@ -1,0 +1,32 @@
+// Generate color palette
+
+@function generate-palette($colors: ($black, $white), $steps: 5) {
+    $palette: ();
+    $stop-points: ();
+
+    $stops: length($colors);
+    $stop-percentage: 100% / ($stops - 1);
+    $step-percentage: 100% / ($steps - 1);
+
+    @for $i from 0 through $stops - 1 {
+        $stop-points: append($stop-points, $stop-percentage * $i);
+    }
+
+    @for $j from 0 through $steps - 1 {
+        $current-step-percentage: $step-percentage * $j;
+
+        @for $k from 1 through $stops - 1 {
+            $start-stop-set: nth($stop-points, $k);
+            $end-stop-set: nth($stop-points, $k + 1);
+
+            $start-color: nth($colors, $k);
+            $end-color: nth($colors, $k + 1);
+
+            @if ($current-step-percentage > $start-stop-set and $current-step-percentage <= $end-stop-set) or ($k == 1 and $current-step-percentage == 0%) {
+                $palette: append($palette, mix($end-color, $start-color, (($step-percentage * $j) - $start-stop-set) * ($stops - 1)));
+            }
+        }
+    }
+
+    @return $palette;
+}

@@ -1,0 +1,7 @@
+
+
+.lead {
+  font-size: $lead-font-size;
+  font-weight: $lead-font-weight;
+  color: tint-color($body-text, $lead-percentage);
+}

@@ -1,0 +1,179 @@
+/**
+ * modules/variables
+ * ---
+ */
+
+
+/**
+ * Colors
+ */
+
+@import "colors/gray-scale";
+@import "colors/base";
+@import "colors/theme";
+@import "colors/rgba";
+@import "colors/color-contrast";
+
+@import "tools/qualities/base-units";
+@import "tools/qualities/size";
+@import "tools/qualities/spacing";
+@import "tools/qualities/width";
+@import "tools/qualities/height";
+@import "tools/qualities/padding";
+@import "tools/qualities/border";
+@import "tools/qualities/zindex";
+
+$text:               tint($primary, $text-percentage);
+$link:               tint($secondary, $link-percentage);
+
+$quote: shade($text, $quote-percentage);
+
+$border:             shade($accent, $border-percentage);
+$button:             tint($secondary, $button-percentage);
+$shadow:             shade($secondary, $shadow-percentage);
+
+@import "patterns/gradient";
+@import "patterns/shadow";
+
+@import "patterns/background";
+@import "patterns/button";
+@import "patterns/link";
+@import "patterns/text";
+
+/**
+ * Typography
+ */
+ // font stacks
+ $sans-serif:        "Helvetica Neue", Helvetica, Arial, sans-serif;
+ $serif:             "Georgia", Cambria, Times New Roman, Times, serif;
+ $monospace:         SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+
+
+ /* Enable keyword, short hand for callig font Stack. */
+ $base-font:        $prefix$sans-serif;;
+ $code-font:        $prefix$monospace;;
+
+ $primary-font:            "Hand Typewriter", $base-font;
+ $secondary-font:          "Enjoy Writing", $base-font;
+ $accent-font:             "GlassAntiqua-Regular", $base-font;
+ $main-font:               "Avdira", $base-font;
+ $tertiary-font:           "Raleway", $base-font;
+ $site-font:               "Euphorigenic", $base-font;
+ $lead-font:               "Raylig", $base-font;
+
+ $page-title-font: $primary-font;
+ $post-title-font: $secondary-font;
+ $sub-title-font: $lead-font;
+ $heading-text-font: tertiary-font;
+ $quote-text-font: $accent-font;
+ $body-text-font: $main-font;
+
+ $font-size-root:              null !default;
+ $base-font-size:              1rem !default; // Assumes the browser default, typically `16px`
+ $font-size-sm:                $base-font-size * $sm !default;
+ $font-size-lg:                $base-font-size * $lg !default;
+ $lead-font-size:              $font-size-lg !default;
+ $small-font-size:             $font-size-sm !default;
+ $sub-sup-font-size:          $base-font-size * $xs !default;
+ $big-font-size: $base-font-size * $size-lg;
+
+
+ $font-weight-lighter:         lighter !default;
+ $font-weight-light:           300 !default;
+ $font-weight-normal:          400 !default;
+ $font-weight-bold:            700 !default;
+ $font-weight-bolder:          bolder !default;
+
+ $lead-font-weight:            300 !default;
+ $emphasis-font-weight:        600;
+ $font-weight-base:            $font-weight-normal !default;
+
+ $base-line-height:            1.5 !default;
+ $line-height-sm:              1.25 !default;
+ $line-height-lg:              2 !default;
+
+ $body-text-align:           null !default;
+ $paragraph-margin-bottom:   $offset;
+
+ $quotation:               oblique;
+ $citation:                italic;
+ $link:                    underline;
+
+ $h1-font-size:                $base-font-size * 2.5 !default;
+ $h2-font-size:                $base-font-size * 2 !default;
+ $h3-font-size:                $base-font-size * 1.75 !default;
+ $h4-font-size:                $base-font-size * 1.5 !default;
+ $h5-font-size:                $base-font-size * 1.25 !default;
+ $h6-font-size:                $base-font-size !default;
+
+ // scss-docs-start font-sizes
+ $font-sizes: (
+   1: $h1-font-size,
+   2: $h2-font-size,
+   3: $h3-font-size,
+   4: $h4-font-size,
+   5: $h5-font-size,
+   6: $h6-font-size
+ ) !default;
+ // scss-docs-end font-sizes
+
+ // scss-docs-start headings-variables
+ $headings-margin-bottom:      $spacer * .5 !default;
+ $headings-font-family:        null !default;
+ $headings-font-style:         null !default;
+ $headings-font-weight:        bolder !default;
+ $headings-line-height:        1.2 !default;
+ $headings-color:              null !default;
+ // scss-docs-end headings-variables
+
+ // scss-docs-start display-headings
+ $display-font-size-1: 5rem;
+ $display-font-size-2: 4.5rem;
+ $display-font-size-3: 4rem;
+ $display-font-size-4: 3.5rem;
+ $display-font-size-5: 3rem;
+ $display-font-size-6: 2.5rem;
+
+ $display-font-sizes: (
+   1: 5rem,
+   2: 4.5rem,
+   3: 4rem,
+   4: 3.5rem,
+   5: 3rem,
+   6: 2.5rem
+ ) !default;
+ // scss-docs-start display-headings
+ $display-font-weight-1: 900 !default;
+ $display-font-weight-2: 700 !default;
+ $display-font-weight-3: 500 !default;
+ $display-font-weight-4: 300 !default;
+ $display-line-height: $headings-line-height !default;
+ // scss-docs-start type-variables
+
+
+ $text-muted:                  $gray-600 !default;
+
+ $initialism-font-size:        $font-size-sm !default;
+
+
+ $hr-margin-y:                 $spacer !default;
+ $hr-color:                    inherit !default;
+ $hr-bg-color:                 currentColor !default;
+ $hr-border-width:             0 !default;
+ $hr-height:                   $border-width !default;
+ $hr-opacity:                  .25 !default;
+
+ $legend-margin-bottom:        .5rem !default;
+ $legend-font-size:            1.5rem !default;
+ $legend-font-weight:          null !default;
+
+ $mark-padding:                .2em !default;
+
+ $dt-font-weight:              $font-weight-bold !default;
+
+ $nested-kbd-font-weight:      $font-weight-bold !default;
+
+ $list-inline-padding:         .5rem !default;
+
+ $mark-bg:                     #fcf8e3 !default;
+ // scss-docs-end type-variables

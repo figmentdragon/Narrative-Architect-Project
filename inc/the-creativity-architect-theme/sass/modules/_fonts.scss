@@ -1,0 +1,214 @@
+/**
+ * modules/fonts
+ * ---
+ * Declare fonts here
+ */
+
+
+/*
+@font-face {
+  font-family: "Font-Name";
+  src: url("fonts/font-name.eot");
+  src: url("fonts/font-name.eot?#iefix") format("embedded-opentype"),
+    url("fonts/font-name.woff") format("woff"),
+    url("fonts/font-name.ttf") format("truetype"),
+    url("fonts/font-name.svg#font-name") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+*/
+
+/******************************************************************
+Site Name:
+Author:
+
+Stylesheet: Typography
+
+Need to import a font or set of icons for your site? Drop them in
+here or just use this to establish your typographical grid. Or not.
+Do whatever you want to...GOSH!
+
+Helpful Articles:
+http://trentwalton.com/2012/06/19/fluid-type/
+http://ia.net/blog/responsive-typography-the-basics/
+http://alistapart.com/column/responsive-typography-is-a-physical-discipline
+
+******************************************************************/
+
+
+/*********************
+FONT FACE (IN YOUR FACE)
+*********************/
+
+/**
+ * modules/fonts
+ * --
+ * Declare fonts here
+ */
+
+
+/*
+@font-face {
+  font-family: "Font-Name";
+  src: url("fonts/font-name.eot");
+  src: url("fonts/font-name.eot?#iefix") format("embedded-opentype"),
+    url("fonts/font-name.woff") format("woff"),
+    url("fonts/font-name.ttf") format("truetype"),
+    url("fonts/font-name.svg#font-name") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+*/
+
+/* ________________________________________________ @FONTFACE (IN YOUR FACE) */
+
+  @font-face {
+    font-family: "Avdira";
+    src: local("<?php echo get_template_directory(); ?>/src/typography/fonts/avdira/Avdira_R.woff")
+      format("woff");
+    src: local("<?php echo get_template_directory(); ?>/src/typography/fonts/avdira/Avdira_R.svg");
+      format:("svg");
+    src: local("<?php echo get_template_directory(); ?>/src/typography/fonts/avdira/Avdira_R.ttf");
+        format:("ttf");
+    src: local("<?php echo get_template_directory(); ?>/src/typography/fonts/avdira/avdira.eot");
+        format:("eot");
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Enjoy Writing";
+    src: local( "<?php echo get_template_directory(); ?>/src/typography/fonts/enjoy-writing/enjoywrting.woff")
+      format("woff");
+      font-weight: normal;
+      font-style: normal;
+  }
+
+  @font-face {
+    font-family: "Euphorigenic";
+    font-style: normal;
+    font-weight: 400;
+    src: local("<?php echo get_template_directory(); ?>/src/typography/fonts/euphorigenic/EuphorigenicW00Regular.woof")
+      format("woff");
+    src: local("<?php echo get_template_directory(); ?>/src/typography/fonts/euphorigenic/euphorigenic.woff")
+      format("woff");
+    src: local("<?php echo get_template_directory(); ?>/src/typography/fonts/euphorigenic/euphorigenic.eot")
+      format("eot");
+    src: local("<?php echo get_template_directory(); ?>/src/typography/fonts/euphorigenic/euphorigenic.svg")
+      format("svg");
+  }
+
+  @font-face {
+    font-family: "Glass Antiqua";
+    src: local( "./fonts/glass-antqiua/glassantiqua.woff")
+      format("woff");
+      font-weight: normal;
+      font-style: normal;
+    src: url("//db.onlinewebfonts.com/t/9d7b0fb304409fabceb9c59a1de12720.eot");
+    src: url("//db.onlinewebfonts.com/t/9d7b0fb304409fabceb9c59a1de12720.eot?#iefix")
+        format("embedded-opentype"),
+      url("//db.onlinewebfonts.com/t/9d7b0fb304409fabceb9c59a1de12720.woff2")
+        format("woff2"),
+      url("//db.onlinewebfonts.com/t/9d7b0fb304409fabceb9c59a1de12720.woff")
+        format("woff"),
+      url("//db.onlinewebfonts.com/t/9d7b0fb304409fabceb9c59a1de12720.ttf")
+        format("truetype"),
+      url("//db.onlinewebfonts.com/t/9d7b0fb304409fabceb9c59a1de12720.svg#Glass Antiqua")
+        format("svg");
+  }
+
+
+  @font-face {
+    font-family: "Hand TypeWriter";
+    src: local( "./fonts/hand-typerwriter/handtypewriter.woff")
+      format("woff");
+      font-weight: normal;
+      font-style: normal;
+    src: url("//db.onlinewebfonts.com/t/59b5808e3dd8a15eb3774dbe8d4f686f.eot");
+    src: url("//db.onlinewebfonts.com/t/59b5808e3dd8a15eb3774dbe8d4f686f.eot?#iefix")
+        format("embedded-opentype"),
+      url("//db.onlinewebfonts.com/t/59b5808e3dd8a15eb3774dbe8d4f686f.woff2")
+        format("woff2"),
+      url("//db.onlinewebfonts.com/t/59b5808e3dd8a15eb3774dbe8d4f686f.woff")
+        format("woff"),
+      url("//db.onlinewebfonts.com/t/59b5808e3dd8a15eb3774dbe8d4f686f.ttf")
+        format("truetype"),
+      url("//db.onlinewebfonts.com/t/59b5808e3dd8a15eb3774dbe8d4f686f.svg#Hand TypeWriter")
+        format("svg");
+  }
+
+
+  @font-face {
+    font-family: "Life Savers";
+    src: local( "./fonts/lifesavers.woff")
+      format("woff");
+      font-weight: normal;
+      font-style: normal;
+    src: url("//db.onlinewebfonts.com/t/a0dca3ed6f9e5098522a6bab3efbce65.eot");
+    src: url("//db.onlinewebfonts.com/t/a0dca3ed6f9e5098522a6bab3efbce65.eot?#iefix")
+        format("embedded-opentype"),
+      url("//db.onlinewebfonts.com/t/a0dca3ed6f9e5098522a6bab3efbce65.woff2")
+        format("woff2"),
+      url("//db.onlinewebfonts.com/t/a0dca3ed6f9e5098522a6bab3efbce65.woff")
+        format("woff"),
+      url("//db.onlinewebfonts.com/t/a0dca3ed6f9e5098522a6bab3efbce65.ttf")
+        format("truetype"),
+      url("//db.onlinewebfonts.com/t/a0dca3ed6f9e5098522a6bab3efbce65.svg#Life Savers")
+        format("svg");
+  }
+
+
+  @font-face {
+    font-family: "Raleway";
+    src: local( "./fonts/raleway/raleway.woff")
+      format("woff");
+      font-weight: normal;
+      font-style: normal;
+    src: local( "./fonts/hand-typerwriter/handtypewriter.woff2")
+        format("woff2");
+        font-weight: normal;
+        font-style: normal;
+    src: url("//db.onlinewebfonts.com/t/8b452e2cb91e248f5beff9174a1327dc.eot");
+    src: url("//db.onlinewebfonts.com/t/8b452e2cb91e248f5beff9174a1327dc.eot?#iefix")
+        format("embedded-opentype"),
+      url("//db.onlinewebfonts.com/t/8b452e2cb91e248f5beff9174a1327dc.woff2")
+        format("woff2"),
+      url("./fonts/raleway/Raleway.woff")
+        format("woff"),
+      url("//db.onlinewebfonts.com/t/8b452e2cb91e248f5beff9174a1327dc.ttf")
+        format("truetype"),
+      url("//db.onlinewebfonts.com/t/8b452e2cb91e248f5beff9174a1327dc.svg#Raleway")
+        format("svg");
+  }
+
+
+  @font-face {
+      font-family: "Raylig";
+      font-style: normal;
+      font-weight: 600;
+      src: url("https://fonts.cdnfonts.com/s/70312/RayligSemibold-Wy9mE.woff") format("woff");
+  }
+
+  @font-face {
+    font-family: "TELETYPE 1945-1985";
+    src: local( "./assets/fonts/teletype_1945_1985/TELETYPE1945-1985.woff")
+      format("woff");
+      font-weight: normal;
+      font-style: normal;
+    src: url("//db.onlinewebfonts.com/t/83dc401685732778308fc7cdfe8af34e.eot");
+    src: url("//db.onlinewebfonts.com/t/83dc401685732778308fc7cdfe8af34e.eot?#iefix")
+        format("embedded-opentype"),
+      url("//db.onlinewebfonts.com/t/83dc401685732778308fc7cdfe8af34e.woff2")
+        format("woff2"),
+      url("//db.onlinewebfonts.com/t/83dc401685732778308fc7cdfe8af34e.ttf")
+        format("truetype"),
+      url("//db.onlinewebfonts.com/t/83dc401685732778308fc7cdfe8af34e.svg#TELETYPE 1945-1985")
+        format("svg");
+  }
+
+
+/*
+The following is based of Typebase:
+https://github.com/devinhunt/typebase.css
+I've edited it a bit, but it's a nice starting point.
+*/

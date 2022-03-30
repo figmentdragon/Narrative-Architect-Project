@@ -1,0 +1,35 @@
+// logo
+
+.logo {
+  position: fixed;
+  top: -1.75vh;
+  left:  0;
+  z-index: $z-index-logo;
+    filter: sepia(75%);
+
+  .logo-img {
+
+  filter: opacity(0.65);
+  }
+}
+
+
+.custom-logo {
+	display: block;
+	width: 120px;
+
+  .custom-logo-link {
+	   display: block;
+   }
+
+   .site-identity {
+    display: none;
+   }
+}
+
+
+.slider-logo,
+.site-header-logo {
+	margin: 21px 0;
+    max-width: 270px;
+}

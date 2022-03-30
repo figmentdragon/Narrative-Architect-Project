@@ -1,0 +1,111 @@
+@mixin gradient-header-bg($gradient-secondary) {
+  @include gradient-secondary;
+  @include elevation(5);
+  height: 100vh;
+}
+
+/* Style elements inside of the .site-header container */
+
+header.site-header {
+  /* Container for site title and description */
+  position: relative;
+  display: inline;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  align-self: baseline;
+
+  @include gradient-header-bg($gradient-secondary)
+}
+
+/* Style elements inside of the .site-header container */
+hgroup,
+.nameplate,
+hgroup.nameplate{
+  /* Container for site title and description */
+  transition: all ease-in-out 0.5s;
+
+  justify-content: center;
+  align-content: center;
+  display: inline-block;
+}
+
+h1.site-title,
+h1.site-title a {
+  writing-mode: vertical-rl;
+  rotate: 180deg;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: $chocolate;
+  filter: drop-shadow(30px 20px 1px rgba($chocolate, 0.432));
+  filter: drop-shadow(20px 10px 1px rgba($primary, 0.765));
+  filter: drop-shadow(10px 5px 1px rgba($chocolate, 1));
+}
+
+.site-description {
+  /* This is the tagline */
+  font-style: italic;
+  font-weight: 300;
+	letter-spacing: 0;
+	line-height: 1.62;
+  margin: 0;
+	text-transform: capitalize;
+	opacity: 0.6;
+  width: 30rem;
+}
+
+.blur-leftside {
+  position: fixed;
+  top: 0;
+  right: 95vw;
+  bottom: 0;
+  left: 1vw;
+
+  width: 2vw;
+  filter: blur(15px);
+  @include elevation(10);
+  @include gradient-chocolate;
+}
+
+.site-branding {
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	margin: 0px auto 0px 0;
+	max-width: 100%;
+	min-width: 0;
+	text-align: left;
+	overflow: hidden;
+	max-width: 80%;
+	width: auto;
+
+  background-color: yellow;
+}
+
+.tagline {
+  position: fixed;
+  top: 0;
+  right: 2vw;
+  left: 55vw;
+
+  z-index: $z-index-site-description;
+
+  font-style: italic;
+  font-weight: 300;
+	letter-spacing: 0;
+	line-height: 1.62;
+	margin: 0;
+  text-transform: capitalize;
+  text-align: right;
+	opacity: 0.6;
+
+  -webkit-background-clip: text;
+  -webkit-text-stroke-color: $chocolate;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-fill-color: $gradient-secondary;
+}

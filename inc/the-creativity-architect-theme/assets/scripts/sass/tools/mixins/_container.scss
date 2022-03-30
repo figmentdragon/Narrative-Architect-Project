@@ -1,0 +1,46 @@
+// container mixins
+
+@mixin container-base {
+  @include clearfix;
+  @include border-box;
+}
+
+// container mixins
+@mixin make-container {
+  @include container-base;
+  display: inline-block;
+  overflow: hidden;
+}
+
+@mixin container($body-text) {
+  @include container-base;
+  align-items: left;
+  justify-content: flex-start;
+  padding-top: $offset-y * 2;
+  padding-bottom: $offset-y;
+
+}
+
+@mixin container-overflow {
+  @include container-base;
+  display: inline-block;
+  overflow: visible;
+}
+
+// container mixins
+@mixin container($offset) {
+  @include container-base;
+  padding-top: $offset-x;
+  padding-right: calc($offset * 2);
+  padding-bottom: $offset-x;
+  padding-left: calc($offset * 2);
+}
+
+// For each breakpoint, define the maximum width of the container in a media query
+@mixin make-container-max-widths($max-widths: $container-max-widths) {
+  @each $breakpoint, $container-max-width in $max-widths {
+    @include media-breakpoint-up($breakpoint) {
+      max-width: $container-max-width;
+    }
+  }
+}

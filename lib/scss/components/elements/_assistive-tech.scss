@@ -1,7 +1,0 @@
-/* Text meant only for screen readers. It's hidden due to the clip property, but visible in the page source. If you take a look back in the template files at the mark-up for our main menu and other navigation areas, you'll notice that we have headers such as "Menu" and "Site Navigation" wrapped in an <code>h1</code> tag with a class of "assistive-text". Screen readers will read this text aloud, making it easier for users to locate structural sections in your theme.
-*/
-.assistive-text {
-	clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-	clip: rect(1px, 1px, 1px, 1px);
-	position: absolute !important;
-}

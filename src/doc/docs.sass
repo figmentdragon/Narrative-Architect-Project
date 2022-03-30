@@ -1,0 +1,397 @@
+@import "../node_modules/minireset.css/minireset.sass"
+@import "../themes/default.sass"
+@import "../wysiwyg.sass"
+
+$orange: #ff5724
+$yellow: #ffd324
+$green: #24ff70
+$cyan: #24ffde
+$blue: #2478ff
+$purple: #9524ff
+$pink: #ff2450
+
+$facebook: #3b5998
+$twitter: #55acee
+
+$background: hsl(0, 0%, 86%)
+$text-light: hsl(0, 0%, 71%)
+$text: hsl(0, 0%, 29%)
+$text-strong: hsl(0, 0%, 14%)
+
+$family-monospace: "Inconsolata", monospace
+$family-primary: "Karla", "Roboto", "Helvetica", "Arial", sans-serif
+
+=selection($current-selector: false)
+  @if $current-selector
+    &::-moz-selection
+      @content
+    &::selection
+      @content
+  @else
+    \::-moz-selection
+      @content
+    \::selection
+      @content
+
+html
+  -moz-osx-font-smoothing: grayscale
+  -webkit-font-smoothing: antialiased
+  background: white
+  font-size: 16px
+  min-width: 300px
+  min-width: 320px
+  overflow-x: hidden
+  overflow-y: scroll
+  text-rendering: optimizeLegibility
+
+body
+  color: $text
+  font-family: $family-primary
+  font-size: 1rem
+
+strong, h1, h2, h3, h4, h5, h6
+  color: $text-strong
+
+svg
+  height: auto
+  max-width: 100%
+
+.header
+  margin: 0 auto 40px
+  max-width: 640px
+  position: relative
+  text-align: center
+
+.mark
+  margin: 0 20px
+  position: relative
+  z-index: 1
+
+.w
+  position: relative
+
+.type
+  left: 0
+  position: absolute
+  top: 0
+
+.title
+  left: 50%
+  opacity: 0
+  position: absolute
+  top: 0
+  transform: translateX(-50%)
+
+.subtitle
+  font-size: 24px
+  margin: 20px 20px 0
+  strong
+    +selection(true)
+      background-color: $text-strong
+      color: white
+  +selection(true)
+    background-color: $blue
+    color: white
+
+.nav
+  font-size: 16px
+  margin: 40px
+  text-align: center
+
+.button,
+.npm
+  border-radius: 3px
+  display: block
+  height: 60px
+  line-height: 20px
+  text-align: center
+
+.button
+  -webkit-touch-callout: none
+  -webkit-user-select: none
+  -moz-user-select: none
+  -ms-user-select: none
+  user-select: none
+
+.button
+  background-color: $blue
+  color: white
+  line-height: 16px
+  padding-top: 14px
+  text-decoration: none
+  transition: background 86ms
+  strong
+    color: white
+  span
+    display: block
+  small
+    opacity: 0.5
+  &:hover
+    background-color: darken($blue, 10%)
+  &:active
+    box-shadow: inset 0 1px 2px rgba(black, 0.29)
+  +selection(true)
+    background-color: white
+    color: $blue
+
+.or
+  margin: 10px 0
+  opacity: 0.5
+  +selection(true)
+    background-color: $text-strong
+    color: white
+
+.npm
+  background-color: $yellow
+  color: $text-strong
+  font-family: $family-monospace
+  font-size: 14px
+  padding-top: 20px
+  +selection(true)
+    background-color: $text-strong
+    color: $yellow
+
+.github
+  height: 30px
+  margin-bottom: 40px
+  text-align: center
+
+.wysiwyg
+  box-shadow: 0 0 0 1px $text
+  margin: 24px auto 0
+  max-width: 42rem
+  padding: 1rem
+  position: relative
+  &:before
+    background: $text
+    color: white
+    content: '<main class="wysiwyg">'
+    display: inline-block
+    font-family: $family-monospace
+    font-size: 12px
+    left: 0
+    line-height: 16px
+    padding: 3px 8px 5px
+    position: absolute
+    top: -24px
+    vertical-align: top
+
+.fork-me
+  display: none
+  height: 149px
+  position: fixed
+  right: 0
+  top: 0
+  width: 149px
+  img
+    display: block
+
+.footer
+  color: $text-light
+  margin: 40px
+  margin-bottom: 0
+  text-align: center
+  a
+    border-radius: 3px
+    color: $blue
+    padding: 2px 4px 4px
+    text-decoration: none
+    transition: 86ms
+    transition-property: background, color
+    &:hover
+      background: $blue
+      color: white
+
+.share
+  margin: 0 auto
+  max-width: 42rem
+  padding: 40px
+  .button
+    padding-top: 12px
+    &:not(:last-child)
+      margin-bottom: 20px
+    em
+      display: block
+      font-size: 0.8em
+      font-style: normal
+      opacity: 0.5
+    &.is-me
+      background: $pink
+      &:hover
+        background: darken($pink, 10%)
+    &.is-twitter
+      background: $twitter
+      &:hover
+        background: darken($twitter, 10%)
+    &.is-facebook
+      background: $facebook
+      &:hover
+        background: darken($facebook, 10%)
+
+@media screen and (min-width: 400px)
+  .wysiwyg
+    padding: 2rem
+
+@media screen and (min-width: 600px)
+  .subtitle
+    font-size: 28px
+    margin-left: 10px
+    margin-right: 10px
+  .nav
+    align-items: center
+    display: flex
+    justify-content: center
+    .button,
+    .npm
+      width: 260px
+  .or
+    margin: 0 20px
+  .wysiwyg
+    padding: 4rem
+  .footer
+    margin: 1rem
+    margin-bottom: 0
+  .share
+    display: flex
+    padding: 2rem 0
+    .button
+      flex: 1
+      &:not(:last-child)
+        margin-bottom: 0
+        margin-right: 2rem
+
+@media screen and (min-width: 800px)
+  html
+    font-size: 18px
+  .wysiwyg
+    margin-top: 0
+    &:before
+      left: -12px
+      top: -12px
+  .fork-me
+    display: block
+
+@media screen and (min-width: 1000px)
+  html
+    padding-bottom: 4rem
+  .wysiwyg
+    td
+      code
+        white-space: nowrap
+  .footer
+    margin: 0
+    margin-top: 4rem
+  // .share
+  //   bottom: 10px
+  //   display: block
+  //   margin: 0
+  //   padding: 0
+  //   position: fixed
+  //   right: 10px
+  //   width: 200px
+  //   .button
+  //     &:not(:last-child)
+  //       margin-bottom: 10px
+  //       margin-right: 0
+
+.native-js
+  border-radius: 3px
+  display: none
+  font-size: 1rem
+  opacity: 0
+  margin-bottom: 3rem
+  margin-left: auto
+  margin-right: auto
+  max-width: 50rem
+  visibility: hidden
+
+.native-show
+  display: block
+  opacity: 1
+  visibility: visible
+
+.native-flex
+  align-items: center
+  display: flex
+  justify-content: center
+  padding: 2em
+  text-decoration: none
+
+.native-img
+  border-radius: 3px
+  flex-grow: 0
+  flex-shrink: 0
+  height: 50px
+  width: 125px
+
+.native-details
+  flex-grow: 1
+  flex-shrink: 1
+
+.native-main
+  align-items: center
+  flex-grow: 0
+  flex-shrink: 1
+  max-width: 640px
+
+.native-company
+  display: block
+  font-size: 0.625em
+  letter-spacing: 2px
+  margin-bottom: 4px
+  text-transform: uppercase
+
+.native-desc
+  display: block
+
+.native-cta
+  border: none
+  border-radius: 3px
+  box-shadow: 0 6px 13px 0 hsla(0, 0%, 0%, .15)
+  display: inline-block
+  flex-grow: 0
+  flex-shrink: 0
+  font-size: 0.75em
+  font-weight: 400
+  padding: 0.75em 1em
+  text-transform: uppercase
+  transform: translateY(-1px)
+  transition: transform .3s ease-in-out
+  vertical-align: top
+  white-space: nowrap
+  &:hover
+    box-shadow: none
+    transform: translateY(1px)
+
+$native-bp: 600px
+
+=from($device)
+  @media screen and (min-width: $device)
+    @content
+
+=until($device)
+  @media screen and (max-width: $device - 1px)
+    @content
+
++until($native-bp)
+  .native-flex
+    display: block
+    text-align: center
+  .native-main
+    margin-bottom: 2em
+  .native-details
+    margin: 1em
+
++from($native-bp)
+  .native-flex
+    display: flex
+    text-align: left
+  .native-main
+    display: flex
+    margin-right: 2em
+  .native-details
+    margin-left: 2em
+
++from($native-bp * 2)
+  .native-js
+    font-size: 1.25rem
