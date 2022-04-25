@@ -2,69 +2,187 @@
 /**
  * Custom template tags for this theme.
  *
- * Eventually, some of the functionality here could be replaced by core features.
+ * Eventually, some of the functionality here could be replaced by core features
  *
- * @package creativity_ architect
+ * @package _tk
  */
 
- /**
-  * Prints HTML with date information for the current post.
-  *
-  * @author WebDevStudios
-  *
-  * @param array $args Configuration args.
-  */
- function creativity_post_date( $args = [] ) {
+if ( ! function_exists( 'creativityarchitect_content_nav' ) ) :
+/**
+ * Display navigation to next/previous pages when applicable
+ */
+function creativityarchitect_content_nav( $nav_id ) {
+	global $wp_query, $post;
 
- 	// Set defaults.
- 	$defaults = [
- 		'date_text'   => esc_html__( 'Posted on', 'creativity_architect' ),
- 		'date_format' => get_option( 'date_format' ),
- 	];
+	// Don't print empty markup on single pages if there's nowhere to navigate.
+	if ( is_single() ) {
+		$previous = ( is_attachment() ) ? get_post( $post->post_parent ) : get_adjacent_post( false, '', true );
+		$next = get_adjacent_post( false, '', false );
 
- 	// Parse args.
- 	$args = wp_parse_args( $args, $defaults );
- 	?>
- 	<span class="posted-on">
- 		<?php echo esc_html( $args['date_text'] . ' ' ); ?>
- 		<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark"><time class="entry-date published" datetime="<?php echo esc_attr( get_the_date( DATE_W3C ) ); ?>"><?php echo esc_html( get_the_time( $args['date_format'] ) ); ?></time></a>
- 	</span>
- 	<?php
- }
+		if ( ! $next && ! $previous )
+			return;
+	}
 
- /**
-  * Prints HTML with author information for the current post.
-  *
-  * @author WebDevStudios
-  *
-  * @param array $args Configuration args.
-  */
- function creativity_post_author( $args = [] ) {
+	// Don't print empty markup in archives if there's only one page.
+	if ( $wp_query->max_num_pages < 2 && ( is_home() || is_archive() || is_search() ) )
+		return;
 
- 	// Set defaults.
- 	$defaults = [
- 		'author_text' => esc_html__( 'by', 'creativity_architect' ),
- 	];
+	$nav_class = ( is_single() ) ? 'post-navigation' : 'paging-navigation';
 
- 	// Parse args.
- 	$args = wp_parse_args( $args, $defaults );
+	?>
+	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?>">
+		<h1 class="screen-reader-text"><?php _e( 'Post navigation', '_tk' ); ?></h1>
+		<ul class="pager">
 
- 	?>
- 	<span class="post-author">
- 		<?php echo esc_html( $args['author_text'] . ' ' ); ?>
- 		<span class="author vcard">
- 			<a class="url fn n" href="<?php echo esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ); ?>"><?php echo esc_html( get_the_author() ); ?></a>
- 		</span>
- 	</span>
+		<?php if ( is_single() ) : // navigation links for single posts ?>
 
- 	<?php
- }
+			<?php previous_post_link( '<li class="nav-previous previous">%link</li>', '<span class="meta-nav">' . _x( '&larr;', 'Previous post link', '_tk' ) . '</span> %title' ); ?>
+			<?php next_post_link( '<li class="nav-next next">%link</li>', '%title <span class="meta-nav">' . _x( '&rarr;', 'Next post link', '_tk' ) . '</span>' ); ?>
 
-if ( ! function_exists( 'creativity_posted_on' ) ) :
+		<?php elseif ( $wp_query->max_num_pages > 1 && ( is_home() || is_archive() || is_search() ) ) : // navigation links for home, archive, and search pages ?>
+
+			<?php if ( get_next_posts_link() ) : ?>
+			<li class="nav-previous previous"><?php next_posts_link( __( '<span class="meta-nav">&larr;</span> Older posts', '_tk' ) ); ?></li>
+			<?php endif; ?>
+
+			<?php if ( get_previous_posts_link() ) : ?>
+			<li class="nav-next next"><?php previous_posts_link( __( 'Newer posts <span class="meta-nav">&rarr;</span>', '_tk' ) ); ?></li>
+			<?php endif; ?>
+
+		<?php endif; ?>
+
+		</ul>
+	</nav><!-- #<?php echo esc_html( $nav_id ); ?> -->
+	<?php
+}
+endif; // creativityarchitect_content_nav
+
+if ( ! function_exists( 'creativityarchitect_comment' ) ) :
+/**
+ * Template for comments and pingbacks.
+ *
+ * Used as a callback by wp_list_comments() for displaying the comments.
+ */
+function creativityarchitect_comment( $comment, $args, $depth ) {
+	$GLOBALS['comment'] = $comment;
+
+	if ( 'pingback' == $comment->comment_type || 'trackback' == $comment->comment_type ) : ?>
+
+	<li id="comment-<?php comment_ID(); ?>" <?php comment_class( 'media' ); ?>>
+		<div class="comment-body">
+			<?php _e( 'Pingback:', '_tk' ); ?> <?php comment_author_link(); ?> <?php edit_comment_link( __( 'Edit', '_tk' ), '<span class="edit-link">', '</span>' ); ?>
+		</div>
+
+	<?php else : ?>
+
+	<li id="comment-<?php comment_ID(); ?>" <?php comment_class( empty( $args['has_children'] ) ? '' : 'parent' ); ?>>
+		<article id="div-comment-<?php comment_ID(); ?>" class="comment-body media">
+			<a class="pull-left" href="#">
+				<?php if ( 0 != $args['avatar_size'] ) echo get_avatar( $comment, $args['avatar_size'] ); ?>
+			</a>
+
+			<div class="media-body">
+				<div class="media-body-wrap panel panel-default">
+
+					<div class="panel-heading">
+						<h5 class="media-heading"><?php printf( __( '%s <span class="says">says:</span>', '_tk' ), sprintf( '<cite class="fn">%s</cite>', get_comment_author_link() ) ); ?></h5>
+						<div class="comment-meta">
+							<a href="<?php echo esc_url( get_comment_link( $comment->comment_ID ) ); ?>">
+								<time datetime="<?php comment_time( 'c' ); ?>">
+									<?php printf( _x( '%1$s at %2$s', '1: date, 2: time', '_tk' ), get_comment_date(), get_comment_time() ); ?>
+								</time>
+							</a>
+							<?php edit_comment_link( __( '<span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span> Edit', '_tk' ), '<span class="edit-link">', '</span>' ); ?>
+						</div>
+					</div>
+
+					<?php if ( '0' == $comment->comment_approved ) : ?>
+						<p class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', '_tk' ); ?></p>
+					<?php endif; ?>
+
+					<div class="comment-content panel-body">
+						<?php comment_text(); ?>
+					</div><!-- .comment-content -->
+
+					<?php comment_reply_link(
+						array_merge(
+							$args, array(
+								'add_below' => 'div-comment',
+								'depth' 	=> $depth,
+								'max_depth' => $args['max_depth'],
+								'before' 	=> '<footer class="reply comment-reply panel-footer">',
+								'after' 	=> '</footer><!-- .reply -->'
+							)
+						)
+					); ?>
+
+				</div>
+			</div><!-- .media-body -->
+
+		</article><!-- .comment-body -->
+
+	<?php
+	endif;
+}
+endif; // ends check for creativityarchitect_comment()
+
+if ( ! function_exists( 'creativityarchitect_the_attached_image' ) ) :
+/**
+ * Prints the attached image with a link to the next attached image.
+ */
+function creativityarchitect_the_attached_image() {
+	$post                = get_post();
+	$attachment_size     = apply_filters( 'creativityarchitect_attachment_size', array( 1200, 1200 ) );
+	$next_attachment_url = wp_get_attachment_url();
+
+	/**
+	 * Grab the IDs of all the image attachments in a gallery so we can get the
+	 * URL of the next adjacent image in a gallery, or the first image (if
+	 * we're looking at the last image in a gallery), or, in a gallery of one,
+	 * just the link to that image file.
+	 */
+	$attachment_ids = get_posts( array(
+		'post_parent'    => $post->post_parent,
+		'fields'         => 'ids',
+		'numberposts'    => -1,
+		'post_status'    => 'inherit',
+		'post_type'      => 'attachment',
+		'post_mime_type' => 'image',
+		'order'          => 'ASC',
+		'orderby'        => 'menu_order ID'
+	) );
+
+	// If there is more than 1 attachment in a gallery...
+	if ( count( $attachment_ids ) > 1 ) {
+		foreach ( $attachment_ids as $attachment_id ) {
+			if ( $attachment_id == $post->ID ) {
+				$next_id = current( $attachment_ids );
+				break;
+			}
+		}
+
+		// get the URL of the next image attachment...
+		if ( $next_id )
+			$next_attachment_url = get_attachment_link( $next_id );
+
+		// or get the URL of the first image attachment.
+		else
+			$next_attachment_url = get_attachment_link( array_shift( $attachment_ids ) );
+	}
+
+	printf( '<a href="%1$s" title="%2$s" rel="attachment">%3$s</a>',
+		esc_url( $next_attachment_url ),
+		the_title_attribute( array( 'echo' => false ) ),
+		wp_get_attachment_image( $post->ID, $attachment_size )
+	);
+}
+endif;
+
+if ( ! function_exists( 'creativityarchitect_posted_on' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
-	function creativity_posted_on() {
+	function creativityarchitect_posted_on() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
@@ -80,7 +198,7 @@ if ( ! function_exists( 'creativity_posted_on' ) ) :
 
 		$posted_on = sprintf(
 			/* translators: %s: post date. */
-			esc_html_x( '%s', 'post date', 'creativity' ),
+			esc_html_x( 'Posted on %s', 'post date', 'creativityarchitect' ),
 			'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>'
 		);
 
@@ -89,377 +207,344 @@ if ( ! function_exists( 'creativity_posted_on' ) ) :
 	}
 endif;
 
-if ( ! function_exists( 'creativity_posted_by' ) ) :
+if ( ! function_exists( 'creativityarchitect_posted_by' ) ) :
 	/**
-	 * Prints HTML with meta information about theme author.
+	 * Prints HTML with meta information for the current author.
 	 */
-	function creativity_posted_by() {
-		printf(
-			'<li class="byline"><span class="postauthor">%1$s </span><span class="author vcard"><a class="url fn n" href="%2$s">%3$s</a></span></li>',
-			esc_html__( 'by', 'creativity' ),
-			esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-			esc_html( get_the_author() )
+	function creativityarchitect_posted_by() {
+		$byline = sprintf(
+			/* translators: %s: post author. */
+			esc_html_x( 'by %s', 'post author', 'creativityarchitect' ),
+			'<span class="author vcard"><a class="url fn n" href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a></span>'
 		);
+
+		echo '<span class="byline"> ' . $byline . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+
 	}
 endif;
 
-/**
- * Displays the date and author of a post summary
- */
-if ( ! function_exists( 'creativity_entry_meta' ) ) :
-
-	function creativity_entry_meta() {
-
-		echo '<ul class="post-details">' ;
-
-			if ( false == esc_attr(get_theme_mod( 'creativity_show_summary_author', false ) ) ) {
-				creativity_posted_by();
-			}
-			if ( false == esc_attr(get_theme_mod( 'creativity_show_summary_date', false ) ) ) {
-				creativity_posted_on();
-			}
-			if ( false == esc_attr(get_theme_mod( 'creativity_show_summary_comments', false ) ) ) {
-				creativity_comment_count();
-			}
-			if ( false == esc_attr(get_theme_mod( 'creativity_show_edit', false ) ) ) {
-				creativity_edit_link();
-			}
-
-		echo '</ul>';
-	}
-endif;
-
-/**
- * Displays the date and author of a full post
- */
-if ( ! function_exists( 'creativity_single_entry_meta' ) ) :
-function creativity_single_entry_meta() {
-
-		echo '<ul class="post-details">' ;
-
-			if ( false == esc_attr(get_theme_mod( 'creativity_show_single_author', false ) ) ) {
-				creativity_posted_by();
-			}
-			if ( false == esc_attr(get_theme_mod( 'creativity_show_single_date', false ) ) ) {
-				creativity_posted_on();
-			}
-			if ( false == esc_attr(get_theme_mod( 'creativity_show_single_comments', false ) ) ) {
-				creativity_comment_count();
-			}
-			if ( false == esc_attr(get_theme_mod( 'creativity_show_edit', false ) ) ) {
-				creativity_edit_link();
-			}
-
-		echo '</ul>';
-	}
-endif;
-
-/**
- * Prints HTML with meta information for the categories, tags and comments.
- *
- * @author WebDevStudios
- */
-function creativity_entry_footer() {
-	// Hide category and tag text for pages.
-	if ( 'post' === get_post_type() ) {
-		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_attr__( ', ', 'creativity_architect' ) );
-		if ( $categories_list && creativity_categorized_blog() ) {
-
-			/* translators: the post category */
-			printf( '<span class="cat-links">' . esc_attr__( 'Posted in %1$s', 'creativity_architect' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- XSS OK.
-		}
-
-		/* translators: used between list items, there is a space after the comma */
-		$tags_list = get_the_tag_list( '', esc_attr__( ', ', 'creativity_architect' ) );
-		if ( $tags_list ) {
-
-			/* translators: the post tags */
-			printf( '<span class="tags-links">' . esc_attr__( 'Tagged %1$s', 'creativity_architect' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- XSS OK.
-		}
-	}
-
-	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<span class="comments-link">';
-		comments_popup_link( esc_attr__( 'Leave a comment', 'creativity_architect' ), esc_attr__( '1 Comment', 'creativity_architect' ), esc_attr__( '% Comments', 'creativity_architect' ) );
-		echo '</span>';
-	}
-
-	edit_post_link(
-		sprintf(
-			/* translators: %s: Name of current post */
-			esc_html__( 'Edit %s', 'creativity_architect' ),
-			wp_kses_post( get_the_title( '<span class="screen-reader-text">"', '"</span>', false ) )
-		),
-		'<span class="edit-link">',
-		'</span>'
-	);
-}
-
-if ( ! function_exists( 'creativity_post_thumbnail' ) ) :
+if ( ! function_exists( 'creativityarchitect_entry_footer' ) ) :
 	/**
-	 * Displays an optional post thumbnail.
-	 *
-	 * Wraps the post thumbnail in an anchor element on index views, or a div
-	 * element when on single views.
+	 * Prints HTML with meta information for the categories, tags and comments.
 	 */
-	function creativity_post_thumbnail() {
+	function creativityarchitect_entry_footer() {
+		// Hide category and tag text for pages.
+		if ( 'post' === get_post_type() ) {
+			/* translators: used between list items, there is a space after the comma */
+			$categories_list = get_the_category_list( esc_html__( ', ', 'creativityarchitect' ) );
+			if ( $categories_list ) {
+				/* translators: 1: list of categories. */
+				printf( '<span class="cat-links">' . esc_html__( 'Posted in %1$s', 'creativityarchitect' ) . '</span>', $categories_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			}
 
-		if ( is_singular() ) :
-			?>
-
-<figure class="post-thumbnail">
-    <?php the_post_thumbnail(); ?>
-</figure><!-- .post-thumbnail -->
-
-<?php
-		else :
-			$post_thumbnail = get_the_post_thumbnail_url( get_the_ID(), 'post-thumbnail' );
-			?>
-
-<figure class="post-thumbnail">
-
-    <a class="wp-post-image-link" href="<?php the_permalink(); ?>" rel="bookmark">
-
-        <?php
-				// Set the post thumbnail based on the blog layout and active cropped thumbnail setting
-				$creativity_blog_layout = get_theme_mod( 'creativity_blog_layout', 'default' );
-				switch ( esc_attr($creativity_blog_layout ) ) {
-
-				case "large":
-					// large thumbnail
-					the_post_thumbnail( 'creativity-large', array(
-						'alt' => the_title_attribute(
-							array( 'echo' => false )
-						),
-					)
-				);
-				break;
-
-				default:
-					the_post_thumbnail( 'post-thumbnails', array(
-						'alt' => the_title_attribute(
-							array( 'echo' => false )
-						),
-					)
-				);
-				}
-				?>
-    </a>
-
-</figure>
-
-<?php
-		endif; // End is_singular().
-	}
-endif;
-
-if (! function_exists('creativity_author_outside_loop')):
-	function creativity_author_outside_loop(){
-		global $post;
-		$author_id=$post->post_author;
-		esc_html_e('&nbsp; by &nbsp;', 'creativity'). the_author_meta( 'user_nicename', $author_id );
-	}
-endif;
-
-if ( ! function_exists( 'creativity_comment_count' ) ) :
-	/**
-	 * Prints HTML with the comment count for the current post.
-	 */
-	function creativity_comment_count() {
-		if ( ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-			echo '<li class="comments-link">';
-			/* translators: %s: Name of current post. Only visible to screen readers. */
-			comments_popup_link( sprintf( __( 'Leave a comment<span class="screen-reader-text"> on %s</span>', 'creativity' ), get_the_title() ) );
-
-			echo '</li>';
+			/* translators: used between list items, there is a space after the comma */
+			$tags_list = get_the_tag_list( '', esc_html_x( ', ', 'list item separator', 'creativityarchitect' ) );
+			if ( $tags_list ) {
+				/* translators: 1: list of tags. */
+				printf( '<span class="tags-links">' . esc_html__( 'Tagged %1$s', 'creativityarchitect' ) . '</span>', $tags_list ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			}
 		}
-	}
-endif;
 
-if ( ! function_exists( 'creativity_edit_link' ) ) :
-	function creativity_edit_link() {
+		if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
+			echo '<span class="comments-link">';
+			comments_popup_link(
+				sprintf(
+					wp_kses(
+						/* translators: %s: post title */
+						__( 'Leave a Comment<span class="screen-reader-text"> on %s</span>', 'creativityarchitect' ),
+						array(
+							'span' => array(
+								'class' => array(),
+							),
+						)
+					),
+					wp_kses_post( get_the_title() )
+				)
+			);
+			echo '</span>';
+		}
+
 		edit_post_link(
 			sprintf(
-				/* translators: %s: Name of current post */
-				__( 'Edit<span class="screen-reader-text">%s</span>', 'creativity' ),
-				get_the_title()
+				wp_kses(
+					/* translators: %s: Name of current post. Only visible to screen readers */
+					__( 'Edit <span class="screen-reader-text">%s</span>', 'creativityarchitect' ),
+					array(
+						'span' => array(
+							'class' => array(),
+						),
+					)
+				),
+				wp_kses_post( get_the_title() )
 			),
-			'<li class="edit-link">',
-			'</li>'
+			'<span class="edit-link">',
+			'</span>'
 		);
 	}
-
 endif;
 
-if ( ! function_exists( 'creativity_sticky_entry_post' ) ) :
-	// Returns the sticky label
-	function creativity_sticky_entry_post() {
-				if ( is_sticky() && ! is_paged() ) {
-					echo '<div class="featured-label">', esc_html_e('Featured', 'creativity'), '</div>';
-				}
-	}
-endif;
-
-if ( ! function_exists( 'creativity_post_thumbnail' ) ) :
+if ( ! function_exists( 'creativityarchitect_post_thumbnail' ) ) :
 	/**
 	 * Displays an optional post thumbnail.
 	 *
 	 * Wraps the post thumbnail in an anchor element on index views, or a div
 	 * element when on single views.
 	 */
-	function creativity_post_thumbnail() {
+	function creativityarchitect_post_thumbnail() {
+		if ( post_password_required() || is_attachment() || ! has_post_thumbnail() ) {
+			return;
+		}
 
 		if ( is_singular() ) :
 			?>
 
-<figure class="post-thumbnail">
-    <?php the_post_thumbnail(); ?>
-</figure><!-- .post-thumbnail -->
+			<div class="post-thumbnail">
+				<?php the_post_thumbnail(); ?>
+			</div><!-- .post-thumbnail -->
 
-<?php
-		else :
-			$post_thumbnail = get_the_post_thumbnail_url( get_the_ID(), 'post-thumbnail' );
-			?>
+		<?php else : ?>
 
-<figure class="post-thumbnail">
-
-    <a class="wp-post-image-link" href="<?php the_permalink(); ?>" rel="bookmark">
-
-        <?php
-				// Set the post thumbnail based on the blog layout and active cropped thumbnail setting
-				$creativity_blog_layout = get_theme_mod( 'creativity_blog_layout', 'default' );
-				switch ( esc_attr($creativity_blog_layout ) ) {
-
-				case "large":
-					// large thumbnail
-					the_post_thumbnail( 'creativity-large', array(
-						'alt' => the_title_attribute(
-							array( 'echo' => false )
-						),
-					)
-				);
-				break;
-
-				default:
-					the_post_thumbnail( 'post-thumbnails', array(
-						'alt' => the_title_attribute(
-							array( 'echo' => false )
-						),
-					)
-				);
-				}
+			<a class="post-thumbnail" href="<?php the_permalink(); ?>" aria-hidden="true" tabindex="-1">
+				<?php
+					the_post_thumbnail(
+						'post-thumbnail',
+						array(
+							'alt' => the_title_attribute(
+								array(
+									'echo' => false,
+								)
+							),
+						)
+					);
 				?>
-    </a>
+			</a>
 
-</figure>
-
-<?php
+			<?php
 		endif; // End is_singular().
 	}
 endif;
 
-// Get the full category list for a post
-if ( ! function_exists( 'creativity_categories' ) ) :
-function creativity_categories() {
-	echo '<p id="post-categories">', esc_html_e( 'Categories: ', 'creativity' ) .  the_category(' &bull; ') .'</p>';
-	}
-endif;
-
 /**
- * Displays the post tags on single post view
+ * Returns true if a blog has more than 1 category
  */
-if ( ! function_exists( 'creativity_entry_tags' ) ) :
-	function creativity_entry_tags() {
-	 echo get_the_tag_list( sprintf( // WPCS: XSS OK.
-	 /* translators: %s: tag item */
-	 '<span>%s: ', __( 'Tags: ', 'creativity' ) ), ' &bull; ', '</span>' );
+function creativityarchitect_categorized_blog() {
+	if ( false === ( $all_the_cool_cats = get_transient( 'all_the_cool_cats' ) ) ) {
+		// Create an array of all the categories that are attached to posts
+		$all_the_cool_cats = get_categories( array(
+			'hide_empty' => 1,
+		) );
+
+		// Count the number of categories that are attached to the posts
+		$all_the_cool_cats = count( $all_the_cool_cats );
+
+		set_transient( 'all_the_cool_cats', $all_the_cool_cats );
 	}
-endif;
 
-/**
- * Custom comment output
- */
-if ( !function_exists( 'creativity_comment' ) ) {
-
-	function creativity_comment( $comment, $args, $depth ) {  ?>
-
-<li <?php comment_class(); ?> id="comment-
-    <?php comment_ID() ?>">
-    <article class="clearfix media" itemprop="comment" itemscope="itemscope" itemtype="http://schema.org/UserComments">
-        <?php echo get_avatar( $comment, 90 ); ?>
-        <div class="media-body">
-            <div class="comment-author">
-                <p class="vcard" itemprop="creator" itemscope="itemscope" itemtype="http://schema.org/Person">
-                    <cite class="fn" itemprop="name">
-                        <?php comment_author_link(); ?></cite>
-                    <time itemprop="commentTime" datetime="<?php comment_time( 'c' ); ?>">
-                        <?php echo get_comment_date(); ?>
-                    </time>
-                </p>
-            </div>
-
-            <div class="comment-content" itemprop="commentText">
-                <?php comment_text() ?>
-                <?php if ( $comment->comment_approved == '0' ) : ?>
-                <p><em class="awaiting">
-                        <?php esc_html_e( 'Your comment is awaiting moderation.', 'creativity' ) ?></em></p>
-                <?php endif; ?>
-            </div>
-            <div class="comment-reply">
-                <?php comment_reply_link( array_merge( $args, array( 'depth' => $depth, 'max_depth' => $args['max_depth'] ) ) ) ?>
-                <?php edit_comment_link( __( 'Edit', 'creativity'), ' &middot; ', '' ) ?>
-            </div>
-        </div>
-    </article>
-</li>
-
-<?php }
+	if ( '1' != $all_the_cool_cats ) {
+		// This blog has more than 1 category so creativityarchitect_categorized_blog should return true
+		return true;
+	} else {
+		// This blog has only 1 category so creativityarchitect_categorized_blog should return false
+		return false;
+	}
 }
 
 /**
- * Displays pagination on the blog and archive pages
+ * Flush out the transients used in creativityarchitect_categorized_blog
  */
-if ( ! function_exists( 'creativity_blog_navigation' ) ) :
+function creativityarchitect_category_transient_flusher() {
+	// Like, beat it. Dig?
+	delete_transient( 'all_the_cool_cats' );
+}
+add_action( 'edit_category', 'creativityarchitect_category_transient_flusher' );
+add_action( 'save_post',     'creativityarchitect_category_transient_flusher' );
 
-	function creativity_blog_navigation() {
 
-		the_posts_pagination( array(
-			'mid_size'  => 2,
-			'prev_text' => '<span class="nav-arrow">&laquo</span><span class="screen-reader-text">' . esc_html_x( 'Previous Posts', 'pagination', 'creativity' ) . '</span>',
-			'next_text' => '<span class="screen-reader-text">' . esc_html_x( 'Next Posts', 'pagination', 'creativity' ) . '</span><span class="nav-arrow">&raquo;</span>',
-		) );
-	}
-endif;
+// _tk Bootstrap pagination function
+// original: http://fellowtuts.com/wordpress/bootstrap-3-pagination-in-wordpress/
+/**
+ *
+ * @global int $paged
+ * @global type $wp_query
+ * @param int $pages
+ * @param type $range
+ */
+function creativityarchitect_pagination() {
+    global $paged, $wp_query;
+
+    if (empty($paged)) {
+        $paged = 1;
+    }
+
+    $pages = $wp_query->max_num_pages;
+    if (!$pages) {
+        $pages = 1;
+    }
+
+    if (1 != $pages):
+
+        $input_width = strlen((string)$pages) + 3;
+?>
+<div class="text-center">
+    <nav>
+        <ul class="pagination">
+            <li class="disabled hidden-xs">
+                <span>
+                    <span aria-hidden="true"><?php _e('Page', '_tk'); ?> <?php echo $paged; ?> <?php _e('of', '_tk'); ?> <?php echo $pages; ?></span>
+                </span>
+            </li>
+            <li><a href="<?php echo get_pagenum_link(1); ?>" aria-label="First">&laquo;<span class="hidden-xs"> <?php _e('First', '_tk'); ?></span></a></li>
+
+            <?php if ($paged == 1): ?>
+            <li class="disabled"><span>&lsaquo;<span class="hidden-xs aria-hidden"> <?php _e('Previous', '_tk'); ?></span></span></li>
+            <?php else: ?>
+                <li><a href="<?php echo get_pagenum_link($paged-1); ?>" aria-label="Previous">&lsaquo;<span class="hidden-xs"> <?php _e('Previous', '_tk'); ?></span></a></li>
+            <?php endif; ?>
+
+            <?php $start_page = min(max($paged - 2, 1), max($pages - 4, 1)); ?>
+            <?php $end_page   = min(max($paged + 2, 5), $pages); ?>
+
+            <?php for ($i = $start_page; $i <= $end_page; $i++): ?>
+                <?php if ($paged == $i): ?>
+                    <li class="active"><span><?php echo $i; ?><span class="sr-only">(current)</span></span></li>
+                <?php else: ?>
+                    <li><a href="<?php echo get_pagenum_link($i); ?>"><?php echo $i; ?></a></li>
+                <?php endif; ?>
+            <?php endfor; ?>
+
+            <?php if ($paged == $pages): ?>
+                <li class="disabled"><span><span class="hidden-xs aria-hidden"><?php _e('Next', '_tk'); ?> </span>&rsaquo;</span></li>
+            <?php else: ?>
+                <li><a href="<?php echo get_pagenum_link($paged+1); ?>" aria-label="Next"><span class="hidden-xs"><?php _e('Next', '_tk'); ?> </span>&rsaquo;</a></li>
+            <?php endif; ?>
+
+            <li><a href="<?php echo get_pagenum_link($pages); ?>" aria-label='Last'><span class='hidden-xs'><?php _e('Last', '_tk'); ?> </span>&raquo;</a></li>
+            <li>
+                <form method="get" id="tk-pagination" class="tk-page-nav">
+                    <div class="input-group">
+                        <input oninput="if(!jQuery(this)[0].checkValidity()) {jQuery('#tk-pagination').find(':submit').click();};" type="number" name="paged" min="1" max="<?php echo $pages; ?>" value="<?php echo $paged; ?>" class="form-control text-right" style="width: <?php echo $input_width; ?>em;">
+                        <span class="input-group-btn">
+                            <input type="submit" value="<?php _e('Go to', '_tk'); ?>" class="btn btn-success">
+                        </span>
+                      </div>
+                </form>
+            </li>
+        </ul>
+    </nav>
+</div>
+<?php
+    endif;
+}
 
 /**
- * Displays Single Post Navigation
+ * creativityarchitect_link_pages()
+ * Creates bootstraped pagination for paginated posts
+ *
  */
-if ( ! function_exists( 'creativity_post_navigation' ) ) :
+function creativityarchitect_link_pages() {
+    global $numpages, $page, $post;
 
-	function creativity_post_navigation() {
+    if (1 != $numpages):
+        $input_width = strlen((string)$numpages) + 3;
+?>
+<div class="text-center">
+    <nav>
+        <ul class="pagination">
+            <li class="disabled hidden-xs">
+                <span>
+                    <span aria-hidden="true"><?php _e('Page', '_tk'); ?> <?php echo $page; ?> <?php _e('of', '_tk'); ?> <?php echo $numpages; ?></span>
+                </span>
+            </li>
+            <li><?php echo creativityarchitect_link_page(1, 'First'); ?>&laquo;<span class="hidden-xs"> <?php _e('First', '_tk'); ?></span></a></li>
+            <?php if ($page == 1): ?>
+                <li class="disabled"><span>&lsaquo;<span class="hidden-xs aria-hidden"> <?php _e('Previous', '_tk'); ?></span></span></li>
+            <?php else: ?>
+                <li><?php echo creativityarchitect_link_page($page - 1, 'Previous'); ?>&lsaquo;<span class="hidden-xs"> <?php _e('Previous', '_tk'); ?></span></a></li>
+            <?php endif; ?>
 
-			the_post_navigation( array(
-				'prev_text' => '<span class="nav-link-text">' . esc_html_x( 'Previous Post', 'post navigation', 'creativity' ) . '</span><h5 class="nav-entry-title">%title</h5>',
-				'next_text' => '<span class="nav-link-text">' . esc_html_x( 'Next Post', 'post navigation', 'creativity' ) . '</span><h5 class="nav-entry-title">%title</h5>',
-			) );
-	}
-endif;
+            <?php $start_page = min(max($page - 2, 1), max($numpages - 4, 1)); ?>
+            <?php $end_page   = min(max($page + 2, 5), $numpages); ?>
+
+            <?php for ($i = $start_page; $i <= $end_page; $i++): ?>
+                <?php if ($page == $i): ?>
+                    <li class="active">
+                        <span><?php echo $i; ?><span class="sr-only">(current)</span></span>
+                    </li>
+                <?php else: ?>
+                    <li><?php echo creativityarchitect_link_page($i) . $i . '</a>'; ?></li>
+                <?php endif; ?>
+            <?php endfor; ?>
+
+            <?php if ($page == $numpages): ?>
+                <li class="disabled"><span><span class="hidden-xs aria-hidden"><?php _e('Next', '_tk'); ?> </span>&rsaquo;</span></li>
+            <?php else: ?>
+                <li><?php echo creativityarchitect_link_page($page + 1, 'Next'); ?><span class="hidden-xs"><?php _e('Next', '_tk'); ?> </span>&rsaquo;</a></li>
+            <?php endif; ?>
+            <li><?php echo creativityarchitect_link_page($numpages, 'Last'); ?><span class="hidden-xs"><?php _e('Last', '_tk'); ?> </span>&raquo;</a></li>
+            <li>
+                <form action="<?php echo get_permalink($post->ID); ?>" method="get" class="tk-page-nav" id="tk-paging-<?php echo $post->ID; ?>">
+                    <div class="input-group">
+                        <input oninput="if(!jQuery(this)[0].checkValidity()) {jQuery('#tk-paging-<?php echo $post->ID; ?>').find(':submit').click();};" type="number" name="page" min="1" max="<?php echo $numpages; ?>" value="<?php echo $page; ?>" class="form-control text-right" style="width: <?php echo $input_width; ?>em;">
+                        <span class="input-group-btn">
+                            <input type="submit" value="<?php _e('Go to', '_tk'); ?>" class="btn btn-success">
+                        </span>
+                      </div>
+                </form>
+            </li>
+        </ul>
+    </nav>
+</div>
+<?php
+    endif;
+}
 
 /**
- * Displays Multi-page Navigation
+ * creativityarchitect_link_page
+ *
+ * Customized _wp_link_page from wp-includes/post_template.php
+ *
+ * @global WP_Rewrite $wp_rewrite
+ * @global int $page
+ * @global int $numpages
+ * @param int $i
+ * @param string $aria_label
+ * @param string $class
+ * @return string
  */
-if ( ! function_exists( 'creativity_multipage_navigation' ) ) :
+function creativityarchitect_link_page($i, $aria_label = '', $class = '') {
+    global $wp_rewrite, $page, $numpages;
+    $post       = get_post();
+    $query_args = array();
 
-	function creativity_multipage_navigation() {
-		wp_link_pages( array(
-		'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'creativity' ),
-		'after'  => '</div>',
-		'link_before' => '<span class="page-wrap">',
-		'link_after' => '</span>',
-		) );
-	}
-endif;
+    if (1 == $i) {
+        $url = get_permalink();
+    } else {
+        if ('' == get_option('permalink_structure') || in_array($post->post_status, array('draft', 'pending')))
+            $url = add_query_arg('page', $i, get_permalink());
+        elseif ('page' == get_option('show_on_front') && get_option('page_on_front') == $post->ID)
+            $url = trailingslashit(get_permalink()) . user_trailingslashit("$wp_rewrite->pagination_base/" . $i, 'single_paged');
+        else
+            $url = trailingslashit(get_permalink()) . user_trailingslashit($i, 'single_paged');
+    }
+
+    if (is_preview()) {
+
+        if (( 'draft' !== $post->post_status ) && isset($_GET['preview_id'], $_GET['preview_nonce'])) {
+            $query_args['preview_id']    = wp_unslash($_GET['preview_id']);
+            $query_args['preview_nonce'] = wp_unslash($_GET['preview_nonce']);
+        }
+
+        $url = get_preview_post_link($post, $query_args, $url);
+    }
+
+    if ($class != '') {
+        $class = ' class="' . $class . '"';
+    }
+    if ($aria_label != '') {
+        $aria_label = ' aria-label="' . $aria_label . '"';
+    }
+    return '<a href="' . esc_url($url) . '"' . $aria_label . $class . '>';
+}
 
 if ( ! function_exists( 'wp_body_open' ) ) :
 	/**
@@ -471,261 +556,3 @@ if ( ! function_exists( 'wp_body_open' ) ) :
 		do_action( 'wp_body_open' );
 	}
 endif;
-
-/**
- * Display SVG Markup.
- *
- * @author WebDevStudios
- *
- * @param array $args The parameters needed to get the SVG.
- */
-function creativity_display_svg( $args = [] ) {
-	$kses_defaults = wp_kses_allowed_html( 'post' );
-
-	$svg_args = [
-		'svg'   => [
-			'class'           => true,
-			'aria-hidden'     => true,
-			'aria-labelledby' => true,
-			'role'            => true,
-			'xmlns'           => true,
-			'width'           => true,
-			'height'          => true,
-			'viewbox'         => true, // <= Must be lower case!
-			'color'           => true,
-			'stroke-width'    => true,
-		],
-		'g'     => [ 'color' => true ],
-		'title' => [
-			'title' => true,
-			'id'    => true,
-		],
-		'path'  => [
-			'd'     => true,
-			'color' => true,
-		],
-		'use'   => [
-			'xlink:href' => true,
-		],
-	];
-
-	$allowed_tags = array_merge(
-		$kses_defaults,
-		$svg_args
-	);
-
-	echo wp_kses(
-		creativity_get_svg( $args ),
-		$allowed_tags
-	);
-}
-
-/**
- * Trim the title length.
- *
- * @author WebDevStudios
- *
- * @param array $args Parameters include length and more.
- *
- * @return string The title.
- */
-function creativity_get_the_title( $args = [] ) {
-	// Set defaults.
-	$defaults = [
-		'length' => 12,
-		'more'   => '...',
-	];
-
-	// Parse args.
-	$args = wp_parse_args( $args, $defaults );
-
-	// Trim the title.
-	return wp_kses_post( wp_trim_words( get_the_title( get_the_ID() ), $args['length'], $args['more'] ) );
-}
-
-/**
- * Limit the excerpt length.
- *
- * @author WebDevStudios
- *
- * @param array $args Parameters include length and more.
- *
- * @return string The excerpt.
- */
-function creativity_get_the_excerpt( $args = [] ) {
-
-	// Set defaults.
-	$defaults = [
-		'length' => 20,
-		'more'   => '...',
-		'post'   => '',
-	];
-
-	// Parse args.
-	$args = wp_parse_args( $args, $defaults );
-
-	// Trim the excerpt.
-	return wp_trim_words( get_the_excerpt( $args['post'] ), absint( $args['length'] ), esc_html( $args['more'] ) );
-}
-
-/**
- * Echo the copyright text saved in the Customizer.
- *
- * @author WebDevStudios
- */
-function creativity_display_copyright_text() {
-	// Grab our customizer settings.
-	$copyright_text = get_theme_mod( 'creativity_copyright_text' );
-
-	if ( $copyright_text ) {
-		echo creativity_get_the_content( do_shortcode( $copyright_text ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- XSS OK.
-	}
-}
-
-/**
- * Display the social links saved in the customizer.
- *
- * @author WebDevStudios
- */
-function creativity_display_social_network_links() {
-	// Create an array of our social links for ease of setup.
-	// Change the order of the networks in this array to change the output order.
-	$social_networks = [
-		'facebook',
-		'instagram',
-		'linkedin',
-		'twitter',
-	];
-
-	?>
-	<ul class="flex social-icons menu">
-		<?php
-		// Loop through our network array.
-		foreach ( $social_networks as $network ) :
-
-			// Look for the social network's URL.
-			$network_url = get_theme_mod( 'creativity' . $network . '_link' );
-
-			// Only display the list item if a URL is set.
-			if ( ! empty( $network_url ) ) :
-				?>
-				<li class="social-icon <?php echo esc_attr( $network ); ?> mr-2">
-					<a href="<?php echo esc_url( $network_url ); ?>">
-						<?php
-						creativity_display_svg(
-							[
-								'icon'   => $network . '-square',
-								'width'  => '24',
-								'height' => '24',
-							]
-						);
-						?>
-						<span class="screen-reader-text">
-						<?php
-						/* translators: the social network name */
-						printf( esc_attr__( 'Link to %s', 'creativity_architect' ), ucwords( esc_html( $network ) ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- XSS OK.
-						?>
-						</span>
-					</a>
-				</li><!-- .social-icon -->
-				<?php
-			endif;
-		endforeach;
-		?>
-	</ul><!-- .social-icons -->
-	<?php
-}
-
-/**
- * Displays numeric pagination on archive pages.
- *
- * @author WebDevStudios
- *
- * @param array    $args  Array of params to customize output.
- * @param WP_Query $query The Query object; only passed if a custom WP_Query is used.
- */
-function creativity_display_numeric_pagination( $args = [], $query = null ) {
-	if ( ! $query ) {
-		global $wp_query;
-		$query = $wp_query;
-	}
-
-	// Make the pagination work on custom query loops.
-	$total_pages = isset( $query->max_num_pages ) ? $query->max_num_pages : 1;
-
-	// Set defaults.
-	$defaults = [
-		'prev_text' => '&laquo;',
-		'next_text' => '&raquo;',
-		'mid_size'  => 4,
-		'total'     => $total_pages,
-	];
-
-	// Parse args.
-	$args = wp_parse_args( $args, $defaults );
-
-	if ( null === paginate_links( $args ) ) {
-		return;
-	}
-	?>
-
-	<nav class="container pagination-container" aria-label="<?php esc_attr_e( 'numeric pagination', 'creativity_architect' ); ?>">
-		<?php echo paginate_links( $args ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- XSS OK. ?>
-	</nav>
-
-	<?php
-}
-
-/**
- * Displays the mobile menu with off-canvas background layer.
- *
- * @author WebDevStudios
- *
- * @return string An empty string if no menus are found at all.
- */
-function creativity_display_mobile_menu() {
-	// Bail if no mobile or primary menus are set.
-	if ( ! has_nav_menu( 'mobile' ) && ! has_nav_menu( 'primary' ) ) {
-		return '';
-	}
-
-	// Set a default menu location.
-	$menu_location = 'primary';
-
-	// If we have a mobile menu explicitly set, use it.
-	if ( has_nav_menu( 'mobile' ) ) {
-		$menu_location = 'mobile';
-	}
-	?>
-	<div class="off-canvas-screen"></div>
-	<nav class="off-canvas-container" aria-label="<?php esc_attr_e( 'Mobile Menu', 'creativity_architect' ); ?>" aria-hidden="true" tabindex="-1">
-		<?php
-		// Mobile menu args.
-		$mobile_args = [
-			'theme_location'  => $menu_location,
-			'container'       => 'div',
-			'container_class' => 'off-canvas-content',
-			'container_id'    => '',
-			'menu_id'         => 'site-mobile-menu',
-			'menu_class'      => 'mobile-menu',
-			'fallback_cb'     => false,
-			'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-		];
-
-		// Display the mobile menu.
-		wp_nav_menu( $mobile_args );
-		?>
-	</nav>
-	<?php
-}
-
-/**
- * Display the comments if the count is more than 0.
- *
- * @author WebDevStudios
- */
-function creativity_display_comments() {
-	if ( comments_open() || get_comments_number() ) {
-		comments_template();
-	}
-}

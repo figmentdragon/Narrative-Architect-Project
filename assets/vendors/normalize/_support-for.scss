@@ -7,7 +7,7 @@ $support-for: (
   opera:   -4,
   safari:  -4,
   '*':     -4,
-);
+) !default;
 
 // Set the current version number for all browsers. As of: 2016-04-30
 $support-for-current-browser-version: (
@@ -17,7 +17,7 @@ $support-for-current-browser-version: (
   ie:      11, // https://en.wikipedia.org/wiki/Internet_Explorer_versions
   opera:   36, // https://en.wikipedia.org/wiki/Opera_(web_browser)
   safari:  9,  // https://en.wikipedia.org/wiki/Safari_version_history
-);
+) !default;
 
 
 // support-for()

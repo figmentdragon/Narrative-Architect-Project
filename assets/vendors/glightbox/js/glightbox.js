@@ -530,14 +530,14 @@
 
   function getNextFocusElement() {
     var current = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : -1;
-    var buttons = document.querySelectorAll('.gbtn[data-taborder]:not(.disabled)');
+    var btns = document.querySelectorAll('.gbtn[data-taborder]:not(.disabled)');
 
-    if (!buttons.length) {
+    if (!btns.length) {
       return false;
     }
 
-    if (buttons.length == 1) {
-      return buttons[0];
+    if (btns.length == 1) {
+      return btns[0];
     }
 
     if (typeof current == 'string') {
@@ -546,13 +546,13 @@
 
     var newIndex = current < 0 ? 1 : current + 1;
 
-    if (newIndex > buttons.length) {
+    if (newIndex > btns.length) {
       newIndex = '1';
     }
 
     var orders = [];
-    each(buttons, function (button) {
-      orders.push(button.getAttribute('data-taborder'));
+    each(btns, function (btn) {
+      orders.push(btn.getAttribute('data-taborder'));
     });
     var nextOrders = orders.filter(function (el) {
       return el >= parseInt(newIndex);
@@ -584,9 +584,9 @@
           }
 
           event.preventDefault();
-          var buttons = document.querySelectorAll('.gbtn[data-taborder]');
+          var btns = document.querySelectorAll('.gbtn[data-taborder]');
 
-          if (!buttons || buttons.length <= 0) {
+          if (!btns || btns.length <= 0) {
             return;
           }
 

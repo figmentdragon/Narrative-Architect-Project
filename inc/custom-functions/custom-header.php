@@ -8,7 +8,7 @@
  *
  * @link https://developer.wordpress.org/themes/functionality/custom-headers/
  *
- * @package creativity_
+ * @package creativity
  */
 
 /**
@@ -81,6 +81,6 @@ endif;
 ** Customizer Styles
 */
 function creativity_panels_css() {
-     wp_enqueue_style('creativity-customizer-css', get_template_directory_uri() . '/src/css/customizer-style.css', array(), 'creativity_VERSION' );
+     wp_enqueue_style('creativity-customizer-css', get_template_directory_uri() . '/assets/css/customizer-style.css', array(), 'CREATIVITY_VERSION' );
 }
 add_action( 'customize_controls_enqueue_scripts', 'creativity_panels_css' );

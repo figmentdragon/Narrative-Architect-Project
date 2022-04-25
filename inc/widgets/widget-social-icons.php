@@ -1,197 +1,143 @@
 <?php
-/************************************************/
-## About me custom widget.
-/************************************************/
-class socialicon_widget extends WP_Widget {
+/**
+ * Social Icons Widget
+ *
+ * @package creativityarchitect
+ */
 
-	public function __construct() {
-		parent::__construct('social', /* Unique widget ID */
-			esc_html__('THEMENAE - Social Media URL', 'TheCreativityArchitect'), /* Widget title display in widget area. */
-			array( 'description' => esc_html__( 'Social media URL widget.', 'TheCreativityArchitect' ), ) /* Widget description */
+
+/**
+ * Adds Social Icons widget.
+ *
+ * @since 1.0
+ */
+class creativityarchitect_Social_Icons_Widget extends WP_Widget {
+
+	/**
+	 * Holds widget settings defaults, populated in constructor.
+	 *
+	 * @var array
+	 */
+	protected $defaults;
+
+	function __construct() {
+
+		$this->defaults = array(
+			'title'			=> '',
+			'content'		=> '',
+			'contentformat'	=> 1
+		);
+
+		$widget_ops = array(
+			'classname'   => 'ct-social-widget ctsocialwidget social-navigation',
+			'description' => esc_html__( 'Use this widget to add short information and Social Menu', 'creativityarchitect' ),
+		);
+
+		$control_ops = array(
+			'id_base' => 'ct-social',
+		);
+
+		parent::__construct(
+			'ct-social', // Base ID
+			esc_html__( 'CT: Social Icons', 'creativityarchitect' ), // Name
+			$widget_ops,
+			$control_ops
 		);
 	}
 
-	/**********************************************/
-	## Creating widget front-end
-	## This is where the action happens
-	/*********************************************/
-	public function widget( $args, $instance ) {
+	public function widget($args, $instance) {
+		// Get menu
+		$nav_menu = ! empty( $instance['nav_menu'] ) ? wp_get_nav_menu_object( $instance['nav_menu'] ) : false;
 
-		$title = isset($instance['title']) ? esc_html($instance['title']) : '' ;
-		$button_style = isset($instance['button_style']) ? esc_html($instance['button_style']) : '';
-		$fb_link      = isset($instance['fb_url']) ? esc_url($instance['fb_url']) : '';
-		$twitter_link = isset($instance['twitter_url']) ? esc_url($instance['twitter_url']) : '';
-		$insta_link   = isset($instance['instagram_url']) ? esc_url($instance['instagram_url']) : '';
-		$github_link   = isset($instance['github_url']) ? esc_url($instance['github_url']) : '';
-		$linked_link  = isset($instance['linkedin_url']) ? esc_url($instance['linkedin_url']) : '';
-		$ytube_link   = isset($instance['youtube_url']) ? esc_url($instance['youtube_url']) : '';
-		$pint_link    = isset($instance['pinterest_url']) ? esc_url($instance['pinterest_url']) : '';
-		$drib_link    = isset($instance['dribble_url']) ? esc_url($instance['dribble_url']) : '';
+		if ( !$nav_menu )
+			return;
 
-		/* This is where you run the code and display the output */
-		$social_link_output ='<nav class="social-navigation '.$button_style.'"><ul>';
+		/** This filter is documented in wp-includes/default-widgets.php */
+		$instance['title'] = apply_filters( 'widget_title', empty( $instance['title'] ) ? '' : $instance['title'], $instance, $this->id_base );
 
-		if($fb_link):
-			$social_link_output .='<li><a href="'.$fb_link.'"><span class="fa fa-facebook"></span></a></li>';
+		echo $args['before_widget'];
 
-		endif;
+		if ( !empty($instance['title']) )
+			echo $args['before_title'] . $instance['title'] . $args['after_title'];
 
-		if($twitter_link):
-			$social_link_output .='<li><a href="'.$twitter_link.'"><span class="fa fa-twitter"></span></a></li>';
+		$nav_menu_args = array(
+			'fallback_cb' => '',
+			'menu_class'  => 'social-links-menu',
+			'depth'       => 1,
+			'link_before' => '<span class="screen-reader-text">',
+			'link_after'  => '</span>' . creativityarchitect_get_svg( array( 'icon' => 'chain' ) ),
+			'menu'        => $nav_menu
+		);
 
-		endif;
+		/**
+		 * Filter the arguments for the Custom Menu widget.
+		 *
+		 * @since 4.2.0
+		 *
+		 * @param array    $nav_menu_args {
+		 *     An array of arguments passed to wp_nav_menu() to retrieve a custom menu.
+		 *
+		 *     @type callback|bool $fallback_cb Callback to fire if the menu doesn't exist. Default empty.
+		 *     @type mixed         $menu        Menu ID, slug, or name.
+		 * }
+		 * @param stdClass $nav_menu      Nav menu object for the current menu.
+		 * @param array    $args          Display arguments for the current widget.
+		 */
+		wp_nav_menu( apply_filters( 'widget_nav_menu_args', $nav_menu_args, $nav_menu, $args ) );
 
-		if($insta_link):
-			$social_link_output .='<li><a href="'.$insta_link.'"><span class="fa fa-instagram"></span></a></li>';
-
-		endif;
-
-		if($github_link):
-			$social_link_output .='<li><a href="'.$github_link.'"><span class="fa fa-github"></span></a></li>';
-
-		endif;
-
-		if($linked_link):
-			$social_link_output .='<li><a href="'.$linked_link.'"><span class="fa fa-linkedin"></span></a></li>';
-
-		endif;
-
-		if($ytube_link):
-			$social_link_output .='<li><a href="'.$ytube_link.'"><span class="fa fa-youtube"></span></a></li>';
-
-		endif;
-
-		if($pint_link):
-			$social_link_output .='<li><a href="'.$pint_link.'"><span class="fa fa-pinterest-p"></span></a></li>';
-		endif;
-
-		if($drib_link):
-			$social_link_output .='<li><a href="'.$drib_link.'"><span class="fa fa-dribbble"></span></a></li>';
-
-		endif;
-
-		$social_link_output .= '</ul></nav>';
-
-
-		echo $args['before_widget']; /* before and after widget arguments are defined by themes */
-		if ( ! empty( $title ) )
-		echo $args['before_title'] . $title . $args['after_title'];
-
-		echo $social_link_output;
 		echo $args['after_widget'];
 	}
 
-	/****************************************/
-	## Widget Backend
-	/****************************************/
-
-	public function form( $instance ) {
-
-		$title               = isset($instance['title']) ? esc_attr($instance['title']) : '' ;
-		$button_style        = isset($instance['button_style']) ? esc_attr($instance['button_style']) : '';
-		$fb_link      = isset($instance['fb_url']) ? esc_url($instance['fb_url']) : '';
-		$twitter_link = isset($instance['twitter_url']) ? esc_url($instance['twitter_url']) : '';
-		$insta_link   = isset($instance['instagram_url']) ? esc_url($instance['instagram_url']) : '';
-		$github_link   = isset($instance['github_url']) ? esc_url($instance['github_url']) : '';
-		$linked_link  = isset($instance['linkedin_url']) ? esc_url($instance['linkedin_url']) : '';
-		$ytube_link   = isset($instance['youtube_url']) ? esc_url($instance['youtube_url']) : '';
-		$pint_link    = isset($instance['pinterest_url']) ? esc_url($instance['pinterest_url']) : '';
-		$drib_link    = isset($instance['dribble_url']) ? esc_url($instance['dribble_url']) : '';
-
-	?>
-
-	<p>
-		<label for="<?php echo esc_attr($this->get_field_id( 'title' )); ?>"><?php esc_html_e( 'Title', 'TheCreativityArchitect' ); ?></label>
-		<input class="widefat" id="<?php echo esc_attr($this->get_field_id('title')); ?>" name="<?php echo esc_attr($this->get_field_name('title')); ?>" type="text" value="<?php echo $title; ?>" />
-	</p>
-
-	<p>
-		<label for="<?php echo esc_attr($this->get_field_id( 'button_style' )); ?>">
-			<?php esc_html_e( 'Social Button Style', 'TheCreativityArchitect' ); ?>
-		</label>
-		<select class="widefat" id="<?php echo esc_attr($this->get_field_id( 'button_style')); ?>" name="<?php echo esc_attr($this->get_field_name( 'button_style')); ?>" style="width:100%;">
-			<option value="<?php echo esc_attr('default-colors')?>" <?php selected( $button_style, 'default-colors' );?>><?php esc_html_e( 'Default Color', 'TheCreativityArchitect' ) ?></option>
-			<option value="<?php echo esc_attr('theme-colors')?>" <?php  selected( $button_style, 'theme-colors' ); ?>><?php esc_html_e( 'Theme Color', 'TheCreativityArchitect' ) ?></option>
-			<option value="<?php echo esc_attr('original-colors')?>" <?php selected( $button_style, 'original-colors' );  ?>><?php esc_html_e( 'Icon Original Color', 'TheCreativityArchitect' ) ?></option>
-		</select>
-	</p>
-
-	<p>
-		<label for="<?php echo esc_attr($this->get_field_id( 'fb_url' )); ?>"><?php esc_html_e( 'Facebook URL', 'TheCreativityArchitect' ); ?></label>
-		<input class="widefat" id="<?php echo esc_attr($this->get_field_id( 'fb_url' )); ?>" name="<?php echo esc_attr($this->get_field_name( 'fb_url')); ?>" type="text" value="<?php echo $fb_link; ?>" />
-	</p>
-	<p>
-		<label for="<?php echo esc_attr($this->get_field_id('twitter_url')); ?>"><?php esc_html_e('Twitter URL', 'TheCreativityArchitect' ); ?></label>
-		<input class="widefat" id="<?php echo esc_attr($this->get_field_id( 'twitter_url' )); ?>" name="<?php echo esc_attr($this->get_field_name( 'twitter_url' )); ?>" type="text" value="<?php echo $twitter_link; ?>" />
-	</p>
-	<p>
-		<label for="<?php echo esc_attr($this->get_field_id('instagram_url')); ?>"><?php esc_html_e( 'Instagram URL', 'TheCreativityArchitect' ); ?></label>
-		<input class="widefat" id="<?php echo esc_attr($this->get_field_id( 'instagram_url')); ?>" name="<?php echo esc_attr($this->get_field_name( 'instagram_url')); ?>" type="text" value="<?php echo $insta_link; ?>" />
-	</p>
-
-	<p>
-		<label for="<?php echo esc_attr($this->get_field_id( 'linkedin_url')); ?>"><?php esc_html_e( 'Linkedin URL', 'TheCreativityArchitect' ); ?></label>
-		<input class="widefat" id="<?php echo esc_attr($this->get_field_id( 'linkedin_url')); ?>" name="<?php echo esc_attr($this->get_field_name( 'linkedin_url')); ?>" type="text" value="<?php echo $linked_link; ?>" />
-	</p>
-
-
-	<p>
-		<label for="<?php echo esc_attr($this->get_field_id( 'github_url' )); ?>"><?php esc_html_e( 'GitHub URL', 'TheCreativityArchitect' ); ?></label>
-		<input class="widefat" id="<?php echo esc_attr($this->get_field_id( 'github_url')); ?>" name="<?php echo esc_attr($this->get_field_name( 'github_url')); ?>" type="text" value="<?php echo $github_link; ?>" />
-	</p>
-
-	<p>
-		<label for="<?php echo esc_attr($this->get_field_id( 'youtube_url' )); ?>"><?php esc_html_e( 'YouTube URL', 'TheCreativityArchitect' ); ?></label>
-		<input class="widefat" id="<?php echo esc_attr($this->get_field_id( 'youtube_url' )); ?>" name="<?php echo esc_attr($this->get_field_name( 'youtube_url' )); ?>" type="text" value="<?php echo $ytube_link; ?>" />
-	</p>
-
-	<p>
-		<label for="<?php echo esc_attr($this->get_field_id( 'pinterest_url' )); ?>"><?php esc_html_e( 'Pinterest URL', 'TheCreativityArchitect' ); ?></label>
-		<input class="widefat" id="<?php echo esc_attr($this->get_field_id( 'pinterest_url')); ?>" name="<?php echo esc_attr($this->get_field_name( 'pinterest_url' )); ?>" type="text" value="<?php echo $pint_link; ?>" />
-	</p>
-
-	<p>
-		<label for="<?php echo esc_attr($this->get_field_id( 'dribble_url' )); ?>"><?php esc_html_e('Dribble URL', 'TheCreativityArchitect' ); ?></label>
-		<input class="widefat" id="<?php echo esc_attr($this->get_field_id( 'dribble_url')); ?>" name="<?php echo esc_attr($this->get_field_name( 'dribble_url')); ?>" type="text" value="<?php echo $drib_link ; ?>" />
-	</p>
-
-
-	<?php
-
-	}
-
-	/**********************************************************/
-	## Updating widget replacing old instances with new.
-	/**********************************************************/
-
 	public function update( $new_instance, $old_instance ) {
 		$instance = array();
-		$instance['title'] = ( ! empty( $new_instance['title'] ) ) ? esc_html( $new_instance['title'] ) : '';
-
-		$instance['button_style'] = ( ! empty( $new_instance['button_style'] ) ) ? esc_html( $new_instance['button_style'] ) : '';
-
-		$instance['fb_url'] = ( ! empty( $new_instance['fb_url'] ) ) ? esc_url( $new_instance['fb_url'] ) : '';
-
-		$instance['twitter_url'] = ( ! empty( $new_instance['twitter_url'] ) ) ? esc_url( $new_instance['twitter_url'] ) : '';
-
-		$instance['github_url'] = ( ! empty( $new_instance['github_url'] ) ) ? esc_url( $new_instance['github_url'] ) : '';
-
-		$instance['instagram_url'] = ( ! empty( $new_instance['instagram_url'] ) ) ? esc_url( $new_instance['instagram_url'] ) : '';
-
-		$instance['linkedin_url'] = ( ! empty( $new_instance['linkedin_url'] ) ) ? esc_url( $new_instance['linkedin_url'] ) : '';
-
-		$instance['youtube_url'] = ( ! empty( $new_instance['youtube_url'] ) ) ? esc_url( $new_instance['youtube_url'] ) : '';
-
-		$instance['pinterest_url'] = ( ! empty( $new_instance['pinterest_url'] ) ) ? esc_url( $new_instance['pinterest_url'] ) : '';
-
-		$instance['dribble_url'] = ( ! empty( $new_instance['dribble_url'] ) ) ? esc_url( $new_instance['dribble_url'] ) : '';
-
+		if ( ! empty( $new_instance['title'] ) ) {
+			$instance['title'] = strip_tags( stripslashes($new_instance['title']) );
+		}
+		if ( ! empty( $new_instance['nav_menu'] ) ) {
+			$instance['nav_menu'] = (int) $new_instance['nav_menu'];
+		}
 		return $instance;
 	}
-} /* class end */
 
-// Register and load the widget
-register_widget( 'socialicon_widget' );
+	public function form( $instance ) {
+		$title    = isset( $instance['title'] ) ? $instance['title'] : '';
+		$nav_menu = isset( $instance['nav_menu'] ) ? $instance['nav_menu'] : '';
 
+		// Get menus
+		$menus = wp_get_nav_menus();
 
-?>
+		// If no menus exists, direct the user to go and create some.
+		if ( !$menus ) {
+			echo '<p>'. sprintf( __('No menus have been created yet. <a href="%s">Create some</a>.', 'creativityarchitect' ), esc_url( admin_url('nav-menus.php') ) ) . '</p>';
+			return;
+		}
+		?>
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id('title') ); ?>"><?php esc_html_e( 'Title', 'creativityarchitect' ); ?></label>
+			<input type="text" class="widefat" id="<?php echo esc_attr( $this->get_field_id('title') ); ?>" name="<?php echo esc_attr( $this->get_field_name('title') ); ?>" value="<?php echo esc_attr( $title ); ?>" />
+		</p>
+		<p>
+			<label for="<?php echo esc_attr( $this->get_field_id('nav_menu') ); ?>"><?php esc_html_e( 'Select Menu:', 'creativityarchitect' ); ?></label>
+			<select id="<?php echo esc_attr( $this->get_field_id('nav_menu') ); ?>" name="<?php echo esc_attr( $this->get_field_name('nav_menu') ); ?>">
+				<option value="0"><?php esc_html_e( '&mdash; Select &mdash;', 'creativityarchitect' ); ?></option>
+		<?php
+			foreach ( $menus as $menu ) {
+				echo '<option value="' . esc_attr( $menu->term_id ) . '"'
+					. selected( $nav_menu, $menu->term_id, false )
+					. '>'. esc_html( $menu->name ) . '</option>';
+			}
+		?>
+			</select>
+		</p>
+		<?php
+	}
+
+}
+
+/**
+ * Initialize Social Icons Widget
+ */
+function creativityarchitect_social_icons_init() {
+	register_widget( 'creativityarchitect_Social_Icons_Widget' );
+}
+add_action( 'widgets_init', 'creativityarchitect_social_icons_init' );

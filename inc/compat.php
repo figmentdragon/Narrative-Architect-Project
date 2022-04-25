@@ -2,7 +2,7 @@
 /**
  * Backwards compatibility fills for older WP versions.
  *
- * @package creativity_ architect
+ * @package creativity architect
  */
 
 /**
