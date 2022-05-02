@@ -1,8 +1,0 @@
-/* ____________________________________ BORDERS */
-  $base-width                    : 1px !default;
-  $base-radius                   : .95rem !default;
-  $border: shade($accent, $border-percentage);
-
-  @import "borders/border-width";
-  @import "borders/border-radius";
-  @import "borders/borders";
