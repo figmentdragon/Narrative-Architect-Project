@@ -1,140 +1,133 @@
 <?php
 /**
- * Custom functions that act independently of the theme templates.
+ * Extra functions for this theme.
  *
- * Eventually, some of the functionality here could be replaced by core features.
- *
- * @package creativity_ architect
+ * @package THEMENAE
  */
 
-/**
- * Returns true if a blog has more than 1 category, else false.
- *
- * @author WebDevStudios
- *
- * @return bool Whether the blog has more than one category.
- */
-function creativity_categorized_blog() {
-	$category_count = get_transient( 'creativity_categories' );
-
-	if ( false === $category_count ) {
-		$category_count_query = get_categories( [ 'fields' => 'count' ] );
-
-		$category_count = isset( $category_count_query[0] ) ? (int) $category_count_query[0] : 0;
-
-		set_transient( 'creativity_categories', $category_count );
+function page_menu_args( $args ) {
+	if ( ! isset( $args['show_home'] ) ) {
+		$args['show_home'] = true;
+		return $args;
 	}
-
-	return $category_count > 1;
 }
 
-/**
- * Get an attachment ID from it's URL.
- *
- * @author WebDevStudios
- *
- * @param string $attachment_url The URL of the attachment.
- *
- * @return int    The attachment ID.
- */
-function creativity_get_attachment_id_from_url( $attachment_url = '' ) {
-	global $wpdb;
-
-	$attachment_id = false;
-
-	// If there is no url, return.
-	if ( '' === $attachment_url ) {
-		return false;
+if ( ! is_admin() ) {
+	function new_excerpt_length( $length ) {
+		return 70;
 	}
-
-	// Get the upload directory paths.
-	$upload_dir_paths = wp_upload_dir();
-
-	// Make sure the upload path base directory exists in the attachment URL, to verify that we're working with a media library image.
-	if ( false !== strpos( $attachment_url, $upload_dir_paths['baseurl'] ) ) {
-
-		// If this is the URL of an auto-generated thumbnail, get the URL of the original image.
-		$attachment_url = preg_replace( '/-\d+x\d+(?=\.(jpg|jpeg|png|gif)$)/i', '', $attachment_url );
-
-		// Remove the upload path base directory from the attachment URL.
-		$attachment_url = str_replace( $upload_dir_paths['baseurl'] . '/', '', $attachment_url );
-
-		// Do something with $result.
-		// phpcs:ignore phpcs:ignore WordPress.DB -- db call ok, cache ok, placeholder ok.
-		$attachment_id = $wpdb->get_var( $wpdb->prepare( "SELECT wposts.ID FROM {$wpdb->posts} wposts, {$wpdb->postmeta} wpostmeta WHERE wposts.ID = wpostmeta.post_id AND wpostmeta.meta_key = '_wp_attached_file' AND wpostmeta.meta_value = %s AND wposts.post_type = 'attachment'", $attachment_url ) );
+	function read_more_custom_excerpt( $text ) {
+		if ( strpos( $text, '[&hellip;]' ) ) {
+				$excerpt = str_replace( '[&hellip;]', '<a class="more-link" href="' . get_permalink() . '">' . __( 'Read More', 'lite' ) . '</a>', $text );
+		} else {
+			$excerpt = $text . '<a class="more-link" href="' . get_permalink() . '">' . __( 'Read More', 'THEMENAE' ) . '</a>';
+		}
+		return $excerpt;
 	}
-
-	return $attachment_id;
+  function excerpt_read_more_link( $more ) {
+    if ( !is_admin() ) {
+      global $post;
+      return ' <a href="' . esc_url( get_permalink( $post->ID ) ) . '" class="more-link">' . sprintf( __( '...%s', 'TheCreativityArchitect' ), '<span class="screen-reader-text">  ' . esc_html ( get_the_title() ) . '</span>' ) . '</a>';
+    }
+  }
+  function read_more_link() {
+    if ( !is_admin() ) {
+      return ' <a href="' . esc_url( get_permalink() ) . '" class="more-link">' . sprintf( __( '...%s', 'TheCreativityArchitect' ), '<span class="screen-reader-text">  ' . esc_html( get_the_title() ) . '</span>' ) . '</a>';
+    }
+  }
 }
 
-/**
- * Retrieve the URL of the custom logo uploaded, if one exists.
- *
- * @author Corey Collins
- */
-function creativity_get_custom_logo_url() {
-
-	$custom_logo_id = get_theme_mod( 'custom_logo' );
-
-	if ( ! $custom_logo_id ) {
-		return;
+function nav_description( $item_output, $item, $depth, $args ) {
+	if ( ! empty( $item->description ) ) {
+		$item_output = str_replace( $args->link_after . '</a>', '<span class="menu-item-description">' . $item->description . '</span>' . $args->link_after . '</a>', $item_output );
 	}
-
-	$custom_logo_image = wp_get_attachment_image_src( $custom_logo_id, 'full' );
-
-	if ( ! isset( $custom_logo_image[0] ) ) {
-		return;
-	}
-
-	return $custom_logo_image[0];
+	return $item_output;
 }
 
-// Remove Admin bar
-function remove_admin_bar() {
-    return false;
+function admin_style() {
+	echo '<style>
+	.notice {position: relative;}
+	a.notice-dismiss {text-decoration:none;}
+	</style>';
 }
 
-// Remove thumbnail width and height dimensions that prevent fluid images in the_thumbnail
-function remove_thumbnail_dimensions( $html ) {
-    $html = preg_replace( '/(width|height)=\"\d*\"\s/', '', $html );
-    return $html;
+function queryvars( $qvars ) {
+	$qvars[] = 'tk'; // token key for editing previously made stuff
+	$qvars[] = 'wid'; // post id for editing
+	$qvars[] = 'random'; // random flag
+	$qvars[] = 'elink'; // edit link flag
+	$qvars[] =  'ispre'; // another preview flag
+
+	return $qvars;
 }
 
-// Remove the width and height attributes from inserted images
-function remove_width_attribute( $html ) {
-    $html = preg_replace( '/(width|height)="\d*"\s/', "", $html );
-    return $html;
+function rewrite_rules() {
+	// for sending to random item
+   add_rewrite_rule('random/?$', 'index.php?random=1','top');
+
+   // for edit link requests
+   add_rewrite_rule( '^get-edit-link/([^/]+)/?',  'index.php?elink=1&wid=$matches[1]','top');
+
 }
 
-// Remove Injected classes, ID's and Page ID's from Navigation <li> items
-function my_css_attributes_filter( $var ) {
-    return is_array( $var ) ? array() : '';
-}
+function save_post_random_check( $post_id ) {
+    // verify post is not a revision and that the post slug is "random"
 
-// Remove invalid rel attribute values in the categorylist
-function remove_category_rel_from_category_list( $thelist ) {
-    return str_replace( 'rel="category tag"', 'rel="tag"', $thelist );
-}
+    $new_post = get_post( $post_id );
+    if ( ! wp_is_post_revision( $post_id ) and  $new_post->post_name == 'random' ) {
+        // unhook this function to prevent infinite looping
+        remove_action( 'save_post', 'save_post_random_check' );
 
-// Remove wp_head() injected Recent Comment styles
-function my_remove_recent_comments_style() {
-    global $wp_widget_factory;
+        // update the post slug
+        wp_update_post( array(
+            'ID' => $post_id,
+            'post_name' => 'randomly' // do your thing here
+        ));
 
-    if ( isset( $wp_widget_factory->widgets['WP_Widget_Recent_Comments'] ) ) {
-        remove_action( 'wp_head', array(
-            $wp_widget_factory->widgets['WP_Widget_Recent_Comments'],
-            'recent_comments_style'
-        ) );
+        // re-hook this function
+        add_action( 'save_post', 'save_post_random_check' );
+
     }
 }
 
-//Insert Generic Login and Password for Security
-function generic_error_msgs()
-{
-   //insert how many msgs you want as an array item. it will be shown randomly
-	$custom_error_msgs = array(
-		'Login e/ou senha inválido',
-	);
-  //get random array item to show
-	return $custom_error_msgs[array_rand($custom_error_msgs)];
+function comment_notification_recipients( $emails, $comment_id ) {
+  $comment = get_comment( $comment_id );
+  if ( ok_to_notify( $comment ) ) {
+    $emails[] = get_post_meta(  $comment->comment_post_ID, 'wEmail', 1 );
+  }
+  return ( $emails );
+}
+
+function comment_notification_text( $notify_message, $comment_id ){
+    // get the current comment
+    $comment = get_comment( $comment_id );
+
+    // change notification only for recipient who is the author of this an item (e.g. skip for admins)
+    if ( ok_to_notify( $comment ) ) {
+    	// get post data
+    	$post = get_post( $comment->comment_post_ID );
+
+		// don't modify trackbacks or pingbacks
+		if ( '' == $comment->comment_type ){
+			// build the new message text
+			$notify_message  = sprintf( __( 'New comment on  "%s" published at "%s"' ), $post->post_title, get_bloginfo( 'name' ) ) . "\r\n\r\n----------------------------------------\r\n";
+			$notify_message .= sprintf( __('Author : %1$s'), $comment->comment_author ) . "\r\n";
+			$notify_message .= sprintf( __('E-mail : %s'), $comment->comment_author_email ) . "\r\n";
+			$notify_message .= sprintf( __('URL    : %s'), $comment->comment_author_url ) . "\r\n";
+			$notify_message .= sprintf( __('Comment Link: %s'), get_comment_link( $comment_id ) ) . "\r\n\r\n----------------------------------------\r\n";
+			$notify_message .= __('Comment: ') . "\r\n" . $comment->comment_content . "\r\n\r\n----------------------------------------\r\n\r\n";
+
+			$notify_message .= __('See all comments: ') . "\r\n";
+			$notify_message .= get_permalink($comment->comment_post_ID) . "#comments\r\n\r\n";
+
+		}
+	}
+
+	// return the notification text
+    return $notify_message;
+}
+
+function ok_to_notify( $comment ) {
+	// check if theme options are set to use comments and that the post associated with comment has the notify flag activated
+	return ( sort_option('allow_comments') and get_post_meta( $comment->comment_post_ID, 'wCommentNotify', 1 ) );
 }

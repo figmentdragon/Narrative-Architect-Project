@@ -4,7 +4,7 @@
  *
  * @link https://jetpack.com/
  *
- * @package creativity_
+ * @package creativity_architect
  */
 
 /**
@@ -14,16 +14,15 @@
  * See: https://jetpack.com/support/responsive-videos/
  * See: https://jetpack.com/support/content-options/
  */
-function creativity_jetpack_setup() {
-	// Add theme support for Infinite Scroll.
-	add_theme_support(
-		'infinite-scroll',
-		array(
-			'container' => 'main',
-			'render'    => 'creativity_infinite_scroll_render',
-			'footer'    => 'page',
-		)
-	);
+function creativityarchitect_jetpack_setup() {
+	if ( function_exists( 'add_theme_support' ) ) {
+	   add_theme_support( 'infinite-scroll',
+        array(
+			    'container' => 'main',
+			     'render'    => 'creativityarchitect_infinite_scroll_render',
+			     'footer'    => 'page',
+         )
+       );
 
 	// Add theme support for Responsive Videos.
 	add_theme_support( 'jetpack-responsive-videos' );
@@ -33,7 +32,7 @@ function creativity_jetpack_setup() {
 		'jetpack-content-options',
 		array(
 			'post-details' => array(
-				'stylesheet' => 'creativity-style',
+				'stylesheet' => 'creativityarchitect-style',
 				'date'       => '.posted-on',
 				'categories' => '.cat-links',
 				'tags'       => '.tags-links',
@@ -48,18 +47,20 @@ function creativity_jetpack_setup() {
 		)
 	);
 }
-add_action( 'after_setup_theme', 'creativity_jetpack_setup' );
+add_action( 'after_setup_theme', 'creativityarchitect_jetpack_setup' );
 
-/**
- * Custom render function for Infinite Scroll.
- */
-function creativity_infinite_scroll_render() {
-	while ( have_posts() ) {
-		the_post();
-		if ( is_search() ) :
-			get_template_part( 'template-parts/content', 'search' );
-		else :
-			get_template_part( 'template-parts/content', get_post_type() );
-		endif;
+if ( ! function_exists( 'creativityarchitect_infinite_scroll_render' ) ) :
+	/**
+	 * Custom render function for Infinite Scroll.
+	 */
+	function creativityarchitect_infinite_scroll_render() {
+		while ( have_posts() ) {
+			the_post();
+			if ( is_search() ) :
+				get_template_part( 'template-parts/content', 'search' );
+			else :
+				get_template_part( 'template-parts/content', get_post_type() );
+			endif;
+		}
 	}
-}
+endif;

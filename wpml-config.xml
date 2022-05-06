@@ -1,0 +1,11 @@
+<wpml-config>
+<admin-texts>
+<key name="theme_mods_creativity">
+    <key name="creativity_service_title" />
+    <key name="creativity_portfolio_title" />
+    <key name="creativity_client_title" />
+    <key name="creativity_contact_title" />
+    <key name="creativity_blog_title" />
+</key>
+</admin-texts>
+</wpml-config>

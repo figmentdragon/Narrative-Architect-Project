@@ -4,27 +4,9 @@
  *
  * A place to put hooks and filters that aren't necessarily template tags.
  *
- * @package creativity_ architect
+ * @package creativity architect
  */
 
-
-/** Add page slug to body class, love this - Credit: Starkers Wordpress Theme
-*/
-function add_slug_to_body_class( $classes ) {
-     global $post;
-     if ( is_home() ) {
-         $key = array_search( 'blog', $classes, true );
-         if ( $key > -1 ) {
-             unset( $classes[$key] );
-         }
-     } elseif ( is_page() ) {
-         $classes[] = sanitize_html_class( $post->post_name );
-     } elseif ( is_singular() ) {
-         $classes[] = sanitize_html_class( $post->post_name );
-     }
-
-     return $classes;
- }
 /**
  * Adds custom classes to the array of body classes.
  *
@@ -34,7 +16,7 @@ function add_slug_to_body_class( $classes ) {
  *
  * @return array Body classes.
  */
-function creativity_body_classes( $classes ) {
+function body_classes( $classes ) {
 	// Allows for incorrect snake case like is_IE to be used without throwing errors.
 	global $is_IE, $is_edge, $is_safari;
 
@@ -89,21 +71,26 @@ function creativity_body_classes( $classes ) {
 	return $classes;
 }
 
+add_filter( 'body_class', 'body_classes' );
+
 /**
- * Flush out the transients used in creativity_categorized_blog.
+ * Flush out the transients used in categorized_blog.
  *
  * @author WebDevStudios
  *
  * @return bool Whether or not transients were deleted.
  */
-function creativity_category_transient_flusher() {
+function category_transient_flusher() {
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
 		return false;
 	}
 
 	// Like, beat it. Dig?
-	return delete_transient( 'creativity_categories' );
+	return delete_transient( 'categories' );
 }
+
+add_action( 'delete_category', 'category_transient_flusher' );
+add_action( 'save_post', 'category_transient_flusher' );
 
 /**
  * Customize "Read More" string on <!-- more --> with the_content();
@@ -112,9 +99,11 @@ function creativity_category_transient_flusher() {
  *
  * @return string Read more link.
  */
-function creativity_content_more_link() {
-	return ' <a class="more-link" href="' . get_permalink() . '">' . esc_html__( 'Read More', 'creativity_architect' ) . '...</a>';
+function content_more_link() {
+	return ' <a class="more-link" href="' . get_permalink() . '">' . esc_html__( 'Read More', 'creativityarchitect' ) . '...</a>';
 }
+
+add_filter( 'the_content_more_link', 'content_more_link' );
 
 /**
  * Customize the [...] on the_excerpt();
@@ -125,40 +114,11 @@ function creativity_content_more_link() {
  *
  * @return string Read more link.
  */
-function creativity_excerpt_more( $more ) {
-	return sprintf( ' <a class="more-link" href="%1$s">%2$s</a>', get_permalink( get_the_ID() ), esc_html__( 'Read more...', 'creativity_architect' ) );
-}
-// Create the Custom Excerpts callback
-function creativity_wp_excerpt( $length_callback = '', $more_callback = '' ) {
-    global $post;
-    if ( function_exists( $length_callback ) ) {
-        add_filter( 'excerpt_length', $length_callback );
-    }
-    if ( function_exists( $more_callback ) ) {
-        add_filter( 'excerpt_more', $more_callback );
-    }
-    $output = get_the_excerpt();
-    $output = apply_filters( 'wptexturize', $output );
-    $output = apply_filters( 'convert_chars', $output );
-    $output = '<p>' . $output . '</p>';
-    echo esc_html( $output );
+function excerpt_more( $more ) {
+	return sprintf( ' <a class="more-link" href="%1$s">%2$s</a>', get_permalink( get_the_ID() ), esc_html__( 'Read more...', 'creativityarchitect' ) );
 }
 
-// Create 20 Word Callback for Index page Excerpts, call using creativity_wp_excerpt('creativity_wp_index');
-function creativity_wp_index( $length ) {
-    return 20;
-}
-
-// Create 40 Word Callback for Custom Post Excerpts, call using creativity_wp_excerpt('creativity_wp_custom_post');
-function creativity_wp_custom_post( $length ) {
-    return 40;
-}
-
-// Custom View Article link to Post
-function creativity_view_article( $more ) {
-    global $post;
-    return '... <a class="view-article" href="' . get_permalink( $post->ID ) . '">' . esc_html_e( 'View Article', 'creativity' ) . '</a>';
-}
+add_filter( 'excerpt_more', 'excerpt_more' );
 
 /**
  * Filters WYSIWYG content with the_content filter.
@@ -169,9 +129,11 @@ function creativity_view_article( $more ) {
  *
  * @return string|bool Content string if content exists, else empty.
  */
-function creativity_get_the_content( $content ) {
+function get_the_content( $content ) {
 	return ! empty( $content ) ? $content : false;
 }
+
+add_filter( 'the_content', 'get_the_content', 20 );
 
 /**
  * Enable custom mime types.
@@ -182,12 +144,79 @@ function creativity_get_the_content( $content ) {
  *
  * @return array Mime types.
  */
-function creativity_custom_mime_types( $mimes ) {
+function custom_mime_types( $mimes ) {
 	$mimes['svg']  = 'image/svg+xml';
 	$mimes['svgz'] = 'image/svg+xml';
 
 	return $mimes;
 }
+
+add_filter( 'upload_mimes', 'custom_mime_types' );
+
+/**
+ * Add SVG definitions to footer.
+ *
+ * @author WebDevStudios
+ */
+function include_svg_icons() {
+	// Define SVG sprite file.
+	$svg_icons = get_template_directory() . '/build/images/icons/sprite.svg';
+
+	// If it exists, include it.
+	if ( file_exists( $svg_icons ) ) {
+		echo '<div class="svg-sprite-wrapper">';
+		require_once $svg_icons;
+		echo '</div>';
+	}
+}
+
+add_action( 'wp_footer', 'include_svg_icons', 9999 );
+
+/**
+ * Display the customizer header scripts.
+ *
+ * @author Greg Rickaby
+ *
+ * @return string Header scripts.
+ */
+function display_customizer_header_scripts() {
+	// Check for header scripts.
+	$scripts = get_theme_mod( 'header_scripts' );
+
+	// None? Bail...
+	if ( ! $scripts ) {
+		return false;
+	}
+
+	// Otherwise, echo the scripts!
+	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- XSS OK.
+	echo get_the_content( $scripts );
+}
+
+add_action( 'wp_head', 'display_customizer_header_scripts', 999 );
+
+/**
+ * Display the customizer footer scripts.
+ *
+ * @author Greg Rickaby
+ *
+ * @return string Footer scripts.
+ */
+function display_customizer_footer_scripts() {
+	// Check for footer scripts.
+	$scripts = get_theme_mod( 'footer_scripts' );
+
+	// None? Bail...
+	if ( ! $scripts ) {
+		return false;
+	}
+
+	// Otherwise, echo the scripts!
+	// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- XSS OK.
+	echo get_the_content( $scripts );
+}
+
+add_action( 'wp_footer', 'display_customizer_footer_scripts', 999 );
 
 /**
  * Adds OG tags to the head for better social sharing.
@@ -196,7 +225,7 @@ function creativity_custom_mime_types( $mimes ) {
  *
  * @return string An empty string if Yoast is not found, otherwise a block of meta tag HTML.
  */
-function creativity_add_og_tags() {
+function add_og_tags() {
 	// Bail if Yoast is installed, since it will handle things.
 	if ( class_exists( 'WPSEO_Options' ) ) {
 		return '';
@@ -220,7 +249,7 @@ function creativity_add_og_tags() {
 	$default_url = get_permalink();
 
 	// Set our base description.
-	$default_base_description = ( get_bloginfo( 'description' ) ) ? get_bloginfo( 'description' ) : esc_html__( 'Visit our website to learn more.', 'creativity_architect' );
+	$default_base_description = ( get_bloginfo( 'description' ) ) ? get_bloginfo( 'description' ) : esc_html__( 'Visit our website to learn more.', 'creativityarchitect' );
 
 	// Set the card type.
 	$default_type = 'article';
@@ -260,13 +289,13 @@ function creativity_add_og_tags() {
 
 		$term_name      = single_term_title( '', false );
 		$card_title     = $term_name . ' - ' . $default_title;
-		$specify        = ( is_category() ) ? esc_html__( 'categorized in', 'creativity_architect' ) : esc_html__( 'tagged with', 'creativity_architect' );
+		$specify        = ( is_category() ) ? esc_html__( 'categorized in', 'creativityarchitect' ) : esc_html__( 'tagged with', 'creativityarchitect' );
 		$queried_object = get_queried_object();
 		$card_url       = get_term_link( $queried_object );
 		$card_type      = 'website';
 
 		// Translators: get the term name.
-		$card_long_description = sprintf( esc_html__( 'Posts %1$s %2$s.', 'creativity_architect' ), $specify, $term_name );
+		$card_long_description = sprintf( esc_html__( 'Posts %1$s %2$s.', 'creativityarchitect' ), $specify, $term_name );
 		$card_description      = $card_long_description;
 	}
 
@@ -279,7 +308,7 @@ function creativity_add_og_tags() {
 		$card_type   = 'website';
 
 		// Translators: get the search term.
-		$card_long_description = sprintf( esc_html__( 'Search results for %s.', 'creativity_architect' ), $search_term );
+		$card_long_description = sprintf( esc_html__( 'Search results for %s.', 'creativityarchitect' ), $search_term );
 		$card_description      = $card_long_description;
 	}
 
@@ -328,14 +357,40 @@ function creativity_add_og_tags() {
 	<?php
 }
 
+add_action( 'wp_head', 'add_og_tags' );
+
+/**
+ * Removes or Adjusts the prefix on category archive page titles.
+ *
+ * @author Corey Collins
+ *
+ * @param string $block_title The default $block_title of the page.
+ *
+ * @return string The updated $block_title.
+ */
+function remove_archive_title_prefix( $block_title ) {
+	// Get the single category title with no prefix.
+	$single_cat_title = single_term_title( '', false );
+
+	if ( is_category() || is_tag() || is_tax() ) {
+		return esc_html( $single_cat_title );
+	}
+
+	return $block_title;
+}
+
+add_filter( 'get_the_archive_title', 'remove_archive_title_prefix' );
+
 /**
  * Disables wpautop to remove empty p tags in rendered Gutenberg blocks.
  *
  * @author Corey Collins
  */
-function creativity_disable_wpautop_for_gutenberg() {
+function disable_wpautop_for_gutenberg() {
 	// If we have blocks in place, don't add wpautop.
 	if ( has_filter( 'the_content', 'wpautop' ) && has_blocks() ) {
 		remove_filter( 'the_content', 'wpautop' );
 	}
 }
+
+add_filter( 'init', 'disable_wpautop_for_gutenberg', 9 );
